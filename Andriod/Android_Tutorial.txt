@@ -11,7 +11,7 @@ It is a cmonnunity to advance open standards provides services and deply handset
 
 => The first beta version of the Android Software Development Kit (SDK) was released by google in 2007 where as the first commercial version , Android 1.0 was released in September 2008.
 
-=> Thoe source code for Android is avilable under free and open source software licences. Google published most of the code under the Apache License version 2.0 and the rest, Linux Kernal change under the GNU General Public License version 2.
+=> Those source code for Android is avilable under free and open source software licences. Google published most of the code under the Apache License version 2.0 and the rest, Linux Kernal change under the GNU General Public License version 2.
 
 
 Features of Andriod :---------------------
@@ -116,6 +116,11 @@ d) Notifications Manager - Allows applications to display alerts and notificatio
 
 e) View System - An extensible set of views used to create application user interfaces.
 
+
+3.1) Android Runtime:--------------
+In Android runtime there are core libraries and DVM(Dalvik Virtual Machine) which is responsible to run android application. DVM is like JVM but it is optimized for mobile devices. It consume less memory and provides fast performance.
+	
+	
 	Applications :---------------
 
 You will find all the Android application at the top layer. You will write your application to be installed on this layer only. Examples of such applications are Contacts Books, Browser, Games etc.
@@ -162,6 +167,12 @@ Fragments are like parts of activity. An activity can display one or more fragme
 
 8) AndroidManifest.xml
 It contains informations about activities, content providers, permissions etc. It is like the web.xml file in Java EE.
+It contains information of your package , including components of the application such as activities, services, broadcast receivers, content provider etc.
+
+It perform some other tasks also:
+=> it is responsible to protect the application to access any protected parts by providing the permissions.
+=> It also declares the android api that the application is going to use.
+
 
 9) Android Virtual Device (AVD)
 It is used to test the android application without the need for mobile or tablet etc. It can be created in different configurations to emulate different types of real devices.
@@ -181,8 +192,7 @@ Example => Alarm
 
 Android Emulator is used to run, debug and test the android application. If you don't have the real device, it can be the best way to run, debug and test the application.
 It uses an open source processor emulator technology called QEMU.
-The emulator tool enables you to start the emulator from the command line. You need to write:
-
+The emulator tool enables you to start the emulator from the command line.
 
 
 Android supports java,c++,c# etc language to develop applications. java is the officially supported language for Android.
@@ -285,6 +295,36 @@ Whatever component you develop as a part of your application, you must declare a
       </activity>
    </application>
 </manifest>
+
+
+	Element of the AndroidManifest.xml file:----------------
+
+The elements used in the above.xml file are described below
+
+<manifest>
+manifest is the root element of the AndroidManifest.xml.
+It has package attribute that desribes the package name of the activity class.
+
+<application>
+application is the subelement of the manifest. it includes the namespaces declaration. This element contains several subelements that declares the application component such as activity etc.
+
+the commonly used attributes are of this element are icon, label, theme etc.
+android:icon represent the icon for all the android application components.
+android:label workd as the default label for all the application components.
+android:theme represents a common theme for all the android activities.
+
+<activity>
+activity is the subelement of application and represents an activity that must be defined in the AndroidManifest.xml file. It has many attributes such as label, name, theme, launchMode etc.
+
+android:label represents a label i.e. displayed on the screen.
+
+android:name represents a name for the activity class. It is required attribute.
+
+<intent-filter>
+intent-filter is the sub-element of activity that describes the type of intent to which activity, service or broadcast receiver can respond to.
+
+<action>
+It adds an action for the intent-filter. The intent-filter must have at least one action element.
 
 
 	The Strings File :----------------
