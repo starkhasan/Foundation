@@ -419,3 +419,810 @@ public final class R {
 
 
  
+
+
+	Android Resources :------------------
+
+There are many more items which you use to build a good Android application.
+Apart form coding for the application you take care of various other resources like static content that your code uses, such as bitmap, colors, layout definitions, user interface string, animation instructions, and more.
+These resources are always maintained separately in various sub-directory under res/directory of the project. 
+
+	Organize resource in Android Studio :-
+
+MyProject/
+   app/
+      manifest/
+         AndroidManifest.xml
+   java/
+      MyActivity.java  
+      res/
+         drawable/  
+            icon.png  
+         layout/  
+            activity_main.xml
+            info.xml
+         values/  
+            strings.xml 
+
+=> anim/
+XML files that define property animations. They are saved in res/anim/ folder and accessed from the R.anim class.
+	
+=> color/
+XML files that define a state list of colors. They are saved in res/color/ and accessed from the R.color class.
+	
+=>drawable/
+Image files like .png, .jpg, .gif or XML files that are compiled into bitmaps, state lists, shapes, animation drawable. They are saved in res/drawable/ and accessed from the R.drawable class.
+	
+=>layout/
+XML files that define a user interface layout. They are saved in res/layout/ and accessed from the R.layout class.
+	
+=>menu/
+XML files that define application menus, such as an Options Menu, Context Menu, or Sub Menu. They are saved in res/menu/ and accessed from the R.menu class.
+
+
+=>raw/
+Arbitrary files to save in their raw form. You need to call Resources.openRawResource() with the resource ID, which is R.raw.filename to open such raw files.
+	
+=>values/
+XML files that contain simple values, such as strings, integers, and colors. For example, here are some filename conventions for resources you can create in this directory -
+
+arrays.xml for resource arrays, and accessed from the R.array class.
+integers.xml for resource integers, and accessed from the R.integer class.
+bools.xml for resource boolean, and accessed from the R.bool class.
+colors.xml for color values, and accessed from the R.color class.
+dimens.xml for dimension values, and accessed from the R.dimen class.
+strings.xml for string values, and accessed from the R.string class.
+styles.xml for styles, and accessed from the R.style class.
+	
+=>xml/
+Arbitrary XML files that can be read at runtime by calling Resources.getXML(). You can save various configuration files here which will be used at run time.
+
+
+
+	=> Accessing Resorces :-------------------
+During your application development you will need to access defined resources either in your code or in your layout XML files.
+
+1)Acessing Resource in Code :-
+When your Android application is compiled a R class gets generated which contains resource IDs for all the resources avilable in your res/ directory.
+You can use R class to access that resource using sub-directory and resource name or directly resource ID.
+
+Example:-
+To access res/drawable/myimage.png and set an ImageView you will use following code :-
+
+ImageView imageView = (ImageView) findViewById(R.id.myimageview);
+imageView.setImageResource(R.drawable.myimage);
+
+Here first line of the code make use of R.id.myimageview to get ImageView defined with id myimageview in a Layout file. Second line of code makes use of R.drawable.myimage to get an image with name myimage available in drawable sub-directory under /res. 
+
+
+Example
+Consider next example where res/values/strings.xml has following definition -
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string  name="hello">Hello, World!</string>
+</resources>
+Now you can set the text on a TextView object with ID msg using a resource ID as follows -
+
+TextView msgTextView = (TextView) findViewById(R.id.msg);
+msgTextView.setText(R.string.hello);
+
+
+
+	=> Accessing Resources in XML
+
+Consider the following resource XML res/values/strings.xml file that includes a color resource and a string resource -
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <color name="opaque_red">#f00</color>
+   <string name="hello">Hello!</string>
+</resources>
+Now you can use these resources in the following layout file to set the text color and text string as follows -
+
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:textColor="@color/opaque_red"
+   android:text="@string/hello" />
+
+Now if you will go through previous chapter once again where I have explained Hello World! example, and I'm sure you will have better understanding on all the concepts explained in this chapter. So I highly recommend to check previous chapter for working example and check how I have used various resources at very basic level.
+
+
+
+
+	=> Android Activities :--------------
+
+If you have worked with C,C++ or Java programming language then you must have seen that your program starts from main() functions.
+Very similar way Android system initiates its program with in an Activity starting with a call of onCreate() callback method.
+There is a sequence of callback methods that start up an activity and a sequence of callback methods that tear down an activity.
+
+
+	Callback and Description :-
+
+onCreate()	=> this is the first callback and called when the activity is first created
+
+onStart()		=> this callback is called when the activity becomes visible to the user
+
+onResume()	=> this is called when the user starts interacting with the application
+
+onPause()		=> the paused activity does not receive user input and execute any code and called when the current activity is paused and previous activity is resumed.
+
+onStop()		=> this callback method is called when activity is no longer visible.
+
+onDestroy()	=> called before the activity is destroyed by the system.
+
+onRestart()	=> this callback is called when the activity restarts after stopping
+
+
+Example=>
+
+package com.example.helloworld;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.util.Log;
+
+public class MainActivity extends Activity {
+   String msg = "Android : ";
+   
+   /** Called when the activity is first created. */
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      Log.d(msg, "The onCreate() event");
+   }
+
+   /** Called when the activity is about to become visible. */
+   @Override
+   protected void onStart() {
+      super.onStart();
+      Log.d(msg, "The onStart() event");
+   }
+
+   /** Called when the activity has become visible. */
+   @Override
+   protected void onResume() {
+      super.onResume();
+      Log.d(msg, "The onResume() event");
+   }
+
+   /** Called when another activity is taking focus. */
+   @Override
+   protected void onPause() {
+      super.onPause();
+      Log.d(msg, "The onPause() event");
+   }
+
+   /** Called when the activity is no longer visible. */
+   @Override
+   protected void onStop() {
+      super.onStop();
+      Log.d(msg, "The onStop() event");
+   }
+
+   /** Called just before the activity is destroyed. */
+   @Override
+   public void onDestroy() {
+      super.onDestroy();
+      Log.d(msg, "The onDestroy() event");
+   }
+}
+
+=> Log.d() method has been used to generate log message.
+
+An activity class loads all the UI component using the XML file availabe in res/layout/folder of the project. Following statement loads UI components from res/layout/activity-main.xml file.
+	
+	setContentView(R.layout.activity_main);
+
+An application can have one or more activities without any restrictions. Every activity you define for your application must be declared in your AndroidManifest.xml file and the main activity for your app must be declared in the manifest with an <intent-filter> that include the MAIN action and LAUNCHER.
+
+	
+
+
+	Android Services :------------------------
+
+A service is a component that runs in the background to perform long-running operations without needing to interact with the user and it works even if application is destroyed
+				service can essentially take two states,
+1) started
+A service is started when an application component such as an activity starts it by calling startService(). Once started a service can run in the background indefinitely even if the component that started it is destroyed.
+
+2) Bound
+A service is bound when an application component binds to it by calling bindService().
+A bound service offer a client-server interface that allows components to interact with the service, send request get result and even do so across processes with interprocess communication (IPC).
+
+
+To create an service you create a java class that extends the service base class or one of its existing subclasses.
+The service base class defines various callback methods.
+
+1) onStartCommand()	
+the system calls this method when another component such as an activity requests that the service be started by calling startService().if you implement this method it is your responsibility to stop the service when its work is done by calling stopSelf() or stopService() methods.
+
+2) onBind()
+The system calls this method when another component wants to bind with the service by calling bindService(). If you implement this method, you must provide an interface that clients use to communicate with the service, by returning an IBinder object.
+
+3) onUnbind()
+The system calls this method when all clients have disconnected from a particular interface published by the service.
+
+4) onRebind()
+The system calls this method when new clients have connected to the service, after it had previously been notified that all had disconnected in its onUnbind(Intent).
+
+5) onCreate()
+The system calls this method when the service is first created using onStartCommand() or onBind(). This call is required to perform one-time set-up.
+
+6) onDestroy()
+The system calls this method when the service is no longer used and is being destroyed.
+
+
+Example=>
+package com.tutorialspoint;
+
+import android.app.Service;
+import android.os.IBinder;
+import android.content.Intent;
+import android.os.Bundle;
+
+public class HelloService extends Service {
+   
+   /** indicates how to behave if the service is killed */
+   int mStartMode;
+   
+   /** interface for clients that bind */
+   IBinder mBinder;     
+   
+   /** indicates whether onRebind should be used */
+   boolean mAllowRebind;
+
+   /** Called when the service is being created. */
+   @Override
+   public void onCreate() {
+     
+   }
+
+   /** The service is starting, due to a call to startService() */
+   @Override
+   public int onStartCommand(Intent intent, int flags, int startId) {
+      return mStartMode;
+   }
+
+   /** A client is binding to the service with bindService() */
+   @Override
+   public IBinder onBind(Intent intent) {
+      return mBinder;
+   }
+
+   /** Called when all clients have unbound with unbindService() */
+   @Override
+   public boolean onUnbind(Intent intent) {
+      return mAllowRebind;
+   }
+
+   /** Called when a client is binding to the service with bindService()*/
+   @Override
+   public void onRebind(Intent intent) {
+
+   }
+
+   /** Called when The service is no longer used and is being destroyed */
+   @Override
+   public void onDestroy() {
+
+   }
+}
+
+
+Following is the content of the modified main activity file MainActivity.java. This file can include each of the fundamental life cycle methods.
+
+package com.example.tutorialspoint7.myapplication;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.util.Log;
+import android.view.View;
+
+public class MainActivity extends Activity {
+   String msg = "Android : ";
+
+   /** Called when the activity is first created. */
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      Log.d(msg, "The onCreate() event");
+   }
+
+   public void startService(View view) {
+      startService(new Intent(getBaseContext(), MyService.class));
+   }
+
+   // Method to stop the service
+   public void stopService(View view) {
+      stopService(new Intent(getBaseContext(), MyService.class));
+   }
+}
+
+Following is the content of MyService.java. This file can have implementation of one or more methods associated with Service based on requirements. For now we are going to implement only two methods onStartCommand() and onDestroy() -
+
+package com.example.tutorialspoint7.myapplication;
+
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+import android.widget.Toast;
+
+/**
+   * Created by TutorialsPoint7 on 8/23/2016.
+*/
+
+public class MyService extends Service {
+   @Nullable
+   @Override
+   public IBinder onBind(Intent intent) {
+      return null;
+   }
+	
+   @Override
+   public int onStartCommand(Intent intent, int flags, int startId) {
+      // Let it continue running until it is stopped.
+      Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
+      return START_STICKY;
+   }
+
+   @Override
+   public void onDestroy() {
+      super.onDestroy();
+      Toast.makeText(this, "Service Destroyed", Toast.LENGTH_LONG).show();
+   }
+}
+
+
+Following will the modified content of AndroidManifest.xml file. Here we have added <service.../> tag to include our service -
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.example.tutorialspoint7.myapplication">
+
+   <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+		
+      <activity android:name=".MainActivity">
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+      </activity>
+		
+      <service android:name=".MyService" />
+   </application>
+
+</manifest>
+
+
+Following will be the content of res/layout/activity_main.xml file to include two buttons -
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+   android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+   
+   <TextView
+      android:id="@+id/textView1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Example of services"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      android:textSize="30dp" />
+      
+   <TextView
+      android:id="@+id/textView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorials point "
+      android:textColor="#ff87ff09"
+      android:textSize="30dp"
+      android:layout_above="@+id/imageButton"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="40dp" />
+
+   <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageButton"
+      android:src="@drawable/abc"
+      android:layout_centerVertical="true"
+      android:layout_centerHorizontal="true" />
+
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/button2"
+      android:text="Start Services"
+      android:onClick="startService"
+      android:layout_below="@+id/imageButton"
+      android:layout_centerHorizontal="true" />
+
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Stop Services"
+      android:id="@+id/button"
+      android:onClick="stopService"
+      android:layout_below="@+id/button2"
+      android:layout_alignLeft="@+id/button2"
+      android:layout_alignStart="@+id/button2"
+      android:layout_alignRight="@+id/button2"
+      android:layout_alignEnd="@+id/button2" />
+
+</RelativeLayout>
+
+
+
+
+
+	Andoid - Broadcast Receivers :---------------------
+
+Broadcast Receivers simply repond to  broadcast message from other applications ot from the systems itself.
+These message are sometime called events or intent
+
+There are following two important steps to make BroadcastReceiver works for the system broadcasted intents -
+
+1) Creating the Broadcast Receiver
+
+2) Registering Broadcast Receiver
+
+
+
+=> Creating the Broadcast Receiver
+
+A broadcast receiver is implemented as a subclass of BroadcastReceiver class and overriding the onReceive() method where each message is received as a Intent object parameter.
+
+public class MyReceiver extends BroadcastReceiver {
+   @Override
+   public void onReceive(Context context, Intent intent) {
+      Toast.makeText(context, "Intent Detected.", Toast.LENGTH_LONG).show();
+   }
+}
+
+
+=> Registering Broadcast Receiver
+
+An application listens for specific broadcast intents by registering a broadcast receiver in AndroidManifest.xml file. Consider we are going to register MyReceiver for system generated event ACTION_BOOT_COMPLETED which is fired by the system once the Android system has completed the boot process.
+
+<application
+   android:icon="@drawable/ic_launcher"
+   android:label="@string/app_name"
+   android:theme="@style/AppTheme" >
+   <receiver android:name="MyReceiver">
+   
+      <intent-filter>
+         <action android:name="android.intent.action.BOOT_COMPLETED">
+         </action>
+      </intent-filter>
+   
+   </receiver>
+</application>
+
+Now whenever your Android device gets booted, it will be intercepted by BroadcastReceiver MyReceiver and implemented logic inside onReceive() will be executed.
+
+There are several system generated events defined as final static fields in the Intent class. The following table lists a few important system events.
+
+=>Event Constant & Description
+
+1)android.intent.action.BATTERY_CHANGED
+Sticky broadcast containing the charging state, level, and other information about the battery.
+
+2)android.intent.action.BATTERY_LOW
+Indicates low battery condition on the device.
+
+3)android.intent.action.BATTERY_OKAY
+Indicates the battery is now okay after being low.
+
+4)android.intent.action.BOOT_COMPLETED
+This is broadcast once, after the system has finished booting.
+
+5)android.intent.action.BUG_REPORT
+Show activity for reporting a bug.
+
+6)android.intent.action.CALL
+Perform a call to someone specified by the data.
+
+7)android.intent.action.CALL_BUTTON
+The user pressed the "call" button to go to the dialer or other appropriate UI for placing a call.
+
+8)android.intent.action.DATE_CHANGED
+The date has changed.
+
+9)android.intent.action.REBOOT
+Have the device reboot.
+
+
+=>Broadcasting Custom Intents
+
+If you want your application itself should generate and send custom intents then you will have to create and send those intents by using the sendBroadcast() method inside your activity class. If you use the sendStickyBroadcast(Intent) method, the Intent is sticky, meaning the Intent you are sending stays around after the broadcast is complete.
+
+Example=> MainActivity.java
+This file can include each of the fundamental life cycle methods. We have added broadcastIntent() method to broadcast a custom intent.
+
+package com.example.tutorialspoint7.myapplication;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+public class MainActivity extends Activity {
+
+   /** Called when the activity is first created. */
+   @Override
+   
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+
+
+   // broadcast a custom intent.
+      
+   public void broadcastIntent(View view){
+      Intent intent = new Intent();
+      intent.setAction("com.tutorialspoint.CUSTOM_INTENT"); sendBroadcast(intent);
+   }
+}
+
+
+
+Following is the content of MyReceiver.java:
+
+package com.example.tutorialspoint7.myapplication;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+
+/**
+ * Created by TutorialsPoint7 on 8/23/2016.
+ */
+public class MyReceiver extends BroadcastReceiver{
+   @Override
+   public void onReceive(Context context, Intent intent) {
+      Toast.makeText(context, "Intent Detected.", Toast.LENGTH_LONG).show();
+   }
+}
+
+
+Following will the modified content of AndroidManifest.xml file. Here we have added <receiver.../> tag to include our service:
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.example.tutorialspoint7.myapplication">
+
+   <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+		
+      <activity android:name=".MainActivity">
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+      </activity>
+   
+      <receiver android:name="MyReceiver">
+         <intent-filter>
+            <action android:name="com.tutorialspoint.CUSTOM_INTENT">
+            </action>
+         </intent-filter>
+
+      </receiver>
+   </application>
+
+</manifest>
+
+
+
+Following will be the content of res/layout/activity_main.xml file to include a button to broadcast our custom intent -
+
+<RelativeLayout 
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools" 
+   android:layout_width="match_parent"
+   android:layout_height="match_parent" 
+   android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   android:paddingBottom="@dimen/activity_vertical_margin" 
+   tools:context=".MainActivity">
+   
+   <TextView
+      android:id="@+id/textView1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Example of Broadcast"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      android:textSize="30dp" />
+      
+   <TextView
+      android:id="@+id/textView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorials point "
+      android:textColor="#ff87ff09"
+      android:textSize="30dp"
+      android:layout_above="@+id/imageButton"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="40dp" />
+      
+   <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageButton"
+      android:src="@drawable/abc"
+      android:layout_centerVertical="true"
+      android:layout_centerHorizontal="true" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/button2"
+      android:text="Broadcast Intent"
+      android:onClick="broadcastIntent"
+      android:layout_below="@+id/imageButton"
+      android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
+
+
+
+
+	=> Content Provider :--------------------
+A content provider component supplies data from one application to others on request. Such requests are handled by the methods of the ContentResolver class. A content provider can use different ways to store its data and the data can be stored in a database, in files, or even over a network.
+
+Content providers let you centralize content in one place and have many different applications access it as needed. A content provider behaves very much like a database where you can query it, edit its content, as well as add or delete content using insert(), update(), delete(), and query() methods. In most cases this data is stored in an SQlite database.
+
+A content provider is implemented as a subclass of ContentProvider class and must implement a standard set of APIs that enable other applications to perform transactions.
+
+	public class My Application extends  ContentProvider {
+	}
+
+
+Content URIs
+To query a content provider, you specify the query string in the form of a URI which has following format -
+
+<prefix>://<authority>/<data_type>/<id>
+
+Part & Description
+1	
+prefix
+
+This is always set to content://
+
+2	
+authority
+
+This specifies the name of the content provider, for example contacts, browser etc. For third-party content providers, this could be the fully qualified name, such as com.tutorialspoint.statusprovider
+
+3	
+data_type
+
+This indicates the type of data that this particular provider provides. For example, if you are getting all the contacts from the Contacts content provider, then the data path would be people and URI would look like thiscontent://contacts/people
+
+4	
+id
+
+This specifies the specific record requested. For example, if you are looking for contact number 5 in the Contacts content provider t
+
+
+
+	=> Andriod Fragments :-------------
+ A Fragment is a piece of anativity which enable more modular activity designed. It will not be wrong if we say a fragment is a kind of sub-activity.
+
+Following are important points about fragment -
+
+A fragment has its own layout and its own behaviour with its own life cycle callbacks.
+
+You can add or remove fragments in an activity while the activity is running.
+
+You can combine multiple fragments in a single activity to build a multi-pane UI.
+
+A fragment can be used in multiple activities.
+
+Fragment life cycle is closely related to the life cycle of its host activity which means when the activity is paused, all the fragments available in the activity will also be stopped.
+
+A fragment can implement a behaviour that has no user interface component.
+
+Fragments were added to the Android API in Honeycomb version of Android which API version 11.
+
+
+You create fragments by extending Fragment class and You can insert a fragment into your activity layout by declaring the fragment in the activity's layout file, as a <fragment> element.
+
+Prior to fragment introduction, we had a limitation because we can show only a single activity on the screen at one given point in time. So we were not able to divide device screen and control different parts separately. But with the introduction of fragment we got more flexibility and removed the limitation of having a single activity on the screen at a time. Now we can have a single activity but each activity can comprise of multiple fragments which will have their own layout, events and complete life cycle.
+
+
+Fragment Life Cycle
+Android fragments have their own life cycle very similar to an android activity. This section briefs different stages of its life cycle.
+
+
+	Fragment start				FragmentEnd
+	          ||					         ^
+	          V					         ||
+	On Attach()				On Detach()
+	          ||					         ^
+	          V					         ||
+	On Create()				On Destroy()				
+	          ||					         ^
+	          V					         ||
+	On CreateView()	             	             <=		On DestroyView()
+	          ||					         ^
+	          V					         ||
+	On ActivityCreated()	
+	          ||
+	          V
+	On Start()			              <=		On Stop()
+	          ||					       ^
+	          V					       ||
+	On Resume() ======> Fragment is Running ====>	On Pause()
+
+Here is the list of methods which you can to override in your fragment class -
+
+onAttach()The fragment instance is associated with an activity instance.The fragment and the activity is not fully initialized. Typically you get in this method a reference to the activity which uses the fragment for further initialization work.
+
+onCreate() The system calls this method when creating the fragment. You should initialize essential components of the fragment that you want to retain when the fragment is paused or stopped, then resumed.
+
+onCreateView() The system calls this callback when it's time for the fragment to draw its user interface for the first time. To draw a UI for your fragment, you must return a View component from this method that is the root of your fragment's layout. You can return null if the fragment does not provide a UI.
+
+onActivityCreated()The onActivityCreated() is called after the onCreateView() method when the host activity is created. Activity and fragment instance have been created as well as the view hierarchy of the activity. At this point, view can be accessed with the findViewById() method. example. In this method you can instantiate objects which require a Context object
+
+onStart()The onStart() method is called once the fragment gets visible.
+
+onResume()Fragment becomes active.
+
+onPause() The system calls this method as the first indication that the user is leaving the fragment. This is usually where you should commit any changes that should be persisted beyond the current user session.
+
+onStop()Fragment going to be stopped by calling onStop()
+
+onDestroyView()Fragment view will destroy after call this method
+
+onDestroy()onDestroy() called to do final clean up of the fragment's state but Not guaranteed to be called by the Android platform.
+
+
+How to use Fragments?
+This involves number of simple steps to create Fragments.
+
+First of all decide how many fragments you want to use in an activity. For example let's we want to use two fragments to handle landscape and portrait modes of the device.
+
+Next based on number of fragments, create classes which will extend the Fragment class. The Fragment class has above mentioned callback functions. You can override any of the functions based on your requirements.
+
+Corresponding to each fragment, you will need to create layout files in XML file. These files will have layout for the defined fragments.
+
+Finally modify activity file to define the actual logic of replacing fragments based on your requirement.
+
+Types of Fragments
+Basically fragments are divided as three stages as shown below.
+
+Single frame fragments - Single frame fragments are using for hand hold devices like mobiles, here we can show only one fragment as a view.
+
+List fragments - fragments having special list view is called as list fragment
+
+Fragments transaction - Using with fragment transaction. we can move one fragment to another fragment.
+
