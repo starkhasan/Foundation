@@ -1,0 +1,381 @@
+=> Android is an open source and Linux-based operating system mobile devices such as smartphone and tablet computer.
+=> Android was developed by Google and the Open Handset Alliance, led by Google and other companies.
+
+It is developed by Google and later the OHA (Open Handset Alliance).Java language is mainly used to write the Android code even through other can be used.
+
+Open Handset Alliance (OHA) :------------------
+It is a consortium of 84 companies such as google, samsung,AKM,synaptics,KDDI,Germin,Teleca, Ebay,Intel etc.
+It was estanlished on 5th November 2007 led by Google.
+It is a cmonnunity to advance open standards provides services and deply handsets using the  Andriod Platform.
+
+
+=> The first beta version of the Android Software Development Kit (SDK) was released by google in 2007 where as the first commercial version , Android 1.0 was released in September 2008.
+
+=> Thoe source code for Android is avilable under free and open source software licences. Google published most of the code under the Apache License version 2.0 and the rest, Linux Kernal change under the GNU General Public License version 2.
+
+
+Features of Andriod :---------------------
+Android is a powerful operating system competing with Apple 4GS and support great features.
+
+Beautiful UI	Android OS basic screen provides a beautiful and intuitive user interface.
+	
+Connectivity	GSM/EDGE, IDEN, CDMA, EV-DO, UMTS, Bluetooth, Wi-Fi, LTE, NFC and WiMAX.
+	
+Storage		SQLite, a lightweight relational database, is used for data storage purposes.
+
+Media support	H.263, H.264, MPEG-4 SP, AMR, AMR-WB, AAC, HE-AAC, AAC 5.1, MP3, MIDI, Ogg Vorbis, WAV, JPEG, PNG, GIF.
+	
+Messaging	SMS and MMS
+	
+Web browser	Based on the open-source WebKit layout engine, coupled with Chrome's V8 JavaScript engine supporting HTML5.
+	
+Multi-touch	Android has native support for multi-touch which was initially made available in handsets such as the HTC Hero.
+	
+Multi-tasking	User can jump from one task to another and same time various application can run simultaneously.
+
+Resizable widgets	Widgets are resizable, so users can expand them to show more content or shrink them to save space.
+
+Multi-Language	Supports single direction and bi-directional text.
+
+GCM		Google Cloud Messaging (GCM) is a service that lets developers send short message data to their users on Android devices, without needing a proprietary sync solution.
+	
+Wi-Fi Direct	A technology that lets apps discover and pair directly, over a high-bandwidth peer-to-peer connection.
+
+Android Beam	A popular NFC-based technology that lets users instantly share, just by touching two NFC-enabled phones together.
+
+
+What is API level?
+
+API Level is an integer value that uniquely identifies the framework API revision offered by a version of the Android platform.
+
+
+
+
+
+	History of Android :------------------
+
+1) Initially, Andy Rubin founded Android Incorporation in Palo Alto, California, United States in October, 2003.
+
+2) In 17th August 2005, Google acquired android Incorporation. Since then, it is in the subsidiary of Google Incorporation.
+
+3) The key employees of Android Incorporation are Andy Rubin, Rich Miner, Chris White and Nick Sears.
+
+4) Originally intended for camera but shifted to smart phones later because of low market for camera only.
+
+5) Android is the nick name of Andy Rubin given by coworkers because of his love to robots.
+
+6) In 2007, Google announces the development of android OS.
+
+7) In 2008, HTC launched the first android mobile.
+
+
+	Andriod Architecture :----------------------
+Android operating system is a stack of software components which is roughly divided into five sections and four main layers.
+
+
+1) Linux kernel
+
+At the bottom of the layers is Linux - Linux 3.6 with approximately 115 patches. This provides a level of abstraction between the device hardware and it contains all the essential hardware drivers like camera, keypad, display etc.
+Also, the kernel handles all the things that Linux is really good at such as networking and a vast array of device drivers, which take the pain out of interfacing to peripheral hardware.
+
+2) Libraries
+
+On top of Linux kernel there is a set of libraries including open-source Web browser engine WebKit, well known library libc, SQLite database which is a useful repository for storage and sharing of application data, libraries to play and record audio and video, SSL libraries responsible for Internet security etc.
+
+android.app - Provides access to the application model and is the cornerstone of all Android applications.
+
+android.content - Facilitates content access, publishing and messaging between applications and application components.
+
+android.database - Used to access data published by content providers and includes SQLite database management classes.
+
+android.opengl - A Java interface to the OpenGL ES 3D graphics rendering API.
+
+android.os - Provides applications with access to standard operating system services including messages, system services and inter-process communication.
+
+android.text - Used to render and manipulate text on a device display.
+
+android.view - The fundamental building blocks of application user interfaces.
+
+android.widget - A rich collection of pre-built user interface components such as buttons, labels, list views, layout managers, radio buttons etc.
+
+android.webkit - A set of classes intended to allow web-browsing capabilities to be built into applications.
+
+
+3) Application Framework
+The Application Framework layer provides many higher-level services to application in the form of java classes.
+
+Andriod framework includes the following key services :----------
+
+a) Activity Manager --  Controls all aspects of the application lifecycle and activity stack.
+
+b) Content Provides -- Allows applications to publish and share data with other applications.
+
+c) Resource Manager - Provides access to non-code embedded resources such as strings, color settings and user interface layouts.
+
+d) Notifications Manager - Allows applications to display alerts and notifications to the user.
+
+e) View System - An extensible set of views used to create application user interfaces.
+
+	Applications :---------------
+
+You will find all the Android application at the top layer. You will write your application to be installed on this layer only. Examples of such applications are Contacts Books, Browser, Games etc.
+
+
+
+
+	Application Components :--------------------
+
+Andriod components are the essential building blocks of an android application. These components are loosely coupled by the application manifest file AndriodManifest.xml that describes each component of the application and how they interact.
+
+1) Activites
+They dictate the UI and handle the user interaction to the smart phone screen.
+(An activity represent a single screen with a user interfacce in-short Activity performs action on the screen)
+
+2) Services
+They handle background processing associated with an application
+(Service is a component that runs in the background to perform long-running operations)
+
+3)Broadcast Receivers
+ They handle communication between Android OS and applications.
+(Broadcast Receivers simply respond to broadcast message from other applications or from the system)
+
+4)Content Provides
+They handle data and database management issues.
+(A content proider component supplies data from one application to other on request)
+
+
+5) View
+A view is a UI element such as buttom label text field etc. Anything that you see is a view
+
+6) Intent
+Intent is used to invoke component. It is mainly used to
+=> start the services
+=> Launched an activity
+=> Display a web page
+=> Display a list of contacts
+=> broadcast a message
+=> Dial a phone call
+
+7) Fragment
+
+Fragments are like parts of activity. An activity can display one or more fragments on the screen at the same time.
+
+8) AndroidManifest.xml
+It contains informations about activities, content providers, permissions etc. It is like the web.xml file in Java EE.
+
+9) Android Virtual Device (AVD)
+It is used to test the android application without the need for mobile or tablet etc. It can be created in different configurations to emulate different types of real devices.
+
+
+Android Components Activities :----------------
+Example => Alarm
+	UI where you shall set alarm	| Activity
+	Data is saved		| Content Provider
+	7:00 AM			| Service
+	Event handling		| BroadcastReceiver
+
+
+
+
+	Android Emulator :----------------------
+
+Android Emulator is used to run, debug and test the android application. If you don't have the real device, it can be the best way to run, debug and test the application.
+It uses an open source processor emulator technology called QEMU.
+The emulator tool enables you to start the emulator from the command line. You need to write:
+
+
+
+Android supports java,c++,c# etc language to develop applications. java is the officially supported language for Android.
+
+
+	Example Helloworld Program in Android Studio :---------------------
+
+1) Write the mesage in Create New Project
+File :- activity_main.xml
+Android studio auto generates code for activity_main.xml.you may edit this file accordingly to our requirement.
+
+<?xml version="1.0" encoding="utf-8"?>  
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    xmlns:app="http://schemas.android.com/apk/res-auto"  
+    xmlns:tools="http://schemas.android.com/tools"  
+    android:layout_width="match_parent"  
+    android:layout_height="match_parent"  
+    tools:context="first.javatpoint.com.welcome.MainActivity">  
+  
+    <TextView  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="Hello Android!"  
+        app:layout_constraintBottom_toBottomOf="parent"  
+        app:layout_constraintLeft_toLeftOf="parent"  
+        app:layout_constraintRight_toRightOf="parent"  
+        app:layout_constraintTop_toTopOf="parent" />  
+  
+</android.support.constraint.ConstraintLayout>  
+} 
+
+
+File: MainActivity.java
+
+package first.javatpoint.com.welcome;  
+  
+import android.support.v7.app.AppCompatActivity;  
+import android.os.Bundle;  
+  
+public class MainActivity extends AppCompatActivity {  
+    @Override  
+    protected void onCreate(Bundle savedInstanceState) {  
+        super.onCreate(savedInstanceState);  
+        setContentView(R.layout.activity_main);  
+    }  
+}
+
+
+=> to runandroid application click the run icon on the toolbar or simply press shift+F10.
+
+
+
+	Internal Details of HelloWorld Example :-----------------------  
+Android application contains different component such as java source code,string resources, imahe , manifest file, spk file etc.
+
+
+	=> The Main Activity File
+
+The main activity code is a Java file MainActivity.java. This is the actual application file which ultimately gets converted to a Dalvik executable and runs your application. Following is the default code generated by the application wizard for Hello World! application 
+
+package com.example.helloworld;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+}
+
+Here R.layout.activity_main refers to the activity_main.xml file located in the res/layout folder.
+The onCreate() method in one of many methods that are figured when an activity is loaded.
+The setContentView(R.layout_activity_main) gives information about our layout resource.
+Here out layout resource are define in activity_main.xml file.
+
+
+	=> The Manifest File
+
+Whatever component you develop as a part of your application, you must declare all its components in a manifest.xml which resides at the root of the application project directory. This file works as an interface between Android OS and your application, so if you do not declare your component in this file, then it will not be considered by the OS. For example, a default manifest file will look like as following file 
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.tutorialspoint7.myapplication">
+
+   <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+      
+      <activity android:name=".MainActivity">
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+      </activity>
+   </application>
+</manifest>
+
+
+	The Strings File :----------------
+
+The strings.xml file is located in the res/values folder and it contains all the text that your application uses. For example, the names of buttons, labels, default text, and similar types of strings go into this file. This file is responsible for their textual content. For example, a default strings file will look like as following file
+
+<resources>
+   <string name="app_name">HelloWorld</string>
+   <string name="hello_world">Hello world!</string>
+   <string name="menu_settings">Settings</string>
+   <string name="title_activity_main">MainActivity</string>
+</resources>
+
+
+
+	The Layout File :-----------------
+
+The activity_main.xml is a layout file available in res/layout directory, that is referenced by your application when building its interface. You will modify this file very frequently to change the layout of your application. For your "Hello World!" application, this file will have following content related to default layout
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent" >
+   
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_centerVertical="true"
+      android:padding="@dimen/padding_medium"
+      android:text="@string/hello_world"
+      tools:context=".MainActivity" />
+      
+</RelativeLayout>
+
+
+	Generating R.java file :-------------------------
+
+It is the auto-generated file that contains IDs for all the resources of res directory.It is generated by aapt(Android Asset Packaging Tool).Whenever you create any component an activity_main, a corresponding ID is created in R.java file which can be used in the Java Source file later.
+
+File: R.java
+
+/* AUTO-GENERATED FILE.  DO NOT MODIFY. 
+ * 
+ * This class was automatically generated by the 
+ * aapt tool from the resource data it found.  It 
+ * should not be modified by hand. 
+ */  
+package com.example.helloandroid;  
+public final class R {  
+    public static final class attr {  
+    }  
+    public static final class drawable {  
+        public static final int ic_launcher=0x7f020000;  
+    }  
+    public static final class id {  
+        public static final int menu_settings=0x7f070000;  
+    }  
+    public static final class layout {  
+        public static final int activity_main=0x7f030000;  
+    }  
+    public static final class menu {  
+        public static final int activity_main=0x7f060000;  
+    }  
+    public static final class string {  
+        public static final int app_name=0x7f040000;  
+        public static final int hello_world=0x7f040001;  
+        public static final int menu_settings=0x7f040002;  
+    }  
+    public static final class style {  
+        /**  
+        Base application theme, dependent on API level. This theme is replaced 
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices. 
+            Theme customizations available in newer API levels can go in 
+            res/values-vXX/styles.xml, while customizations related to 
+            backward-compatibility can go here. 
+         Base application theme for API 11+. This theme completely replaces 
+        AppBaseTheme from res/values/styles.xml on API 11+ devices. 
+  API 11 theme customizations can go here.  
+        Base application theme for API 14+. This theme completely replaces 
+        AppBaseTheme from BOTH res/values/styles.xml and 
+        res/values-v11/styles.xml on API 14+ devices. 
+ API 14 theme customizations can go here.  
+         */  
+        public static final int AppBaseTheme=0x7f050000;  
+        /**  Application theme.  
+ All customizations that are NOT specific to a particular API-level can go here.  
+         */  
+        public static final int AppTheme=0x7f050001;  
+    }  
+}  
+
+
+ 
