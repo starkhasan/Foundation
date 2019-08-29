@@ -1206,7 +1206,9 @@ onDestroyView()Fragment view will destroy after call this method
 onDestroy()onDestroy() called to do final clean up of the fragment's state but Not guaranteed to be called by the Android platform.
 
 
-How to use Fragments?
+
+	How to use Fragments? :--------------------------------------
+
 This involves number of simple steps to create Fragments.
 
 First of all decide how many fragments you want to use in an activity. For example let's we want to use two fragments to handle landscape and portrait modes of the device.
@@ -1226,3 +1228,198 @@ List fragments - fragments having special list view is called as list fragment
 
 Fragments transaction - Using with fragment transaction. we can move one fragment to another fragment.
 
+
+
+
+
+	View :--------------------------
+This is the basic building block for user interface component.
+A view occupies a rectangular area on the screen and is responsible for drawing and event handling.
+View is the base class for widget which are used to create interactive UI component (button, text field etc ).
+
+ViewGroup is a subclass of View and provides invisible container that hold other View or other ViewGroup and define their layout properties.
+
+
+	Layouts :-------------
+A layout define the structure for a user interface in app such as in an activity.
+All elements in the layout are built using a hierarchy of View and ViewGroup objects.
+
+View 		=> View usually draws something the user can see interact.
+ViewGroup	=> ViewGroup is an invisible container that defines the layout structure for View and other ViewGroup object,
+
+
+View object are usually called "widget" and can be one of many subclass such as Button or TextView
+ViewGroup objects are usually called "layout" can be one of many types that provide a different layout structure.
+
+	Load the XML Resource :--------------
+
+When you compiled your app each XML layout file is compiled into a View resource.
+You should load the layout resource from your app code in your Activity.onCreate() callback implementation by calling setContentView(), passing it the reference your layout resource in the form of R.layout.layout_file_name
+
+
+Every ViewGroup class implements nested class that extends ViewGroup.LayoutParams. This subclass contains property type that define the size and position for each child view as appropriate for view group
+All view group include a width and height (layout_width and layout_height) and each view is required to define them. many LayoutParam also include optional margin and borders.
+
+wrap_content	=> tells your view to size ifself to the dimensions required by its content.
+match_parent	=> tells your view to become as big as its parent view group will allow.
+
+
+Different types of Layout :--------------
+
+LinearLayout 	=> means you can align views one by one (vertically / horizontally)
+		     layout that organizes its children into single horizontal or vertical row. it create a scrollbar if the length of the windows
+
+Example=>
+MainActivity.java
+package com.example.demo;
+
+import android.os.Bundle;
+import android.app.Activity;
+
+public class MainActivity extends Activity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+}
+
+
+Activity_main.xml File
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:orientation="vertical" >	//set the orietation of the layout
+   
+   <Button android:id="@+id/btnStartService"
+      android:layout_width="270dp"
+      android:layout_height="wrap_content"
+      android:text="start_service"/>
+      
+   <Button android:id="@+id/btnPauseService"
+      android:layout_width="270dp"
+      android:layout_height="wrap_content"
+      android:text="pause_service"/>
+      
+   <Button android:id="@+id/btnStopService"
+      android:layout_width="270dp"
+      android:layout_height="wrap_content"
+      android:text="stop_service"/>
+      
+</LinearLayout>
+
+
+
+
+	RelativeLayout :------------------------
+Android RelativeLayout enable you to specify how child views are positioned relative to each other. The position of each view can be specified as relative to sibling element elements or relative to the parent.
+
+RelativeLayout: Attribute:-
+android:gravity	=> this specifies how an object should position its content on both the X and Y axes. Possible value are top, buttom, left, 		      right, center, center_vertical, center_horizontal
+
+android:IngnoreGravity	=> this indicates what view should not be affected by gravity.
+
+
+
+Example=>
+
+MainActivity.java
+package com.example.demo;
+
+import android.os.Bundle;
+import android.app.Activity;
+
+public class MainActivity extends Activity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+   
+}
+
+
+
+Activity_main.xml file :-----------
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:paddingLeft="16dp"
+   android:paddingRight="16dp" >
+   
+   <EditText
+      android:id="@+id/name"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/reminder" />
+      
+   <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_alignParentStart="true"
+      android:layout_below="@+id/name">
+      
+      <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="New Button"
+         android:id="@+id/button" />
+      
+      <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="New Button"
+         android:id="@+id/button2" />
+      
+   </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+webView		=> to load html static or dynamic pages
+FrameLayout	=> to load child one above another like cards inside a frame we can place one above another or anywhere inside the frame.
+AbsoluteLayout	=> means you have to give exact position where the view should be.
+
+
+
+
+
+
+	Android UI Control :---------------------------------
+
+Input control are the interactive components in your app's user interface.
+Android provides a wide variety of control you can use in your UI such as button, text fields, check box, zoom buttons , toggle button, and and many more.
+
+TextView	=> this control used to display text to the user
+EditText	=> EditText is a predefined subclass of textView that include rich editing capabilities
+
+AutoCompleteTextView	=>  The AutoComplete Textview is view that is similar to EditText except that it shows a list of completion 			    		       suggestion automatically
+
+Button		=> push-button that can be pressed, or clicked, by the user to perform an action.
+
+ImageButton	=> An ImageButton is an AbsoluteLayout which enables you to specify the exact location of its children. This shows a button 		     with an image (instead of text) that can be pressed or clicked by the user.
+
+CheckBox		=> An on/off switch that can be toggled by the user. You should use check box when presenting users with a group of 		     selectable options that are not mutually exclusive.
+
+ToggleButton	=> An on/off button with a light indicator.
+
+RadioButton	=> The RadioButton has two states: either checked or unchecked.
+
+RadioGroup	=> A RadioGroup is used to group together one or more RadioButtons.
+
+ProgressBar	=> The ProgressBar view provides visual feedback about some ongoing tasks, such as when you are performing a task in 		     the background.
+
+Spinner		=>A drop-down list that allows users to select one value from a set.
+
+TimePicker	=>The TimePicker view enables users to select a time of the day, in either 24-hour mode or AM/PM mode.
+
+DatePicker	=>The DatePicker view enables users to select a date of the day.
