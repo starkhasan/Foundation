@@ -1394,19 +1394,241 @@ AbsoluteLayout	=> means you have to give exact position where the view should be
 
 
 
+
 	Android UI Control :---------------------------------
 
-Input control are the interactive components in your app's user interface.
-Android provides a wide variety of control you can use in your UI such as button, text fields, check box, zoom buttons , toggle button, and and many more.
+Input control are the interactive components in your app's User Interface.
+Android provides a wide variety of control you can use in your UI such as button, text fields, check box, zoom buttons , toggle button, and many more.
 
 TextView	=> this control used to display text to the user
 EditText	=> EditText is a predefined subclass of textView that include rich editing capabilities
 
-AutoCompleteTextView	=>  The AutoComplete Textview is view that is similar to EditText except that it shows a list of completion 			    		       suggestion automatically
 
-Button		=> push-button that can be pressed, or clicked, by the user to perform an action.
 
-ImageButton	=> An ImageButton is an AbsoluteLayout which enables you to specify the exact location of its children. This shows a button 		     with an image (instead of text) that can be pressed or clicked by the user.
+	AutoCompleteTextView :---------------
+	
+The AutoComplete Textview is view that is similar to EditText except that it shows a list of completion suggestion automatically
+
+
+An AutoComplteTextView  is a View that is similar to EditText except that it shows a list of complete suggestion automatically while user is typing. The list of suggestion is displayed in drop down the user choose an item from there to replace the content of edit box with.
+
+
+AutoCompleteTextView Attributes :------------------
+Following are the important attributes related to autocompleteTextView control.
+
+android:completeHint	=> this defines the hint displayed in the drop down menu.
+android:completeThreashold	=> this defines the number of characters that the user must before completion suggestion are displayed in drop.
+
+Example=>
+package com.example.guidemo3;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+
+public class MainActivity extends Activity {
+   AutoCompleteTextView autocomplete;
+   
+   String[] arr = { "Paries,France", "PA,United States","Parana,Brazil", 
+      "Padua,Italy", "Pasadena,CA,United States"};
+   
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+
+      autocomplete = (AutoCompleteTextView)             
+      findViewById(R.id.autoCompleteTextView1);
+
+      ArrayAdapter<String> adapter = new ArrayAdapter<String>  
+      (this,android.R.layout.select_dialog_item, arr);
+
+      autocomplete.setThreshold(2);
+      autocomplete.setAdapter(adapter);
+   }
+}
+
+
+
+
+
+	Button :-----------------------------
+
+Push-button that can be pressed, or clicked, by the user to perform an action.
+
+To display an button in activity add a button to the activity's layout XML file
+
+<Button
+	android:id="@+id/button_id"
+	android:layout_height="wrap_content"
+	android:layout_width="wrap_content"
+	android:text="@string/self_destruct" />
+
+
+To specify an action when the button is pressed set a click listener on the button object in the correspondling activity code.
+
+	public class Myactivity extends Activity
+	{
+		protected void onCreate(Bundle savedInstanceState)
+		{
+			super.onCreate(savedInstanceState);
+			setContentView(R.layout.content_layout_id);
+			
+			final Button button =  findViewById(R.id.button_id);
+		
+			button.setOnClickListener(new View.OnClickListener()
+			{
+				public void onClick(View view)
+				{
+					//code here executes on main thread after user press button
+
+				}
+			});
+		}
+	}
+
+
+The above code snippet create an instance of View.onClickListener and wiers the listener to the button using setOnClickListener(View.OnClickListener). As a result the system executes the code you write in result the system executes the code you write in onClick(View) after the user presses the button.
+
+Example =>
+MainActivity.java
+
+package com.example.button;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+    private ActionBar actionBar;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        actionBar=getSupportActionBar();//THAT CREATE AN INSTANCE OF THE ACTION BAR
+        actionBar.setTitle("Button Tutorial");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#058373")));
+    }
+
+    public void mymethod(View view)
+    {
+        String title=actionBar.getTitle().toString();
+        Toast.makeText(MainActivity.this,title,Toast.LENGTH_SHORT).show();
+    }
+    public void mymethod1(View view)
+    {
+        Toast new_toast=Toast.makeText(getApplicationContext(),"this is Second Button",Toast.LENGTH_LONG);
+        new_toast.setMargin(50,50);
+        new_toast.show();
+    }
+}
+
+
+activity_main.xml	=> layout file that are used for designing the layout of the UI
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mymethod"
+        android:background="@color/backgroundcolor1"
+        android:textColor="@color/textcolor1"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/button" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:onClick="mymethod1"
+        android:background="@color/backgroundcolor2"
+        android:textColor="@color/textcolor2"
+        android:text="@string/button1" />
+
+</LinearLayout>
+
+
+
+
+	=> we can call more than one button using one onClick() method in Android
+public void mymethod1(View view)
+    {
+       switch(view.getId())
+       {
+           case R.id.button1:
+               Toast.makeText(getApplicationContext(),"Buttton 1",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button2:
+               Toast.makeText(getApplicationContext(),"Button 2",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button3:
+               Toast.makeText(getApplicationContext(),"Button 3",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button4:
+               Toast.makeText(getApplicationContext(),"Button 4",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button5:
+               Toast.makeText(getApplicationContext(),"Button 5",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button6:
+               Toast.makeText(getApplicationContext(),"Button 6",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button7:
+               Toast.makeText(getApplicationContext(),"Button 7",Toast.LENGTH_SHORT).show();
+               break;
+
+       }
+    }
+
+
+
+
+	ImageButton :-----------------------
+
+An ImageButton is an AbsoluteLayout which enables you to specify the exact location of its children.
+This shows a button with an image (instead of text) that can be pressed or clicked by the user.
+
+
+Following are the important attributes related to ImageButton control.  Inherited from android.widget.ImageView 
+
+android.adjustViewBounds	=> set this to true if you want the ImageView to adjust its bouds to preserve the aspect ratio of its drawable.
+
+android:src		=> set the drawable as the content of this ImageView
+
+
+Inherited from android.view.View
+android:background		=> this is a drawable to use as the background
+
+android:contentDescription	=> this defines text that berifely define the content of view
+
+android:id			=> supplies an identifier name for this view
+
+android:onClick		=> method in this View's context to invoke when the view is clicked
+
+android:visibility		=> this control the initial visibility of the view 
+
+
 
 CheckBox		=> An on/off switch that can be toggled by the user. You should use check box when presenting users with a group of 		     selectable options that are not mutually exclusive.
 
@@ -1416,10 +1638,552 @@ RadioButton	=> The RadioButton has two states: either checked or unchecked.
 
 RadioGroup	=> A RadioGroup is used to group together one or more RadioButtons.
 
-ProgressBar	=> The ProgressBar view provides visual feedback about some ongoing tasks, such as when you are performing a task in 		     the background.
 
-Spinner		=>A drop-down list that allows users to select one value from a set.
 
-TimePicker	=>The TimePicker view enables users to select a time of the day, in either 24-hour mode or AM/PM mode.
 
-DatePicker	=>The DatePicker view enables users to select a date of the day.
+	ProgressBar :--------------------
+
+The ProgressBar view provides visual feedback about some ongoing tasks, such as when you are performing a task in the background.
+
+Progress bars are used to show progress of a task.
+example when you are uploading or downloading something from the internet it is better to show the progress of download/upload to the user.
+
+In android there is a class called ProgressDialog that allow you to create progress bar.
+In order t do this you need instantiate an object of this class. its syntex is.
+
+	ProgresssDialog progress=new ProgressDialog(this);
+
+Now yo ucan set some properties of this dialog such as its style its text etc.
+
+	progress.setMessage("Downloading Music : ");
+	progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+	progress.setIndeterminate(true); //loading amount is not measure
+
+Some methods of ProgressDialog class :------------------
+
+getMax()				=> this methods returns the maximum value of the progress
+	
+incrementProgressBy(int diff)		=> methods increment the progress bar by the difference of value passed as a parameter
+
+setIndeterminate(boolean indeterminate)	=> method sets the progress indicator as determiante or indeterminate
+
+setMax()				=> methods set the maximum value of the progress dialog
+
+setProgress(int value)		=> method is used to update the progress dialog with some specific value
+
+show(Context context,CharSequence title,CharSequence title message)	=> static method used to display progress dialog
+
+Example=>
+package com.example.sairamkrishna.myapplication;
+
+import android.app.ProgressDialog;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends ActionBarActivity {
+   Button b1;
+   private ProgressDialog progress;
+   
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      b1 = (Button) findViewById(R.id.button2);
+   }
+   
+   public void download(View view){
+      progress=new ProgressDialog(this);
+      progress.setMessage("Downloading Music");
+      progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+      progress.setIndeterminate(true);
+      progress.setProgress(0);
+      progress.show();
+      
+      final int totalProgressTime = 100;
+      final Thread t = new Thread() {
+         @Override
+         public void run() {
+            int jumpTime = 0;
+            
+            while(jumpTime < totalProgressTime) {
+               try {
+                  sleep(200);
+                  jumpTime += 5;
+                  progress.setProgress(jumpTime);
+               } catch (InterruptedException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+               }
+            }
+         }
+      };
+      t.start();
+   }
+}
+
+
+
+
+
+	Spinner :----------------------------
+A drop-down list that allows users to select one value from a set.
+
+Example=>
+package com.example.spinner;
+
+import java.util.ArrayList;
+import java.util.List; 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
+ 
+class AndroidSpinnerExampleActivity extends Activity implements OnItemSelectedListener{
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.main);
+      
+      // Spinner element
+      Spinner spinner = (Spinner) findViewById(R.id.spinner);
+      
+      // Spinner click listener
+      spinner.setOnItemSelectedListener(this);
+      
+      // Spinner Drop down elements
+      List<String> categories = new ArrayList<String>();
+      categories.add("Automobile");
+      categories.add("Business Services");
+      categories.add("Computers");
+      categories.add("Education");
+      categories.add("Personal");
+      categories.add("Travel");
+      
+      // Creating adapter for spinner
+      ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+      
+      // Drop down layout style - list view with radio button
+      dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+      
+      // attaching data adapter to spinner
+      spinner.setAdapter(dataAdapter);
+   }
+   
+   @Override
+   public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+      // On selecting a spinner item
+      String item = parent.getItemAtPosition(position).toString();
+      
+      // Showing selected spinner item
+      Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+   }
+   public void onNothingSelected(AdapterView<?> arg0) {
+      // TODO Auto-generated method stub
+   }
+}
+
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="vertical"
+   android:padding="10dip"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content">
+   
+   <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dip"
+      android:text="Category:"
+      android:layout_marginBottom="5dp"/>
+      
+   <Spinner
+      android:id="@+id/spinner"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:prompt="@string/spinner_title"/>
+      
+</LinearLayout>
+
+
+
+
+
+	TimePicker :--------------------------
+The TimePicker view enables users to select a time of the day, in either 24-hour mode or AM/PM mode.
+Android Time picler allows you to select the time of the day in either 24 hour or AM/PM mode.The time consist of hours, minutes and clock format.
+
+Android provides this functionality through TimePicker class.
+Inorder to use TimePicker class you have to first define the TimePicker component in your activity_main.xml. 
+
+<TimePicker
+   android:id="@+id/timePicker1"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content" />
+
+After that you have to create an object of TimePicker class and get a reference of the above define xml component to use in MainActivity.java
+
+	import android.widget.TimePicker;
+	private TimePicker timepicker;
+	timepicker=(TimePicker)findViewById(R.id.timepicker);
+
+In order to get the time selected by the user on the screen, you will use getCurrentHour() and getCurrentMinute() method of the TimePicker class
+
+	int hour=timepicker.getCurrentHour();
+	int min=timepicker.getCurrentHour();
+
+Some method in API that gives more control over TimePicker Component.
+
+is24HourView()	=> method returns true if this is in 24 hour view else false
+
+isEnabled()	=> method returns the enabled status for the view
+
+setCurrentMinute(Integer currentMinute()		=>method sets the current minute
+
+setEnable(boolean enabled)			=> method set whether in 24 hour or AM/PM mode
+
+setOnTimeChangedListener(TimePicker.OnTimeChangedListener onTimeChangedListener)
+method set the callable that indicates the time has been adjust by the user.
+
+Example=>
+package com.example.timepicker;
+
+import java.util.Calendar;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+public class MainActivity extends Activity {
+   private TimePicker timePicker1;
+   private TextView time;
+   private Calendar calendar;
+   private String format = "";
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      
+      timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
+      time = (TextView) findViewById(R.id.textView1);
+      calendar = Calendar.getInstance();
+      
+      int hour = calendar.get(Calendar.HOUR_OF_DAY);
+      int min = calendar.get(Calendar.MINUTE);
+      showTime(hour, min);
+   }
+
+   public void setTime(View view) {
+      int hour = timePicker1.getCurrentHour();
+      int min = timePicker1.getCurrentMinute();
+      showTime(hour, min);
+   }
+
+   public void showTime(int hour, int min) {
+      if (hour == 0) {
+         hour += 12;
+         format = "AM";
+      } else if (hour == 12) {
+         format = "PM";
+      } else if (hour > 12) {
+         hour -= 12;
+         format = "PM";
+      } else {
+         format = "AM";
+      }
+		
+      time.setText(new StringBuilder().append(hour).append(" : ").append(min)
+      .append(" ").append(format));
+   }
+
+
+}
+
+
+
+
+	DatePicker :-------------------------
+
+The DatePicker view enables users to select a date of the day.
+
+Android Date Picker allows you to select the date consisting of day month and year in your custom user interface.
+For this functinality android provides DatePicker and DatePicker components.
+
+In order to show DatePickerDialog you have to pass the DatePickerDialog id to showDialog(id_of_dialog)
+
+	showDialog(999);
+
+on calling this showDialog method another method called onCreateDialog automatically called. so we have to override that method too.
+	
+	@Override
+	protected Dialog onCreateDialog(int id)
+	{
+		if(id==999)
+		{
+			return new DatePickerDialog(this,myDateListener,year,month,day);
+		}
+		return null;
+	}
+
+
+in last you have to register the DatePickerDialog listener and override its onDateSet method. This onDateSet method contains the updated day month and year. its syntax is given 
+
+	
+private DatePickerDialog.OnDateSetListener myDateListener = new DatePickerDialog.OnDateSetListener() {
+   @Override
+   public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+      // arg1 = year
+      // arg2 = month
+      // arg3 = day		
+   }
+};
+
+	Method & description :-----------------------------
+	
+getDayOfMonth()
+This method gets the selected day of month
+	
+getMonth()
+This method gets the selected month
+	
+getYear()
+This method gets the selected year
+	
+setMaxDate(long maxDate)
+This method sets the maximal date supported by this DatePicker in milliseconds since January 1, 1970 00:00:00 in getDefault() time zone
+
+	
+setMinDate(long minDate)
+This method sets the minimal date supported by this NumberPicker in milliseconds since January 1, 1970 00:00:00 in getDefault() time zone
+
+	
+setSpinnersShown(boolean shown)
+This method sets whether the spinners are shown
+
+	
+updateDate(int year, int month, int dayOfMonth)
+This method updates the current date
+
+	
+getCalendarView()
+This method returns calendar view
+
+	
+getFirstDayOfWeek()
+This Method returns first day of the week
+
+
+
+
+
+
+
+
+	Event Handling:--------------------
+
+Events are a useful way to collect data about a user's interaction with interative components of Applications. like button pressure or screen, touch etc. The Android framework maintain an event queue a first-in-first out (FIFO) basis.
+we can capture these events in our program and take appropriate action as per requirements.
+
+Event Listener :-
+An event listener is an interface in the View class that contains a single callback method.These methods will be called by the Android framework when the View to which the listener has been registered is triggered by user interaction with the item in the UI.
+
+
+Event Listener Registration :-
+Event Registration is the process by which an Event handler gets registered with an Event Listener ao that the handler is called when the Event Listener fires the event.
+
+Event Handler :-
+When an event happens and we have registered an event listener for the event the event listener calls the Event Handlers, which is the method that actually handles the event.
+
+
+
+Event Listeners & Event Handlers
+
+Event Handler		Event Listener & Description
+onClick()			OnClickListener()
+			This is called when the user either clicks or touches or focuses upon any widget like button, text, image etc. You 				will use onClick() event handler to handle such event.
+
+
+onLongClick()		OnLongClickListener()
+
+			This is called when the user either clicks or touches or focuses upon any widget like button, text, image etc. for 				one or more seconds. You will use onLongClick() event handler to handle such event.
+
+onFocusChange()		OnFocusChangeListener()
+
+			This is called when the widget looses its focus ie. user goes away from the view item. You will use 			onFocusChange() event handler to handle such event.
+
+
+onKey()			OnFocusChangeListener()
+
+			This is called when the user is focused on the item and presses or releases a hardware key on the device. You will 			use onKey() event handler to handle such event.
+
+
+onTouch()			OnTouchListener()
+
+			This is called when the user presses the key, releases the key, or any movement gesture on the screen. You will 			use onTouch() event handler to handle such event.
+
+onMenuItemClick()		OnMenuItemClickListener()
+
+			This is called when the user selects a menu item. You will use onMenuItemClick() event handler to handle such 			event.
+
+onCreateContextMenu()	onCreateContextMenuItemListener()
+
+			This is called when the context menu is being built(as the result of a sustained "long click)
+
+
+Event Listeners Registration
+
+Event Registration is the process by which an Event Handler gets registered with an Event Listener so that the handler is called when the Event Listener fires the event. Though there are several tricky ways to register your event listener for any event, but I'm going to list down only top 3 ways, out of which you can use any of them based on the situation.
+
+1) Using an Anonymous Inner Class
+2) Activity class implements the Listener interface.
+3) Using Layout file activity_main.xml to specify event handler directly.
+
+
+=> Touch Mode
+
+Users can interact with their devices by using hardware keys or buttons or touching the screen.Touching the screen puts the device into touch mode. The user can then interact with it by touching the on-screen virtual buttons, images, etc.You can check if the device is in touch mode by calling the View class’s isInTouchMode() method.
+
+
+Focus :--------------------------
+
+A view or widget is usually highlighted or displays a flashing cursor when it’s in focus. This indicates that it’s ready to accept input from the user.
+
+isFocusable() - it returns true or false
+
+isFocusableInTouchMode() - checks to see if the view is focusable in touch mode. (A view may be focusable when using a hardware key but not when the device is in touch mode)
+
+
+Event Listeners Registration Using an Anonymous Inner Class :---------------------------------
+
+Here you will create an anonymous implementation of the listener and will be useful if each class is applied to a single control only and you have advantage to pass arguments to event handler. In this approach event handler methods can access private data of Activity. No reference is needed to call to Activity.
+
+But if you applied the handler to more than one control, you would have to cut and paste the code for the handler and if the code for the handler is long, it makes the code harder to maintain.
+
+
+
+Example =>
+package com.example.myapplication;
+
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends ActionBarActivity {
+   private ProgressDialog progress;
+   Button b1,b2;
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      progress = new ProgressDialog(this);
+
+      b1=(Button)findViewById(R.id.button);
+      b2=(Button)findViewById(R.id.button2);
+      b1.setOnClickListener(new View.OnClickListener() {
+         
+         @Override
+         public void onClick(View v) {
+            TextView txtView = (TextView) findViewById(R.id.textView);
+            txtView.setTextSize(25);
+         }
+      });
+
+      b2.setOnClickListener(new View.OnClickListener() {
+         
+         @Override
+         public void onClick(View v) {
+            TextView txtView = (TextView) findViewById(R.id.textView);
+            txtView.setTextSize(55);
+         }
+      });
+   }
+}
+
+
+
+
+activity_main.xml :-----------------------
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:paddingBottom="@dimen/activity_vertical_margin"
+   android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   tools:context=".MainActivity">
+   
+   <TextView
+      android:id="@+id/textView1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Event Handling "
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      android:textSize="30dp"/>
+      
+   <TextView
+      android:id="@+id/textView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorials point "
+      android:textColor="#ff87ff09"
+      android:textSize="30dp"
+      android:layout_above="@+id/imageButton"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="40dp" />
+      
+   <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageButton"
+      android:src="@drawable/abc"
+      android:layout_centerVertical="true"
+      android:layout_centerHorizontal="true" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Small font"
+      android:id="@+id/button"
+      android:layout_below="@+id/imageButton"
+      android:layout_centerHorizontal="true" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Large Font"
+      android:id="@+id/button2"
+      android:layout_below="@+id/button"
+      android:layout_alignRight="@+id/button"
+      android:layout_alignEnd="@+id/button" />
+      
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Hello World!"
+      android:id="@+id/textView"
+      android:layout_below="@+id/button2"
+      android:layout_centerHorizontal="true"
+      android:textSize="25dp" />
+      
+</RelativeLayout>
+
+
+
