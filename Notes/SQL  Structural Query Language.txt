@@ -1,0 +1,1526 @@
+				           --------------: Database Management System :----------------
+
+				        ----------------: Database Mangement System :--------------
+
+	Database :----------
+
+Database is an organised collection of data generally stored and accessed electronically from a computer system.
+	Now a days we use relational database management system (RDBMS) to store and manage huge volume of data. this is called relational database because all the data is stored into different table and relations are established using primary key or other keys as foreign key. 
+
+
+Database is a collection of related data and and data is a collection of fact and figure that can be processed to produce.
+
+=> Characteristic of DBMS
+1) Less Redundency
+2) Query Language
+3) Follow Acid Properties
+4) Multi-User and concurrent Access
+5) Multiple -view
+6) Security
+
+
+
+
+
+
+=> Entity-Relationship Model :-
+
+Entity-Relationship model is based on the notion of real-world entities and relationship among them.
+
+ER model is used for conceptual design of a database.
+
+ER Model is based on:-
+
+1) Entities and their attribute
+2) Relationship among entities
+
+
+
+=> Entity
+An Entity is an ER Model is a real-world entity having properties called attribute.
+
+ex=> in a school database a student is a considered as an entity, student has various attribute like name, age, class etc.
+
+
+
+
+	Types of attribute :-
+
+1) Simple Attribute
+Simple attribute are atomic value which cannot be divided further
+
+ex=> student phone number is an atomic value of 10 digit.
+
+2) Composite Attribute
+composite attribute are made of more than one simple attribute
+
+ex=>student's name may have first_name and last_name
+
+3) Derived Attribute
+Derived attribute are the attribute that do not exist in the physical database but their value are derived from other attribute present in the database.
+
+ex=> age can be derived from data_of_birth
+
+4) single value attribute
+single value attribute contain single value 
+
+ex=> social_security_number
+
+5) Multi-value attribute
+multi-value attribute may contain more than one value.
+
+
+
+
+=> Relationship
+The logical association among entities is called relationship.
+
+relatioship are mapped with entities in various ways;-
+
+Mapping cardinatities define the number of association between two entities:-
+
+Different type of mapping cardinatities:-
+1) one-to-one
+2) one-to-many
+3) many-to-one
+4) many-to-many
+
+
+	Table :-------------
+
+=> A table is a collection of related data held in a structural format within a database
+=> it consists of columns and rows.
+
+
+
+
+	Tuple:--------------
+A single row of a table which contain a single records for that relation is called tuple.
+
+
+
+
+	Field :------------
+
+=> Every table is broken up into smaller entities called fields.
+=> the fields of the above table consist of firstname, lastname Age.
+
+
+
+
+	Records or Row :------------
+
+=> A records is also called as a row of data is each individual entry that exists in a table.
+
+
+
+
+	Column :------------
+
+=>A column is a vertical entity in a table that contains all information associated with a specific field in a table.
+
+
+
+=> A database consist of both data and metadata. Metadata is the data that describes the data structure with in a database.
+
+=> the database is integrated becasue it include not only data item but also the relationship among data items.
+
+=>Most database fall into one of three categories
+a) personal database
+b) departmental or workgroup database
+c) enterprise database
+
+
+=> cloud
+In reality it is a collection of computing resource that is accessible via a browser either over internet or one private intranet.
+
+
+
+
+	Flat File :----------
+
+Flat file are so called because they have minimum structure.
+A flat file is simply a collection of data records, one after another in a specific format---the data the whole data and nothing but the data.
+A flat file doesn't store structural information
+
+
+=> Advantage of the Relational Database Model
+
+Relational database have almost completely replaced earlier database types that's largely because you can change the structure of a relational database  without having to change or modify application that were based on the old structures. 
+
+Relational database gain their flexibility becasue their data resides in table that are largely independent of each other.
+
+
+
+=> The Structure of an entire database is its schema or conceptual view. this structure is sometimes also called the completely logical view of the database. it is a metadata.
+
+
+
+	Schemas :-----------
+
+A database's schema provides an overall organization to the tables.
+The structure of an entire database is its schema or conceptual view. this structure is sometimes also called the complete logical view of the database
+The schema is a metadata  as such it's  part of the database
+The metadata itself which describes the database structure is stored in tables that are just like the table that store the regular data.
+
+
+A Database schema is skeleton structure that represent the logical view of the database
+(it define how the data is organised and how the relation among them are associated)
+
+=> There are two different types of Database Schema
+
+1) Physical Database Schema
+It is related to the actual storage of data and its form of storage like file,indices etc
+It define hwo the data will be stored in secondary storage.
+
+
+2) Logical Database Schema
+this schema define all the logical constraints that need to be applied on the data stored
+
+
+
+
+=> Domain ( an attribute of a relation (that is a column of a table) can assume some finite number of values. the set of all such values if the domain of the attribute)).
+the domain of a table column tells you what values you may store in the column.
+
+
+=> Constraints
+Constraints are an important although often overlooked component of a database. constraints are rules that determine what values the table attribute can assume.
+
+
+	The Object model challeged the Relational Model :----------
+
+
+The limitation have been made more visible by the ride in popularity of object oriented programming languages such as c++, java and c#. Such language are capable of handlinh more complex problems then traditionla languages due to their advanced features, such as user-extensible type system encapsulation , inheritance, dynamic binding of methods , complex and composite object and object identity.
+
+	Relational model doesn't mesh well with many of these features . As a result database management systems based on the object model have been developed.
+
+
+	Object-Relational Model :--------------
+Object relational DBMs extends the relational model to include support for object oriented data modeling. Object -oriented features have been added to the international SQL standard allowing relational DBMS vendors to transform their products into object-relational DBMs while retaining compatibility with the standard.
+
+
+	What is SQL :--------
+The first thing to understand about SQL is the SQL is not a procedural language as are BASIC, C, C++, C# and java . To solve a problems in one of those procedural language you write a procedure---- a sequence of command that perform one specific operation after another untill the task is complete. 
+		SQL is nonprocedural.
+
+
+A query is a question you ask the database . If any of the data in the database satisfies the condition of your query SQL retrives that data.
+
+
+	Information from a database in one of two ways:-----
+
+1) Make an ad hoc query from any keyboard by just typing an SQL statement and reading the result from the screen.
+2) Execute a program that collects information from the database and then report on the information either onscreen or in a printed report.
+
+
+
+
+	What is Information System :---------------
+
+Organization have business objectives . in order to realize those business objectives many decision must be made on a daily basis. Typically a lot of information is needed to make the right decision ; however this information is   not always available in the appropriate format. Therefore organization need formal system that will allow them to produce the required information in the right format at the right time, Such system are called information system.
+
+	there are two main reason to automate information system:
+1) Complexity  	: the data structure or the data processing procedures become too complicated.
+2) Volume 	: the volume of the data to be administered become too large.
+ 
+
+if an organization decide to automate an information system because of complexity or volume (or both ) it typically will need to usesome database technology.
+
+
+	The main advatage of using database technology are following:
+
+1) Accessibiliy : As hoc data retrieval functionality data entry and data reporting facilities and concurrency handling in multiuser enviroment.
+2) Availability   : Recovery facilities handilg in case of system crashed and human errors.
+3) Security        : Data access control privieldge and auditing
+4) Manageability: Utiliteis to efficiently manage large volume of data.
+
+
+
+
+	Redundency :---------------
+
+There are two types of data : (a) Base Data (b) Derived Data
+
+(a) Base Data => is data that cannot be derived in any way from other data residing in the information system. It is crucial that base data is stored in the database
+
+(b) Derived Data => can be dedued (for example with a formula ) from other data. 
+Another way of defining redundency is storage of the same data more than once.
+the challege with redundant data storage lies in its ongoing maintenance.
+
+
+
+	Database Consistency :-----------------
+
+Database consistency states that only valid data will be written to the database. If a transaction is executed that voilates the database's consistency rule, the entire transcation will be rolled back and the database will be restored to its original state. On the other hand if a transaction successfully executes, it will take the database from one state that is consistent with the rules to another state that is also consistent with the rule.
+
+Example=>
+ A column in a database may only have the values for a coin flip as head or tails if a user were to attempt to put in sideways consistency rules for the database would not allow it.
+
+
+	Data Integrity :-----------
+
+The term data integrity refers to the accuracy and consistency of data.
+Maintaining data integrity means making sure the data remains intact and unchanges throughout its entire life cycle.
+
+
+	Four Different types of Data Integrity :--------------
+
+1) Entity Integrity
+2) Referential Integrity
+3) Domain Integrity
+4) User define Integrity
+
+
+1) Entity Integrity :---
+
+Entity Integrity defines each row to be unique within its table
+No two rows can be the same.
+To achieve this primary key is defined
+
+
+
+2) Referetial Integrity 
+It is concern with the relationship when two or more table have a relationship we have to ensure that the foreign key value matches the primary key value at all times.
+
+3)Domain Integrity
+Domain integrity concerns the validity of entries for a given column. Selecting the appropriate data type for a column is the first step  in maintaining domain integrity.
+
+4) User define Integrity
+user define integrity allows the user to apply business rules to the database that aren't covered by any of the other three data integrity type.
+ 
+
+
+	DBMS Components :----------
+
+A DBMS has many components including a kernel, data dictionary, query language, and tools
+
+	Kernel :-----
+The core of any DBMS consist of the code that handles physical data storage , data transport (input and output) between external and internal memory, integrity checking and so on. This crucial part of the DBMS is commonly referred to as kernel.
+
+	Data Dictionary :------------
+Another important task of the DBMS is the maintenance of a data dictionary containing all data about the data (the metadata). Here are some  example of information maintained in a data dictionary:
+
+ 
+
+
+				      ----------: Different type of SQL Statement :-----------
+
+
+The SQL command language consists of a limited number of statement that perform some the operation :-----
+
+There are five different type of the SQL statement:-
+1) DDL (Data Definition Languague)
+2) DML (Data Manipulation Langugae)
+3) DRL (Data Query Language)
+4) DCL (Data Control Language)
+5) TCL (Transaction Control Language)
+
+
+
+
+	DDL (Data Definition Language) :---------
+
+This component of the SQL language is used to create and modify tables and other objects in the database .SQL commands which comes under Data Defintion Language.
+
+	CREATE   		-   to create objects such as table view etc in the database.
+	ALTER      		-   to alter (change ) the structure of the objects.
+	DROP       		-   to delete objects (table) from the database.
+	TRUNCATE 	-   to remove all the records from a table also free the space occupied by those records.
+
+
+
+
+	CREATE :------------
+
+	CREATE TABLE <table_name> {name varchar (25), Roll INT, Subject varchar(25), Year INT};
+
+
+java program to create the table:-----
+
+import java.sql.*;
+import java.util.*;
+import java.io.*;
+class demo
+{
+	public static void main(String [] args)
+	{
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con=DriveManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+			Statement stmt=con.createStatement();
+			String str="CREATE TABLE BOYS (STUID VARCHAR(20),FNAME VARACHR(10),LNAME VARCHAR(10), SALARY INT,PHONE INT)";
+			stmt.execute(str);
+			System.out.println("Table has been successfully created");
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}
+
+
+
+
+	ALTER :------------
+
+It is used to alter (change) the structure of the object (table).
+
+
+	a) Add some additional Column
+
+	ALTER TABLE <table_name> ADD column_name data_type;
+
+	b) Delete  some Column/Row
+
+	ALTER TABLE <table_name> DROP  COLUMN column_name;
+
+
+
+	DROP :-----------
+
+Drop table statement is used to drop an existing table in a database.
+
+	DROP TABLE table_name;
+
+
+
+	TRUNCATE :------------
+
+Truncate table statement is used to delete the data inside a table but not the table itself.
+
+	TRUNCATE TABLE table_name;
+
+	
+
+
+
+
+
+	DML (Data Manipulation Language) :--------------
+
+This component of the SQL language is used to manipulate data within a table. SQL command which come under Data Manipulation language are:-
+
+	a) INSERT		-  to insert data into a table
+	b) DELETE	-  to delete all records from a table the space occupied will remain.
+	c) UPDATE	-  to update existing data with in  a table
+
+
+
+
+
+	INSERT :-------------
+
+this statement is used to insert data in the table
+
+	INSERT INTO <table_name> VALUES {Ali Hasan, 1500110002, SQL, 4TH};
+
+
+
+
+
+	DELETE :------------
+
+this statement is used to delete existing records in table
+
+	DELETE FROM <table_name> WHERE condition;
+
+
+
+
+
+	UPDATE :------------
+
+this statement is used to update the existing records in the table
+
+
+	UPDATE <table_name> SET COLUMN1=<value1>, COLUMN2=<value2> WHERE <condition>;
+
+Example=>
+
+	UPDATE Persons SET City="Jamnagar"  WHERE PersonID=6;
+
+
+
+
+
+
+
+java program for DML operation to insert the data in table
+
+//program for Insert query
+improt java.sql.*;
+class selectquery
+{
+	public static void main(String [] args)
+	{
+	    try
+	    {
+		class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+		Statement stmt=con.createStatement();
+		stmt.executeUpdate("INSERT INTO BOYS VALUES("E004","ALI","HASAN",48000,9760656467)");
+		System.out.println("Record Updated Successfully");
+		con.close();
+	    }
+	    catch(Exception e)
+	    {
+		System.out.println(e);
+	    }
+	}
+}
+
+
+
+
+
+
+
+
+	DQL (Data Query Language) :---------------
+
+This Component of the SQL language is used to select (retrieve ) data from a table. SQL commands which comes under Data Query Language (DQL) is:-
+
+
+	a) SELECT 	- to display the records from table
+
+
+	
+
+	SELECT * from <table_name>  
+
+	#  * it means it is selecting all the table from the database
+
+
+	SELECT <column1>, <column2> FROM <table_name>;
+
+
+
+
+java program for performing the select statement
+
+improt java.sql.*;
+class selectquery
+{
+	public static void main(String [] args)
+	{
+	    try
+	    {
+		class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+		Statement stmt=con.createStatement();
+		ResultSet rs=stmt.executeQuery("SELECT * FROM BOYS");
+		System.out.println("Details of the Student : ");
+		while(re.next())
+		{
+			System.out.println(rs.getString(1)+"\t+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getInt(4)+"\t"+rs.getInt(5));
+		}
+		con.close();
+	    }
+	    catch(Exception e)
+	    {
+		System.out.println(e);
+	    }
+	}
+}
+
+
+
+
+	SQL INSERT INTO SELECT Statement (to copy records from one table to another table) :------------------------
+
+we can use the SELECT statement with INSERT INTO statement to copy records (rows) from one table  and insert them into another table . the use of this statement is similer to that of INSERT INTO statement . The difference is that the SELECT statement is used here to select data from a different table. The difference ways of using INSERT INTO SELECT statement are shown below.
+
+	Basic syntax to copy all columns from one table to another table is as follow:-
+
+INSERT INTO <table_name> (column1,column2,column3) SELECT column1,column2,column3 FROM oldtable WHERE condition.
+
+
+
+
+ 
+	DCL (Data Control Language) :---------------
+
+This Compenent of the SQL language is used to create privileges to allow user access to and manipulation of the database . we can also says that DCL statement  are used to control access  to the data and to the database SQL commmand which comes under Data Control Language.
+
+
+	=> Grant 		to grant a privilege to a user
+
+	=> REVOKE	to revoke  (remove) a privilege from a user
+
+
+
+
+
+
+	TCL (Transaction Control Language) :----------------
+
+This components of the SQL language is used to manage the change made by DML statements > it allows statement to be grouped together into logical transaction . SQL command which come under Transcation Control langugage (TCL).
+
+
+	a) COMMIT
+	b) SAVEPOINT
+	c) ROLLBACK
+
+
+
+
+
+				               ----------: SQL Function and Data Types :-------
+
+The different function in SQL are defines as follow :---------
+
+	COUNT()
+	AVG()
+	MAX()
+	MIN()
+	SUM()
+
+
+	COUNT Funtion :---------
+The count function return number of rows that matches a specific criteria
+
+	SELECT COUNT(column_name) FROM table_name WHERE condition;
+
+	AVG Function :-----------
+The AVG function returns the average value of a numeric column
+
+	SELECT AVG(column_name) FROM table_name WHERE condition;
+
+	MAX Function:-------------
+the MAX function return the largest value of selected column
+
+	SELECT  MAX(column) FROM table_name;
+
+	MIN Function :------------
+the MIN Function return the smallest value of selected column
+
+	SELECT MIN(column) FROM table_name
+
+	SUM Function :---------
+the SUM function return the sum of a selected column
+
+	SELECT SUM(column_name) FROM table_name;
+
+
+
+
+	SQL DataTypes:----------------
+The SQL specification recognizes seven predefined general types:-
+1) Numeric
+2) Binary
+3) Strings
+4) Booleans
+5) Datetimes
+6) Intervals
+7) XML
+
+
+In addition to built-in predefines types SQL supports collection types, construct types, and user-defined types
+
+
+
+
+					-------------: SQL WHERE Clause :--------------
+
+The SQL WHERE clause is used to specify (put) a condition while fetching the data from single table or by joining with multiple table. If the condition is  satisfied then only it return a specific value from the table.
+		We can use where clause to filter the record and fetching only the necessary records.
+
+The WHERE clause is not only used in the SELECT statement, but it is also used in the UPDATE, DELETE statement.
+ 
+
+
+	Syntax :--------------
+
+The basic syntax of the SELECT statement with the WHERE clause is as shown below.
+
+	SELECT column1, column2, column3 FROM table_name WHERE [condition]
+
+You can specify a condition using the comparison or logical operators like >, <, =, LIKE, NOT, etc.
+
+
+Example=>
+
+	SQL> SELECT ID, NAME, SALARY  FROM CUSTOMERS WHERE SALARY > 2000;
+
+
+
+
+
+
+					--------------: SQL Join Operation :-------------
+
+The SQL Joins clause is used to combine records from two or more table in a database. A join is a means for combinig fields from tables by using values common to each.
+
+
+There are different type of the join operation :---
+
+a) Inner Join
+return rows when there is a match in both tables.
+
+b) Left Join
+return all rows from the left table even if there are no match in the right  table.
+
+c) Right Join
+return all the rows from the right table even if there are no match in the left table.
+
+d)Full Join
+return all records when there is a match in either left or right table.
+
+
+
+	Inner Join :----------
+
+The Inner join keyword select record that have matching value in both table.
+
+SELECT column_name FROM table1 INNER JOIN table2 ON table1.column_name=table2.column_name;
+
+
+
+
+	Left Join :-------------
+
+The Left join keyword return  all records from the left table (table1) and the matched records from the right table (table2)
+Result is NULL from the right side if there is no match.
+
+SELECT column_name(s) FROM table1 LEFT JOIN table2 ON table1.column_name=table2.column_name;
+
+
+
+
+	Right Join :-----------
+
+the Right Join keyword return all records from right table (table2) and the matched records from the left table (table1)
+the result is null from the left side when there is no match.
+
+
+SELECT column_name(s) FROM table1 RIGHT JOIN table2 ON table1.column_name=table2.column_name;
+
+
+
+	Full Join :-----------
+
+the Full Join keyword return all records when there is a matcch in either left (table1) or right (table2) table records
+Full Join can potentially return very large result set.
+
+
+SELECT column_name(s) FROM table1 FULL OUTER JOIN table2 ON table1.column_name=table2.column_name;
+
+
+	Difference between the Delete and Truncate :--------------
+
+			DELETE					TRUNCATE
+
+	                    DELETE is a DML operation			TRUNCATE is a DDL operation
+		DELETE FROM table_name			TRUNCATE TABLE table_name
+		WHERE condition 
+		we can use where clause with delete		we can't use where clause with truncate
+		it is slower then truncate			it is faster then delete
+
+
+
+			
+			
+
+					------:SQL Rename Statement :----
+
+The SQL RENAME statement is used to rename a table.
+
+	syntex:-
+
+		ALTER TABLE table_name  RENAME TO new_table_name;
+
+
+
+
+THE SQL RENAME statement is used for rename a column.
+
+	syntex:-
+		ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;
+
+
+
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                 JDBC ( Java DataBase Connectivity )
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+Database is an organised collection of data generally stored and accessed  electronically from a computer system.
+		Now a days , we use Relational Database management system (RDBMS) to store and manage huge volume of data this is called Relational Database because all the data is stored into the different table and relation are established using primary key or other keys  as foreign key.
+
+
+
+JDBC is a java api which facilitate connectivity of java application to database.
+
+User of a RDBMS Package can be divided in two category.
+1) Human User (Human insterface control, windows or web based) 
+2) Applications
+
+Application interface is called drivers usually a driver is a set of functions or classes which perform database operation. initially native driver were provided by database verders to application programmers to perform database operations.
+
+limitation is that application programmer need to learn different drivers for each RDBMS Package
+
+both the problem of native drivers were solved by odbc
+=> ODBC is a standard api for application to intereact with RDBMS package
+=> ODBC is a set of C functions prototype to perform database operations.(it is written in c)
+
+JDBC is created by Sun ( Oracle )
+
+Four Different type of JDBC Drivers
+1) Type 1 or JDBC- ODBC Bridge Driver
+2) Type 2 or JDBC-Native Driver
+3) Type 3 or JBDC-Network Driver
+4) Type 4 or Pure Java Native Driver (JDBC calls directly into the vendor specific database protocol that is why it is known as thin driver it is fully written in java language)
+
+Using JDBC API
+-> The JDBC API classes and interfaces are available in the java.sql or javaax.sql package
+Commonly used classes and interfaces are follows:-
+1) DriversManager
+2) SQLExeception		classes
+3) Types
+
+4) Connection
+5) Statement
+6) PreparedStatement	interfaces
+7) CallableStatement
+
+
+1) DriverManager
+  it is utility class/helper class provided by sun microsytem that is responsible for mangaing jdbc drivers and act as a factory of connection.
+
+2) Types
+it is helper class which defines static final integer data members to represents JDBC types
+
+3) SQLException
+it is super class of all database related exception
+
+4) Connection
+this interface provides methods for managing database connectivity act as a factory of statement
+
+5) Statement
+this interface provides methods for execution SQL query and act as a factory ResultSet
+
+6) PreparedStatement
+this interface is sub interface of a statement and provides the facility of executing parameterized queries.
+
+7) CallableStatement
+this interface extends PreparedStatement and provides methods for executing stored procedures and functions.
+
+8)ResultSet
+this interface provides methods of managing the result of a select query it means it.
+
+Steps to connect to the Database
+1) Register the driver class
+2) Creating connection
+3) Creating statement
+4) Executing queries
+5) Closing Connection
+
+
+1) Register the drive class / Load the drive class
+
+	Class.forName() method is available in the java.lang.Class to dynamically load the driver's class file into memory which automatically register it. This method is preferable because it allow you to make the driver registration configuration and portable.
+
+	Syntex=>
+		public static class forName(String className)throws ClassNotFoundException
+
+	Ex=>
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+	
+
+	using the registerDrive() method
+    
+	=> this method belongs to the DriveManagerclass You need to call the registerDrive() method to register the Drive class object with the 
+	      DriveManager
+
+
+2) Create the Connection object
+
+=> getConnection() method of DriveManager class is used to establish connection with database
+=> Syntex of getConnection() method
+
+syntex of getConnection() method
+
+	=> public static Connection getConnection(String url)throws SQLException
+
+
+
+=> After you've loaded the driver you can eatablished a connection using the DriverManager.getConnection() method . For easy reference let me list the three overloaded DriverManager.getConnection() methods:---
+
+1)		getConnection(String url)
+2)		getConnection(String url, Properties prop)
+3)		getConnection(String url, String user, String password)
+
+
+=> Following table lists down the popular JDBC driver names and database URL
+
+
+	RDBMS			JDBC driver name				URL Format
+
+	MySQL			com.mysql.jdbc.Driver			jdbc:mysql://hostname/databaseName
+	ORACLE			oracle.jdbc.driver.OracleDriver			jdbc:oracle:thin:@hostname:portNumber:database
+	DB2			COM.ibm.db2.jdbc.net.DB2Driver		jdbc:db2:hostname:portNumber/databaseName
+	Sybase			com.sybase.jdbc.SybDriver			jdbc:sybase:Tds:hostname:portNumber/database
+
+
+
+
+3) Create the Statement object
+=> the createStatement() method of connection interface is used to create statement. The object of statement is responsible to execute queries with database
+
+		public Statement createStatement()throws SQLException
+
+Example=>	Statement stmt=con.createStatement();
+
+
+
+
+=> Before you can use a Statement object to execute a SQL statement you need to create one using the Connection object's createStatement() methods
+
+Once you've created a Statement object you can then  use it to execute an SQL statement with one ot its three execute methods.
+
+1) boolean execute(String SQL)
+Return a boolean value of true if a ResultSet  obejct can be reterived otherwise it returns false. Use this methods to execute SQL DDL stateement
+2) int executeQuery(String SQL)
+3)ResultSet executeQuery(String SQL)
+
+
+
+
+	PreparedStatement Object :-------------
+The PreparedStatement interface extends the Statement interface which gives you added functionality with a couple of advantages over a generic Statement object
+		This statement gievs you the flexibility of supplying arguments dynamically
+
+
+
+
+4) Execute the query
+=> the Statement interface contains the following methods to execute static SQL statements to a database
+
+
+		ResultSetexecuteQuery(String selectQuery)
+		intexecuteUpdate(String DMLStatement)
+		boolean execute(String  DDLStatement)
+
+=> DQL/DRL(Data Query Langugae / Data Retrival Language )  Select Command
+=> DML ( Data Manipulation Langugage) insert, delete, updata command
+=> DDL ( Data Defination Language ) create, alter, drop, truncate command
+
+5) Close Connection 
+=> by closing connection object statement and ResultSet will be closed automatically. the close() method of connection interface is used to close the connection
+
+		public void close()throws SQLException
+
+		con.close();
+
+
+
+
+//program for select query		DRL/DQL Operation
+
+import java.sql.*;
+class selectquery
+{
+	public static void main(String [] args)
+	{
+	    try
+	    {
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+		Statement stmt=con.createStatement();
+		ResultSet rs=stmt.executeQuery("SELECT * FROM BOYS");
+		System.out.println("Details of the Student : ");
+		while(re.next())
+		{
+			System.out.println(rs.getString(1)+"\t+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getInt(4)+"\t"+rs.getInt(5));
+		}
+		con.close();
+	    }
+	    catch(Exception e)
+	    {
+		System.out.println(e);
+	    }
+	}
+}
+
+
+Example (Executing the SELECT Query More than Once)
+
+import java.sql.*;
+class demo
+{
+    public static void main(String [] args)
+    {
+        try
+        {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+            Statement stmt=conn.createStatement();
+            System.out.println("Details of the Employes");
+            ResultSet res=stmt.executeQuery("Select * from boys");
+            while(res.next())
+            {
+                System.out.println(res.getInt(1)+"\t"+res.getString(2)+"\t"+res.getString(3)+"\t"+res.getString(4)+"\t"+res.getInt(5)+"\t"+res.getLong(6));
+            }
+
+            System.out.println("\nPhone Number of Employes : ");
+            ResultSet rs=stmt.executeQuery("SELECT  PHONE FROM BOYS WHERE SALARY>10000");
+            while(rs.next())
+            {
+                /*System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));*/
+                System.out.println(rs.getLong(1));
+            }
+    
+            System.out.println("\nName of the Employ whose salary is more then 10000");
+            ResultSet re=stmt.executeQuery("SELECT FNAME,LNAME FROM BOYS WHERE SALARY>10000");
+            while(re.next())
+            {
+                System.out.println(re.getString(1)+"\t"+re.getString(2));
+            }
+            conn.close();
+    
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+       
+    }
+}
+
+
+
+
+Output=>
+
+Details of the Employes
+101     ALI     	HASAN   	E001    10000   9760656467
+105     SHIVAM  	VIRU    	E002    40000   9760654562
+110     SHOAB   	KHAN    	E080    68000   9765154562
+102     DHERAJ  	PANDEY  	E005    48000   9765794562
+116     RAJAT   	GUPTA   	E091    48550   7765794512
+111     MAYANK  	JADAV   	E081    75550   7710794512
+115     SACHIN  	GUPTA   	E007    48750   7755441362
+
+Phone Number of Employes :
+9760654562
+9765154562
+9765794562
+7765794512
+7710794512
+7755441362
+
+Name of the Employ whose salary is more then 10000
+SHIVAM  	VIRU
+SHOAB   	KHAN
+DHERAJ  	PANDEY
+RAJAT   	GUPTA
+MAYANK  JADAV
+SACHIN  	GUPTA
+
+
+
+
+
+	Using PreparedStatement DRL operation performed :------------
+
+
+import java.sql.*;
+import java.util.Scanner;
+class demo
+{
+    public static void main(String [] args)
+    {
+        try
+        {
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Enter the Details of the Employes : ");
+            System.out.println("\nEnter Id Number : ");
+            int id=sc.nextInt();
+            sc.nextLine();
+            System.out.println("\nEnter First Name : ");
+            String fname=sc.nextLine();
+            System.out.println("\nEnter Last Name : ");
+            String lname=sc.nextLine();
+            System.out.println("\nEnter Job Code : ");
+            String job_code=sc.nextLine();
+            System.out.println("\nEnter Salary : ");
+            int salary=sc.nextInt();
+            System.out.println("\nEnter Phone Number : ");
+            long phone=sc.nextLong();
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO BOYS VALUES(?,?,?,?,?,?)");
+            stmt.setInt(1,id);
+            stmt.setString(2,fname);
+            stmt.setString(3,lname);
+            stmt.setString(4,job_code);
+            stmt.setInt(5,salary);
+            stmt.setLong(6,phone);
+
+            stmt.executeUpdate();
+
+
+            System.out.println("Operation Performed Successfully : ");
+
+            Statement stmt1=conn.createStatement();
+            ResultSet rs=stmt1.executeQuery("SELECT * FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));
+            }
+
+            conn.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+}
+
+
+Output=>
+D:\VS>javac caller.java
+
+D:\VS>java demo
+Enter the Details of the Employes :
+
+Enter Id Number :
+115
+
+Enter First Name :
+TIM
+
+Enter Last Name :
+BURNER
+
+Enter Job Code :
+E000
+
+Enter Salary :
+20000
+
+Enter Phone Number :
+9955541981
+
+Operation Performed Successfully :
+101     ALI     	HASAN   	E001    10000   9760656467
+105     SHIVAM  	VIRU    	E002    40000   9760654562
+110     SHOAB   	KHAN    	E080    68000   9765154562
+102     DHERAJ  	PANDEY  	E005    48000   9765794562
+109     PATRIC  	NAUGHT  	E112    60000   9955541871
+116     RAJAT   	GUPTA   	E091    48550   7765794512
+111     MAYANK  	JADAV   	E081    75550   7710794512
+115     SACHIN  	GUPTA   	E007    48750   7755441362
+107     RATAN   	DEEP    	E012    45000   7500512583
+108     ED      	FRANK   	E111    50000   9955541781
+115     TIM     	BURNER  	E000    20000   9955541981
+
+
+
+
+
+
+
+//program for Insert query		DML Operation
+import java.sql.*;
+class selectquery
+{
+	public static void main(String [] args)
+	{
+	    try
+	    {
+		class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+		Statement stmt=con.createStatement();
+		stmt.executeUpdate("INSERT INTO BOYS VALUES("E004","ALI","HASAN",48000,9760656467)");
+		System.out.println("Record Updated Successfully");
+		con.close();
+	    }
+	    catch(Exception e)
+	    {
+		System.out.println(e);
+	    }
+	}
+}
+
+
+
+
+
+Example=>
+
+import java.sql.*;
+class demo
+{
+    public static void main(String [] args)
+    {
+       try
+       {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+            Statement stmt=conn.createStatement();
+            stmt.executeUpdate("INSERT INTO BOYS VALUES(109,'Patric','Naught','E112',60000,9955541871)");
+            System.out.println("New Record Added Successfully : ");
+
+            System.out.println("\nNew Records Added in the Boys Table : ");
+            ResultSet rs=stmt.executeQuery("SELECT * FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));
+            }
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       }
+
+    }
+}
+
+
+Output=>
+New Record Added Successfully :New Records Added in the Boys Table :
+
+
+101     ALI     	HASAN   	E001    10000   9760656467
+105     SHIVAM  	VIRU    	E002    40000   9760654562
+110     SHOAB   	KHAN  	E080    68000   9765154562
+102     DHERAJ  	PANDEY  	E005    48000   9765794562
+109     Patric  	Naught  	E112    60000   9955541871
+116     RAJAT   	GUPTA   	E091    48550   7765794512
+111     MAYANK  	JADAV   	E081    75550   7710794512
+115     SACHIN  	GUPTA   	E007    48750   7755441362
+108     Ed      	Frank   	E111    50000   995554171
+
+
+
+
+
+
+//program for create query		DDL Operation
+
+import java.sql.*;
+class selectquery
+{
+	public static void main(String [] args)
+	{
+	    try
+	    {
+		class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+		Statement stmt=con.createStatement();
+		String str="CREATE TABLE BOYS (STUID VARCHAR(20),FNAME VARCHAR(10),LNAME VARCHAR(10),SALARY INT,PHONE INT)"
+		stmt.execute(str);
+		System.out.println("Record Updated Successfully");
+		con.commit();
+		con.close();
+	    }
+	    catch(Exception e)
+	    {
+		System.out.println(e);
+	    }
+	}
+}
+
+
+Example => (Update Query)
+
+import java.sql.*;
+class demo
+{
+    public static void main(String [] args)
+    {
+       try
+       {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+            Statement stmt=conn.createStatement();
+            stmt.executeUpdate("UPDATE BOYS SET PHONE=9955541781 WHERE IDNUM=108");
+            System.out.println("New Record Updated SuccessfullY : ");
+
+            System.out.println("\nNew Records Added in the Boys Table : ");
+            ResultSet rs=stmt.executeQuery("SELECT * FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));
+            }
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       }
+
+    }
+}
+
+Output=>
+
+New Record Updated SuccessfullY :
+
+
+New Records Added in the Boys Table :
+101     ALI     	HASAN   	E001    10000   9760656467
+105     SHIVAM  	VIRU    	E002    40000   9760654562
+110     SHOAB   	KHAN    	E080    68000   9765154562
+102     DHERAJ  	PANDEY  	E005    48000   9765794562
+109     Patric  	Naught  	E112    60000   9955541871
+116     RAJAT   	GUPTA   	E091    48550   7765794512
+111     MAYANK  	JADAV   	E081    75550   7710794512
+115     SACHIN  	GUPTA   	E007    48750   7755441362
+108     Ed      	Frank   	E111    50000   9955541781
+
+
+
+
+
+
+
+	SQL Function (MAX(), MIN(), SUM(), AVG() ) Implementation in Java :-----------------
+
+
+import java.sql.*;
+class demo
+{
+    public static void main(String [] args)
+    {
+        try
+        {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+            Statement stmt=conn.createStatement();
+            System.out.println("\nSummation Function : ");
+            ResultSet rs=stmt.executeQuery("SELECT SUM(SALARY) FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getLong(1));
+            }
+
+            System.out.println("\nMaximum Function : ");
+            rs=stmt.executeQuery("SELECT MAX(SALARY) FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getInt(1));
+            }
+
+            System.out.println("\nMinimum Function : ");
+            rs=stmt.executeQuery("SELECT MIN(SALARY) FROM BOYS");
+            while(rs.next())
+            {s
+                System.out.println(rs.getInt(1));
+            }
+
+            System.out.println("\nAverage Function : ");
+            rs=stmt.executeQuery("SELECT AVG(SALARY) FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getInt(1));
+            }
+
+            conn.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+}
+
+
+
+Output=>
+
+D:\VS>javac caller.java
+
+D:\VS>java demo
+
+Summation Function :
+513850
+
+Maximum Function :
+75550
+
+Minimum Function :
+10000
+
+Average Function :
+46713
+
+
+
+
+	
+
+	ORDER BY  Clause :---------------------
+
+=> Select returns records in no particular order
+=> To ensure a specific order use the ORDER BY caluse
+=> ORDER BY allows sorting by one or more columns.
+=> Records can be returned in Ascending or Descending Order.
+
+
+Example=>
+import java.sql.*;
+public class demo
+{
+	public static void main(String [] args)
+	{
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+			Statement stmt=conn.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT JOBCODE,SALARY FROM BOYS ORDER BY JOBCODE");
+			System.out.println("Details of the Student : ");
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1)+"\t"+rs.getInt(2));
+			}
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}  
+
+
+
+Output=>
+
+Details of the Student : 
+E000	20000
+E001	10000
+E002	40000
+E005	48000
+E007	48750
+E012	45000
+E080	68000
+E081	75550
+E091	48550
+E111	50000
+E112	60000
+
+
+=> The default sort order is ascending that is low-high or a-z.
+
+
+
+
+=> Records in Descending Order
+
+Example=>
+import java.sql.*;
+public class demo
+{
+	public static void main(String [] args)
+	{
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+			Statement stmt=conn.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT JOBCODE,SALARY FROM BOYS ORDER BY JOBCODE DESC");
+			System.out.println("Details of the Student : ");
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1)+"\t"+rs.getInt(2));
+			}
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}
+
+
+
+Output=>
+
+Details of the Student : 
+E112	60000
+E111	50000
+E091	48550
+E081	75550
+E080	68000
+E012	45000
+E007	48750
+E005	48000
+E002	40000
+E001	10000
+E000	20000
+
+
+
+
+
+
+
+
+
+	=> SQL SELECT DISTINCT Statement
+
+=> SELECT DISTINCT returns only distinct (different) values
+=> SELECT DISTINCT eliminates duplicate records from the results.
+=> DISTINCT can be used with aggregate COUNT, AVG, MAX, MIN.
+=> DISTINCT operates on a single column DISTINCT for multiple column is not supported.
+
+
+	General Syntax:-
+1) The General syntex is:
+
+	SELECT DISTINCT column-name from table-name;
+
+2) Can be used with COUNT and other aggregates
+	SELECT COUNT(DISTINCT column-name) FROM table-name;
+
+
+
+
+
+
+	=>SQL SELECT TOP  Statement
+
+=> The SELECT TOP statement returns a specified number of records
+=> SELECT TOP is useful when working with very large datasets.
+=> NON SQL Server database use keywords like LIMIT, OFFSET and ROWNUM.
+
+
+
+
+	General Syntex :
+
+	SELECT TOP n column-names FROM table-name;
+
+	
+Example=>
+SELECT TOP 10 Id,ProductName,UnitPrice, Package FROM Product ORDER BY UnitPrice DESC;
+
+this sql query return the top 10 data of(Id,ProductName, UnitPrice, Package) from table  Product
+ 
+
+
+
+
+	=> SQL HAVING Clause :-----------
+
+1) HAVING filters records that work on summarized GROUP BY results
+2) HAVING applies to summerized group records whereas WHERE applies to individual records.
+3) Only the group that meet  the HAVING criteira will be returned
+4) HAVING requies that a GROUP BY clause is present.
+5) WHERE and HAVING can be in the same query
+
+	
+	Syntex :-
+	
+	SELECT COUNT(Id), Country FROM Customer GROUP BY Country HAVING COUNT(Id) > 10;

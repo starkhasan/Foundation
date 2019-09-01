@@ -1,0 +1,2298 @@
+=> Android is an open source and Linux-based operating system mobile devices such as smartphone and tablet computer.
+=> Android was developed by Google and the Open Handset Alliance, led by Google and other companies.
+
+It is developed by Google and later the OHA (Open Handset Alliance).Java language is mainly used to write the Android code even through other can be used.
+
+Open Handset Alliance (OHA) :------------------
+It is a consortium of 84 companies such as google, samsung,AKM,synaptics,KDDI,Germin,Teleca, Ebay,Intel etc.
+It was estanlished on 5th November 2007 led by Google.
+It is a cmonnunity to advance open standards provides services and deply handsets using the  Andriod Platform.
+
+
+=> The first beta version of the Android Software Development Kit (SDK) was released by google in 2007 where as the first commercial version , Android 1.0 was released in September 2008.
+
+=> Those source code for Android is avilable under free and open source software licences. Google published most of the code under the Apache License version 2.0 and the rest, Linux Kernal change under the GNU General Public License version 2.
+
+
+Features of Andriod :---------------------
+Android is a powerful operating system competing with Apple 4GS and support great features.
+
+Beautiful UI	Android OS basic screen provides a beautiful and intuitive user interface.
+	
+Connectivity	GSM/EDGE, IDEN, CDMA, EV-DO, UMTS, Bluetooth, Wi-Fi, LTE, NFC and WiMAX.
+	
+Storage		SQLite, a lightweight relational database, is used for data storage purposes.
+
+Media support	H.263, H.264, MPEG-4 SP, AMR, AMR-WB, AAC, HE-AAC, AAC 5.1, MP3, MIDI, Ogg Vorbis, WAV, JPEG, PNG, GIF.
+	
+Messaging	SMS and MMS
+	
+Web browser	Based on the open-source WebKit layout engine, coupled with Chrome's V8 JavaScript engine supporting HTML5.
+	
+Multi-touch	Android has native support for multi-touch which was initially made available in handsets such as the HTC Hero.
+	
+Multi-tasking	User can jump from one task to another and same time various application can run simultaneously.
+
+Resizable widgets	Widgets are resizable, so users can expand them to show more content or shrink them to save space.
+
+Multi-Language	Supports single direction and bi-directional text.
+
+GCM		Google Cloud Messaging (GCM) is a service that lets developers send short message data to their users on Android devices, without needing a proprietary sync solution.
+	
+Wi-Fi Direct	A technology that lets apps discover and pair directly, over a high-bandwidth peer-to-peer connection.
+
+Android Beam	A popular NFC-based technology that lets users instantly share, just by touching two NFC-enabled phones together.
+
+
+What is API level?
+
+API Level is an integer value that uniquely identifies the framework API revision offered by a version of the Android platform.
+
+
+
+
+
+	History of Android :------------------
+
+1) Initially, Andy Rubin founded Android Incorporation in Palo Alto, California, United States in October, 2003.
+
+2) In 17th August 2005, Google acquired android Incorporation. Since then, it is in the subsidiary of Google Incorporation.
+
+3) The key employees of Android Incorporation are Andy Rubin, Rich Miner, Chris White and Nick Sears.
+
+4) Originally intended for camera but shifted to smart phones later because of low market for camera only.
+
+5) Android is the nick name of Andy Rubin given by coworkers because of his love to robots.
+
+6) In 2007, Google announces the development of android OS.
+
+7) In 2008, HTC launched the first android mobile.
+
+
+	Andriod Architecture :----------------------
+Android operating system is a stack of software components which is roughly divided into five sections and four main layers.
+
+
+1) Linux kernel
+
+At the bottom of the layers is Linux - Linux 3.6 with approximately 115 patches. This provides a level of abstraction between the device hardware and it contains all the essential hardware drivers like camera, keypad, display etc.
+Also, the kernel handles all the things that Linux is really good at such as networking and a vast array of device drivers, which take the pain out of interfacing to peripheral hardware.
+
+2) Libraries
+
+On top of Linux kernel there is a set of libraries including open-source Web browser engine WebKit, well known library libc, SQLite database which is a useful repository for storage and sharing of application data, libraries to play and record audio and video, SSL libraries responsible for Internet security etc.
+
+android.app - Provides access to the application model and is the cornerstone of all Android applications.
+
+android.content - Facilitates content access, publishing and messaging between applications and application components.
+
+android.database - Used to access data published by content providers and includes SQLite database management classes.
+
+android.opengl - A Java interface to the OpenGL ES 3D graphics rendering API.
+
+android.os - Provides applications with access to standard operating system services including messages, system services and inter-process communication.
+
+android.text - Used to render and manipulate text on a device display.
+
+android.view - The fundamental building blocks of application user interfaces.
+
+android.widget - A rich collection of pre-built user interface components such as buttons, labels, list views, layout managers, radio buttons etc.
+
+android.webkit - A set of classes intended to allow web-browsing capabilities to be built into applications.
+
+
+3) Application Framework
+The Application Framework layer provides many higher-level services to application in the form of java classes.
+
+Andriod framework includes the following key services :----------
+
+a) Activity Manager --  Controls all aspects of the application lifecycle and activity stack.
+
+b) Content Provides -- Allows applications to publish and share data with other applications.
+
+c) Resource Manager - Provides access to non-code embedded resources such as strings, color settings and user interface layouts.
+
+d) Notifications Manager - Allows applications to display alerts and notifications to the user.
+
+e) View System - An extensible set of views used to create application user interfaces.
+
+
+3.1) Android Runtime:--------------
+In Android runtime there are core libraries and DVM(Dalvik Virtual Machine) which is responsible to run android application. DVM is like JVM but it is optimized for mobile devices. It consume less memory and provides fast performance.
+	
+	
+	Applications :---------------
+
+You will find all the Android application at the top layer. You will write your application to be installed on this layer only. Examples of such applications are Contacts Books, Browser, Games etc.
+
+
+
+
+	Application Components :--------------------
+
+Andriod components are the essential building blocks of an android application. These components are loosely coupled by the application manifest file AndriodManifest.xml that describes each component of the application and how they interact.
+
+1) Activites
+They dictate the UI and handle the user interaction to the smart phone screen.
+(An activity represent a single screen with a user interfacce in-short Activity performs action on the screen)
+
+2) Services
+They handle background processing associated with an application
+(Service is a component that runs in the background to perform long-running operations)
+
+3)Broadcast Receivers
+ They handle communication between Android OS and applications.
+(Broadcast Receivers simply respond to broadcast message from other applications or from the system)
+
+4)Content Provides
+They handle data and database management issues.
+(A content proider component supplies data from one application to other on request)
+
+
+5) View
+A view is a UI element such as buttom label text field etc. Anything that you see is a view
+
+6) Intent
+Intent is used to invoke component. It is mainly used to
+=> start the services
+=> Launched an activity
+=> Display a web page
+=> Display a list of contacts
+=> broadcast a message
+=> Dial a phone call
+
+7) Fragment
+
+Fragments are like parts of activity. An activity can display one or more fragments on the screen at the same time.
+
+8) AndroidManifest.xml
+It contains informations about activities, content providers, permissions etc. It is like the web.xml file in Java EE.
+It contains information of your package , including components of the application such as activities, services, broadcast receivers, content provider etc.
+
+It perform some other tasks also:
+=> it is responsible to protect the application to access any protected parts by providing the permissions.
+=> It also declares the android api that the application is going to use.
+
+
+9) Android Virtual Device (AVD)
+It is used to test the android application without the need for mobile or tablet etc. It can be created in different configurations to emulate different types of real devices.
+
+
+Android Components Activities :----------------
+Example => Alarm
+	UI where you shall set alarm	| Activity
+	Data is saved		| Content Provider
+	7:00 AM			| Service
+	Event handling		| BroadcastReceiver
+
+
+
+
+	Android Emulator :----------------------
+
+Android Emulator is used to run, debug and test the android application. If you don't have the real device, it can be the best way to run, debug and test the application.
+It uses an open source processor emulator technology called QEMU.
+The emulator tool enables you to start the emulator from the command line.
+
+
+Android supports java,c++,c# etc language to develop applications. java is the officially supported language for Android.
+
+
+	Example Helloworld Program in Android Studio :---------------------
+
+1) Write the mesage in Create New Project
+File :- activity_main.xml
+Android studio auto generates code for activity_main.xml.you may edit this file accordingly to our requirement.
+
+<?xml version="1.0" encoding="utf-8"?>  
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    xmlns:app="http://schemas.android.com/apk/res-auto"  
+    xmlns:tools="http://schemas.android.com/tools"  
+    android:layout_width="match_parent"  
+    android:layout_height="match_parent"  
+    tools:context="first.javatpoint.com.welcome.MainActivity">  
+  
+    <TextView  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="Hello Android!"  
+        app:layout_constraintBottom_toBottomOf="parent"  
+        app:layout_constraintLeft_toLeftOf="parent"  
+        app:layout_constraintRight_toRightOf="parent"  
+        app:layout_constraintTop_toTopOf="parent" />  
+  
+</android.support.constraint.ConstraintLayout>  
+} 
+
+
+File: MainActivity.java
+
+package first.javatpoint.com.welcome;  
+  
+import android.support.v7.app.AppCompatActivity;  
+import android.os.Bundle;  
+  
+public class MainActivity extends AppCompatActivity {  
+    @Override  
+    protected void onCreate(Bundle savedInstanceState) {  
+        super.onCreate(savedInstanceState);  
+        setContentView(R.layout.activity_main);  
+    }  
+}
+
+
+=> to runandroid application click the run icon on the toolbar or simply press shift+F10.
+
+
+
+	Internal Details of HelloWorld Example :-----------------------  
+Android application contains different component such as java source code,string resources, imahe , manifest file, spk file etc.
+
+
+	=> The Main Activity File
+
+The main activity code is a Java file MainActivity.java. This is the actual application file which ultimately gets converted to a Dalvik executable and runs your application. Following is the default code generated by the application wizard for Hello World! application 
+
+package com.example.helloworld;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+}
+
+Here R.layout.activity_main refers to the activity_main.xml file located in the res/layout folder.
+The onCreate() method in one of many methods that are figured when an activity is loaded.
+The setContentView(R.layout_activity_main) gives information about our layout resource.
+Here out layout resource are define in activity_main.xml file.
+
+
+	=> The Manifest File
+
+Whatever component you develop as a part of your application, you must declare all its components in a manifest.xml which resides at the root of the application project directory. This file works as an interface between Android OS and your application, so if you do not declare your component in this file, then it will not be considered by the OS. For example, a default manifest file will look like as following file 
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.tutorialspoint7.myapplication">
+
+   <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+      
+      <activity android:name=".MainActivity">
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+      </activity>
+   </application>
+</manifest>
+
+
+	Element of the AndroidManifest.xml file:----------------
+
+The elements used in the above.xml file are described below
+
+<manifest>
+manifest is the root element of the AndroidManifest.xml.
+It has package attribute that desribes the package name of the activity class.
+
+<application>
+application is the subelement of the manifest. it includes the namespaces declaration. This element contains several subelements that declares the application component such as activity etc.
+
+the commonly used attributes are of this element are icon, label, theme etc.
+android:icon represent the icon for all the android application components.
+android:label workd as the default label for all the application components.
+android:theme represents a common theme for all the android activities.
+
+<activity>
+activity is the subelement of application and represents an activity that must be defined in the AndroidManifest.xml file. It has many attributes such as label, name, theme, launchMode etc.
+
+android:label represents a label i.e. displayed on the screen.
+
+android:name represents a name for the activity class. It is required attribute.
+
+<intent-filter>
+intent-filter is the sub-element of activity that describes the type of intent to which activity, service or broadcast receiver can respond to.
+
+<action>
+It adds an action for the intent-filter. The intent-filter must have at least one action element.
+
+
+	The Strings File :----------------
+
+The strings.xml file is located in the res/values folder and it contains all the text that your application uses. For example, the names of buttons, labels, default text, and similar types of strings go into this file. This file is responsible for their textual content. For example, a default strings file will look like as following file
+
+<resources>
+   <string name="app_name">HelloWorld</string>
+   <string name="hello_world">Hello world!</string>
+   <string name="menu_settings">Settings</string>
+   <string name="title_activity_main">MainActivity</string>
+</resources>
+
+
+
+	The Layout File :-----------------
+
+The activity_main.xml is a layout file available in res/layout directory, that is referenced by your application when building its interface. You will modify this file very frequently to change the layout of your application. For your "Hello World!" application, this file will have following content related to default layout
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent" >
+   
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_centerVertical="true"
+      android:padding="@dimen/padding_medium"
+      android:text="@string/hello_world"
+      tools:context=".MainActivity" />
+      
+</RelativeLayout>
+
+
+	Generating R.java file :-------------------------
+
+It is the auto-generated file that contains IDs for all the resources of res directory.It is generated by aapt(Android Asset Packaging Tool).Whenever you create any component an activity_main, a corresponding ID is created in R.java file which can be used in the Java Source file later.
+
+File: R.java
+
+/* AUTO-GENERATED FILE.  DO NOT MODIFY. 
+ * 
+ * This class was automatically generated by the 
+ * aapt tool from the resource data it found.  It 
+ * should not be modified by hand. 
+ */  
+package com.example.helloandroid;  
+public final class R {  
+    public static final class attr {  
+    }  
+    public static final class drawable {  
+        public static final int ic_launcher=0x7f020000;  
+    }  
+    public static final class id {  
+        public static final int menu_settings=0x7f070000;  
+    }  
+    public static final class layout {  
+        public static final int activity_main=0x7f030000;  
+    }  
+    public static final class menu {  
+        public static final int activity_main=0x7f060000;  
+    }  
+    public static final class string {  
+        public static final int app_name=0x7f040000;  
+        public static final int hello_world=0x7f040001;  
+        public static final int menu_settings=0x7f040002;  
+    }  
+    public static final class style {  
+        /**  
+        Base application theme, dependent on API level. This theme is replaced 
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices. 
+            Theme customizations available in newer API levels can go in 
+            res/values-vXX/styles.xml, while customizations related to 
+            backward-compatibility can go here. 
+         Base application theme for API 11+. This theme completely replaces 
+        AppBaseTheme from res/values/styles.xml on API 11+ devices. 
+  API 11 theme customizations can go here.  
+        Base application theme for API 14+. This theme completely replaces 
+        AppBaseTheme from BOTH res/values/styles.xml and 
+        res/values-v11/styles.xml on API 14+ devices. 
+ API 14 theme customizations can go here.  
+         */  
+        public static final int AppBaseTheme=0x7f050000;  
+        /**  Application theme.  
+ All customizations that are NOT specific to a particular API-level can go here.  
+         */  
+        public static final int AppTheme=0x7f050001;  
+    }  
+}  
+
+
+ 
+
+
+	Android Resources :------------------
+
+There are many more items which you use to build a good Android application.
+Apart form coding for the application you take care of various other resources like static content that your code uses, such as bitmap, colors, layout definitions, user interface string, animation instructions, and more.
+These resources are always maintained separately in various sub-directory under res/directory of the project. 
+
+	Organize resource in Android Studio :-
+
+MyProject/
+   app/
+      manifest/
+         AndroidManifest.xml
+   java/
+      MyActivity.java  
+      res/
+         drawable/  
+            icon.png  
+         layout/  
+            activity_main.xml
+            info.xml
+         values/  
+            strings.xml 
+
+=> anim/
+XML files that define property animations. They are saved in res/anim/ folder and accessed from the R.anim class.
+	
+=> color/
+XML files that define a state list of colors. They are saved in res/color/ and accessed from the R.color class.
+	
+=>drawable/
+Image files like .png, .jpg, .gif or XML files that are compiled into bitmaps, state lists, shapes, animation drawable. They are saved in res/drawable/ and accessed from the R.drawable class.
+	
+=>layout/
+XML files that define a user interface layout. They are saved in res/layout/ and accessed from the R.layout class.
+	
+=>menu/
+XML files that define application menus, such as an Options Menu, Context Menu, or Sub Menu. They are saved in res/menu/ and accessed from the R.menu class.
+
+
+=>raw/
+Arbitrary files to save in their raw form. You need to call Resources.openRawResource() with the resource ID, which is R.raw.filename to open such raw files.
+	
+=>values/
+XML files that contain simple values, such as strings, integers, and colors. For example, here are some filename conventions for resources you can create in this directory -
+
+arrays.xml for resource arrays, and accessed from the R.array class.
+integers.xml for resource integers, and accessed from the R.integer class.
+bools.xml for resource boolean, and accessed from the R.bool class.
+colors.xml for color values, and accessed from the R.color class.
+dimens.xml for dimension values, and accessed from the R.dimen class.
+strings.xml for string values, and accessed from the R.string class.
+styles.xml for styles, and accessed from the R.style class.
+	
+=>xml/
+Arbitrary XML files that can be read at runtime by calling Resources.getXML(). You can save various configuration files here which will be used at run time.
+
+
+
+	=> Accessing Resorces :-------------------
+During your application development you will need to access defined resources either in your code or in your layout XML files.
+
+1)Acessing Resource in Code :-
+When your Android application is compiled a R class gets generated which contains resource IDs for all the resources avilable in your res/ directory.
+You can use R class to access that resource using sub-directory and resource name or directly resource ID.
+
+Example:-
+To access res/drawable/myimage.png and set an ImageView you will use following code :-
+
+ImageView imageView = (ImageView) findViewById(R.id.myimageview);
+imageView.setImageResource(R.drawable.myimage);
+
+Here first line of the code make use of R.id.myimageview to get ImageView defined with id myimageview in a Layout file. Second line of code makes use of R.drawable.myimage to get an image with name myimage available in drawable sub-directory under /res. 
+
+
+Example
+Consider next example where res/values/strings.xml has following definition -
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string  name="hello">Hello, World!</string>
+</resources>
+Now you can set the text on a TextView object with ID msg using a resource ID as follows -
+
+TextView msgTextView = (TextView) findViewById(R.id.msg);
+msgTextView.setText(R.string.hello);
+
+
+
+	=> Accessing Resources in XML
+
+Consider the following resource XML res/values/strings.xml file that includes a color resource and a string resource -
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <color name="opaque_red">#f00</color>
+   <string name="hello">Hello!</string>
+</resources>
+Now you can use these resources in the following layout file to set the text color and text string as follows -
+
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:textColor="@color/opaque_red"
+   android:text="@string/hello" />
+
+Now if you will go through previous chapter once again where I have explained Hello World! example, and I'm sure you will have better understanding on all the concepts explained in this chapter. So I highly recommend to check previous chapter for working example and check how I have used various resources at very basic level.
+
+
+
+
+	=> Android Activities :--------------
+
+If you have worked with C,C++ or Java programming language then you must have seen that your program starts from main() functions.
+Very similar way Android system initiates its program with in an Activity starting with a call of onCreate() callback method.
+There is a sequence of callback methods that start up an activity and a sequence of callback methods that tear down an activity.
+
+
+	Callback and Description :-
+
+onCreate()	=> this is the first callback and called when the activity is first created
+
+onStart()		=> this callback is called when the activity becomes visible to the user
+
+onResume()	=> this is called when the user starts interacting with the application
+
+onPause()		=> the paused activity does not receive user input and execute any code and called when the current activity is paused and previous activity is resumed.
+
+onStop()		=> this callback method is called when activity is no longer visible.
+
+onDestroy()	=> called before the activity is destroyed by the system.
+
+onRestart()	=> this callback is called when the activity restarts after stopping
+
+
+Example=>
+
+package com.example.helloworld;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.util.Log;
+
+public class MainActivity extends Activity {
+   String msg = "Android : ";
+   
+   /** Called when the activity is first created. */
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      Log.d(msg, "The onCreate() event");
+   }
+
+   /** Called when the activity is about to become visible. */
+   @Override
+   protected void onStart() {
+      super.onStart();
+      Log.d(msg, "The onStart() event");
+   }
+
+   /** Called when the activity has become visible. */
+   @Override
+   protected void onResume() {
+      super.onResume();
+      Log.d(msg, "The onResume() event");
+   }
+
+   /** Called when another activity is taking focus. */
+   @Override
+   protected void onPause() {
+      super.onPause();
+      Log.d(msg, "The onPause() event");
+   }
+
+   /** Called when the activity is no longer visible. */
+   @Override
+   protected void onStop() {
+      super.onStop();
+      Log.d(msg, "The onStop() event");
+   }
+
+   /** Called just before the activity is destroyed. */
+   @Override
+   public void onDestroy() {
+      super.onDestroy();
+      Log.d(msg, "The onDestroy() event");
+   }
+}
+
+=> Log.d() method has been used to generate log message.
+
+An activity class loads all the UI component using the XML file availabe in res/layout/folder of the project. Following statement loads UI components from res/layout/activity-main.xml file.
+	
+	setContentView(R.layout.activity_main);
+
+An application can have one or more activities without any restrictions. Every activity you define for your application must be declared in your AndroidManifest.xml file and the main activity for your app must be declared in the manifest with an <intent-filter> that include the MAIN action and LAUNCHER.
+
+	
+
+
+	Android Services :------------------------
+
+A service is a component that runs in the background to perform long-running operations without needing to interact with the user and it works even if application is destroyed
+				service can essentially take two states,
+1) started
+A service is started when an application component such as an activity starts it by calling startService(). Once started a service can run in the background indefinitely even if the component that started it is destroyed.
+
+2) Bound
+A service is bound when an application component binds to it by calling bindService().
+A bound service offer a client-server interface that allows components to interact with the service, send request get result and even do so across processes with interprocess communication (IPC).
+
+
+To create an service you create a java class that extends the service base class or one of its existing subclasses.
+The service base class defines various callback methods.
+
+1) onStartCommand()	
+the system calls this method when another component such as an activity requests that the service be started by calling startService().if you implement this method it is your responsibility to stop the service when its work is done by calling stopSelf() or stopService() methods.
+
+2) onBind()
+The system calls this method when another component wants to bind with the service by calling bindService(). If you implement this method, you must provide an interface that clients use to communicate with the service, by returning an IBinder object.
+
+3) onUnbind()
+The system calls this method when all clients have disconnected from a particular interface published by the service.
+
+4) onRebind()
+The system calls this method when new clients have connected to the service, after it had previously been notified that all had disconnected in its onUnbind(Intent).
+
+5) onCreate()
+The system calls this method when the service is first created using onStartCommand() or onBind(). This call is required to perform one-time set-up.
+
+6) onDestroy()
+The system calls this method when the service is no longer used and is being destroyed.
+
+
+Example=>
+package com.tutorialspoint;
+
+import android.app.Service;
+import android.os.IBinder;
+import android.content.Intent;
+import android.os.Bundle;
+
+public class HelloService extends Service {
+   
+   /** indicates how to behave if the service is killed */
+   int mStartMode;
+   
+   /** interface for clients that bind */
+   IBinder mBinder;     
+   
+   /** indicates whether onRebind should be used */
+   boolean mAllowRebind;
+
+   /** Called when the service is being created. */
+   @Override
+   public void onCreate() {
+     
+   }
+
+   /** The service is starting, due to a call to startService() */
+   @Override
+   public int onStartCommand(Intent intent, int flags, int startId) {
+      return mStartMode;
+   }
+
+   /** A client is binding to the service with bindService() */
+   @Override
+   public IBinder onBind(Intent intent) {
+      return mBinder;
+   }
+
+   /** Called when all clients have unbound with unbindService() */
+   @Override
+   public boolean onUnbind(Intent intent) {
+      return mAllowRebind;
+   }
+
+   /** Called when a client is binding to the service with bindService()*/
+   @Override
+   public void onRebind(Intent intent) {
+
+   }
+
+   /** Called when The service is no longer used and is being destroyed */
+   @Override
+   public void onDestroy() {
+
+   }
+}
+
+
+Following is the content of the modified main activity file MainActivity.java. This file can include each of the fundamental life cycle methods.
+
+package com.example.tutorialspoint7.myapplication;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.util.Log;
+import android.view.View;
+
+public class MainActivity extends Activity {
+   String msg = "Android : ";
+
+   /** Called when the activity is first created. */
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      Log.d(msg, "The onCreate() event");
+   }
+
+   public void startService(View view) {
+      startService(new Intent(getBaseContext(), MyService.class));
+   }
+
+   // Method to stop the service
+   public void stopService(View view) {
+      stopService(new Intent(getBaseContext(), MyService.class));
+   }
+}
+
+Following is the content of MyService.java. This file can have implementation of one or more methods associated with Service based on requirements. For now we are going to implement only two methods onStartCommand() and onDestroy() -
+
+package com.example.tutorialspoint7.myapplication;
+
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+import android.widget.Toast;
+
+/**
+   * Created by TutorialsPoint7 on 8/23/2016.
+*/
+
+public class MyService extends Service {
+   @Nullable
+   @Override
+   public IBinder onBind(Intent intent) {
+      return null;
+   }
+	
+   @Override
+   public int onStartCommand(Intent intent, int flags, int startId) {
+      // Let it continue running until it is stopped.
+      Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
+      return START_STICKY;
+   }
+
+   @Override
+   public void onDestroy() {
+      super.onDestroy();
+      Toast.makeText(this, "Service Destroyed", Toast.LENGTH_LONG).show();
+   }
+}
+
+
+Following will the modified content of AndroidManifest.xml file. Here we have added <service.../> tag to include our service -
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.example.tutorialspoint7.myapplication">
+
+   <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+		
+      <activity android:name=".MainActivity">
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+      </activity>
+		
+      <service android:name=".MyService" />
+   </application>
+
+</manifest>
+
+
+Following will be the content of res/layout/activity_main.xml file to include two buttons -
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+   android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+   
+   <TextView
+      android:id="@+id/textView1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Example of services"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      android:textSize="30dp" />
+      
+   <TextView
+      android:id="@+id/textView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorials point "
+      android:textColor="#ff87ff09"
+      android:textSize="30dp"
+      android:layout_above="@+id/imageButton"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="40dp" />
+
+   <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageButton"
+      android:src="@drawable/abc"
+      android:layout_centerVertical="true"
+      android:layout_centerHorizontal="true" />
+
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/button2"
+      android:text="Start Services"
+      android:onClick="startService"
+      android:layout_below="@+id/imageButton"
+      android:layout_centerHorizontal="true" />
+
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Stop Services"
+      android:id="@+id/button"
+      android:onClick="stopService"
+      android:layout_below="@+id/button2"
+      android:layout_alignLeft="@+id/button2"
+      android:layout_alignStart="@+id/button2"
+      android:layout_alignRight="@+id/button2"
+      android:layout_alignEnd="@+id/button2" />
+
+</RelativeLayout>
+
+
+
+
+
+	Andoid - Broadcast Receivers :---------------------
+
+Broadcast Receivers simply repond to  broadcast message from other applications ot from the systems itself.
+These message are sometime called events or intent
+
+There are following two important steps to make BroadcastReceiver works for the system broadcasted intents -
+
+1) Creating the Broadcast Receiver
+
+2) Registering Broadcast Receiver
+
+
+
+=> Creating the Broadcast Receiver
+
+A broadcast receiver is implemented as a subclass of BroadcastReceiver class and overriding the onReceive() method where each message is received as a Intent object parameter.
+
+public class MyReceiver extends BroadcastReceiver {
+   @Override
+   public void onReceive(Context context, Intent intent) {
+      Toast.makeText(context, "Intent Detected.", Toast.LENGTH_LONG).show();
+   }
+}
+
+
+=> Registering Broadcast Receiver
+
+An application listens for specific broadcast intents by registering a broadcast receiver in AndroidManifest.xml file. Consider we are going to register MyReceiver for system generated event ACTION_BOOT_COMPLETED which is fired by the system once the Android system has completed the boot process.
+
+<application
+   android:icon="@drawable/ic_launcher"
+   android:label="@string/app_name"
+   android:theme="@style/AppTheme" >
+   <receiver android:name="MyReceiver">
+   
+      <intent-filter>
+         <action android:name="android.intent.action.BOOT_COMPLETED">
+         </action>
+      </intent-filter>
+   
+   </receiver>
+</application>
+
+Now whenever your Android device gets booted, it will be intercepted by BroadcastReceiver MyReceiver and implemented logic inside onReceive() will be executed.
+
+There are several system generated events defined as final static fields in the Intent class. The following table lists a few important system events.
+
+=>Event Constant & Description
+
+1)android.intent.action.BATTERY_CHANGED
+Sticky broadcast containing the charging state, level, and other information about the battery.
+
+2)android.intent.action.BATTERY_LOW
+Indicates low battery condition on the device.
+
+3)android.intent.action.BATTERY_OKAY
+Indicates the battery is now okay after being low.
+
+4)android.intent.action.BOOT_COMPLETED
+This is broadcast once, after the system has finished booting.
+
+5)android.intent.action.BUG_REPORT
+Show activity for reporting a bug.
+
+6)android.intent.action.CALL
+Perform a call to someone specified by the data.
+
+7)android.intent.action.CALL_BUTTON
+The user pressed the "call" button to go to the dialer or other appropriate UI for placing a call.
+
+8)android.intent.action.DATE_CHANGED
+The date has changed.
+
+9)android.intent.action.REBOOT
+Have the device reboot.
+
+
+=>Broadcasting Custom Intents
+
+If you want your application itself should generate and send custom intents then you will have to create and send those intents by using the sendBroadcast() method inside your activity class. If you use the sendStickyBroadcast(Intent) method, the Intent is sticky, meaning the Intent you are sending stays around after the broadcast is complete.
+
+Example=> MainActivity.java
+This file can include each of the fundamental life cycle methods. We have added broadcastIntent() method to broadcast a custom intent.
+
+package com.example.tutorialspoint7.myapplication;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+public class MainActivity extends Activity {
+
+   /** Called when the activity is first created. */
+   @Override
+   
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+
+
+   // broadcast a custom intent.
+      
+   public void broadcastIntent(View view){
+      Intent intent = new Intent();
+      intent.setAction("com.tutorialspoint.CUSTOM_INTENT"); sendBroadcast(intent);
+   }
+}
+
+
+
+Following is the content of MyReceiver.java:
+
+package com.example.tutorialspoint7.myapplication;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+
+/**
+ * Created by TutorialsPoint7 on 8/23/2016.
+ */
+public class MyReceiver extends BroadcastReceiver{
+   @Override
+   public void onReceive(Context context, Intent intent) {
+      Toast.makeText(context, "Intent Detected.", Toast.LENGTH_LONG).show();
+   }
+}
+
+
+Following will the modified content of AndroidManifest.xml file. Here we have added <receiver.../> tag to include our service:
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.example.tutorialspoint7.myapplication">
+
+   <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+		
+      <activity android:name=".MainActivity">
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+      </activity>
+   
+      <receiver android:name="MyReceiver">
+         <intent-filter>
+            <action android:name="com.tutorialspoint.CUSTOM_INTENT">
+            </action>
+         </intent-filter>
+
+      </receiver>
+   </application>
+
+</manifest>
+
+
+
+Following will be the content of res/layout/activity_main.xml file to include a button to broadcast our custom intent -
+
+<RelativeLayout 
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools" 
+   android:layout_width="match_parent"
+   android:layout_height="match_parent" 
+   android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   android:paddingBottom="@dimen/activity_vertical_margin" 
+   tools:context=".MainActivity">
+   
+   <TextView
+      android:id="@+id/textView1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Example of Broadcast"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      android:textSize="30dp" />
+      
+   <TextView
+      android:id="@+id/textView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorials point "
+      android:textColor="#ff87ff09"
+      android:textSize="30dp"
+      android:layout_above="@+id/imageButton"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="40dp" />
+      
+   <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageButton"
+      android:src="@drawable/abc"
+      android:layout_centerVertical="true"
+      android:layout_centerHorizontal="true" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/button2"
+      android:text="Broadcast Intent"
+      android:onClick="broadcastIntent"
+      android:layout_below="@+id/imageButton"
+      android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
+
+
+
+
+	=> Content Provider :--------------------
+A content provider component supplies data from one application to others on request. Such requests are handled by the methods of the ContentResolver class. A content provider can use different ways to store its data and the data can be stored in a database, in files, or even over a network.
+
+Content providers let you centralize content in one place and have many different applications access it as needed. A content provider behaves very much like a database where you can query it, edit its content, as well as add or delete content using insert(), update(), delete(), and query() methods. In most cases this data is stored in an SQlite database.
+
+A content provider is implemented as a subclass of ContentProvider class and must implement a standard set of APIs that enable other applications to perform transactions.
+
+	public class My Application extends  ContentProvider {
+	}
+
+
+Content URIs
+To query a content provider, you specify the query string in the form of a URI which has following format -
+
+<prefix>://<authority>/<data_type>/<id>
+
+Part & Description
+1	
+prefix
+
+This is always set to content://
+
+2	
+authority
+
+This specifies the name of the content provider, for example contacts, browser etc. For third-party content providers, this could be the fully qualified name, such as com.tutorialspoint.statusprovider
+
+3	
+data_type
+
+This indicates the type of data that this particular provider provides. For example, if you are getting all the contacts from the Contacts content provider, then the data path would be people and URI would look like thiscontent://contacts/people
+
+4	
+id
+
+This specifies the specific record requested. For example, if you are looking for contact number 5 in the Contacts content provider t
+
+
+
+	=> Andriod Fragments :-------------
+ A Fragment is a piece of anativity which enable more modular activity designed. It will not be wrong if we say a fragment is a kind of sub-activity.
+
+Following are important points about fragment -
+
+A fragment has its own layout and its own behaviour with its own life cycle callbacks.
+
+You can add or remove fragments in an activity while the activity is running.
+
+You can combine multiple fragments in a single activity to build a multi-pane UI.
+
+A fragment can be used in multiple activities.
+
+Fragment life cycle is closely related to the life cycle of its host activity which means when the activity is paused, all the fragments available in the activity will also be stopped.
+
+A fragment can implement a behaviour that has no user interface component.
+
+Fragments were added to the Android API in Honeycomb version of Android which API version 11.
+
+
+You create fragments by extending Fragment class and You can insert a fragment into your activity layout by declaring the fragment in the activity's layout file, as a <fragment> element.
+
+Prior to fragment introduction, we had a limitation because we can show only a single activity on the screen at one given point in time. So we were not able to divide device screen and control different parts separately. But with the introduction of fragment we got more flexibility and removed the limitation of having a single activity on the screen at a time. Now we can have a single activity but each activity can comprise of multiple fragments which will have their own layout, events and complete life cycle.
+
+
+Fragment Life Cycle
+Android fragments have their own life cycle very similar to an android activity. This section briefs different stages of its life cycle.
+
+
+	Fragment start				FragmentEnd
+	          ||					         ^
+	          V					         ||
+	On Attach()				On Detach()
+	          ||					         ^
+	          V					         ||
+	On Create()				On Destroy()				
+	          ||					         ^
+	          V					         ||
+	On CreateView()	             	             <=		On DestroyView()
+	          ||					         ^
+	          V					         ||
+	On ActivityCreated()	
+	          ||
+	          V
+	On Start()			              <=		On Stop()
+	          ||					       ^
+	          V					       ||
+	On Resume() ======> Fragment is Running ====>	On Pause()
+
+Here is the list of methods which you can to override in your fragment class -
+
+onAttach()The fragment instance is associated with an activity instance.The fragment and the activity is not fully initialized. Typically you get in this method a reference to the activity which uses the fragment for further initialization work.
+
+onCreate() The system calls this method when creating the fragment. You should initialize essential components of the fragment that you want to retain when the fragment is paused or stopped, then resumed.
+
+onCreateView() The system calls this callback when it's time for the fragment to draw its user interface for the first time. To draw a UI for your fragment, you must return a View component from this method that is the root of your fragment's layout. You can return null if the fragment does not provide a UI.
+
+onActivityCreated()The onActivityCreated() is called after the onCreateView() method when the host activity is created. Activity and fragment instance have been created as well as the view hierarchy of the activity. At this point, view can be accessed with the findViewById() method. example. In this method you can instantiate objects which require a Context object
+
+onStart()The onStart() method is called once the fragment gets visible.
+
+onResume()Fragment becomes active.
+
+onPause() The system calls this method as the first indication that the user is leaving the fragment. This is usually where you should commit any changes that should be persisted beyond the current user session.
+
+onStop()Fragment going to be stopped by calling onStop()
+
+onDestroyView()Fragment view will destroy after call this method
+
+onDestroy()onDestroy() called to do final clean up of the fragment's state but Not guaranteed to be called by the Android platform.
+
+
+
+	How to use Fragments? :--------------------------------------
+
+This involves number of simple steps to create Fragments.
+
+First of all decide how many fragments you want to use in an activity. For example let's we want to use two fragments to handle landscape and portrait modes of the device.
+
+Next based on number of fragments, create classes which will extend the Fragment class. The Fragment class has above mentioned callback functions. You can override any of the functions based on your requirements.
+
+Corresponding to each fragment, you will need to create layout files in XML file. These files will have layout for the defined fragments.
+
+Finally modify activity file to define the actual logic of replacing fragments based on your requirement.
+
+Types of Fragments
+Basically fragments are divided as three stages as shown below.
+
+Single frame fragments - Single frame fragments are using for hand hold devices like mobiles, here we can show only one fragment as a view.
+
+List fragments - fragments having special list view is called as list fragment
+
+Fragments transaction - Using with fragment transaction. we can move one fragment to another fragment.
+
+
+
+
+
+	View :--------------------------
+This is the basic building block for user interface component.
+A view occupies a rectangular area on the screen and is responsible for drawing and event handling.
+View is the base class for widget which are used to create interactive UI component (button, text field etc ).
+
+ViewGroup is a subclass of View and provides invisible container that hold other View or other ViewGroup and define their layout properties.
+
+
+	Layouts :-------------
+A layout define the structure for a user interface in app such as in an activity.
+All elements in the layout are built using a hierarchy of View and ViewGroup objects.
+
+View 		=> View usually draws something the user can see interact.
+ViewGroup	=> ViewGroup is an invisible container that defines the layout structure for View and other ViewGroup object,
+
+
+View object are usually called "widget" and can be one of many subclass such as Button or TextView
+ViewGroup objects are usually called "layout" can be one of many types that provide a different layout structure.
+
+	Load the XML Resource :--------------
+
+When you compiled your app each XML layout file is compiled into a View resource.
+You should load the layout resource from your app code in your Activity.onCreate() callback implementation by calling setContentView(), passing it the reference your layout resource in the form of R.layout.layout_file_name
+
+
+Every ViewGroup class implements nested class that extends ViewGroup.LayoutParams. This subclass contains property type that define the size and position for each child view as appropriate for view group
+All view group include a width and height (layout_width and layout_height) and each view is required to define them. many LayoutParam also include optional margin and borders.
+
+wrap_content	=> tells your view to size ifself to the dimensions required by its content.
+match_parent	=> tells your view to become as big as its parent view group will allow.
+
+
+Different types of Layout :--------------
+
+LinearLayout 	=> means you can align views one by one (vertically / horizontally)
+		     layout that organizes its children into single horizontal or vertical row. it create a scrollbar if the length of the windows
+
+Example=>
+MainActivity.java
+package com.example.demo;
+
+import android.os.Bundle;
+import android.app.Activity;
+
+public class MainActivity extends Activity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+}
+
+
+Activity_main.xml File
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:orientation="vertical" >	//set the orietation of the layout
+   
+   <Button android:id="@+id/btnStartService"
+      android:layout_width="270dp"
+      android:layout_height="wrap_content"
+      android:text="start_service"/>
+      
+   <Button android:id="@+id/btnPauseService"
+      android:layout_width="270dp"
+      android:layout_height="wrap_content"
+      android:text="pause_service"/>
+      
+   <Button android:id="@+id/btnStopService"
+      android:layout_width="270dp"
+      android:layout_height="wrap_content"
+      android:text="stop_service"/>
+      
+</LinearLayout>
+
+
+
+
+	RelativeLayout :------------------------
+Android RelativeLayout enable you to specify how child views are positioned relative to each other. The position of each view can be specified as relative to sibling element elements or relative to the parent.
+
+RelativeLayout: Attribute:-
+android:gravity	=> this specifies how an object should position its content on both the X and Y axes. Possible value are top, buttom, left, 		      right, center, center_vertical, center_horizontal
+
+android:IngnoreGravity	=> this indicates what view should not be affected by gravity.
+
+
+
+Example=>
+
+MainActivity.java
+package com.example.demo;
+
+import android.os.Bundle;
+import android.app.Activity;
+
+public class MainActivity extends Activity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+   
+}
+
+
+
+Activity_main.xml file :-----------
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:paddingLeft="16dp"
+   android:paddingRight="16dp" >
+   
+   <EditText
+      android:id="@+id/name"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/reminder" />
+      
+   <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_alignParentStart="true"
+      android:layout_below="@+id/name">
+      
+      <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="New Button"
+         android:id="@+id/button" />
+      
+      <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="New Button"
+         android:id="@+id/button2" />
+      
+   </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+webView		=> to load html static or dynamic pages
+FrameLayout	=> to load child one above another like cards inside a frame we can place one above another or anywhere inside the frame.
+AbsoluteLayout	=> means you have to give exact position where the view should be.
+
+
+
+
+
+
+
+	Android UI Control :---------------------------------
+
+Input control are the interactive components in your app's User Interface.
+Android provides a wide variety of control you can use in your UI such as button, text fields, check box, zoom buttons , toggle button, and many more.
+
+TextView	=> this control used to display text to the user
+EditText	=> EditText is a predefined subclass of textView that include rich editing capabilities
+
+
+
+	AutoCompleteTextView :---------------
+	
+The AutoComplete Textview is view that is similar to EditText except that it shows a list of completion suggestion automatically
+
+
+An AutoComplteTextView  is a View that is similar to EditText except that it shows a list of complete suggestion automatically while user is typing. The list of suggestion is displayed in drop down the user choose an item from there to replace the content of edit box with.
+
+
+AutoCompleteTextView Attributes :------------------
+Following are the important attributes related to autocompleteTextView control.
+
+android:completeHint	=> this defines the hint displayed in the drop down menu.
+android:completeThreashold	=> this defines the number of characters that the user must before completion suggestion are displayed in drop.
+
+Example=>
+package com.example.guidemo3;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+
+public class MainActivity extends Activity {
+   AutoCompleteTextView autocomplete;
+   
+   String[] arr = { "Paries,France", "PA,United States","Parana,Brazil", 
+      "Padua,Italy", "Pasadena,CA,United States"};
+   
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+
+      autocomplete = (AutoCompleteTextView)             
+      findViewById(R.id.autoCompleteTextView1);
+
+      ArrayAdapter<String> adapter = new ArrayAdapter<String>  
+      (this,android.R.layout.select_dialog_item, arr);
+
+      autocomplete.setThreshold(2);
+      autocomplete.setAdapter(adapter);
+   }
+}
+
+
+
+
+
+	Button :-----------------------------
+
+Push-button that can be pressed, or clicked, by the user to perform an action.
+
+To display an button in activity add a button to the activity's layout XML file
+
+<Button
+	android:id="@+id/button_id"
+	android:layout_height="wrap_content"
+	android:layout_width="wrap_content"
+	android:text="@string/self_destruct" />
+
+
+To specify an action when the button is pressed set a click listener on the button object in the correspondling activity code.
+
+	public class Myactivity extends Activity
+	{
+		protected void onCreate(Bundle savedInstanceState)
+		{
+			super.onCreate(savedInstanceState);
+			setContentView(R.layout.content_layout_id);
+			
+			final Button button =  findViewById(R.id.button_id);
+		
+			button.setOnClickListener(new View.OnClickListener()
+			{
+				public void onClick(View view)
+				{
+					//code here executes on main thread after user press button
+
+				}
+			});
+		}
+	}
+
+
+The above code snippet create an instance of View.onClickListener and wiers the listener to the button using setOnClickListener(View.OnClickListener). As a result the system executes the code you write in result the system executes the code you write in onClick(View) after the user presses the button.
+
+Example =>
+MainActivity.java
+
+package com.example.button;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+    private ActionBar actionBar;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        actionBar=getSupportActionBar();//THAT CREATE AN INSTANCE OF THE ACTION BAR
+        actionBar.setTitle("Button Tutorial");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#058373")));
+    }
+
+    public void mymethod(View view)
+    {
+        String title=actionBar.getTitle().toString();
+        Toast.makeText(MainActivity.this,title,Toast.LENGTH_SHORT).show();
+    }
+    public void mymethod1(View view)
+    {
+        Toast new_toast=Toast.makeText(getApplicationContext(),"this is Second Button",Toast.LENGTH_LONG);
+        new_toast.setMargin(50,50);
+        new_toast.show();
+    }
+}
+
+
+activity_main.xml	=> layout file that are used for designing the layout of the UI
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mymethod"
+        android:background="@color/backgroundcolor1"
+        android:textColor="@color/textcolor1"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/button" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:onClick="mymethod1"
+        android:background="@color/backgroundcolor2"
+        android:textColor="@color/textcolor2"
+        android:text="@string/button1" />
+
+</LinearLayout>
+
+
+
+
+	=> we can call more than one button using one onClick() method in Android
+public void mymethod1(View view)
+    {
+       switch(view.getId())
+       {
+           case R.id.button1:
+               Toast.makeText(getApplicationContext(),"Buttton 1",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button2:
+               Toast.makeText(getApplicationContext(),"Button 2",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button3:
+               Toast.makeText(getApplicationContext(),"Button 3",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button4:
+               Toast.makeText(getApplicationContext(),"Button 4",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button5:
+               Toast.makeText(getApplicationContext(),"Button 5",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button6:
+               Toast.makeText(getApplicationContext(),"Button 6",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.button7:
+               Toast.makeText(getApplicationContext(),"Button 7",Toast.LENGTH_SHORT).show();
+               break;
+
+       }
+    }
+
+
+
+
+	ImageButton :-----------------------
+
+An ImageButton is an AbsoluteLayout which enables you to specify the exact location of its children.
+This shows a button with an image (instead of text) that can be pressed or clicked by the user.
+
+
+Following are the important attributes related to ImageButton control.  Inherited from android.widget.ImageView 
+
+android.adjustViewBounds	=> set this to true if you want the ImageView to adjust its bouds to preserve the aspect ratio of its drawable.
+
+android:src		=> set the drawable as the content of this ImageView
+
+
+Inherited from android.view.View
+android:background		=> this is a drawable to use as the background
+
+android:contentDescription	=> this defines text that berifely define the content of view
+
+android:id			=> supplies an identifier name for this view
+
+android:onClick		=> method in this View's context to invoke when the view is clicked
+
+android:visibility		=> this control the initial visibility of the view 
+
+
+
+CheckBox		=> An on/off switch that can be toggled by the user. You should use check box when presenting users with a group of 		     selectable options that are not mutually exclusive.
+
+ToggleButton	=> An on/off button with a light indicator.
+
+RadioButton	=> The RadioButton has two states: either checked or unchecked.
+
+RadioGroup	=> A RadioGroup is used to group together one or more RadioButtons.
+
+
+
+
+	ProgressBar :--------------------
+
+The ProgressBar view provides visual feedback about some ongoing tasks, such as when you are performing a task in the background.
+
+Progress bars are used to show progress of a task.
+example when you are uploading or downloading something from the internet it is better to show the progress of download/upload to the user.
+
+In android there is a class called ProgressDialog that allow you to create progress bar.
+In order t do this you need instantiate an object of this class. its syntex is.
+
+	ProgresssDialog progress=new ProgressDialog(this);
+
+Now yo ucan set some properties of this dialog such as its style its text etc.
+
+	progress.setMessage("Downloading Music : ");
+	progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+	progress.setIndeterminate(true); //loading amount is not measure
+
+Some methods of ProgressDialog class :------------------
+
+getMax()				=> this methods returns the maximum value of the progress
+	
+incrementProgressBy(int diff)		=> methods increment the progress bar by the difference of value passed as a parameter
+
+setIndeterminate(boolean indeterminate)	=> method sets the progress indicator as determiante or indeterminate
+
+setMax()				=> methods set the maximum value of the progress dialog
+
+setProgress(int value)		=> method is used to update the progress dialog with some specific value
+
+show(Context context,CharSequence title,CharSequence title message)	=> static method used to display progress dialog
+
+Example=>
+package com.example.sairamkrishna.myapplication;
+
+import android.app.ProgressDialog;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends ActionBarActivity {
+   Button b1;
+   private ProgressDialog progress;
+   
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      b1 = (Button) findViewById(R.id.button2);
+   }
+   
+   public void download(View view){
+      progress=new ProgressDialog(this);
+      progress.setMessage("Downloading Music");
+      progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+      progress.setIndeterminate(true);
+      progress.setProgress(0);
+      progress.show();
+      
+      final int totalProgressTime = 100;
+      final Thread t = new Thread() {
+         @Override
+         public void run() {
+            int jumpTime = 0;
+            
+            while(jumpTime < totalProgressTime) {
+               try {
+                  sleep(200);
+                  jumpTime += 5;
+                  progress.setProgress(jumpTime);
+               } catch (InterruptedException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+               }
+            }
+         }
+      };
+      t.start();
+   }
+}
+
+
+
+
+
+	Spinner :----------------------------
+A drop-down list that allows users to select one value from a set.
+
+Example=>
+package com.example.spinner;
+
+import java.util.ArrayList;
+import java.util.List; 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
+ 
+class AndroidSpinnerExampleActivity extends Activity implements OnItemSelectedListener{
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.main);
+      
+      // Spinner element
+      Spinner spinner = (Spinner) findViewById(R.id.spinner);
+      
+      // Spinner click listener
+      spinner.setOnItemSelectedListener(this);
+      
+      // Spinner Drop down elements
+      List<String> categories = new ArrayList<String>();
+      categories.add("Automobile");
+      categories.add("Business Services");
+      categories.add("Computers");
+      categories.add("Education");
+      categories.add("Personal");
+      categories.add("Travel");
+      
+      // Creating adapter for spinner
+      ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+      
+      // Drop down layout style - list view with radio button
+      dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+      
+      // attaching data adapter to spinner
+      spinner.setAdapter(dataAdapter);
+   }
+   
+   @Override
+   public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+      // On selecting a spinner item
+      String item = parent.getItemAtPosition(position).toString();
+      
+      // Showing selected spinner item
+      Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+   }
+   public void onNothingSelected(AdapterView<?> arg0) {
+      // TODO Auto-generated method stub
+   }
+}
+
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="vertical"
+   android:padding="10dip"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content">
+   
+   <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dip"
+      android:text="Category:"
+      android:layout_marginBottom="5dp"/>
+      
+   <Spinner
+      android:id="@+id/spinner"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:prompt="@string/spinner_title"/>
+      
+</LinearLayout>
+
+
+
+
+
+	TimePicker :--------------------------
+The TimePicker view enables users to select a time of the day, in either 24-hour mode or AM/PM mode.
+Android Time picler allows you to select the time of the day in either 24 hour or AM/PM mode.The time consist of hours, minutes and clock format.
+
+Android provides this functionality through TimePicker class.
+Inorder to use TimePicker class you have to first define the TimePicker component in your activity_main.xml. 
+
+<TimePicker
+   android:id="@+id/timePicker1"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content" />
+
+After that you have to create an object of TimePicker class and get a reference of the above define xml component to use in MainActivity.java
+
+	import android.widget.TimePicker;
+	private TimePicker timepicker;
+	timepicker=(TimePicker)findViewById(R.id.timepicker);
+
+In order to get the time selected by the user on the screen, you will use getCurrentHour() and getCurrentMinute() method of the TimePicker class
+
+	int hour=timepicker.getCurrentHour();
+	int min=timepicker.getCurrentHour();
+
+Some method in API that gives more control over TimePicker Component.
+
+is24HourView()	=> method returns true if this is in 24 hour view else false
+
+isEnabled()	=> method returns the enabled status for the view
+
+setCurrentMinute(Integer currentMinute()		=>method sets the current minute
+
+setEnable(boolean enabled)			=> method set whether in 24 hour or AM/PM mode
+
+setOnTimeChangedListener(TimePicker.OnTimeChangedListener onTimeChangedListener)
+method set the callable that indicates the time has been adjust by the user.
+
+Example=>
+package com.example.timepicker;
+
+import java.util.Calendar;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+public class MainActivity extends Activity {
+   private TimePicker timePicker1;
+   private TextView time;
+   private Calendar calendar;
+   private String format = "";
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      
+      timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
+      time = (TextView) findViewById(R.id.textView1);
+      calendar = Calendar.getInstance();
+      
+      int hour = calendar.get(Calendar.HOUR_OF_DAY);
+      int min = calendar.get(Calendar.MINUTE);
+      showTime(hour, min);
+   }
+
+   public void setTime(View view) {
+      int hour = timePicker1.getCurrentHour();
+      int min = timePicker1.getCurrentMinute();
+      showTime(hour, min);
+   }
+
+   public void showTime(int hour, int min) {
+      if (hour == 0) {
+         hour += 12;
+         format = "AM";
+      } else if (hour == 12) {
+         format = "PM";
+      } else if (hour > 12) {
+         hour -= 12;
+         format = "PM";
+      } else {
+         format = "AM";
+      }
+		
+      time.setText(new StringBuilder().append(hour).append(" : ").append(min)
+      .append(" ").append(format));
+   }
+
+
+}
+
+
+
+
+	DatePicker :-------------------------
+
+The DatePicker view enables users to select a date of the day.
+
+Android Date Picker allows you to select the date consisting of day month and year in your custom user interface.
+For this functinality android provides DatePicker and DatePicker components.
+
+In order to show DatePickerDialog you have to pass the DatePickerDialog id to showDialog(id_of_dialog)
+
+	showDialog(999);
+
+on calling this showDialog method another method called onCreateDialog automatically called. so we have to override that method too.
+	
+	@Override
+	protected Dialog onCreateDialog(int id)
+	{
+		if(id==999)
+		{
+			return new DatePickerDialog(this,myDateListener,year,month,day);
+		}
+		return null;
+	}
+
+
+in last you have to register the DatePickerDialog listener and override its onDateSet method. This onDateSet method contains the updated day month and year. its syntax is given 
+
+	
+private DatePickerDialog.OnDateSetListener myDateListener = new DatePickerDialog.OnDateSetListener() {
+   @Override
+   public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+      // arg1 = year
+      // arg2 = month
+      // arg3 = day		
+   }
+};
+
+	Method & description :-----------------------------
+	
+getDayOfMonth()
+This method gets the selected day of month
+	
+getMonth()
+This method gets the selected month
+	
+getYear()
+This method gets the selected year
+	
+setMaxDate(long maxDate)
+This method sets the maximal date supported by this DatePicker in milliseconds since January 1, 1970 00:00:00 in getDefault() time zone
+
+	
+setMinDate(long minDate)
+This method sets the minimal date supported by this NumberPicker in milliseconds since January 1, 1970 00:00:00 in getDefault() time zone
+
+	
+setSpinnersShown(boolean shown)
+This method sets whether the spinners are shown
+
+	
+updateDate(int year, int month, int dayOfMonth)
+This method updates the current date
+
+	
+getCalendarView()
+This method returns calendar view
+
+	
+getFirstDayOfWeek()
+This Method returns first day of the week
+
+
+
+
+
+
+
+
+	Event Handling:--------------------
+
+Events are a useful way to collect data about a user's interaction with interative components of Applications. like button pressure or screen, touch etc. The Android framework maintain an event queue a first-in-first out (FIFO) basis.
+we can capture these events in our program and take appropriate action as per requirements.
+
+Event Listener :-
+An event listener is an interface in the View class that contains a single callback method.These methods will be called by the Android framework when the View to which the listener has been registered is triggered by user interaction with the item in the UI.
+
+
+Event Listener Registration :-
+Event Registration is the process by which an Event handler gets registered with an Event Listener ao that the handler is called when the Event Listener fires the event.
+
+Event Handler :-
+When an event happens and we have registered an event listener for the event the event listener calls the Event Handlers, which is the method that actually handles the event.
+
+
+
+Event Listeners & Event Handlers
+
+Event Handler		Event Listener & Description
+onClick()			OnClickListener()
+			This is called when the user either clicks or touches or focuses upon any widget like button, text, image etc. You 				will use onClick() event handler to handle such event.
+
+
+onLongClick()		OnLongClickListener()
+
+			This is called when the user either clicks or touches or focuses upon any widget like button, text, image etc. for 				one or more seconds. You will use onLongClick() event handler to handle such event.
+
+onFocusChange()		OnFocusChangeListener()
+
+			This is called when the widget looses its focus ie. user goes away from the view item. You will use 			onFocusChange() event handler to handle such event.
+
+
+onKey()			OnFocusChangeListener()
+
+			This is called when the user is focused on the item and presses or releases a hardware key on the device. You will 			use onKey() event handler to handle such event.
+
+
+onTouch()			OnTouchListener()
+
+			This is called when the user presses the key, releases the key, or any movement gesture on the screen. You will 			use onTouch() event handler to handle such event.
+
+onMenuItemClick()		OnMenuItemClickListener()
+
+			This is called when the user selects a menu item. You will use onMenuItemClick() event handler to handle such 			event.
+
+onCreateContextMenu()	onCreateContextMenuItemListener()
+
+			This is called when the context menu is being built(as the result of a sustained "long click)
+
+
+Event Listeners Registration
+
+Event Registration is the process by which an Event Handler gets registered with an Event Listener so that the handler is called when the Event Listener fires the event. Though there are several tricky ways to register your event listener for any event, but I'm going to list down only top 3 ways, out of which you can use any of them based on the situation.
+
+1) Using an Anonymous Inner Class
+2) Activity class implements the Listener interface.
+3) Using Layout file activity_main.xml to specify event handler directly.
+
+
+=> Touch Mode
+
+Users can interact with their devices by using hardware keys or buttons or touching the screen.Touching the screen puts the device into touch mode. The user can then interact with it by touching the on-screen virtual buttons, images, etc.You can check if the device is in touch mode by calling the View class’s isInTouchMode() method.
+
+
+Focus :--------------------------
+
+A view or widget is usually highlighted or displays a flashing cursor when it’s in focus. This indicates that it’s ready to accept input from the user.
+
+isFocusable() - it returns true or false
+
+isFocusableInTouchMode() - checks to see if the view is focusable in touch mode. (A view may be focusable when using a hardware key but not when the device is in touch mode)
+
+
+Event Listeners Registration Using an Anonymous Inner Class :---------------------------------
+
+Here you will create an anonymous implementation of the listener and will be useful if each class is applied to a single control only and you have advantage to pass arguments to event handler. In this approach event handler methods can access private data of Activity. No reference is needed to call to Activity.
+
+But if you applied the handler to more than one control, you would have to cut and paste the code for the handler and if the code for the handler is long, it makes the code harder to maintain.
+
+
+
+Example =>
+package com.example.myapplication;
+
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends ActionBarActivity {
+   private ProgressDialog progress;
+   Button b1,b2;
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      progress = new ProgressDialog(this);
+
+      b1=(Button)findViewById(R.id.button);
+      b2=(Button)findViewById(R.id.button2);
+      b1.setOnClickListener(new View.OnClickListener() {
+         
+         @Override
+         public void onClick(View v) {
+            TextView txtView = (TextView) findViewById(R.id.textView);
+            txtView.setTextSize(25);
+         }
+      });
+
+      b2.setOnClickListener(new View.OnClickListener() {
+         
+         @Override
+         public void onClick(View v) {
+            TextView txtView = (TextView) findViewById(R.id.textView);
+            txtView.setTextSize(55);
+         }
+      });
+   }
+}
+
+
+
+
+activity_main.xml :-----------------------
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:paddingBottom="@dimen/activity_vertical_margin"
+   android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   tools:context=".MainActivity">
+   
+   <TextView
+      android:id="@+id/textView1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Event Handling "
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      android:textSize="30dp"/>
+      
+   <TextView
+      android:id="@+id/textView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorials point "
+      android:textColor="#ff87ff09"
+      android:textSize="30dp"
+      android:layout_above="@+id/imageButton"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="40dp" />
+      
+   <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageButton"
+      android:src="@drawable/abc"
+      android:layout_centerVertical="true"
+      android:layout_centerHorizontal="true" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Small font"
+      android:id="@+id/button"
+      android:layout_below="@+id/imageButton"
+      android:layout_centerHorizontal="true" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Large Font"
+      android:id="@+id/button2"
+      android:layout_below="@+id/button"
+      android:layout_alignRight="@+id/button"
+      android:layout_alignEnd="@+id/button" />
+      
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Hello World!"
+      android:id="@+id/textView"
+      android:layout_below="@+id/button2"
+      android:layout_centerHorizontal="true"
+      android:textSize="25dp" />
+      
+</RelativeLayout>
+
+
+
+
+
+
+
+
+	Android Style and Theme :----------------------------------
+
+A Style resource define the format and look for a UI.A style can be applied to an individual View (from within a layout file) or to an entire Activity or application (from within the manifest file)
+
+Defining Styles :--
+A style is defined in an XML resource that is separate from the XMl that specifies the layout. This XML files resides under res/value directory of your project and will have <resource> as the root node which is mandatory for the style file.
+
+You can define multiple styles per file using <style> tag but each style will have its name that uniquely identifies the style. Android style attributes are set using <item> tag 
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <style name="CustomFontStyle">
+      <item name="android:layout_width">fill_parent</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:capitalize">characters</item>
+      <item name="android:typeface">monospace</item>
+      <item name="android:textSize">12pt</item>
+      <item name="android:textColor">#00FF00</item>/> 
+   </style>
+</resources>
+
+
+
+
+	Using Style :--------------------
+
+Once your style is defined you can use it in your XML Layout file using style attribute as follows :-
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:orientation="vertical" >
+
+   <TextView
+      android:id="@+id/text_id"
+      style="@style/CustomFontStyle"
+      android:text="@string/hello_world" />
+
+</LinearLayout>
+
+
+
+	Style Inheritance :----
+
+Android supports style inheritance in very much similar way as cacading style sheet in web design.You can use this to inherit properties from an existing style and then define only the properties that you want to change or add
+
+<resources>
+   ...
+   <style name="MyCustomTheme" parent="android:style/Theme">
+   <item name="android:textColorPrimary">#ffff0000</item>
+   </style>
+   ...
+</resources>
+
+
+In your AndroidManifest.xml apply the theme to the activities you want to style -
+
+<activity
+   android:name="com.myapp.MyActivity"
+   ...
+   android:theme="@style/MyCustomTheme"
+   />
+
+
+
+
+	Applying Colors to Theme Attributes :--------------
+
+Your color resource can then be applied to some theme attributes, such as the window background and the primary text color, by adding <item> elements to your custom theme. These attributes are defined in your styles.xml file. For example, to apply the custom color to the window background, add the following two <item> elements to your custom theme, defined in MyAndroidApp/res/values/styles.xml file -
+
+<resources>
+   ...
+   <style name="MyCustomTheme" ...>
+      <item name="android:windowBackground">@color/my_custom_color</item>
+      <item name="android:colorBackgroundCacheHint">@color/my_custom_color</item>
+   </style>
+   ...
+</resources>
+
+
+	About Nine-Patch Button :--------------
+
+
+
+
+	Android Theme :-------------------------
+ A theme is nothing but an Android style applied to an entire Activity or application, rather than an individual View.
+Thus, when a style is applied as a theme, every View in the Activity or application will apply each style property that it supports.
+
+To set a theme for all the activities of your application, open the AndroidManifest.xml file and edit the <application> tag to include the android:theme attribute with the style name. For example -
+
+<application android:theme="@style/CustomFontStyle">
+
+But if you want a theme applied to just one Activity in your application, then add the android:theme attribute to the <activity> tag only. For example -
+
+<activity android:theme="@style/CustomFontStyle">
+
+There are number of default themes defined by Android which you can use directly or inherit them using parent attribute as follows -
+
+<style name="CustomTheme" parent="android:Theme.Light">
+   ...
+</style>
+

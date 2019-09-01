@@ -1,0 +1,3233 @@
+.Net is a framework to develop software application . It is designed and developed by Microsoft and the first release in 2000. It is used to develop application for web, windows phone. Morever it provides a broad of functionalities support
+
+	The framework contains a large number of class libraries known as Framework Class Library (FCL). The software program written in .NET are executed in the execution environment  which is called CLR(Common Language Resource) these are the core and essential part of the .NET framework.
+
+	The framework provides various services like memory management, networking management , security management and type safety.
+
+
+The .NET framework composed of four main components:------------------
+
+1) Common Language  Resource (CLR)
+2) Framework class Library (FCL)
+3) Core Language (WinForms, ASP.NET and ADO.NET
+4) other Module
+
+
+
+
+
+	What is the Difference Between the Java and C# :------------------
+
+While java has successfully many of the issues surrounding portability in the Internet environment there are still features that it lacks.
+One is cross-language interoperability also called mized-language programming. This is the ability for the code produced by one langugae to work easily with the code produced by another.
+
+Cross-language interoperability is needed for the creation of large distributed software systems.
+It is also desireble for programming software components because the most valuable component is one that can be used by the widest variety of computer languages in greatest number of operating environments.
+
+
+Another features lacking in java is full integration with the Windows platform. Although java programs can be executed in a Windows environment  (assuming that the java virtual machine has been installed) java and window are not closely coupled. Since windows is the most widely used oprating system in the world lack of directly support for windoes is a drawback to java.
+
+
+
+
+
+
+		                                                         ---------------: C# (C - Sharp) :------------------
+
+C# is an Object-Oriented Programming language provided by Microsoft that runs on .NET Framework.
+By the help of C# programming language we can develop different types of secured and robust application :-
+
+=> Window application
+=> Web application
+=> Distributed application
+=> Web service application
+=> Database application
+
+
+C# is pronounced as "C-Sharp" It is object oriented programming language provided by Microsoft that runs on .NET Framework.
+
+Anders Heijsberg is known as the Founder of C# language.
+
+C# has envolved much since first release in 2002 .It was introduced with .NET framework 1.0 and the current version of C# is 5.0.
+
+
+
+
+Question => Is the C#  truly object oriented programming language ?
+
+No C# is not a truly object oriented programming language.
+
+
+
+
+	=> Some of the Features of the C# programming language :-
+
+1) Simple
+2) Modern Programming Language
+3) Object Oriented
+4) Type Safe
+5) Interoperability
+6) Scalable and Updateable
+7) Component oriented
+8) Structured programming language
+9) Rich Library
+10) Fast Speed
+
+
+	
+
+	First Program in C# :----------------
+
+using System;
+
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World1!");
+            Console.WriteLine("Hello World2!");
+            Console.WriteLine("Hello How are you!");
+        }
+    }
+}
+
+
+	=> class
+
+it is a keyword which is used to define class
+
+	=> Program
+it is the class name. A class is a blueprint or template from which object are created  data members and methods. Here it has only Main method
+
+
+	=> static
+it is keyword which means object is not required to access static members. So it save memory.
+
+	=> void
+it is the return type of the method. It doesn't return any value. In such case return statement is not required.
+
+
+	=> Main
+It is method name . it is the entry point of any C# program. whenever we run the C# program. Main() method is invoke first before any other method. It represent start up of the program.
+
+
+	=> string[] args
+It is used for command line argument in C#. while running the C# program we can pass values. these values are known as argument which we can use in the program.
+
+
+	=> System.Console.WriteLine("Hello World")
+
+Here System is the namespace, Console is the class defined in System namespace. The WriteLine() is the static methods of Console class which is used to write the  text on the screen.
+
+
+	=> Using public modifier
+
+we can use specify public modifier before class and Main() method. Now, it can be accessed from outside the class also.
+
+using System;
+public class Program
+{
+	public static void Main(string[] args)
+	{
+		System.Console.WriteLine("Hello World!");
+	}
+}
+
+
+
+	=> Using namespace
+
+we can create class inside the namespace . It is used to group related classes.  It is used to categorized classes so that it can be easy to maintain.
+namespace in C# are used to organized too many classes so that it can be easy to handle the application.
+
+System.Console 	=> where System is the namespace and Console is the class.
+
+
+
+
+
+using System;
+namespace ConsoleApplication
+{
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			System.Console.WriteLine("Hello World!");
+		}
+	}
+
+}
+
+
+
+	=> Data types in C#
+
+There are three different type of the Data types in C#
+
+
+1) Value Data
+
+The value data types are Integer-based pointer and floating -point based. C# laguage support both signed and unsigned literal.
+There are 2 types of value data type in C# language.
+
+a) predefined Data Types
+such as Integer, Boolean, Float etc.
+
+b) userdefined data type
+such as Structure, Enumeration etc.
+
+
+
+2) Pointer Data
+The Pointer in C# language is a variable , it is also known as locator or indicator that points to an address of a value.
+
+& (ampersand sign)	Address operator
+*  (asterick sign)	Indirection operator
+
+
+Declaring a Pointer :-
+
+int *a;	//pointer to int
+char *c	//pointer to char
+
+
+
+
+
+Example=>
+using System;
+
+namespace HelloWorld
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            /*Console.WriteLine("Hello World1!");
+            Console.WriteLine("Hello World2!");
+            Console.WriteLine("Hello How are you!");
+            */
+
+            // using the variable in C#
+            int i = 10;
+            float f = 2.40F;
+            char ch = 'A';
+            Console.Write("Integer = {0} Floating Point Number = {1} Character = {2} \n",i,f,ch);
+        }
+    }
+}
+
+
+
+Output=>
+
+Integer = 10 Floating Point Number = 2.4 Character = A
+
+
+
+	3) Reference Data
+
+The Reference data type do not contain the actual data stored in a variable but they contain a reference  to the other variable.
+If the data is changed by one of the variable, the other variable automatically reflects this change in  value.
+
+There are 2 types of Reference data type in C#.
+a) Predefined type
+such as Object, String
+
+b) Userdefined type
+such as Classes and Interface
+
+
+
+
+
+	C# operator :-----------------
+
+An operator is simply that is used to perform operation. there can be many types of  operation like arithmetic , logical, bitwise etc.
+
+There are following types of operators to perform different types of operation in C# language:-
+
+1) Arithmetic Operator
+2) Relational Operator
+3) Logical Operator
+4) Bitwise Operator
+5) Assignment Operator
+6) Unary Operator
+7) Ternary Operator
+8) Misc Operator
+
+
+
+
+
+
+	C# Keyword :--------------------------------
+
+A keywords is a reseved word. you cannot use it as a variable name, constant name etc.
+In C# keyword cannot be used as identifier. However if we want to use the keyword as identifier we may prefix the keyword with @ character.
+
+
+There are 79 keywords in C#
+
+Example
+
+using System;
+public class Program
+{
+    static void Main(string [] args)
+    {
+        int @class = 10;
+        Console.WriteLine("Integer Number = " + @class);
+    }
+}
+
+
+Output=>
+Integer Number = 10
+
+
+
+	C# Conditional Statement :---------------
+
+1) if statement
+2) if...else statement
+3) nested if statement
+4) if-else-if statement
+
+
+
+1) C# if statement
+
+The C# if statement test the condition. It is executed if condition is true.
+
+	Syntex:---
+	if(condition)
+	{	
+	//code to be executed
+	}
+
+
+
+Example=>
+
+using System;
+public class Program
+{
+    static void Main(string [] args)
+    {
+        int a = 10;
+        if(a>0)
+        {
+            Console.WriteLine("Number is Positive ");
+        }
+        
+    }
+}
+
+
+Output=>
+Number is Positive
+
+
+
+
+
+2) C# if-else statement
+
+the C# if-else statement also test the condition. It executes the if block if condition is true otherwise else block is execute.
+
+	Syntex:-
+	if(condition)
+	{
+	//code to be executed
+	}
+	else
+	{
+	//code to be executed
+	}
+
+
+Example=>
+using System;
+public class Program
+{
+    static void Main(string [] args)
+    {
+        int a = -10;
+        if(a>0)
+        {
+            Console.WriteLine("Number is Positive ");
+        }
+        else
+        {
+            Console.WriteLine("Number is Negative : ");
+        }
+        
+    }
+}
+
+
+
+Output=>
+Number is Negative
+
+
+
+
+
+
+	C# if-else Example with input from user :------------
+
+In this example we are getting input from the user Console.ReadLine() method. It return using For numeric value you need to convert it into int using  Convert.ToInt32() method()
+
+
+
+Example:-
+
+using System;
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter a Number : ");
+        int num = Convert.ToInt32(Console.ReadLine());
+        
+        if(num%2==0)
+        {
+            Console.WriteLine("Even Number : ");
+        }
+        else
+        {
+            Console.WriteLine("Odd Number : ");
+        }
+    }
+}
+
+
+
+output:-
+Enter a Number :
+32
+Even Number :
+
+
+
+
+
+
+
+	C# If-else-if Ladder Statement :-----------
+
+The C# if-else-if ladder statement executes one condition from multiple statement
+
+
+	Syntex:-
+	if(condition)
+	{
+	//code to be executed
+	}
+	else if(condition)
+	{
+	//code to be executed
+	}
+	else
+	{
+	//code to be executed
+	}
+
+	
+
+Example=>
+using System;
+public class Program
+{
+    static void Main(string [] args)
+    {
+            Console.WriteLine("Enter a Number to check Grade : ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            
+        if(number<0 || number >100)
+        {
+            Console.WriteLine("Wrong Number");
+        }
+        else if(number>=0 && number<50)
+        {
+            Console.WriteLine("Fail");
+        }
+        else if(number>=50 && number<50)
+        {
+            Console.WriteLine("D Grade : ");
+        }
+        else if(number>=60 && number < 70)
+        {
+            Console.WriteLine("C Grade");
+        }
+        else if(number>=70 && number<80)
+        {
+            Console.WriteLine("B Grade : ");
+        }
+        else if(number >=80 && number<90)
+        {
+            Console.WriteLine("A Grade : ");
+        }
+        else if(number>=90 && number<=100)
+        {
+            Console.WriteLine("A+ Grade : ");
+        }
+    }
+}
+
+
+
+
+	C# switch statement : ---------------
+
+The C# switch statement executes one statement from multiple  conditions. It is like if-else-if ladder statement in C#.
+
+	Syntex:-
+
+switch(expression)
+{
+	case value1:
+	//code to be executed
+	break;
+	case value2:
+	//code to be executed
+	break;
+	default
+	//code to be exeuted if all cases are not matched
+	break;
+}
+
+
+	
+
+
+
+
+	C# For Loop :----------------
+
+The C# for loop is used to iterate a part of the program several times. If the number of iterator is fixed, it is recommended to use for loop than while or do while loops if number of iteration are unknown.
+
+	The C# for loop is same as C / C++ we can initialize variable check condition and increment / decrement value.
+
+	Syntex :---
+			for(initialization;condition;incr/decr)
+			{
+				//code to be executed
+			}
+
+
+
+
+Example=>
+
+using System;
+public class Program
+{
+    static void Main(string[] args)
+    {
+        for(int i=1;i<=10;i++)
+        {
+            Console.WriteLine("Ali Hasan");
+        }
+    }
+}
+
+
+
+
+
+	=> Nested For loop
+
+In C# we can use for loop inside another for loop it is known as nested for loop. The inner loop is executed fully when outer loop is executed one time.
+
+
+
+Example=>
+using System;
+public class Program
+{
+    static void Main(string[] args)
+    {
+        for(int i=1;i<=10;i++)
+        {
+            for(int j=1;j<=10;j++)
+            {
+                if(j<=i)
+                {
+                    Console.Write("*");
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+Example=>
+using System;
+class Program
+{
+    static void Main(string [] args)
+    {
+        Console.WriteLine("Enter Size pf Pattern : ");
+        int pattern_size = Convert.ToInt32(Console.ReadLine());
+        int num = 1;
+        for(int i=0;i<pattern_size;i++)
+        {
+            for(int j=0;j<pattern_size;j++)
+            {
+                if(j<=i)
+                {
+                    Console.Write(num+" ");
+                    num++;
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+            }
+            num = 1;
+            Console.WriteLine();
+        }
+    }
+}
+
+
+
+Outpur=>
+Enter Size pf Pattern :
+10
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+1 2 3 4 5 6
+1 2 3 4 5 6 7
+1 2 3 4 5 6 7 8
+1 2 3 4 5 6 7 8 9
+1 2 3 4 5 6 7 8 9 10
+
+
+
+
+
+
+	C# while loop :------------
+
+In C# while loop is used to iterate a part of the program several times. if the number of iteration is not  fixed , it is recommended to use while loop than for loop
+
+
+	Syntex:-
+	while(condition)
+	{
+	//code to be executed
+	}
+	
+
+
+Example=>
+using System;
+public class Program
+{
+    static void Main(string[] args)
+    {
+        int i = 0;
+        while (i < 10)
+        {
+            Console.WriteLine("Ali Hasan");
+            i += 1;
+        }
+    }
+}
+
+
+
+
+	C# do-while loop :---------------
+
+The C# do-while loop is used to iterate a part of the program several time. If the number of iteration is  not fixed and you must have to execute the loop at least it is recommended to use do-while loop
+
+The C# do-while loop is executed at least once because condition is checked after loop body.
+
+
+	Syntex:-
+
+	do
+	{
+	//code to be execute
+	}
+	while(condition); 
+
+
+Example=>
+using System;
+public class Program
+{
+    static void Main(string[] args)
+    {
+        int i = 0;
+        while (i < 10)
+        {
+            Console.WriteLine("Ali Hasan");
+            i += 1;
+        }
+    }
+}
+
+
+
+
+
+
+
+	C# Function :--------------
+
+Function is a block of code that has a signature . Function is used to execute statement specified in the code block. A function consists of the following components.
+
+
+Function name	:-	it is unique name that is used to make function call
+Return type 	:-	it is used to specify the data type of the function return value.
+Body		:-	it is used to specify the data type of function return value.
+Access specifier	:-	it is used to specify function accessibility in the application.
+Parameter	:-	it is a list of argument that we can pass to the function during call.
+
+
+
+	Syntex:-
+	<access-specfier><return-type>FunctionName(<parameter>)
+	{
+	//function body
+	//return statement
+	}
+
+
+
+Example=>
+using System;
+public class Program
+{
+    public void show()//user define function without return type
+    {
+        Console.WriteLine("This is non-parametric function");
+           //no return statement
+    }
+    static void Main(string[] args)//main function execute entry point of the program
+    {
+        Program program = new Program();
+        program.show();//calling the function
+
+    }
+}
+
+
+
+
+
+	C# Function: Using parameter but no return type :--------------
+
+Example:-
+
+using System;
+public class Program
+{
+    public void show(string message)//user define parametrized function without return type
+    {
+        Console.WriteLine("Hello "+message);
+           //no return statement
+    }
+    static void Main(string[] args)//main function execute entry point of the program
+    {
+        Program program = new Program();
+        Console.WriteLine("Enter your Name : ");
+        string msg = Console.ReadLine();
+        program.show(msg);//calling the function
+
+    }
+}
+
+
+
+
+	C# Function: using parameter and return type :---------------
+
+A Function can have zero or many number of parameter to get data. In the following example a function is created without parameter . A function without parameter is also known as non-parametric function.
+
+Example=>
+
+using System;
+public class Program
+{
+    public string show(string message)
+    {
+        Console.WriteLine("Inside Show Function : ");
+        return message;
+    }
+    static void Main(string [] args)
+    {
+        Program prog = new Program();
+        string message = prog.show("Rahul Kumar");
+        Console.WriteLine("Hello " + message);
+    }
+}
+
+
+
+	C# Call By Value :--------------
+
+In C# value-type parameter are that pass a copy of original value to the function rather than reference . It does not modify the original value. A change made in passed value does not alter the actual value.
+
+
+Example=>
+
+using System;
+public class Progam
+{
+    public void show(int val)
+    {
+        val *= val;
+        Console.WriteLine("Value inside the show fucntion " + val);
+    }
+
+    static void Main(string [] args)
+    {
+        Progam program = new Progam();
+        Console.WriteLine("Enter Number : ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Before = " + number);
+        program.show(number);
+        Console.WriteLine("After = " + number);
+    }
+}
+
+
+
+
+
+
+	C# Call By Reference :----------------
+
+C# provides a ref keyword to pass argument as  reference type. It passes reference of argument to the function rather a copy of the original value. The changes in passed value are permanent and modify the original variable value.
+
+Example=>
+using System;
+public class Program
+{
+    public void show(ref int num)
+    {
+        num *= num;
+        Console.WriteLine("Value inside the show function : " + num);
+    }
+    static void Main(string [] args)
+    {
+        Program prog = new Program();
+        Console.WriteLine("Enter Number : ");
+        int num = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Before : " + num);
+        prog.show(ref num);
+        Console.WriteLine("After : " + num);
+    }
+}
+
+
+
+
+
+
+
+	C# Arrays :-------------
+
+Like other programming language array in C# is a group of similar type of element that have contiguous memory location .In C# array is an object of base type System.Array. In C# array index start from 0. we can store only fixed set of element in C# array
+
+
+
+
+
+	Advantage of C# Array :-
+
+1) code optimization (less code)
+2) Random Access
+3) Easy to traverse data
+4) Easy to manipulate data
+5) Easy to store data
+
+
+	Disadvantage of C# Array :-
+
+1) Fixed Size
+
+
+
+	C# Array Type:-
+
+There are three types of array in C# programming:-
+1) Single dimension Array
+2) Multidimension Array
+3) Jagged Array
+
+
+
+
+	C# Single Dimension Array :-
+
+To create single dimensional Array you need to use square brackets[] after the type
+
+	int[] arr=new int[5];
+
+you cannot place square bracket after the identifier
+
+	int arr[]=new int[5];	///compile time error
+
+
+Example=>
+using System;
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Console.WriteLine("Enter Size of the Array : ");
+        int num = Convert.ToInt32(Console.ReadLine());
+        int[] arr = new int[num];
+        Console.WriteLine("Enter Element in Array : ");
+        for(int i=0;i<num;i++)
+        {
+            arr[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+
+        Console.WriteLine();
+        for(int i=0;i<num;i++)
+        {
+            Console.WriteLine(arr[i] + " ");
+        }
+
+    }
+}
+
+
+
+
+	There are 3 ways to initialize array at the time of declaration :----------
+
+int[] arr=new int[5]{10,20,30,40,50};
+
+we can not omit the size of Array
+
+int[] arr=new int[]{10,20,30,40,50}; //compile time error
+
+we can omit the new operator also
+
+int[] arr={10,20,30,40,50};
+
+
+
+
+
+	C# Array Example: Traversal using foreach loop :----------------
+
+we can also traverse the array elements using foreach loop. It return array element one by one.
+
+Example:-
+using System;
+public class Program
+{
+    static void Main(string [] args)
+    {
+        int[] arr = { 10, 20, 30, 40, 50 };
+
+        foreach(int i in arr)
+        {
+            Console.WriteLine(i);
+        }
+    }
+}
+
+
+
+
+
+	C# Passing Array to Function :---------------
+
+In C# to reuse the array logic we can create element function. To pass array to function in C# we need to provide only array name.
+
+
+Example=>
+
+using System;
+public class Program
+{
+    public void array_insert(int[] arr)
+    {
+        int size = arr.Length;
+        for(int i=0;i<size;i++)
+        {
+            Console.Write(arr[i] + " ");
+        }
+    }
+    static void Main(string [] args)
+    {
+        Console.WriteLine("Enter size of Array : ");
+        int arr_size = Convert.ToInt32(Console.ReadLine());
+        int[] arr = new int[arr_size];
+        Console.WriteLine("Enter Element in Array : ");
+        for(int i=0;i<arr_size;i++)
+        {
+            arr[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        Program prog = new Program();
+        prog.array_insert(arr);
+
+    }
+}
+
+
+
+
+Example=> Program for Sorting Using passing array to a function
+
+using System;
+class Program
+{
+    public void sorting(int[] ar)
+    {
+        int ar_size = ar.Length;
+        int key = 0;
+        for(int j=1;j<ar_size;j++)
+        {
+            key = ar[j];
+            int i = j - 1;
+            while(i>=0 && ar[i]>key)
+            {
+                ar[i + 1] = ar[i];
+                i -= 1;
+            }
+            ar[i + 1] = key;
+        }
+
+        Console.WriteLine("\nSorted Array : ");
+        for(int i=0;i<ar_size;i++)
+        {
+            Console.Write(ar[i] + " ");
+        }
+    }
+    static void Main(string [] args)
+    {
+        Program p = new Program();
+        Console.WriteLine("Enter the Size of the Array : ");
+        int ar_size = Convert.ToInt32(Console.ReadLine());
+        int[] a = new int[ar_size];
+        Console.WriteLine("Enter the Element in Array : ");
+        for(int i=0;i<ar_size;i++)
+        {
+            a[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        p.sorting(a);
+    }
+}
+
+
+
+
+
+
+	C# Multidimensional Array :----------------
+
+The Multidimensional array is also known as rectangular array in C#. It can be two dimensional or three dimensional
+The data is stored in tabular form which is also known as matrix.
+
+	Declaring Multidimensional Array :-
+
+1) int[,] arr=new int[3.3]	// Declaration of the 2D Array
+2) int[,,] arr=new int[3,3,3]	// Declaration of the 3D Array
+
+
+
+
+Example=>
+using System;
+public class Program
+{
+    public void show(int[,] arr)
+    {
+        //int size = arr.Length;//it return the row*column of the multidimensional array
+        int size = arr.GetLength(0);//it return the first row's size
+        Console.WriteLine("\nMultidimensional Array : ");
+        for(int i=0;i<size;i++)
+        {
+            for(int j=0;j<size;j++)
+            {
+                Console.Write(arr[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+
+    }
+    static void Main(string [] args)
+    {
+        Console.WriteLine("Enter Size of Multidimensional Array : ");
+        int num = Convert.ToInt32(Console.ReadLine());
+        int[,] arr = new int[num, num];
+        Console.WriteLine("Enter Element in Multidimensional Array : ");
+        for(int i=0;i<num;i++)
+        {
+            for(int j=0;j<num;j++)
+            {
+                arr[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+
+
+        Program prog = new Program();
+        prog.show(arr);
+    }
+
+}
+
+
+
+
+
+
+	C# Params :-----------
+
+In C# params is a keywords which is used to specify a parameter that takes variable number of argument . It is useful when we don't know the number of argument prior. Only one parameter keywords is allowed and no additional parameter is peritted after params keywords in a function declaration.
+
+
+Example=>
+
+using System;
+public class Program
+{
+    public void show(params int[] val)
+    {
+        for(int i=0;i<val.Length;i++)
+        {
+            Console.Write(val[i] + " ");
+        }
+    }
+    static void Main(string [] args)
+    {
+        Program prog = new Program();
+        prog.show(2, 3, 4, 5, 6, 7, 8, 9);
+
+    }
+}
+
+
+
+Example2=> we are using object type params that allows entering any number of inputs of any type.
+
+using System;
+public class Program
+{
+    public void show(params object[] val)
+    {
+        for(int i=0;i<val.Length;i++)
+        {
+            Console.Write(val[i] + " ");
+        }
+    }
+    static void Main(string [] args)
+    {
+        Program prog = new Program();
+        prog.show("ali", 3, "aleex", 5.50, 6, 'a', 8, 9);
+
+    }
+}
+
+
+
+
+
+
+
+	C# Array Class :----------------
+
+C# provides an Array class to deal with array related operation.
+It provides methods for creating, manipulation, searching and sorting elements of an array.
+This class works as the base class for all array in the .NET programming environment.
+
+
+
+	C# Array Properties :-
+
+1) IsFixedSize		it is used to get a value indicating whether the array has a fixed size or not.
+2) IsReadOnly		it is used to check that the array is read only or not.
+3) IsSynchronized		it is used to check that access to the array is synchronized or not.
+4) Length			it is used to get the total number of elements in all the dimension of the array
+5) LongLength		it is used to get 64 bit integer that represent the total number of elements in all the dimensions of the array
+6) Rank			it is used to get the rank(number of dimension of the array)
+7) SyncRoot		it is used to get an object that can be used to synchronize access to the array.
+
+
+	C# Array Methods :-
+1) Sort(Array)		it is used to sort the elements in an entire one-dimensional array
+2) ToString()		it is used to return a string that represent the current object.
+
+
+Example=>
+using System;
+public class Program
+{
+    public void PrintArray(int[] arr)
+    {
+        foreach(Object elem in arr)
+        {
+            Console.WriteLine(elem + " ");
+        }
+    }
+    static void Main(string [] args)
+    {
+        Program prog = new Program();
+        int[] arr = new int[6] { 5, 8, 9, 25, 0, 7 };
+        int[] arr2 = new int[6];
+
+        Console.WriteLine("Length of First Array : " + arr.Length);
+        //sorting array
+        Array.Sort(arr);
+        Console.WriteLine("First Array Element : ");
+        prog.PrintArray(arr);
+
+        Console.WriteLine("\nIndexed position of 25 is " + Array.IndexOf(arr, 25));
+
+        Array.Copy(arr, arr2, arr.Length);
+        Console.WriteLine("Second Array Element : ");
+        prog.PrintArray(arr2);
+    }
+}
+
+
+
+
+	C# Command Line Argument :------------------
+
+Argument that are passed by command line known as command line argument. We can send argument to the Main method while executing the code. The string args variable contains all the value passed from the command line.
+
+
+Example=>
+using System;
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Console.WriteLine("Argument length : " + args.Length);
+        Console.WriteLine("Supplied Argument are: ");
+        foreach(Object ele in args)
+        {
+            Console.WriteLine(ele);
+        }
+    }
+}
+
+
+compile => csc Program.cs
+
+execute => Program.exe Hi there,  how are you?
+
+
+
+
+
+				
+
+
+
+				                     ----------------: OOPS in C# :--------------
+
+
+	C# Object and Class:-
+
+Since C# is an object-oriented program is designed using object and classes in C#.
+
+
+	C# Object:-
+
+In C# Object is a real world entity for example chair,pen , table, mobile etc.
+In other words object is an entity that has state (variable) and behavior(method). Here state means data and behaviour means functionality
+
+object is runtime entity it is created at runtime.
+object is an instance of a class . All the members of the class can be accessed through object.
+
+
+//creating object using new keyword
+Student d1=new Student();	//creating an object of student
+Here Student is type and d1 is the reference variable that refer to the instance of Student class.
+The new keyword allocates memory at runtime.
+
+
+
+
+	C# Class :-
+
+In C# class is a group of similar object. 
+It can also be said that it is the blueprint of object.
+It is a template from which object are created. it can have field, methods, constructor etc.
+
+
+Example=>
+
+public clas Student
+{
+	int id;		//field or data member
+	String name;	//field or data member
+}
+
+
+
+
+
+	C# Object and Class Example :-
+
+Example2=>
+
+using System;
+public class Program
+{
+    int id;//data member or (also instance variable)
+    String name;//data member or (also instance variable)
+    static void Main(string [] args)
+    {
+        Program prog = new Program();//creating an object of Student
+        prog.id = 10;
+        prog.name = "Ali Hasan";
+        Console.WriteLine("Number = " + prog.id + " String = " + prog.name);
+    }
+}
+
+
+
+
+	C# Example2 Having Main() in another class :--
+
+using System;
+public class Student
+{
+    public int id;
+    public String name;
+}
+class Program
+{
+    static void Main(string [] args)
+    {
+        Student s = new Student();
+        s.id = 10;
+        s.name = "Ali Hasna";
+        Console.WriteLine("Integer = " + s.id + " String = " + s.name);
+    }
+}
+
+
+
+
+
+	C# Example Initialize and Display data through method :-
+
+using System;
+public class Student
+{
+    int id;
+    String name;
+
+    public void insert(int num,String str)
+    {
+        id = num;
+        name = str;
+    }
+
+
+    public void display()
+    {
+        Console.WriteLine("Integer = " + id + " String = " + name);
+    }
+    
+}
+
+class Program
+{
+    static void Main(string [] args)
+    {
+        Student s = new Student();
+        Console.WriteLine(" Enter Number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter String ");
+        String str = Console.ReadLine();
+        s.insert(number, str);
+        s.display();
+    }
+}
+
+
+
+
+
+
+
+
+	C# Constructor :-------------------------
+
+In C# constructor is a special method which is invoked automatically at the time of object creation.
+It is used to initialize the data member of new object generally
+The constructor in C# has the same name as class or struct.
+
+
+
+=> There are two types of constructor in C#
+
+1) Default Constructor
+2) Parametrized Constructor
+
+
+
+	C# Default Constructor Example :-
+
+using System;
+public class Program
+{
+    Program()
+    {
+        Console.WriteLine("Default Constructor : ");
+    }
+
+    static void Main(string [] args)
+    {
+        Program prog = new Program();
+    }
+}
+
+
+
+
+
+	C# Parametrized Constructor :-
+
+A constructor which has parameter is called parametrized construtor.
+It is used to provide different values to distinct object.
+
+
+Example=>
+
+using System;
+public class Program
+{
+    Program(int number1,int number2)
+    {
+        Console.WriteLine("Addition = " + (number1 + number2));
+    }
+    static void Main(string [] args)
+    {
+        Program prog = new Program(12,21);
+    }
+}
+
+
+
+
+
+
+
+	C# Destructor :--------------
+
+A destructor works opposite to constructor.
+It destructs the objects of classes.
+It can be defined only once in a class.
+Like constructor it is invoked automatically, when the object is created.
+
+
+Example=>
+
+
+
+
+
+
+
+
+
+
+	C# this :-------------------------
+
+In C# programming this is a keyword that refer to the current instance of the class.
+
+There can be 3 main usage of this keyword in C#.
+
+=> It can be used to refer current class instance variable.
+     It is used if field names (instance variable) and parameter names are same , that is why both can be distinguish easily.
+=> it can be used to pass current object as a parameter to another method
+=> it can be used to declare indexers.
+
+
+
+	C# this example :-
+
+using System;
+public class Employee
+{
+    int id;
+    String name;
+    float salary;
+
+    public Employee(int id,String name,float salary)
+    {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public void display()
+    {
+        Console.WriteLine(id + " " + name + " " + salary);
+    }
+}
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Employee emp = new Employee(12, "Ali Hasan", 12333.15f);
+        emp.display();
+    }
+}
+
+
+
+
+
+
+	C# static :-------------------------
+
+In C# static is a keyword or modifier that belongs to the type not instance. So instance is not required to access the static member.
+In C# static can be field, method, constructor, class, properties, operator and event.
+
+	
+NOTE => INDEXER AND DESTRUCTOR CANNOT BE STATIC
+
+
+
+	Advantage of static Keyword :-
+
+Memory Efficient : Now we don't need to create instance for accessing the static member, so it saves memory .
+Morever it belongs to the type of it  will not get memory each time when intance is created.
+
+
+	C# static field :-
+
+A field which is declared as static is called static field.
+Unlike instance field which gets memory each time whenever you create object, there is only one copy of static field create in the memory.
+It is shared to all the object.
+
+
+
+
+
+	C# static class :-------------
+
+The C# static class is like the normal class but it cannot be instantiated.
+It can have only static member.
+Advantage of static class is that it provide you guarntee that instance of static class cannot be created.
+
+
+
+
+	Points to be remember for C# static class :-
+
+1) C# static class contain only static member
+2) C# static class cannot be instantiated
+3) C# static class is sealed
+4) C# static class cannot contain instance constructor
+
+
+
+Example:-
+using System;
+public class Program
+{
+    public static float pi = 3.14f;
+    public static int cube(int n)
+    {
+        return n * n * n;
+    }
+}
+class Math
+{
+    static void Main(string [] args)
+    {
+        Console.WriteLine("Value of PI is : " + Program.pi);
+        Console.WriteLine("Cube of 3 is : " + Program.cube(3));
+    }
+}
+
+
+
+
+
+	C# static Constructor :---------------------
+
+C# static constructor is used to initialize static field.
+It can be also be used to perform any action that is to be performed only once.
+It is invoked automatically before first instance is created or any static member referenced.
+
+
+
+
+	Points to remmeber for C# static constructor :-
+
+1) C# static constructor cannot have any modifier or parameter				<= NOTE
+2) C# static constructor is invoked implicitly . It can't be called explicitly.
+
+
+
+Example=>
+
+using System;
+public class Account
+{
+    public int id;
+    public String name;
+    public static float rateofinterest;		// static member only assigned the value in the static constructor
+
+    public Account(int id,String name)
+    {
+        this.id = id;
+        this.name = name;
+    }
+
+    static Account()			//static constructor must be parameterless and modifier less
+    {
+        rateofinterest = 9.5f;
+    }
+
+
+    public void display()
+    {
+        Console.WriteLine(id + " " + name + " " + rateofinterest);
+    }
+}
+
+class Program
+{
+    static void Main(string [] args)
+    {
+        Account act = new Account(12, "Ali Hasan");
+        Account act2 = new Account(15, "Tony Stark");
+        act.display();
+        act2.display();
+    }
+}
+
+
+
+
+
+
+	C# Struct :---------------------------
+
+In C# classes and struct are blueprint that are used to create instance of a class.
+Struct are used for lightweight object such as color, Rectangle Point etc.
+
+Unlike class struct in C# are value type than reference type. It is useful if you have data that is not intended to be modified after creation of struct.
+
+
+
+	C# struct Example :-
+using System;
+public struct Rectangle
+{
+    public int width, height;
+}
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Rectangle rec = new Rectangle();
+        rec.width = 4;
+        rec.height = 5;
+
+        Console.WriteLine("Area of Rectangle is : " + (rec.width * rec.height));
+    }
+}
+
+
+
+	C# Struct Example using Constructor and Method :-
+
+using System;
+public struct Rectangle
+{
+     int width, height;
+
+    public Rectangle(int width,int height)
+    {
+        this.width = width;
+        this.height = height;
+    }
+
+    public void display()
+    {
+        Console.WriteLine("Area of Rectangle = " + (width * height));
+    }
+}
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Rectangle rec = new Rectangle(4,5);
+        rec.display();
+        
+    }
+}
+
+
+
+
+
+
+	C# Enum :-------------------
+
+Enum is C# is also known as enumeration. It is used to store set of names constants such as season, days month, size etc.
+The enum constant are also known as enumerators.
+Enum in C# can be declared within or outside class and structs.
+
+
+Enum constant has default value which starts from 0 and increment to one by one.
+but we can change the default value.
+
+
+	Points to remember :-
+
+1) enum has fixed set of constant
+2) enum improve type safety
+3) enum can be traversed
+
+Example=>
+
+using System;
+public class EnumExample
+{
+    public enum Season { WINTER,SPRING,SUMMAR,FALL}
+
+    static void Main(string [] args)
+    {
+        int x = (int)Season.WINTER;
+        int y = (int)Season.SUMMAR;
+
+        Console.WriteLine("WINTER = {0}", x);
+        Console.WriteLine("SUMMAR = {0}", y);
+
+    }
+}
+
+
+
+
+Example=>
+
+using System;
+public class Program
+{
+    public enum Season { WINTER=10,SPRING,SUMMAR,FALL}
+
+    public static void Main(string [] args)
+    {
+        int x = (int)Season.WINTER;
+        int y = (int)Season.SUMMAR;
+
+        Console.WriteLine("WINTER = {0}", x);
+        Console.WriteLine("SUMMAR = {0}", y);
+    }
+}
+
+
+
+
+
+	C# enum example: Traversing all values using getNames()
+
+Example:-
+
+using System;
+public class Program
+{
+    public enum Days { Sun,Mon,Tue,Thu,Fri,Sat}
+
+    public static void Main(string [] args)
+    {
+        foreach(string s in Enum.GetNames(typeof(Days)))
+        {
+            Console.WriteLine(s);
+        }
+    }
+}
+
+
+
+
+
+	C# enum example: traversing all values using getValues() :-------------------
+
+using System;
+public class Program
+{
+    public enum Days { Sun,Mon,Tue,Web,Thu,Fri,Sat}
+
+    static void Main(string [] args)
+    {
+        foreach(Days d in Enum.GetValues(typeof(Days)))
+        {
+            Console.WriteLine(d);
+        }
+    }
+}
+
+
+
+
+
+
+	C# Properties :------------------
+
+C# Properties doesn't have storage location.
+C# Properties are extension of field and accessed like field.
+
+The Properties have accessors that are used to set , get or compute their values.
+
+
+
+
+	Usage of C# Properties :----
+
+1) C# Properties can be read-only or write-only
+2) we can have logic while setting values in the C# Properties.
+3) We make field of the class private, so that field can't be accessed from outside the class directly. Now we are forced to use C# properties for setting or getting values.
+
+
+
+	C# Example Properties :-
+using System;
+public class Program
+{
+    private string name;
+
+    public string Name
+    {
+        get
+        {
+            return name;
+        }
+        set
+        {
+            name = value;
+        }
+    }
+}
+class Program1
+{
+    static void Main(String [] args)
+    {
+        Program prog = new Program();
+        prog.Name = "Ali hasan";
+        Console.WriteLine("Employee Name = " + prog.Name);
+    }
+}
+
+
+
+
+
+
+	C# Inheritance :--------------------
+
+In C# inheritance is a process in which one object acquires all the properties and behaviour of its parent object automatically.
+In such way you can reuse, extend or modify the attribute and behaviour which is defined in other class,
+
+In C# the class which inherits the members of another class is called derived class and the class whose members are inherited is called base.
+The derived class is the specialized class for the base class.
+
+
+
+	Advantage of C# Inheritance :-
+
+1) Code Reusability => Now you can reuse the member of your parent class. So there is no need to define the member again. So less code is required in the class.  
+
+
+
+	C# Single Level Inheritance Example : Inheriting Field :-
+
+using System;
+public class Employee
+{
+    public float salary = 4000F;
+
+}
+public class Programmer:Employee
+{
+    public float bonus = 10000F;
+}
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Programmer prog = new Programmer();
+        Console.WriteLine("Salary = " + prog.salary);
+        Console.WriteLine("Bonus = " + prog.bonus);
+    }
+}
+
+
+
+
+	C# Single Level Inheritance Example : Inheritance Method :-
+
+using System;
+public class Animal
+{
+    public void eat()
+    {
+        Console.WriteLine("Eating : ");
+    }
+
+}
+public class Dog:Animal
+{
+    public void bark()
+    {
+        Console.WriteLine("Barking : ");
+    }
+}
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Dog prog = new Dog();
+        prog.eat();
+        prog.bark();
+    }
+}
+
+
+
+
+
+	C# Multi-Level Inheritance :-
+
+When one class inherits another class which is further inherited by another class, it is known as multi-level inheritance in C#.
+Inheritance is transitive so the last derived class acquires all the members of all its base classes.
+
+Example=>
+
+using System;
+public class Animal
+{
+    public void eat()
+    {
+        Console.WriteLine("Eating : ");
+    }
+
+}
+public class Dog:Animal
+{
+    public void bark()
+    {
+        Console.WriteLine("Barking : ");
+    }
+}
+public class BabyDog:Dog
+{
+    public void weep()
+    {
+        Console.WriteLine("Weeping : ");
+    }
+}
+public class Program
+{
+    static void Main(string [] args)
+    {
+        BabyDog prog = new BabyDog();
+        prog.eat();
+        prog.bark();
+        prog.weep();
+    }
+}
+
+
+	NOTE :- MULTIPLE INHERITANCE IS NOT SUPPORTED IN C# THROUGH CLASS
+
+
+
+
+
+
+	C# Aggregation (HAS-A Relationship) :-----------------------
+
+In C# aggragation is a process in which one class defines another class as any entity reference .it is another way to reuse the class.
+it is a form of association that represents HAS-A Relationship.
+
+
+
+
+	C# Aggregation Example :-
+
+using System;
+public class Address
+{
+    public string addressline, city, state;
+    public Address(string addressline,string city,string state)
+    {
+        this.addressline = addressline;
+        this.city = city;
+        this.state = state;
+    }
+}
+
+public class Example
+{
+    public int id;
+
+    public string name;
+
+    public Address address;
+
+    public Example(int id,string name,Address address)
+    {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
+
+    public void display()
+    {
+        Console.WriteLine(id + " " + name + " " + address.addressline + " " + address.city + " " + address.state);
+    }
+}
+
+
+
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Address s1 = new Address("G-13, Sec-3", "Noida", "UP");
+        Example e1 = new Example(1, "Ali hasan", s1);
+        e1.display();
+    }
+}
+
+
+
+
+					------------: C# Polymorphism :---------------
+
+Polymorphism refers to the ability to process objects differently depending on their data types or class.
+
+
+	C# Member Overloading :----------------------------------
+
+If we create two or more members having same name but different in number or type of parameter it is known as member overloading.In C# we can overload
+
+
+=> methods
+=> constructor 
+=> indexed properties
+
+
+
+
+	C# Methods Overloading :-
+
+Having two or more methods with same name but different in parameter is known as method overloding in C#.
+The advatage of methods overloading is that it increase the readability of the program because you don't need to use different for same action.
+
+you can perform method overloading in C# by two ways:
+
+1) By changing number of argument
+2) By changing data type of argument
+
+
+Example =>
+
+//program for the method overloading in C#
+using System;
+public class Program
+{
+    public int add(int a,int b)
+    {
+        return a + b;
+    }
+    public int add(int a,int b,int c)
+    {
+        return a + b + c;
+    }
+
+    static void Main(string[] args)
+    {
+        Program prog = new Program();
+        Console.WriteLine("Summation of Number = " + prog.add(12, 21));
+        Console.WriteLine("Summation of Number = " + prog.add(12, 21,34));
+    }
+}
+
+
+
+
+
+
+
+	C# Method Overloading Example: By Changing type of argument :----------------------------
+
+using System;
+public class Cal
+{
+    public int add(int a,int b)
+    {
+        return a + b;
+    }
+    public  float add(float a,float b)
+    {
+        return a+b;
+    }
+}
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Cal prog = new Cal();
+        Console.WriteLine("Addition = " + prog.add(12, 21));
+        Console.WriteLine("Addition = " + prog.add(12.3f, 32.4f));
+    }
+}
+
+
+
+
+
+
+
+
+	C# Method Overriding :--------------------
+
+If derived class defines same method as defined in its base class. it is known as method overriding in C#.
+It is used to achieve runtime polymorphism
+It enable you to provide special implementation of the method is already by its base class.
+
+To perform method overriding in C# you need to use virtual keyword with base class method and override keyword with derived class method.
+
+
+
+Example=>
+
+using System;
+public class Animal
+{
+    public virtual void eat()
+    {
+        Console.WriteLine("Eating : ");
+    }
+}
+public class Dog:Animal
+{
+    public override void eat()
+    {
+        Console.WriteLine("Eating bread : ");
+    }
+}
+
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Dog s = new Dog();
+        s.eat();
+    }
+}
+
+
+Output=>
+Eating bread : 
+
+
+
+
+
+
+
+
+	C# Base :-------------------------
+
+In C# base keyword is used to access field, constructor and methods of base class.
+You can use base keyword within instance method, constructor or instance property accessor only .
+You can't use it inside static method.
+
+
+
+
+	C# base keyword : accessing base class field :-
+
+We can use the base keyword to access the fields of the base class within derived class.
+It is useful if base and derived classes have the same field.
+If derived class doesn't define same field there is no need to use base keyword.
+Base class field can be directly accessed by the derived class.
+
+
+
+
+Example=>
+using System;
+public class Animal
+{
+    public string color = "White";
+}
+public class Dog:Animal
+{
+    string color = "Black";
+
+    public void showColor()
+    {
+        Console.WriteLine(base.color);
+        Console.WriteLine(color);
+    }
+}
+
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Dog d = new Dog();
+        d.showColor();
+    }
+}
+
+
+
+
+
+
+	C# base Keyword example: calling base class method :-
+
+By the help of base keyword we can call the base class method also.
+It is useful if base and derived class define the same methods. In other word if method is overridden.
+If derived class doesn't define the same method there is no need to use base keyword.
+
+
+Example=>
+
+using System;
+public class Animal
+{
+    public virtual void eat()
+    {
+        Console.WriteLine("Eating : ");
+    }
+}
+public class Dog:Animal
+{
+    public override void eat()
+    {
+        base.eat();
+        Console.WriteLine("Eating bread : ");
+    }
+
+}
+
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Dog d = new Dog();
+        d.eat();
+    }
+}
+
+
+
+
+
+
+	C# Polymorphism :-----------------------
+
+The term polymorphism is the combination of poly +morphism which means many forms.
+
+There are two types of polymorphism in C#.
+1) compile time polymorphism	
+2) runtime polymorphism
+
+1) Compile time polymorphism is achieved by method overloading and operator overloading. it is also known as static binding.
+2) Runtime polymorphism is achieved by method overriding which is known as dynamic binding or late binding.
+
+
+ 
+
+
+	C# Runtime Polymorphism :-
+
+
+Example=>
+
+using System;
+public class Animal
+{
+    public virtual void eat()
+    {
+        Console.WriteLine("Eating : ");
+    }
+}
+public class Dog:Animal
+{
+    public override void eat()
+    {
+        Console.WriteLine("Eating bread : ");
+    }
+}
+
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Dog s = new Dog();
+        s.eat();
+    }
+}
+
+
+Output=>
+Eating bread : 
+
+
+
+
+
+
+
+
+	C# Sealed :-------------------------------------------------------------------------------------
+
+C# sealed keyword restriction on the class and method.
+If you create a sealed class. it cannot be derived.
+If you create a sealed method it cannot be override.
+
+
+
+	C# sealed class :-
+
+C# sealed class cannot be derived by any class
+
+Example=>
+
+using System;
+sealed public class Animal
+{
+    public void eat()
+    {
+        Console.WriteLine("Eating : ");
+    }
+}
+public class Dog:Animal
+{
+    public void bark()
+    {
+        Console.WriteLine("Barking : ");
+    }
+}
+
+public class Program
+{
+    static void Main(string [] args)
+    {
+        Dog d = new Dog();
+        d.eat();
+        d.bark();
+    }
+}
+
+
+
+
+
+	C# Sealed method :---------------------
+
+The sealed method in C# cannot be overridden further.
+It must be used with override keyword in method.
+
+
+Example:-
+
+
+using System;
+public class Animal
+{
+    public virtual void eat()
+    {
+        Console.WriteLine("Eating:");
+    }
+    public virtual void run() { Console.WriteLine("Running:"); }
+}
+
+public class Dog:Animal
+{
+    public override void eat()
+    {
+        base.eat();
+        Console.WriteLine("Eating Bread :");
+    }
+    public sealed override void run()
+    {
+        base.run();
+        Console.WriteLine("Running very Fast:");
+    }
+}
+public class BabyDog:Dog
+{
+    public override eat()
+    {
+        Console.WriteLine("Eating Biscuit : ");
+    }
+    public override run()
+    {
+        Console.WriteLine("Running slowly : ");
+    }
+
+}
+public class Program
+{
+    static void Main(string [] args)
+    {
+        BabyDog b = new BabyDog();
+        b.eat();
+        b.run();
+    }
+}
+
+
+
+
+Output=>
+CTE: cann't override inherited member Dog.run() because it is sealed.
+
+
+
+		NOTE :- LOCAL VARIABLE CAN'T BE SEALED.
+
+
+
+
+
+
+	C# Abstraction :-----------------------------------------------
+
+
+Abstract classes are the way to achieve abstraction in C#. Abstraction in C# is the process to hide the internal details and showing functionality only. Abstraction can be achieved by two ways:
+
+1) Abstract class
+2) Interface
+
+
+Abstract class and interface both can have abstract methods which are necessary for abstraction.
+
+
+
+	Abstract Method :-
+
+A method which is declared abstract and has no body is called abstract method. It can be declared inside the abstract class only. Its implementation must be provided by derived classes. For example:
+
+		public abstract void draw();  
+
+
+
+
+	C# Abstract class :-
+
+In C#, abstract class is a class which is declared abstract. It can have abstract and non-abstract methods. It cannot be instantiated. Its implementation must be provided by derived classes. Here, derived class is forced to provide the implementation of all the abstract methods.
+
+Let's see an example of abstract class in C# which has one abstract method draw(). Its implementation is provided by derived classes: Rectangle and Circle. Both classes have different implementation.
+
+
+
+Example=>
+
+using System;  
+public abstract class Shape  
+{  
+    public abstract void draw();  
+}  
+public class Rectangle : Shape  
+{  
+    public override void draw()  
+    {  
+        Console.WriteLine("drawing rectangle...");  
+    }  
+}  
+public class Circle : Shape  
+{  
+    public override void draw()  
+    {  
+        Console.WriteLine("drawing circle...");  
+    }  
+}  
+public class TestAbstract  
+{  
+    public static void Main()  
+    {  
+        Shape s;  
+        s = new Rectangle();  
+        s.draw();  
+        s = new Circle();  
+        s.draw();  
+    }  
+}  
+
+
+Output=>
+drawing ractangle...
+drawing circle...
+
+
+
+
+
+
+
+	C# Interface :----------------------------------------------
+
+Interface in C# is a blueprint of a class. It is like abstract class because all the methods which are declared inside the interface are abstract methods. It cannot have method body and cannot be instantiated.
+
+It is used to achieve multiple inheritance which can't be achieved by class. It is used to achieve fully abstraction because it cannot have method body.
+
+Its implementation must be provided by class or struct. The class or struct which implements the interface, must provide the implementation of all the methods declared inside the interface.
+
+
+
+Example=>
+using System;  
+public interface Drawable  
+{  
+    void draw();  
+}  
+public class Rectangle : Drawable  
+{  
+    public void draw()  
+    {  
+        Console.WriteLine("drawing rectangle...");  
+    }  
+}  
+public class Circle : Drawable  
+{  
+    public void draw()  
+    {  
+        Console.WriteLine("drawing circle...");  
+    }  
+}  
+public class TestInterface  
+{  
+    public static void Main()  
+    {  
+        Drawable d;  
+        d = new Rectangle();  
+        d.draw();  
+        d = new Circle();  
+        d.draw();  
+    }  
+}  
+
+
+
+
+Output=>
+
+drawing ractangle...
+drawing circle...
+
+
+
+
+
+
+	C# Namespace :-----------------------------------------------------
+
+Namespaces in C# are used to organize too many classes so that it can be easy to handle the application.
+
+In a simple C# program, we use System.Console where System is the namespace and Console is the class. To access the class of a namespace, we need to use namespacename.classname. We can use using keyword so that we don't have to use complete name all the time.
+
+In C#, global namespace is the root namespace. The global::System will always refer to the namespace "System" of .Net Framework.
+
+
+
+
+Example=>
+
+using System;  
+namespace ConsoleApplication1  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            Console.WriteLine("Hello Namespace!");  
+        }  
+    }  
+}  
+
+
+Output=>
+Hello Namespace!
+
+
+
+
+
+
+
+	C#  namespace example: by fully qualified name :-
+
+
+using System;  
+namespace First {  
+public class Hello  
+{  
+    public void sayHello() { Console.WriteLine("Hello First Namespace"); }  
+}  
+}  
+namespace Second  
+{  
+    public class Hello  
+    {  
+        public void sayHello() { Console.WriteLine("Hello Second Namespace"); }  
+    }  
+}  
+public class TestNamespace  
+{  
+    public static void Main()  
+    {  
+        First.Hello h1 = new First.Hello();  
+        Second.Hello h2 = new Second.Hello();  
+        h1.sayHello();  
+        h2.sayHello();  
+  
+    }  
+}
+
+
+
+  
+Output:
+
+Hello First Namespace
+Hello Second Namespace
+
+
+
+
+
+
+
+	C# namespace example: by using keyword :-
+
+Let's see another example of namespace where we are using "using" keyword so that we don't have to use complete name for accessing a namespace program.
+
+
+
+using System;  
+using First;  
+using Second;  
+namespace First {  
+public class Hello  
+{  
+    public void sayHello() { Console.WriteLine("Hello Namespace"); }  
+}  
+}  
+namespace Second  
+{  
+    public class Welcome  
+    {  
+        public void sayWelcome() { Console.WriteLine("Welcome Namespace"); }  
+    }  
+}  
+public class TestNamespace  
+{  
+    public static void Main()  
+    {  
+        Hello h1 = new Hello();  
+        Welcome w1 = new Welcome();  
+        h1.sayHello();  
+        w1.sayWelcome();  
+    }  
+}  
+Output:
+
+Hello Namespace
+Welcome Namespace
+
+
+
+
+
+
+	C# Access Modifier / Specifier :---------------------------------------------------
+
+C# Access modifiers or specifiers are the keywords that are used to specify accessibility or scope of variables and functions in the C# application.
+
+C# provides five types of access specifiers.
+
+1) Public
+2) Protected
+3) Internal
+4) Protected internal
+5) Private
+
+We can choose any of these to protect our data. Public is not restricted and Private is most restricted. The following table describes about the accessibility of each.
+
+
+
+
+	Access Specifier		Description
+
+	Public			It specifies that access is not restricted.
+	Protected			It specifies that access is limited to the containing class or in derived class.
+	Internal			It specifies that access is limited to the current assembly.
+	protected internal		It specifies that access is limited to the current assembly or types derived from the containing class.
+	Private			It specifies that access is limited to the containing type.
+
+
+
+
+
+	1) C# Public Access Specifier
+
+It makes data accessible publicly. It does not restrict data to the declared block.
+
+Example=>
+
+using System;  
+namespace AccessSpecifiers  
+{  
+    class PublicTest  
+    {  
+        public string name = "Shantosh Kumar";  
+        public void Msg(string msg)  
+        {  
+            Console.WriteLine("Hello " + msg);  
+        }  
+    }  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            PublicTest publicTest = new PublicTest();  
+            // Accessing public variable  
+            Console.WriteLine("Hello " + publicTest.name);  
+            // Accessing public function  
+            publicTest.Msg("Peter Decosta");  
+        }  
+    }  
+}  
+
+
+
+Output:
+
+Hello Shantosh Kumar
+Hello Peter Decosta
+
+
+
+
+
+
+	C# Protected Access Specifier :-
+
+It is accessible within the class and has limited scope. It is also accessible within sub class or child class, in case of inheritance.
+
+Example:-
+
+using System;  
+namespace AccessSpecifiers  
+{  
+    class ProtectedTest  
+    {  
+        protected string name = "Shashikant";  
+        protected void Msg(string msg)  
+        {  
+            Console.WriteLine("Hello " + msg);  
+        }  
+    }  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            ProtectedTest protectedTest = new ProtectedTest();  
+            // Accessing protected variable  
+            Console.WriteLine("Hello "+ protectedTest.name);  
+            // Accessing protected function  
+            protectedTest.Msg("Swami Ayyer");  
+        }  
+    }  
+}
+
+
+Output=>
+Compile time error
+'ProtectedTest.name' is inaccessible due to its protection level.
+
+
+
+
+
+Example2=>
+
+Here, we are accessing protected members within child class by inheritance.
+
+using System;  
+namespace AccessSpecifiers  
+{  
+    class ProtectedTest  
+    {  
+        protected string name = "Shashikant";  
+        protected void Msg(string msg)  
+        {  
+            Console.WriteLine("Hello " + msg);  
+        }  
+    }  
+    class Program : ProtectedTest  
+    {  
+        static void Main(string[] args)  
+        {  
+            Program program = new Program();  
+            // Accessing protected variable  
+            Console.WriteLine("Hello " + program.name);  
+            // Accessing protected function  
+            program.Msg("Swami Ayyer");  
+        }  
+    }      
+}  
+
+
+
+Output:
+
+Hello Shashikant
+Hello Swami Ayyer
+
+
+
+
+
+	3) C# Internal Access Specifier :-
+
+The internal keyword is used to specify the internal access specifier for the variables and functions. This specifier is accessible only within files in the same assembly.
+
+Example
+using System;  
+namespace AccessSpecifiers  
+{  
+    class InternalTest  
+    {  
+        internal string name = "Shantosh Kumar";  
+        internal void Msg(string msg)  
+        {  
+            Console.WriteLine("Hello " + msg);  
+        }  
+    }  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            InternalTest internalTest = new InternalTest();  
+            // Accessing internal variable  
+            Console.WriteLine("Hello " + internalTest.name);  
+            // Accessing internal function  
+            internalTest.Msg("Peter Decosta");  
+        }  
+    }  
+}  
+
+
+Output:
+
+Hello Shantosh Kumar
+Hello Peter Decosta
+
+
+
+
+	4) C# Protected Internal Access Specifier :-
+
+Variable or function declared protected internal can be accessed in the assembly in which it is declared. It can also be accessed within a derived class in another assembly.
+
+Example
+using System;  
+namespace AccessSpecifiers  
+{  
+    class InternalTest  
+    {  
+        protected internal string name = "Shantosh Kumar";  
+        protected internal void Msg(string msg)  
+        {  
+            Console.WriteLine("Hello " + msg);  
+        }  
+    }  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            InternalTest internalTest = new InternalTest();  
+            // Accessing protected internal variable  
+            Console.WriteLine("Hello " + internalTest.name);  
+            // Accessing protected internal function  
+            internalTest.Msg("Peter Decosta");  
+        }  
+    }  
+}  
+
+
+Output:
+
+Hello Shantosh Kumar
+Hello Peter Decosta
+
+
+
+
+
+
+	5) C# Private Access Specifier :-
+
+Private Access Specifier is used to specify private accessibility to the variable or function. It is most restrictive and accessible only within the body of class in which it is declared.
+
+Example
+using System;  
+namespace AccessSpecifiers  
+{  
+    class PrivateTest  
+    {  
+        private string name = "Shantosh Kumar";  
+        private void Msg(string msg)  
+        {  
+            Console.WriteLine("Hello " + msg);  
+        }  
+    }  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            PrivateTest privateTest = new PrivateTest();  
+            // Accessing private variable  
+            Console.WriteLine("Hello " + privateTest.name);  
+            // Accessing private function  
+            privateTest.Msg("Peter Decosta");  
+        }  
+    }  
+}
+
+
+  
+Output:
+
+Compile time error
+'PrivateTest.name' is inaccessible due to its protection level.
+
+
+
+
+
+
+	C# Private Specifier Example 2 :-
+
+
+using System;  
+namespace AccessSpecifiers  
+{  
+    class Program  
+    {  
+        private string name = "Shantosh Kumar";  
+        private void Msg(string msg)  
+        {  
+            Console.WriteLine("Hello " + msg);  
+        }  
+        static void Main(string[] args)  
+        {  
+            Program program = new Program();  
+            // Accessing private variable  
+            Console.WriteLine("Hello " + program.name);  
+            // Accessing private function  
+            program.Msg("Peter Decosta");  
+        }  
+    }  
+}
+
+
+  
+Output:
+
+Hello Shantosh Kumar
+Hello Peter Decosta
+
+
+
+
+
+	C# Encapsulation :---------------------------------------------------------------------
+
+Encapsulation is the concept of wrapping data into a single unit.
+It collect data members and member functions into a single unit called class.
+The purpose of encapsulation is to prevent alternation of data from outside.
+this data can only be accessed by getter function of the class.
+
+
+A fully encapsulated class has getter and setter function that are used to read and write data.
+This class does not allow data access directly.
+
+
+Example:-
+using System;
+class Student
+{
+    public string ID { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+}
+class Program
+{
+    static void Main(string [] args)
+    {
+        Student s = new Student();
+        s.ID = "101";
+        s.Name = "Ali Hasan";
+        s.Email = "alihasan226@gmail.com";
+
+
+        Console.WriteLine("ID = " + s.ID);
+        Console.WriteLine("Name = " + s.Name);
+        Console.WriteLine("Email = " + s.Email);
+    }
+}
+
+
+
+
+
+
+
+
+	C# String :----------------------------------------------------
+
+In C# string is an object of System.String class that represent sequence of character.
+we can perform many operation on string such as concatination comparison getting substring search trim replacement etc.
+
+
+
+	string vs String :-----------------
+
+In C# string is a keyword which is an alias for System.String class. That is why string and Sting are equivalent.
+we are free to use any naming convention.
+
+
+Example=>
+using System;
+public class Program
+{
+    static void Main(string [] args)
+    {
+        string s1 = "hello";
+        char[] ch = { 'a', 'l', 'i' };
+        string s2 = new string(ch);	//conversion of char array to string
+        Console.WriteLine(s1);
+        Console.WriteLine(s2);
+    }
+}
+
+
+
+// to get the length of string we use Length method to calculate the length of string.
+
+
+	C# Different String Methods & Operation of String :------------------------
+
+1) String clone() function :-
+The C# clone() method is used to clone a string object. It return another  copy of same data. The return type of Clone() method is object.
+
+
+Signature:-
+
+public object Clone()
+
+ Parameters:-
+It doesn't take any parameter
+
+Return:-
+it return a reference 
+
+Example:-
+using System;
+class Program
+{
+    static void Main(string [] args)
+    {
+        string s1 = "Hello";
+        string s2 = (string)s1.Clone();
+        Console.WriteLine(s1);
+        Console.WriteLine(s2);
+    }
+}
+
+
+
+=> The String class contains several methods that operate on string. The string type also includes the Length property which contains the length of the string.
+
+
+
+	Method 					Description
+	static string Copy(string str) 			Returns a copy of str.
+	
+	int CompareTo(string str) 			Returns less than zero if the invoking string is less than str, greater than zero if 							the invoking string is greater than str, and zero if the strings are equal.
+
+	int IndexOf(string str) 			Searches the invoking string for the substring specified by str. Returns the index 						of the first match, or –1 on failure.
+
+	int LastIndexOf(string str) 			Searches the invoking string for the substring specified by str. Returns the index 						of the last match, or –1 on failure.
+
+	string ToLower( ) 				Returns a lowercase version of the invoking string.
+
+	string ToUpper( ) 				Returns an uppercase version of the invoking string.				
+
+
+
+
+
+Example=>
+//String Example
+using System;
+class Program
+{
+    static void Main()
+    {
+        string str1 =
+        "When it comes to .NET programming, C# is #1.";
+        string str2 = string.Copy(str1);
+        string str3 = "C# strings are powerful.";
+        string strUp, strLow;
+        int result, idx;
+        Console.WriteLine("str1: " + str1);
+        Console.WriteLine("Length of str1: " +
+        str1.Length);
+        // Create upper- and lowercase versions of str1.
+        strLow = str1.ToLower();
+        strUp = str1.ToUpper();
+        Console.WriteLine("Lowercase version of str1:\n " +
+        strLow);
+        Console.WriteLine("Uppercase version of str1:\n " +
+        strUp);
+        Console.WriteLine();
+        // Display str1, one char at a time.
+        Console.WriteLine("Display str1, one char at a time.");
+        for (int i = 0; i < str1.Length; i++)
+            Console.Write(str1[i]);
+        Console.WriteLine("\n");
+        // Compare strings.
+        if (str1 == str2)
+            Console.WriteLine("str1 == str2");
+        else
+            Console.WriteLine("str1 != str2");
+        if (str1 == str3)
+            Console.WriteLine("str1 == str3");
+        else
+            Console.WriteLine("str1 != str3");
+
+        result = str1.CompareTo(str3);
+        if (result == 0)
+            Console.WriteLine("str1 and str3 are equal");
+        else if (result < 0)
+            Console.WriteLine("str1 is less than str3");
+        else
+            Console.WriteLine("str1 is greater than str3");
+        Console.WriteLine();
+        // Assign a new string to str2.
+        str2 = "One Two Three One";
+        // Search a string.
+        idx = str2.IndexOf("One");
+        Console.WriteLine("Index of first occurrence of One: " + idx);
+        idx = str2.LastIndexOf("One");
+        Console.WriteLine("Index of last occurrence of One: " + idx);
+    }
+}
+
+
+
+
+output=>
+str1: When it comes to .NET programming, C# is #1.
+Length of str1: 44
+Lowercase version of str1:
+ when it comes to .net programming, c# is #1.
+Uppercase version of str1:
+ WHEN IT COMES TO .NET PROGRAMMING, C# IS #1.
+
+Display str1, one char at a time.
+When it comes to .NET programming, C# is #1.
+
+str1 == str2
+str1 != str3
+str1 is greater than str3
+
+Index of first occurrence of One: 0
+Index of last occurrence of One: 14
+
+
+
+Example=>
+//Program for String of Array 
+
+using System;
+class StringArrays
+{
+    static void Main()
+    {
+        string[] str = { "This", "is", "a", "test." };
+        Console.WriteLine("Original array: ");
+        for (int i = 0; i < str.Length; i++)
+            Console.Write(str[i] + " ");
+        Console.WriteLine("\n");
+        // Change a string.
+        str[1] = "was";
+        str[3] = "test, too!";
+        Console.WriteLine("Modified array: ");
+        for (int i = 0; i < str.Length; i++)
+            Console.Write(str[i] + " ");
+    }
+}
+
+
+
+
+Output=>
+Original array:
+This is a test.
+
+Modified array:
+This was a test, too!
+
+
+					======> String are Immutable <=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1536 @@
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                 JDBC ( Java DataBase Connectivity )
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+Database is an organised collection of data generally stored and accessed  electronically from a computer system.
+		Now a days , we use Relational Database management system (RDBMS) to store and manage huge volume of data this is called Relational Database because all the data is stored into the different table and relation are established using primary key or other keys  as foreign key.
+
+
+
+JDBC is a java api which facilitate connectivity of java application to database.
+
+User of a RDBMS Package can be divided in two category.
+1) Human User (Human insterface control, windows or web based) 
+2) Applications
+
+Application interface is called drivers usually a driver is a set of functions or classes which perform database operation. initially native driver were provided by database verders to application programmers to perform database operations.
+
+limitation is that application programmer need to learn different drivers for each RDBMS Package
+
+both the problem of native drivers were solved by odbc
+=> ODBC is a standard api for application to intereact with RDBMS package
+=> ODBC is a set of C functions prototype to perform database operations.(it is written in c)
+
+JDBC is created by Sun ( Oracle )
+
+Four Different type of JDBC Drivers
+1) Type 1 or JDBC- ODBC Bridge Driver
+2) Type 2 or JDBC-Native Driver
+3) Type 3 or JBDC-Network Driver
+4) Type 4 or Pure Java Native Driver (JDBC calls directly into the vendor specific database protocol that is why it is known as thin driver it is fully written in java language)
+
+Using JDBC API
+-> The JDBC API classes and interfaces are available in the java.sql or javaax.sql package
+Commonly used classes and interfaces are follows:-
+1) DriversManager
+2) SQLExeception		classes
+3) Types
+
+4) Connection
+5) Statement
+6) PreparedStatement	interfaces
+7) CallableStatement
+
+
+1) DriverManager
+  it is utility class/helper class provided by sun microsytem that is responsible for mangaing jdbc drivers and act as a factory of connection.
+
+2) Types
+it is helper class which defines static final integer data members to represents JDBC types
+
+3) SQLException
+it is super class of all database related exception
+
+4) Connection
+this interface provides methods for managing database connectivity act as a factory of statement
+
+5) Statement
+this interface provides methods for execution SQL query and act as a factory ResultSet
+
+6) PreparedStatement
+this interface is sub interface of a statement and provides the facility of executing parameterized queries.
+
+7) CallableStatement
+this interface extends PreparedStatement and provides methods for executing stored procedures and functions.
+
+8)ResultSet
+this interface provides methods of managing the result of a select query it means it.
+
+Steps to connect to the Database
+1) Register the driver class
+2) Creating connection
+3) Creating statement
+4) Executing queries
+5) Closing Connection
+
+
+1) Register the drive class / Load the drive class
+
+	Class.forName() method is available in the java.lang.Class to dynamically load the driver's class file into memory which automatically register it. This method is preferable because it allow you to make the driver registration configuration and portable.
+
+	Syntex=>
+		public static class forName(String className)throws ClassNotFoundException
+
+	Ex=>
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+	
+
+	using the registerDrive() method
+    
+	=> this method belongs to the DriveManagerclass You need to call the registerDrive() method to register the Drive class object with the 
+	      DriveManager
+
+
+2) Create the Connection object
+
+=> getConnection() method of DriveManager class is used to establish connection with database
+=> Syntex of getConnection() method
+
+syntex of getConnection() method
+
+	=> public static Connection getConnection(String url)throws SQLException
+
+
+
+=> After you've loaded the driver you can eatablished a connection using the DriverManager.getConnection() method . For easy reference let me list the three overloaded DriverManager.getConnection() methods:---
+
+1)		getConnection(String url)
+2)		getConnection(String url, Properties prop)
+3)		getConnection(String url, String user, String password)
+
+
+=> Following table lists down the popular JDBC driver names and database URL
+
+
+	RDBMS			JDBC driver name				URL Format
+
+	MySQL			com.mysql.jdbc.Driver			jdbc:mysql://hostname/databaseName
+	ORACLE			oracle.jdbc.driver.OracleDriver			jdbc:oracle:thin:@hostname:portNumber:database
+	DB2			COM.ibm.db2.jdbc.net.DB2Driver		jdbc:db2:hostname:portNumber/databaseName
+	Sybase			com.sybase.jdbc.SybDriver			jdbc:sybase:Tds:hostname:portNumber/database
+
+
+
+
+3) Create the Statement object
+=> the createStatement() method of connection interface is used to create statement. The object of statement is responsible to execute queries with database
+
+		public Statement createStatement()throws SQLException
+
+Example=>	Statement stmt=con.createStatement();
+
+
+
+
+=> Before you can use a Statement object to execute a SQL statement you need to create one using the Connection object's createStatement() methods
+
+Once you've created a Statement object you can then  use it to execute an SQL statement with one ot its three execute methods.
+
+1) boolean execute(String SQL)
+Return a boolean value of true if a ResultSet  obejct can be reterived otherwise it returns false. Use this methods to execute SQL DDL stateement
+2) int executeQuery(String SQL)
+3)ResultSet executeQuery(String SQL)
+
+
+
+
+	PreparedStatement Object :-------------
+The PreparedStatement interface extends the Statement interface which gives you added functionality with a couple of advantages over a generic Statement object
+		This statement gievs you the flexibility of supplying arguments dynamically
+
+
+
+
+4) Execute the query
+=> the Statement interface contains the following methods to execute static SQL statements to a database
+
+
+		ResultSetexecuteQuery(String selectQuery)
+		intexecuteUpdate(String DMLStatement)
+		boolean execute(String  DDLStatement)
+
+=> DQL/DRL(Data Query Langugae / Data Retrival Language )  Select Command
+=> DML ( Data Manipulation Langugage) insert, delete, updata command
+=> DDL ( Data Defination Language ) create, alter, drop, truncate command
+
+5) Close Connection 
+=> by closing connection object statement and ResultSet will be closed automatically. the close() method of connection interface is used to close the connection
+
+		public void close()throws SQLException
+
+		con.close();
+
+
+
+
+//program for select query		DRL/DQL Operation
+
+import java.sql.*;
+class selectquery
+{
+	public static void main(String [] args)
+	{
+	    try
+	    {
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+		Statement stmt=con.createStatement();
+		ResultSet rs=stmt.executeQuery("SELECT * FROM BOYS");
+		System.out.println("Details of the Student : ");
+		while(re.next())
+		{
+			System.out.println(rs.getString(1)+"\t+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getInt(4)+"\t"+rs.getInt(5));
+		}
+		con.close();
+	    }
+	    catch(Exception e)
+	    {
+		System.out.println(e);
+	    }
+	}
+}
+
+
+Example (Executing the SELECT Query More than Once)
+
+import java.sql.*;
+class demo
+{
+    public static void main(String [] args)
+    {
+        try
+        {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+            Statement stmt=conn.createStatement();
+            System.out.println("Details of the Employes");
+            ResultSet res=stmt.executeQuery("Select * from boys");
+            while(res.next())
+            {
+                System.out.println(res.getInt(1)+"\t"+res.getString(2)+"\t"+res.getString(3)+"\t"+res.getString(4)+"\t"+res.getInt(5)+"\t"+res.getLong(6));
+            }
+
+            System.out.println("\nPhone Number of Employes : ");
+            ResultSet rs=stmt.executeQuery("SELECT  PHONE FROM BOYS WHERE SALARY>10000");
+            while(rs.next())
+            {
+                /*System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));*/
+                System.out.println(rs.getLong(1));
+            }
+    
+            System.out.println("\nName of the Employ whose salary is more then 10000");
+            ResultSet re=stmt.executeQuery("SELECT FNAME,LNAME FROM BOYS WHERE SALARY>10000");
+            while(re.next())
+            {
+                System.out.println(re.getString(1)+"\t"+re.getString(2));
+            }
+            conn.close();
+    
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+       
+    }
+}
+
+
+
+
+Output=>
+
+Details of the Employes
+101     ALI     	HASAN   	E001    10000   9760656467
+105     SHIVAM  	VIRU    	E002    40000   9760654562
+110     SHOAB   	KHAN    	E080    68000   9765154562
+102     DHERAJ  	PANDEY  	E005    48000   9765794562
+116     RAJAT   	GUPTA   	E091    48550   7765794512
+111     MAYANK  	JADAV   	E081    75550   7710794512
+115     SACHIN  	GUPTA   	E007    48750   7755441362
+
+Phone Number of Employes :
+9760654562
+9765154562
+9765794562
+7765794512
+7710794512
+7755441362
+
+Name of the Employ whose salary is more then 10000
+SHIVAM  	VIRU
+SHOAB   	KHAN
+DHERAJ  	PANDEY
+RAJAT   	GUPTA
+MAYANK  JADAV
+SACHIN  	GUPTA
+
+
+
+
+
+	Using PreparedStatement DRL operation performed :------------
+
+
+import java.sql.*;
+import java.util.Scanner;
+class demo
+{
+    public static void main(String [] args)
+    {
+        try
+        {
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Enter the Details of the Employes : ");
+            System.out.println("\nEnter Id Number : ");
+            int id=sc.nextInt();
+            sc.nextLine();
+            System.out.println("\nEnter First Name : ");
+            String fname=sc.nextLine();
+            System.out.println("\nEnter Last Name : ");
+            String lname=sc.nextLine();
+            System.out.println("\nEnter Job Code : ");
+            String job_code=sc.nextLine();
+            System.out.println("\nEnter Salary : ");
+            int salary=sc.nextInt();
+            System.out.println("\nEnter Phone Number : ");
+            long phone=sc.nextLong();
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO BOYS VALUES(?,?,?,?,?,?)");
+            stmt.setInt(1,id);
+            stmt.setString(2,fname);
+            stmt.setString(3,lname);
+            stmt.setString(4,job_code);
+            stmt.setInt(5,salary);
+            stmt.setLong(6,phone);
+
+            stmt.executeUpdate();
+
+
+            System.out.println("Operation Performed Successfully : ");
+
+            Statement stmt1=conn.createStatement();
+            ResultSet rs=stmt1.executeQuery("SELECT * FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));
+            }
+
+            conn.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+}
+
+
+Output=>
+D:\VS>javac caller.java
+
+D:\VS>java demo
+Enter the Details of the Employes :
+
+Enter Id Number :
+115
+
+Enter First Name :
+TIM
+
+Enter Last Name :
+BURNER
+
+Enter Job Code :
+E000
+
+Enter Salary :
+20000
+
+Enter Phone Number :
+9955541981
+
+Operation Performed Successfully :
+101     ALI     	HASAN   	E001    10000   9760656467
+105     SHIVAM  	VIRU    	E002    40000   9760654562
+110     SHOAB   	KHAN    	E080    68000   9765154562
+102     DHERAJ  	PANDEY  	E005    48000   9765794562
+109     PATRIC  	NAUGHT  	E112    60000   9955541871
+116     RAJAT   	GUPTA   	E091    48550   7765794512
+111     MAYANK  	JADAV   	E081    75550   7710794512
+115     SACHIN  	GUPTA   	E007    48750   7755441362
+107     RATAN   	DEEP    	E012    45000   7500512583
+108     ED      	FRANK   	E111    50000   9955541781
+115     TIM     	BURNER  	E000    20000   9955541981
+
+
+
+
+
+
+
+//program for Insert query		DML Operation
+import java.sql.*;
+class selectquery
+{
+	public static void main(String [] args)
+	{
+	    try
+	    {
+		class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+		Statement stmt=con.createStatement();
+		stmt.executeUpdate("INSERT INTO BOYS VALUES("E004","ALI","HASAN",48000,9760656467)");
+		System.out.println("Record Updated Successfully");
+		con.close();
+	    }
+	    catch(Exception e)
+	    {
+		System.out.println(e);
+	    }
+	}
+}
+
+
+
+
+
+Example=>
+
+import java.sql.*;
+class demo
+{
+    public static void main(String [] args)
+    {
+       try
+       {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+            Statement stmt=conn.createStatement();
+            stmt.executeUpdate("INSERT INTO BOYS VALUES(109,'Patric','Naught','E112',60000,9955541871)");
+            System.out.println("New Record Added Successfully : ");
+
+            System.out.println("\nNew Records Added in the Boys Table : ");
+            ResultSet rs=stmt.executeQuery("SELECT * FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));
+            }
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       }
+
+    }
+}
+
+
+Output=>
+New Record Added Successfully :New Records Added in the Boys Table :
+
+
+101     ALI     	HASAN   	E001    10000   9760656467
+105     SHIVAM  	VIRU    	E002    40000   9760654562
+110     SHOAB   	KHAN  	E080    68000   9765154562
+102     DHERAJ  	PANDEY  	E005    48000   9765794562
+109     Patric  	Naught  	E112    60000   9955541871
+116     RAJAT   	GUPTA   	E091    48550   7765794512
+111     MAYANK  	JADAV   	E081    75550   7710794512
+115     SACHIN  	GUPTA   	E007    48750   7755441362
+108     Ed      	Frank   	E111    50000   995554171
+
+
+
+
+
+
+//program for create query		DDL Operation
+
+import java.sql.*;
+class selectquery
+{
+	public static void main(String [] args)
+	{
+	    try
+	    {
+		class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+		Statement stmt=con.createStatement();
+		String str="CREATE TABLE BOYS (STUID VARCHAR(20),FNAME VARCHAR(10),LNAME VARCHAR(10),SALARY INT,PHONE INT)"
+		stmt.execute(str);
+		System.out.println("Record Updated Successfully");
+		con.commit();
+		con.close();
+	    }
+	    catch(Exception e)
+	    {
+		System.out.println(e);
+	    }
+	}
+}
+
+
+Example => (Update Query)
+
+import java.sql.*;
+class demo
+{
+    public static void main(String [] args)
+    {
+       try
+       {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+            Statement stmt=conn.createStatement();
+            stmt.executeUpdate("UPDATE BOYS SET PHONE=9955541781 WHERE IDNUM=108");
+            System.out.println("New Record Updated SuccessfullY : ");
+
+            System.out.println("\nNew Records Added in the Boys Table : ");
+            ResultSet rs=stmt.executeQuery("SELECT * FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));
+            }
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       }
+
+    }
+}
+
+Output=>
+
+New Record Updated SuccessfullY :
+
+
+New Records Added in the Boys Table :
+101     ALI     	HASAN   	E001    10000   9760656467
+105     SHIVAM  	VIRU    	E002    40000   9760654562
+110     SHOAB   	KHAN    	E080    68000   9765154562
+102     DHERAJ  	PANDEY  	E005    48000   9765794562
+109     Patric  	Naught  	E112    60000   9955541871
+116     RAJAT   	GUPTA   	E091    48550   7765794512
+111     MAYANK  	JADAV   	E081    75550   7710794512
+115     SACHIN  	GUPTA   	E007    48750   7755441362
+108     Ed      	Frank   	E111    50000   9955541781
+
+
+
+
+
+
+
+	SQL Function (MAX(), MIN(), SUM(), AVG() ) Implementation in Java :-----------------
+
+
+import java.sql.*;
+class demo
+{
+    public static void main(String [] args)
+    {
+        try
+        {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+            Statement stmt=conn.createStatement();
+            System.out.println("\nSummation Function : ");
+            ResultSet rs=stmt.executeQuery("SELECT SUM(SALARY) FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getLong(1));
+            }
+
+            System.out.println("\nMaximum Function : ");
+            rs=stmt.executeQuery("SELECT MAX(SALARY) FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getInt(1));
+            }
+
+            System.out.println("\nMinimum Function : ");
+            rs=stmt.executeQuery("SELECT MIN(SALARY) FROM BOYS");
+            while(rs.next())
+            {s
+                System.out.println(rs.getInt(1));
+            }
+
+            System.out.println("\nAverage Function : ");
+            rs=stmt.executeQuery("SELECT AVG(SALARY) FROM BOYS");
+            while(rs.next())
+            {
+                System.out.println(rs.getInt(1));
+            }
+
+            conn.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+}
+
+
+
+Output=>
+
+D:\VS>javac caller.java
+
+D:\VS>java demo
+
+Summation Function :
+513850
+
+Maximum Function :
+75550
+
+Minimum Function :
+10000
+
+Average Function :
+46713
+
+
+
+
+	
+
+	ORDER BY  Clause :---------------------
+
+=> Select returns records in no particular order
+=> To ensure a specific order use the ORDER BY caluse
+=> ORDER BY allows sorting by one or more columns.
+=> Records can be returned in Ascending or Descending Order.
+
+
+Example=>
+import java.sql.*;
+public class demo
+{
+	public static void main(String [] args)
+	{
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+			Statement stmt=conn.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT JOBCODE,SALARY FROM BOYS ORDER BY JOBCODE");
+			System.out.println("Details of the Student : ");
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1)+"\t"+rs.getInt(2));
+			}
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}  
+
+
+
+Output=>
+
+Details of the Student : 
+E000	20000
+E001	10000
+E002	40000
+E005	48000
+E007	48750
+E012	45000
+E080	68000
+E081	75550
+E091	48550
+E111	50000
+E112	60000
+
+
+=> The default sort order is ascending that is low-high or a-z.
+
+
+
+
+=> Records in Descending Order
+
+Example=>
+import java.sql.*;
+public class demo
+{
+	public static void main(String [] args)
+	{
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+			Statement stmt=conn.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT JOBCODE,SALARY FROM BOYS ORDER BY JOBCODE DESC");
+			System.out.println("Details of the Student : ");
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1)+"\t"+rs.getInt(2));
+			}
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}
+
+
+
+Output=>
+
+Details of the Student : 
+E112	60000
+E111	50000
+E091	48550
+E081	75550
+E080	68000
+E012	45000
+E007	48750
+E005	48000
+E002	40000
+E001	10000
+E000	20000
+
+
+
+
+
+
+
+
+
+	=> SQL SELECT DISTINCT Statement
+
+=> SELECT DISTINCT returns only distinct (different) values
+=> SELECT DISTINCT eliminates duplicate records from the results.
+=> DISTINCT can be used with aggregate COUNT, AVG, MAX, MIN.
+=> DISTINCT operates on a single column DISTINCT for multiple column is not supported.
+
+
+	General Syntax:-
+1) The General syntex is:
+
+	SELECT DISTINCT column-name from table-name;
+
+2) Can be used with COUNT and other aggregates
+	SELECT COUNT(DISTINCT column-name) FROM table-name;
+
+
+
+
+
+
+	=>SQL SELECT TOP  Statement
+
+=> The SELECT TOP statement returns a specified number of records
+=> SELECT TOP is useful when working with very large datasets.
+=> NON SQL Server database use keywords like LIMIT, OFFSET and ROWNUM.
+
+
+
+
+	General Syntex :
+
+	SELECT TOP n column-names FROM table-name;
+
+	
+Example=>
+SELECT TOP 10 Id,ProductName,UnitPrice, Package FROM Product ORDER BY UnitPrice DESC;
+
+this sql query return the top 10 data of(Id,ProductName, UnitPrice, Package) from table  Product
+ 
+
+
+
+
+	=> SQL HAVING Clause :-----------
+
+1) HAVING filters records that work on summarized GROUP BY results
+2) HAVING applies to summerized group records whereas WHERE applies to individual records.
+3) Only the group that meet  the HAVING criteira will be returned
+4) HAVING requies that a GROUP BY clause is present.
+5) WHERE and HAVING can be in the same query
+
+	
+	Syntex :-
+	
+	SELECT COUNT(Id), Country FROM Customer GROUP BY Country HAVING COUNT(Id) > 10;
+
+
+
+
+
+
+
+
+
+
+					-----------------: Servlet Java :---------------
+
+Servlet technology is used to create a web application (reside at server and generates the dynamic web pages).
+
+Servlet technology is robust and scalable because of java language. Before servlet , CGI(Common Gateway Interface) scripting language was common as a server-side programming language.
+
+	However there were many disadvantage to this technology.
+
+
+There are many interfaces and classes in the Servlet API such as Servlet, GenericServlet, HttpServlet, ServletRequest, ServletResponse etc.
+
+
+
+	What is Servlet :---
+
+Servlet can be describe in many ways depending on the context.
+
+
+	=> servlet is a technology which is used to create web application
+	=> servlet is API that provides many interface and classes including documentation
+	=> servlet is an interface that must be implemented for creation any servlet
+	=> servlet is a class that extends the capabilities of the server and response to the incoming request. it can respond to any request.
+	=> servlet is a web component that is deployed on the server to create a dynamic web page.
+
+
+
+
+	Web Application :--------------
+
+A web application is an application accessible from the web.
+A web application is composed of web component like servlet, JSP, Filter etc and other element such as HTML, CSS and JavaScript.
+The web components typically execute in web server and respond to the HTTP request.
+
+
+
+
+	CGI (Common gateway interface) :----------------
+
+CGI technology enable the web server to call an external program and pass HTTP request information to the external program the request for each request it start a new process.
+
+
+	Disadvantage of CGI :-
+
+There are many disadvantage of the CGI:-
+1) if the number of client increase it takes more time for sending response 
+2) for each request it start  a process and the web server is limited to start process.
+3) it uses platform independent language
+
+
+	Advantage of servlet :---------
+
+There are many advantages of the servlet over CGI. 
+
+1) The web container create threads for handling the multiple request to the servlet.
+Thread are many benefits over process  such as they share common memory area lightweight cost of communication between the thread are low.
+
+Advantage of servlet :-
+1) Better performane 
+2) Portability
+3) Robust
+4) Secure
+
+
+
+
+	Web Termonology :---------------
+
+
+	servlet			Description
+
+	HTTP			it  is the commonication protocol used to established communication between client and server.
+
+	get vs post		 it gives the difference between GET and POST request.
+
+	Container			it is used in java for dynamically generating the web page on the server side.
+
+
+
+
+	Website:---
+A website is a collection of related web pages that may content text, image and video
+The first page of a website is called home page.
+Each website has specific internet address(URL) that you need to enter your browser to access a website.
+website is hosted on the server.
+
+
+	A website can be of two types:--
+1) Static website
+2) Dynamic website
+
+
+
+=> Static website:-
+
+Static website is the basic type of website that is easy to create. you don't need the knowledge of web programming and database design to create a static website. its web pages are coded in HTML.
+
+=> Dynamic Website
+Dynamic website is a collection of synamic web pages whose content changes dynamically .
+It access content from a database or Content Management System(CMS)
+Therefore when you alter or update the content of the database the content of the website is also altered or updated.
+
+
+
+
+
+			static website			Dynamic website
+
+prebuilt content is same every time the page is loaded		content is generated quickly and change regularly
+
+it used the HTML code for developing a website			it uses the server side language such as php,servlet.jsp and ASP.net
+
+it sends exactly the same response for every request			it may generate different hTML for each of the request
+
+flexibility is the main advantage of the static web site			content management system is the main advantage of dynamic page
+
+
+
+
+
+	HTTP ( Hyper Text Transfer Protocol ) :---
+
+The hypertext transfer protocol(HTTP) is application level protocol for collabrative distributed by per media information 
+it is the data communication protocol used to established communication between client and server.
+
+HTTP is TCP/IP communication protocol which is used to deliver the data like image files query results HTML files etc on the World Wide Web (WWW) with the default  port id TCP 80. It provides the standardized way for computer to communicate with each other.
+
+
+	Basic characteristic of the HTTP(Hyper Text Transfer Protocol)
+
+=> it is the protocol that allows web servers and browser to exchange data over the web
+=> it is a request reponse protocol
+=> it uses the reliable TCP connections by default on TCP port 80
+=> it is stateless means each request is considered as the new request. In other words server doesn't recognized the user by default.
+
+
+
+
+	Basic  architecture of HTTP (Hyper Text Transfer Protocol ) :-------------
+
+HTTP is request/response protocol which is based on client / server based architecture .
+In this protocol web Browser search engines etc behave as HTTP client and the web server like servlet behaves as a server.
+
+
+
+
+	
+
+	Differene Between the GET and POST methods :----------------------
+
+	
+		GET				POST
+
+in case of GET request only limited amount of data		in case of POST request large amount of data can be sent because daat is sent in  
+can be sent because data is sent in header		body
+
+GET request in not secured because data is expose in URL	POST method is secured because data is not expose in the URL
+
+GET request can be bookmarked			POST request can't be bookmarked
+
+GET request is more efficient  and use more than post	POST request is less efficient and used less than GET
+
+
+
+
+
+
+
+	Server Continer :--------------------
+
+It provides the runtime enviroment for J2EE Application. The client / user can request only a static page from the server . If the user  wants to read the web pages as per input then the servlet container is used in java.
+
+	The server container is part of web server which can be run in a separate process. we can classify the servlet container states in three types.
+
+
+
+	Servlet container state:-
+
+Three servlet container state:-
+
+1) standalone
+2) In-process
+3) Out-of-process
+
+
+
+	Servlet container perform many opearation :----------------
+
+1) Life cycle Management
+2) Multithreaded support
+3) Object Pooling
+4) Security
+
+
+
+
+
+	
+	Server Web vs Application :-----------------------
+
+Server is a device or a computer program that accepts and responds to the request made by  the other program known as client . It is used to manage the network resource and for running the program or software that provide services.
+
+
+There are two types of server :-
+1) Web server
+2) Application sever
+
+
+	Web Server :-
+
+Web server contains only web or servlet container . it can be used for servlet jsp, strut, jsf etc.
+It is the computer where web content  can be stored . In general web server can be used to host the web sites but there also used some web server also such as FTP email storage gaming etc.
+
+
+
+	Web server working :----------------
+
+It can respond to the client request in either of the  following two possible ways:-
+
+=> Generating response by using the script and communication with database
+=> Sending file to the client associated with the requested URL.
+
+
+
+
+	Application Server :----------
+
+Application server contain web and EJB container. It can be used for servlet jsp, struts, jsf etc.
+
+Example of application server :-
+1) JBoss
+2) Glassfish
+3) Weblogic
+4) Websphere
+
+
+
+
+
+	Content Type :------------------------
+
+Content type is also known as MIME(  Multipurpose Internet Mail Extension ) Type is a HTTP header that provides the description about what are you sending to the browser.
+
+MIME is an internet standard that is used for extending the limited capabilities of email by allowing the insertion of sounds, image and text in a message.
+
+	Features provided by the MIME :----------------
+=> it supports the non-ASCII characters
+=> it supports the multiple attachment in a single message
+=> it support the attachment which contains executable audio, image and video files etc.
+=> it support unlimited message length.
+
+
+ 
+
+
+	Servlet API :----------------------
+
+The javax.servlet and javax.servlet.http package represent interfaces and classes for servlet api.
+
+The javax.servlet package contains many interfaces and classes that are used by the servlet or web container
+
+The javax.servlet.http package contains interfaces and classes that are responsible for http request only.
+
+
+
+
+	Interface in javax.servlet package :-
+1) Servlet
+2) ServletRequest
+3) ServletResponse
+4) RequestDispatcher
+5) ServletConfig
+6) ServletContext
+7) SingleThreadModel
+8) Filter
+9) FilterConfig
+10) FilterChain
+11) ServletRequestListener
+12) ServletRequestAttributeListener
+13) ServletContextListener
+14) ServletContextAttributeListener
+
+
+
+	Classes in Servlet Package
+
+There are many classes in javax.servlet package. They are as follow
+
+1) GenericServlet
+2) ServletInputStream
+3) ServletOutputStream
+4)ServletRequestWrapper
+5) ServletResponseWrapper
+6) ServletRequestEvent
+7) ServletContextEvent
+8) ServletRequestAttributeEvent
+9) ServletContextAttributeEvent
+10) ServletException
+
+
+
+
+	There are many interface in javax.servlet.http package
+
+1) HttpServletRequest
+2) HttpServletResponse
+3) HttpSession
+4) HttpSessionListener
+5) HttpSessionBindingListener
+6) HttpSessionAttributeListener
+7) HttpSessionActivationListener
+8) HttpSessionContext
+
+
+
+	Classes in javax.servlet.http package
+
+1) HttpServlet
+2) Cookie
+3) HttpServletRequestWrapper
+4) HttpServletResponseWrapper
+5) HttpSessionEvent
+6) HttpSessionBindingEvent
+7) HttpUtils
+
+
+
+
+
+	Servlet Interface :------------
+
+Servlet interface needs to be implemented for creating any servlet (either directly or indirectly).
+It provides 3 life cycle methods that are used to initilize the servlet, to service the requests and to destroy the servlet and 2 non-life cycle methods.
+
+
+	Methods of servlet interface :-
+
+	Methods				Description
+
+public void init(ServletConfig config)		initializes the servlet it is the life cycle of the servlet and invoked by the web container only 1.
+
+public void service(ServiceRequest request,ServletResponse response)
+			
+					provides the response for the incoming request it is invoked at each request by web container
+
+public void destroy()				it invoked only once and indicate the servel being destroy
+
+public ServletConfig getServletConfig()		return the object of servlet config
+
+public String getServletinfo()			return the information about servlet such as writer, copyright version etc.
+
+
+
+
+
+
+
+
+	GenericServet class :--------------------
+
+GenericServlet class implements Servlet, ServletConfig and Serializable interface.
+It provides the implementation of all the method of these interface except  the service method.
+
+
+	Methods of the Generic class :-
+
+There are many method of the GenericServlet class They are as follow
+
+1) public void init(ServletConfig config)		it is used to initialize the servlet
+
+2) public abstract void service(ServletRequest request, ServletResponse response)
+					provides service for incoming request it is invoked at each time when user request for a servlet.
+
+3) public void destroy()		it invoked only once throughout the life cycle and indicates that servlet is being destroyed.
+
+4) public ServletConfig getServletConfig()		returns the object of ServletConfig
+
+5)  public String getServletInfo() 			returns information about servlet such as writer, copyright, version etc.
+6)  public void init()			 		it is a convenient method for the servlet programmers, now there is no need to call super.init(config)
+
+7)  public ServletContext getServletContext() 		returns the object of ServletContext.
+8)  public String getInitParameter(String name) 		returns the parameter value for the given parameter name.
+9)   public Enumeration getInitParameterNames() 		returns all the parameters defined in the web.xml file.
+10) public String getServletName() 			returns the name of the servlet object.
+11) public void log(String msg) 				writes the given message in the servlet log file.
+12) public void log(String msg,Throwable t) 			writes the explanatory message in the servlet log file and a stack trace.
+
+
+
+
+
+
+
+
+
+
+	HTTP Servlet Class :--------------------
+
+The HttpServlet class extends the GenericServlet class implements Serializable interface.
+It provides http specific methods such as doGet, doPost, doHead, doTrace etc.
+
+
+	Method of HttpServlet class:-------------------
+
+
+There are many methods in HttpServlet class. They are as follows:
+
+public void service(ServletRequest req,ServletResponse res) 	dispatches the request to the protected service method by converting the request and response object into http type.
+
+protected void service(HttpServletRequest req, HttpServletResponse res) 	receives the request from the service method, and dispatches the request to the doXXX() method depending on the incoming http request type.
+
+protected void doGet(HttpServletRequest req, HttpServletResponse res) 		handles the GET request. It is invoked by the web container.
+
+protected void doPost(HttpServletRequest req, HttpServletResponse res) 	handles the POST request. It is invoked by the web container.
+
+protected void doHead(HttpServletRequest req, HttpServletResponse res) 	handles the HEAD request. It is invoked by the web container.
+
+protected void doOptions(HttpServletRequest req, HttpServletResponse res) 	handles the OPTIONS request. It is invoked by the web container.
+
+protected void doPut(HttpServletRequest req, HttpServletResponse res) 		handles the PUT request. It is invoked by the web container.
+
+protected void doTrace(HttpServletRequest req, HttpServletResponse res) 	handles the TRACE request. It is invoked by the web container.
+
+protected void doDelete(HttpServletRequest req, HttpServletResponse res) 	handles the DELETE request. It is invoked by the web container.
+
+protected long getLastModified(HttpServletRequest req) 			returns the time when HttpServletRequest was last modified since midnight January 1, 1970 GMT.
+
+
+
+
+	Life Cycle of Servlet (Servlet Life Cycle ) :-------------------------------
+The web container maintains the life cycle of a servlet instance.
+
+1) Servlet class is loaded.
+2) Servlet instance is created.
+3) init method is invoked.
+4) service method is invoked.
+5) destroy method is invoked.
+
+
+1) Servlet class is loaded
+The classloader is responsible to load the servlet class. The servlet class is loaded when the first request for the servlet is received by the web container.
+
+
+2) Servlet instance is created
+The web container creates the instance of a servlet after loading the servlet class. The servlet instance is created only once in the servlet life cycle.
+
+3) init method is invoked
+
+The web container calls the init method only once after creating the servlet instance. The init method is used to initialize the servlet. It is the life cycle method of the javax.servlet.Servlet interface. Syntax of the init method is given below:
+
+	public void init(ServletConfig config) throws ServletException
+
+4) service method is invoked
+
+The web container calls the service method each time when request for the servlet is received. If servlet is not initialized, it follows the first three steps as described above then calls the service method. If servlet is initialized, it calls the service method. Notice that servlet is initialized only once. The syntax of the service method of the Servlet interface is given below:
+
+		public void service(ServletRequest request, ServletResponse response)   
+  				throws ServletException, IOException
+
+
+
+5) destroy method is invoked
+The web container calls the destroy method before removing the servlet instance from the service. It gives the servlet an opportunity to clean up any resource for example memory, thread etc. The syntax of the destroy method of the Servlet interface is given below:
+
+public void destroy()  
+
+
+
+
+	Step to create a servlet example :----------------
+
+There are given 6 step to create a servlet example. These stpes are required for all the servers.
+
+The servlet example can  be  created by three ways :0
+1) by implementing the servlet interface
+2) by inheriting the GenericServlet class
+3) by inheriting the HttpServlet class
+
+
+
+The most used approach is by extending HttpServlet because it provide httprequest specific method such as doGet(), doPost(), doHead() etc.
+
+Here, we are going to use apache tomcat server in this example. The steps are as follows:
+
+1) Create a directory structure
+2) Create a Servlet
+3) Compile the Servlet
+4) Create a deployment descriptor
+5) Start the server and deploy the project
+6) Access the servlet
+
+
+
+Example=>
+import javax.servlet.http.*;  
+import javax.servlet.*;  
+import java.io.*;  
+public class DemoServlet extends HttpServlet{  
+public void doGet(HttpServletRequest req,HttpServletResponse res)  
+throws ServletException,IOException  
+{  
+res.setContentType("text/html");//setting the content type  
+PrintWriter pw=res.getWriter();//get the stream to write the data  
+  
+//writing html in the stream  
+pw.println("<html><body>");  
+pw.println("Welcome to servlet");  
+pw.println("</body></html>");  
+  
+pw.close();//closing the stream  
+}}  
+
+
+
+3) Compile the Servlet :------------------------
+for compilation the servlet java file is required to be loaded. Different Servers provide different java files:
+
+
+	Jar file				Server
+
+	servlet-api.jar			Apache Tomcat
+	
+	weblogic.jar			Weblogic
+	
+	javaee.jar				Classfish
+
+
+
+4) Create the Deployment description (web.xml file)
+
+The deployment descriptor is an xml file. from which Web Container gets the information about the servet to be invoked.
+The web container uses the Parser to get the information from the web.xml file. There are many xml parsers such as SAX, DOM and Pull.
+There are many elements in the web.xml file. Here is given some necessary elements to run the simple servlet program.
+
+Example=>
+<web-app>  
+  
+<servlet>  
+<servlet-name>sonoojaiswal</servlet-name>  
+<servlet-class>DemoServlet</servlet-class>  
+</servlet>  
+  
+<servlet-mapping>  
+<servlet-name>sonoojaiswal</servlet-name>  
+<url-pattern>/welcome</url-pattern>  
+</servlet-mapping>  
+  
+</web-app> 
+
+
+	Description of the elements of web.xml file :-------------------
+
+There are too many elements in the web.xml file. Here is the illustration of some elements that is used in the above web.xml file. The elements are as follows:
+
+<web-app> represents the whole application.
+<servlet> is sub element of <web-app> and represents the servlet.
+<servlet-name> is sub element of <servlet> represents the name of the servlet.
+<servlet-class> is sub element of <servlet> represents the class of the servlet.
+<servlet-mapping> is sub element of <web-app>. It is used to map the servlet.
+<url-pattern> is sub element of <servlet-mapping>. This pattern is used at client side to invoke the servlet.
+
+
+
+
+	2) How to change port number of apache tomcat
+
+Changing the port number is required if there is another server running on the same system with same port number.Suppose you have installed oracle, you need to change the port number of apache tomcat because both have the default port number 8080.
+
+Open server.xml file in notepad. It is located inside the apache-tomcat/conf directory . Change the Connector port = 8080 and replace 8080 by any four digit number instead of 8080. Let us replace it by 9999 and save this file.
+
+
+
+
+
+
+	How servlet Works :------------------
+It is important to learn how servlet works for understanding the servlet well. Here we are going to get the internal detail about the first servlet program.
+
+The server checks if the servlet is requested for the first
+
+if yes web container does container does the following task:
+
+1) loads the servelt class
+2) instantiates the servlet class
+3) calls the init methods passing the ServletConfig object
+
+else
+
+calls the service method passing request and response objects
+The web container calls the destroy method when it needs to remove the servlet such as at time of stopping server or undeploying the project.
+
+
+	How web container handles the servlet request?:--------------
+
+The web container is responsible to handle the request. Let's see how it handles the request.
+
+=> maps the request with the servlet in the web.xml file.
+=> creates request and response objects for this request
+=> calls the service method on the thread
+=> The public service method internally calls the protected service method
+=> The protected service method calls the doGet method depending on the type of request.
+=> The doGet method generates the response and it is passed to the client.
+=> After sending the response, the web container deletes the request and response objects. The thread is contained in the thread pool or deleted => depends on the server implementation.
+
+
+
+
+	What is written inside the public service method?
+
+The public service method converts the ServletRequest object into the HttpServletRequest type and ServletResponse object into the HttpServletResponse type. Then, calls the service method passing these objects. Let's see the internal code:
+
+	public void service(ServletRequest req,ServletResponse res)
+
+
+public void service(ServletRequest req, ServletResponse res)  
+        throws ServletException, IOException  
+    {  
+        HttpServletRequest request;  
+        HttpServletResponse response;  
+        try  
+        {  
+            request = (HttpServletRequest)req;  
+            response = (HttpServletResponse)res;  
+        }  
+        catch(ClassCastException e)  
+        {  
+            throw new ServletException("non-HTTP request or response");  
+        }  
+        service(request, response);  
+    }
+
+
+
+
+
+	What is written inside the protected service method?
+
+The protected service method checks the type of request, if request type is get, it calls doGet method, if request type is post, it calls doPost method, so on. Let's see the internal code:
+
+
+protected void service(HttpServletRequest req, HttpServletResponse resp)  
+        throws ServletException, IOException  
+    {  
+        String method = req.getMethod();  
+        if(method.equals("GET"))  
+        {  
+            long lastModified = getLastModified(req);  
+            if(lastModified == -1L)  
+            {  
+                doGet(req, resp);  
+            }   
+    ....  
+    //rest of the code  
+        }  
+    } 
+
+
+
+
+
+
+
+	War File :-
+
+A war (web archive) File contains fiels of a web project . It may have servlet, xml, jsp, image,html,css,js etc. files.
+Here we will discuss what is war file , how to create war file how to deploy war file and how to extract war file.
+
+
+	What is war file?
+web archive(war) file contains all the content of a web application. It reduces the time duration for transferring file.
+
+	Advantage of war file:-
+save time:  The war file combines all the files into a single unit. So it takes less time while trasfering file from client to server.
+
+
+
+	How to create war file :-
+To create war file you need to use jar tool of jdk. You need to use -c switch of jar to create the war file.
+Go inside the project directory of your project (outside the WEB-INF), then write the following command:
+
+jar -cvf projectname.war *  
+Here, -c is used to create file, -v to generate the verbose output and -f to specify the arhive file name.
+
+The * (asterisk) symbol signifies that all the files of this directory (including sub directory).
+
+
+
+	How to deploy the war file: -------------------------
+
+There are two ways to deploy the war file.
+
+By server console panel
+By manually having the war file in specific folder of server.
+If you want to deploy the war file in apache tomcat server manually, go to the webapps directory of apache tomcat and paste the war file here.
+
+
+
+	How to extract war file manually?
+To extract the war file, you need to use -x switch of jar tool of JDK. Let's see the command to extract the war file.
+
+jar -xvf projectname.war
+
+
+
+
+
+	Welcome-file-list in web.xml :-----------------------
+
+The welcome-file-list element of web-app is used to define a list of welcome files.
+Its sub element is welcome-file that is used to defined the welcome file
+
+a welcome file is the file that is invoked automatically by the server if you don't specify any file name.
+By default server looks for welcome file in following order.
+
+1) index.html
+2) index.htm
+3) index.jsp
+
+if none of the files are found server renders 404 error.
+
+
+<web-app>
+
+<welcome-file-list>
+<welcome-file>home.html<welcome-file>
+<welcome-file>default</welcome-file>
+</welcome-file-list>
+
+</web-app>
+
+now home.html and default.html will be the welcome files
+
+if you have the welcome file you can directory invoked the project as given below:
+
+http://localhost:8088/myproject
+
+
+
+
+
+	load on startup in web.xml :----------------------
+The load-on-startup element of wen-app loads the servlet at the time of development or server start if value is positive.
+It is also known as pre initialization of servlet.
+
+	Advantage of load-on-startup element:-
+As you know well servlet is loaded at first request . that means it consume more time at first request  if you specify the load-on-startup in web.xml servlet will be loaded at project development time or server start. So it will take less time for responding to first request.
+
+

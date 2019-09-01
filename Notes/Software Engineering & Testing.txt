@@ -1,0 +1,506 @@
+					-------------: Software Engineering :------------
+
+Software Engineering is an engineering branch associate with development of software product using well-defined scientific principles, methods and procedures. The outcome of software engineering is an efficient and realiable software product.
+
+
+
+	=> Software ? 
+
+Software is more than just a program code. A program is an executable code which serve some computational purpose. It is considered to be collection of executable programming code, associated libraries and documentations.
+
+
+	=> Engineering
+Engineering on the other hand is all about developing products, using well-defined scientific principles and methods.
+
+
+	Software Engineering :-
+
+Software engineering is the establishment and use of sound engineering principles in order to obtain economically software that is realiable and work efficiently on real machine.
+
+
+
+
+	Software Paradigms :------------
+
+Software paradigms refer to the methods and steps which are taken while designing the software. There are many methods proposed and are in work today, but we need to see where in the software engineering these paradigms stands
+
+
+=> Programming paradigms is a subset of software design paradigms which is further a subset of software development paradigms.
+
+
+1) Software Development Paradigms :-
+
+This paradigms is known as software engineering paradigms where all the engineering concepts pertaining to the development of software.
+
+it consist of
+a) Requirement gathering
+b) software design
+c) programming
+
+
+
+2) Software design paradigms
+this paradigms is a part of software development and include
+a) design
+b) maintenance
+c)programming
+
+
+3) Programming Paradigms
+this paradigms is related closely to programming aspect of software development
+a) coding
+b) testing
+c) integration
+
+
+
+	Characteristics of Good Software :---------------
+
+A software product can be judged by what it offer and how well it can be used. this software must satisfy on the following grounds:
+1) Operational
+2) Transitional
+3) Maintenance
+
+=> Operational
+
+This tell us how well software works in operations. It can be measured on
+
+a) Budget
+b) Usability
+c) Efficiency
+d) Correctness
+e) Functionality
+f) Dependability
+g) Security
+h) Safety
+
+
+=> Transitional
+
+This aspect is important when the software is moved from one platform to another:
+a) Portability
+b) interoperability
+c) reusability
+d) adaptability
+
+
+
+=> Maintenance
+this aspect brief about how well a software has the capabilities to maintain itself in the ever-changing environment
+a) Modularity
+b) Maintainability
+c) Flexibility
+d) Scalability
+
+
+
+
+
+			                     ----------: Software Development Life Cycle (SDLC) :------------
+
+Software development life  cycle , SDLC for short is a well-defined structured sequence of stages in software engineering to develop the intended software products:
+
+	SDLC Activities :-------------
+SDLC provides a series of steps  to be following to design  and develop a software product efficiently. SDLC framework include the following stpes:
+
+
+	Communication
+	           =>
+		Requirement Gathering
+			=>
+			       Feasibility Study
+				=> 
+				        System Analysis
+					=>
+					             Coding
+						=>
+						        Testing
+							=>
+							        Integration
+								=>
+								      Implementation
+									=>
+									     Operation and Maintenance
+										=>
+										       Disposition
+
+
+
+
+1) Communication
+This is the first step where the user initiates the request for a desired software product. He contact the service provider and tries to negotiate the terms.
+
+2) Requirement Gathering
+The team holds disscussions with the various stackholder from probles domains and tries to bring out as much information as possible on their requirement
+
+3) Feasibility Study
+After requirement gathering the team comes up with a rough plan of software process. At this step the team analyzes if a software can be made to fulfill all requirement of the user and if there is any possibility of software beign no more useful. it is found out if the project is financially, practically and technologically feasible for the organization to take up.
+
+
+4) System Analysis
+At this step the developer decide a roadmap of their plan and try to bring up the best software model suitable for the project. System analysis include Understanding of software product limitations, learning system related problems or changes to be done in existing systems beforehand, identifying and addressing.
+
+5) Coding
+This step is also known as programming phase. The implementation of software design starts in term of writing program code in the suitable programming  language and developing error-free executable programs efficiently.
+
+
+6) Testing
+An estimate says that 50% of whole software development process should be tested . Error may ruin the software from critical level to its own removal.
+
+
+6) Inetgration
+Software may need to be integrated with libraries ,database and other program. This stage of SDLC is involved in the integration of software with outer world.
+
+7) Implementation
+This means installing the software on user machine . At times needs post-installation configuration at user end . Software is teated for portability and adeptability and integration related issure.
+
+8) Maintainance
+providing the maintannce facility for software with in a fixed interval of time.
+
+
+
+	WaterFall Model :--------------
+
+Waterfall model is the simplest model of the software development paradigm. It says the all phases of SDLC will function one after another in liner manner. That is when the first is finished then only the second phase will start and so on.
+This model assumes that everything is carried out and taken place perfectly as planned in the previous stage and there is no need to think about the past issues that may arise in the next phase. This model does not work smoothly if there are some issues left at the previous step. The sequential nature of model does not allow us go back and undo or redo our actions.
+
+
+
+
+	Iterative Model :---------------
+
+This model leads the software development process in iterations. It projects the process of development in cyclic manner repeating every step after every cycle of SDLC process.
+
+		The software is first developed on very small scale and all the steps are followed which are taken into consideration. Then, on every next iteration, more features and modules are designed, coded, tested and added to the software. Every cycle produces a software, which is complete in itself and has more features and capabilities than that of the previous one.
+
+After each iteration, the management team can do work on risk management and prepare for the next iteration. Because a cycle includes small portion of whole software process, it is easier to manage the development process but it consumes more resources.
+
+
+
+	Spiral Model :--------------
+
+Spiral model is one of the most important Software Development Life Cycle models, which provides support for Risk Handling. In its diagrammatic representation, it looks like a spiral with many loops. 
+					The exact number of loops of the spiral is unknown and can vary from project to project. Each loop of the spiral is called a Phase of the software development process. The exact number of phases needed to develop the product can be varied by the project manager depending upon the project risks.
+
+
+Each Spiral has Four Quadrant :-
+
+1) Objectives determination and identify alternative solutions:
+Requirements are gathered from the customers and the objectives are identified, elaborated and analyzed at the start of every phase. Then alternative solutions possible for the phase are proposed in this quadrant.
+
+2)Identify and resolve Risks:
+During the second quadrant all the possible solutions are evaluated to select the best possible solution. Then the risks associated with that solution is identified and the risks are resolved using the best possible strategy. At the end of this quadrant, Prototype is built for the best possible solution.
+
+3) Develop next version of the Product:
+During the third quadrant, the identified features are developed and verified through testing. At the end of the third quadrant, the next version of the software is available.
+
+4)Review and plan for the next Phase:
+In the fourth quadrant, the Customers evaluate the so far developed version of the software. In the end, planning for the next phase is started.
+
+
+
+
+Why Spiral Model is called Meta Model ?
+
+The Spiral model is called as a Meta Model because it subsumes all the other SDLC models. For example, a single loop spiral actually represents the Iterative Waterfall Model. The spiral model incorporates the stepwise approach of the Classical Waterfall Model.
+
+
+
+
+
+
+	V – model :----------------
+
+The major drawback of waterfall model is we move to the next stage only when the previous one is finished and there was no chance to go back if something is found wrong in later stages. V-Model provides means of testing of software at each stage in reverse manner.
+
+	At every stage, test plans and test cases are created to verify and validate the product according to the requirement of that stage. For example, in requirement gathering stage the test team prepares all the test cases in correspondence to the requirements. Later, when the product is developed and is ready for testing, test cases of this stage verify the software against its validity towards requirements at this stage.
+
+This makes both verification and validation go in parallel. This model is also known as verification and validation model.
+
+
+
+
+
+
+	Agile Development Models :------------------
+
+In earlier days Iterative Waterfall model was very popular to complete a project. But nowadays developers face various problems while using it to develop a software. The main difficulties included handling change requests from customers during project development and the high cost and time required to incorporate these changes. To overcome these drawbacks of Waterfall model, in the mid-1990s the Agile Software Development model was proposed.
+
+The Agile model was primarily designed to help a project to adapt to change requests quickly. So, the main aim of the Agile model is to facilitate quick project completion. To accomplish this task agility is required. Agility is achieved by fitting the process to the project, removing activities that may not be essential for a specific project. Also, anything that is wastage of time and effort is avoided.
+
+
+
+A few Agile SDLC models are given below:
+
+1) Crystal
+2) Atern
+3) Feature-driven development
+4) Scrum
+5) Extreme programming (XP)
+6) Lean development
+7) Unified process
+
+
+
+
+
+	Software Project :-------------
+
+A Software Project is the complete procedure of software development from requirement gathering to testing and maintenance, carried out according to the execution methodologies, in a specified period of time to achieve intended software product.
+
+
+	Need of software project management :------------------
+
+Software is said to be an intangible product. Software development is a kind of all new stream in world business and there’s very little experience in building software products. Most software products are tailor made to fit client’s requirements. The most important is that the underlying technology changes and advances so frequently and rapidly that experience of one product may not be applied to the other one. All such business and environmental constraints bring risk in software development hence it is essential to manage software projects efficiently.
+
+
+
+
+
+	Requirement Engineering :---------------------
+
+The process to gather the software requirements from client, analyze and document them is known as requirement engineering.
+The goal of requirement engineering is to develop and maintain sophisticated and descriptive ‘System Requirements Specification’ document.
+
+
+Requirement Engineering Process
+It is a four step process, which includes –
+
+1) Feasibility Study
+2) Requirement Gathering
+3) Software Requirement Specification
+4) Software Requirement Validation
+
+
+
+	Feasibility study
+
+When the client approaches the organization for getting the desired product developed, it comes up with rough idea about what all functions the software must perform and which all features are expected from the software. 
+		Referencing to this information, the analysts does a detailed study about whether the desired system and its functionality are feasible to develop.
+
+
+
+	Requirement Gathering
+
+If the feasibility report is positive towards undertaking the project, next phase starts with gathering requirements from the user. Analysts and engineers communicate with the client and end-users to know their ideas on what the software should provide and which features they want the software to include.
+
+
+
+	Software Requirement Specification
+
+SRS is a document created by system analyst after the requirements are collected from various stakeholders.
+
+SRS defines how the intended software will interact with hardware, external interfaces, speed of operation, response time of system, portability of software across various platforms, maintainability, speed of recovery after crashing, Security, Quality, Limitations etc.
+
+The requirements received from client are written in natural language. It is the responsibility of system analyst to document the requirements in technical language so that they can be comprehended and useful by the software development team.
+
+
+
+	Software Requirement Validation
+
+After requirement specifications are developed, the requirements mentioned in this document are validated. User might ask for illegal, impractical solution or experts may interpret the requirements incorrectly. This results in huge increase in cost if not nipped in the bud. Requirements can be checked against following conditions -
+
+If they can be practically implemented
+If they are valid and as per functionality and domain of software
+If there are any ambiguities
+If they are complete
+If they can be demonstrated
+
+
+
+
+
+
+	Software Requirement :--------------
+
+Broadly software requirements should be categorized in two categories:
+
+
+1) Functional Requirements
+
+Requirements, which are related to functional aspect of software fall into this category.
+They define functions and functionality within and from the software system.
+
+EXAMPLES -
+Search option given to user to search from various invoices.
+User should be able to mail any report to management.
+Users can be divided into groups and groups can be given separate rights.
+Should comply business rules and administrative functions.
+Software is developed keeping downward compatibility intact.
+Non-Functional Requirements
+Requirements, which are not related to functional aspect of software, fall into this category. They are implicit or expected characteristics of software, which users make assumption of.
+
+
+
+2) Non-functional requirements include -
+
+Security
+Logging
+Storage
+Configuration
+Performance
+Cost
+Interoperability
+Flexibility
+Disaster recovery
+Accessibility
+
+
+
+
+
+	Modularization :-----------------
+
+Modularization is a technique to divide a software system into multiple discrete and independent modules, which are expected to be capable of carrying out task(s) independently. These modules may work as basic constructs for the entire software. Designers tend to design modules such that they can be executed and/or compiled separately and independently.
+
+Modular design unintentionally follows the rules of ‘divide and conquer’ problem-solving strategy this is because there are many other benefits attached with the modular design of a software.
+
+
+
+
+	Concurrency :-----------------
+
+Back in time, all software are meant to be executed sequentially. By sequential execution we mean that the coded instruction will be executed one after another implying only one portion of program being activated at any given time. Say, a software has multiple modules, then only one of all the modules can be found active at any time of execution.
+
+In software design, concurrency is implemented by splitting the software into multiple independent units of execution, like modules and executing them in parallel. In other words, concurrency provides capability to the software to execute more than one part of code in parallel to each other.
+
+
+
+
+
+	Cohesion :--------------
+
+Cohesion is a measure that defines the degree of intra-dependability within elements of a module. The greater the cohesion, the better is the program design.
+
+
+
+	Coupling :--------------
+
+Coupling is a measure that defines the level of inter-dependability among modules of a program. It tells at what level the modules interfere and interact with each other. The lower the coupling, the better the program.
+
+
+
+
+				             -------------: Software Testing :-------------
+
+Testing is the process of evaluating a system ot its components(s) with in intent to finds whether it satisfies the specified requierement or not.
+Testing is executing a system in order to indentify any gaps errors or missing requirement in contrary to the actual requirement.
+
+
+
+	Who does Testing :-----------------
+
+It depends  on the rpesess and the associate stackholder of the project. In the industry large computer have a team with responsibilities to evaluate the developed software in context of the given requirement. Morever developer are conduct testing is called Unit Testing.
+
+	Softare Tester
+	Software Developer
+	Project Lead/Manager
+	End User
+
+
+
+	When to start Testing :---------------
+
+An early start to testing resuces the cost and time to rework and produce error-free software that is delivered to the client.
+However in software development life cycle testing can be started from the requirement gathering phase and continued till the development of the software.
+	and it also depends on the development  model that is being used
+example=>
+ in waterfall model formal testing is conducted in the testing phase but in the incremental model testing is performed at the end of every increment/iteration and the whole application is tested at the end.
+
+
+	When to stop testing :---------------
+it is difficult to determine when  to stop testing  as testing is  a never ending process and no one can claim that a software is 100% testes.
+
+
+
+	Software Tesitng Myth :-------------
+1) there is a saying pay less for testing during software development or pay more for maintenace or correction later. Early testing save both
+2) testing take small portion of time
+3) complete testing id possible
+4) a tested software is bug free
+
+
+
+	What is the Quality Assurance and Quality Control :-----------
+
+Quality Assurance =>
+QA includes activities that ensure the implementation of process procedure and standards in context to verification of developed software  and inteded requirement
+
+Quality Control=>
+QC includes activities that ensure the verification of a developed software with respect to document requirement
+focuse on actual testing by executing the software with an aim to identify  bug/defect through implementation of procedure and process
+product oriented activities
+it is a corrective peocess
+
+
+testing  =>
+it includes activities that ensure the identification of bugs/error/ defects in a software
+ focuse on actual testing
+product oriented activities
+it is  a preventive process
+
+
+
+
+	Types of Testing :-----------------
+
+	Manual Testing::---
+Manual Testing includes testing a software manually wothout using any automated tools or any script.
+There are different stages for manual testing  such as unit testing , integration testing, system testing and user acceptance testing.
+Manual testing also incluse exploratory testing  as testers explore the software to indentify the error.
+
+
+	Automation Testing :-----------
+Automation testing which is also known as Test Automation is when the tester writes scripts and uses another software to test the product . this process involves automation of a manual process Automation testing is usedd to re-run the test scenario that aere performed manually quick;y repeatly.
+
+
+	wehn to Automate:
+1) Large and critical projects
+2) Projects that require testing the sam area frequently
+3) requirement not changing frequently
+4) accessing the application for load and performance with viru=tual user 
+
+
+
+	Software Testing Methods: ------------
+
+1) Black Box Testing:------------------
+The technique of testing without having any knowledge of the interior working application called black-box testing. the tester doesn't have access the source code .
+while testing the tester interact with the system by providing input and examing output without knowing how and where the input are worked upon.
+
+
+2) White Box Testing
+White box testing is the detailed investigation of the internal logic of the code . white box testing is also called glass boc testing or open box testing 
+In order to perform white box testing  on an application a tester needs to know the internal working of code.
+
+
+
+	Software Testing Level :-------------
+
+There are different levels during the precess of testing.
+Levels of testing includes different methodologies that can be used while conducting software testing .
+
+1) Functional Testing
+2) Non-Functional Testing
+
+
+	Functional Testing :-----------
+
+This is a type of Black-Box testing that is based on the specification of the software that is to be tested .
+The application is tested by providing input and then the results examined that need to conform to the functionality it was inteden for.
+
+1) Unit Testing
+2) Integration Testing
+	a) Bottom up Integration
+	b) Top down integration
+3) System Testing
+4) Regression Testing
+5) Acceptance Testing
+6) Alpha Testing
+7) Beta Testing
+
+
+
+	Non-functional Testing :-------------
+
+This section is based upon testing an application from its non-functional attributes. Non-functional testing involves testing a software from the requirement which are Non-Functional but important such as performance , security, userinterface etc.
