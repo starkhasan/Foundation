@@ -69,6 +69,10 @@ API Level is an integer value that uniquely identifies the framework API revisio
 7) In 2008, HTC launched the first android mobile.
 
 
+
+
+
+
 	Andriod Architecture :----------------------
 Android operating system is a stack of software components which is roughly divided into five sections and four main layers.
 
@@ -161,8 +165,13 @@ Intent is used to invoke component. It is mainly used to
 => broadcast a message
 => Dial a phone call
 
-7) Fragment
 
+
+
+
+	7) Fragment :--------------------------------------------
+
+A Fragment is a piece of an activity which enable more modular activity design.It will not be wrong if we say a gragment is a kind of sub-activity.
 Fragments are like parts of activity. An activity can display one or more fragments on the screen at the same time.
 
 8) AndroidManifest.xml
@@ -174,7 +183,283 @@ It perform some other tasks also:
 => It also declares the android api that the application is going to use.
 
 
-9) Android Virtual Device (AVD)
+
+	Following are important points about fragment :-----
+1) A fragment has its own layout and its own behaviour with its own life cycle callbacks.
+2) You can add or remove fragment in an activity while activity is running
+3) You can combine multiple fragments  in a single activity to build a multi-pane UI
+4) A fragment can be used in multiple activties
+5) Fragment life cycle is closely related to the life cycle of its host activity which means when the activity is paused all the fragment available in 	    the activity will also be stopped.
+5) Fragment were added to the android API in Honeycomb version of Android which  API version 11
+
+we can create fragment by extending Fragment class and you can insert a fragment into your activity layout by declaring the fragment in the activity's layout by declaring the fragment in the activity's layout file as a <fragment>
+
+Prior to fragment introduction, we had a limitation because we can show only a single activity on the screen at one given point in time. So we were not able to divide device screen and control different parts separately. But with the introduction of fragment we got more flexibility and removed the limitation of having a single activity on the screen at a time. Now we can have a single activity but each activity can comprise of multiple fragments which will have their own layout, events and complete life cycle.
+
+Here is the list of methods which you can to override in your fragment class -
+
+onAttach()The fragment instance is associated with an activity instance.The fragment and the activity is not fully initialized. Typically you get in this method a reference to the activity which uses the fragment for further initialization work.
+
+onCreate() The system calls this method when creating the fragment. You should initialize essential components of the fragment that you want to retain when the fragment is paused or stopped, then resumed.
+
+onCreateView() The system calls this callback when it's time for the fragment to draw its user interface for the first time. To draw a UI for your fragment, you must return a View component from this method that is the root of your fragment's layout. You can return null if the fragment does not provide a UI.
+
+onActivityCreated()The onActivityCreated() is called after the onCreateView() method when the host activity is created. Activity and fragment instance have been created as well as the view hierarchy of the activity. At this point, view can be accessed with the findViewById() method. example. In this method you can instantiate objects which require a Context object
+
+onStart()The onStart() method is called once the fragment gets visible.
+
+onResume()Fragment becomes active.
+
+onPause() The system calls this method as the first indication that the user is leaving the fragment. This is usually where you should commit any changes that should be persisted beyond the current user session.
+
+onStop()Fragment going to be stopped by calling onStop()
+
+onDestroyView()Fragment view will destroy after call this method
+
+onDestroy()onDestroy() called to do final clean up of the fragment's state but Not guaranteed to be called by the Android platform.
+
+
+How to use Fragments?
+This involves number of simple steps to create Fragments.
+
+First of all decide how many fragments you want to use in an activity. For example let's we want to use two fragments to handle landscape and portrait modes of the device.
+
+Next based on number of fragments, create classes which will extend the Fragment class. The Fragment class has above mentioned callback functions. You can override any of the functions based on your requirements.
+
+Corresponding to each fragment, you will need to create layout files in XML file. These files will have layout for the defined fragments.
+
+Finally modify activity file to define the actual logic of replacing fragments based on your requirement.
+
+
+Types of Fragments
+Basically fragments are divided as three stages as shown below.
+
+Single frame fragments - Single frame fragments are using for hand hold devices like mobiles, here we can show only one fragment as a view.
+
+List fragments - fragments having special list view is called as list fragment
+
+Fragments transaction - Using with fragment transaction. we can move one fragment to another fragment.
+
+
+
+1) Single frame fragment :---------------------
+Single frame fragment is designed for small screen devices such as hand hold devices(mobiles) and it should be above android 3.0 version.
+
+MainActivity.java
+package com.example.myfragments;
+
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.res.Configuration;
+import android.os.Bundle;
+
+public class MainActivity extends Activity {
+
+   /** Called when the activity is first created. */
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      Configuration config = getResources().getConfiguration(); //This class describes all device configuration information that can impact the 						resources the application retrieves. This includes both user-specified 						configuration options (locale list and scaling) as well as device configurations 						(such as input modes, screen size and screen orientation)
+
+	//You can acquire this object from Resources, using Resources#getConfiguration. Thus, from an activity, you can get it by chaining the 	request with ContextThemeWrapper.getResources():
+
+	//Configuration config = getResources().getConfiguration();
+
+      FragmentManager fragmentManager = getFragmentManager();
+
+      //A Fragment is a piece of an application's user interface or behavior that can be placed in an Activity. Interaction with fragments is done        through FragmentManager, which can be obtained via Activity#getFragmentManager() and Fragment#getFragmentManager().
+      FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+      //FragmentManager which is used to create transactions for adding, removing or replacing fragments. fragmentManager.beginTransaction();         Start a series of edit operations on the Fragments associated with this FragmentManager.
+      /**
+         * Check the device orientation and act accordingly
+      */
+		
+      if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+         /**
+            * Landscape mode of the device
+         */
+         LM_Fragement ls_fragment = new LM_Fragement();
+         fragmentTransaction.replace(android.R.id.content, ls_fragment);
+      }else{
+         /**
+            * Portrait mode of the device
+         */
+         PM_Fragement pm_fragment = new PM_Fragement();
+         fragmentTransaction.replace(android.R.id.content, pm_fragment);
+      }
+      fragmentTransaction.commit();
+   }
+
+}
+
+
+
+
+Create two fragment files LM_Fragement.java and PM_Fragment.java
+
+Following is the content of LM_Fragement.java file -
+
+package com.example.myfragments;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+/**
+   * Created by TutorialsPoint7 on 8/23/2016.
+*/
+
+public class LM_Fragement extends Fragment {
+   @Override
+   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+      /**
+         * Inflate the layout for this fragment
+      */
+      return inflater.inflate(R.layout.lm_fragment, container, false);
+   }
+}
+
+
+
+Following is the content of PM_Fragement.java file -
+
+package com.example.myfragments;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+/**
+   * Created by TutorialsPoint7 on 8/23/2016.
+*/
+
+public class PM_Fragement extends Fragment {
+   @Override
+   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+      /**
+         * Inflate the layout for this fragment
+      */
+      return inflater.inflate(R.layout.pm_fragment, container, false);
+   }
+}
+
+
+
+Create two layout files lm_fragement.xml and pm_fragment.xml under res/layout directory.
+
+Following is the content of lm_fragement.xml file -
+
+<?xml version="1.0" encoding="utf-8"?>
+   <LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:orientation="vertical"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:background="#7bae16">
+   
+   <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/landscape_message"
+      android:textColor="#000000"
+      android:textSize="20px" />
+
+<!-- More GUI components go here  -->
+
+</LinearLayout>
+
+
+Create two layout files lm_fragement.xml and pm_fragment.xml under res/layout directory.
+
+Following is the content of lm_fragement.xml file -
+
+<?xml version="1.0" encoding="utf-8"?>
+   <LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:orientation="vertical"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:background="#7bae16">
+   
+   <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/landscape_message"
+      android:textColor="#000000"
+      android:textSize="20px" />
+
+<!-- More GUI components go here  -->
+
+</LinearLayout>
+
+
+
+Following will be the content of res/layout/activity_main.xml file which includes your fragments -
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:orientation="horizontal">
+
+   <fragment
+      android:name="com.example.fragments"
+      android:id="@+id/lm_fragment"
+      android:layout_weight="1"
+      android:layout_width="0dp"
+      android:layout_height="match_parent" />
+   
+   <fragment
+      android:name="com.example.fragments"
+      android:id="@+id/pm_fragment"
+      android:layout_weight="2"
+      android:layout_width="0dp"
+      android:layout_height="match_parent" />
+
+</LinearLayout>
+
+
+
+Make sure you have following content of res/values/strings.xml file -
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name="app_name">My Application</string>
+   <string name="landscape_message">This is Landscape mode fragment</string>
+   <string name="portrait_message">This is Portrait mode fragment></string>
+</resources>
+
+
+
+
+
+	Android - List Fragment :-----------------------------
+This example will explain you how to create your own list fragmen based on arrayAdapter so Let's follow the following steps to similar what we followed while creaing Hllo World Example:-
+
+
+				Description
+
+1				You will use Android Studio to create an Android application and name it as SimpleListFragment under 				a package com.example.tutorialspoint7.myapplication, with blank Activity.
+
+2				Modify the string file, which has placed at res/values/string.xml to add new string constants
+
+3				Create a layout called list_fragment.xml under the directory res/layout to define your list fragments. 				and add fragment tag(<fragment>) to your activity_main.xml
+
+4				Create a myListFragment.java, which is placed at java/myListFragment.java and it contained 				onCreateView(),onActivityCreated() and OnItemClickListener()
+
+5				Run the application to launch Android emulator and verify the result of the changes done in the 				application.
+
+
+
+	9) Android Virtual Device (AVD)
+
+
 It is used to test the android application without the need for mobile or tablet etc. It can be created in different configurations to emulate different types of real devices.
 
 

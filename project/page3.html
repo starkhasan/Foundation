@@ -1,0 +1,125 @@
+<html>
+<head>
+	<title>Searching</title>
+	<link rel="icon" href="D:\ICON\code1.jpg" type="image/icon">
+	<style>
+		.selection
+		{
+			font-size: 20px;
+			font-family: arial;
+			font-style: italic;
+			
+		}
+	</style>
+</head>
+<body>
+	<h2>Linear Search</h2>
+	<pre class="selection"><b>
+		import java.util.Scanner;
+		class demo
+		{
+			public static void main(String [] args)
+			{
+				Scanner sc=new Scanner(System.in);
+				System.out.println("Enter Size : ");
+				int ar_size=sc.nextInt();
+				int ar[]=new int[ar_size];
+				System.out.println("Enter Element in Array : ");
+				for(int i=0;i&ltar_size;i++)
+				{
+					ar[i]=sc.nextInt();
+				}
+
+				System.out.println("Number which you want to Search");
+				int num=sc.nextInt();
+
+				for(int i=0;i&ltar_size;i++)
+				{
+					if(num==ar[i])
+					{
+						System.out.println(num+" Found at "+(i+1));
+						break;
+					}
+					else if(num!=ar[i] && ar[i]==ar_size-1)
+					{
+						System.out.println("Number not Found : ");
+					}
+				}
+			}
+		}
+	</pre>
+
+	<h2>Binary Search</h2>
+	<pre  class="selection"><b>
+		import java.util.Scanner;
+		class demo
+		{
+    		public void binarysearch(int br[],int sr_ele)
+    		{
+        		int br_size=br.length;
+        		int temp=0;
+
+        		for(int i=0;i&ltbr_size;i++)
+        		{
+            		for(int j=0;j&ltbr_size-1;j++)
+            		{
+                		if(br[j]>br[j+1])
+                		{
+                    		temp=br[j];
+                    		br[j]=br[j+1];
+                    		br[j+1]=temp;
+                		}
+            		}
+        		}
+
+        		int mid=br_size/2;
+        		if(sr_ele==br[mid])
+        		{
+            		System.out.println(sr_ele+" is found at "+mid);
+            		System.exit(0);
+        		}
+        		else if(sr_ele&ltbr[mid])
+        		{
+            		for(int i=0;i&ltmid;i++)
+            		{
+                		if(sr_ele==br[i])
+                		{
+                    		System.out.println(sr_ele+" is found at "+i);
+                    		System.exit(0);
+                		}
+            		}
+        		}
+        		else
+        		{
+            		for(int i=mid+1;i&ltbr_size;i++)
+            		{
+                		if(sr_ele==br[i])
+                		{
+                    		System.out.println(sr_ele+" is found at "+i);
+                    		System.exit(0);
+                		}
+            		}
+        		}
+
+    		}
+    		public static void main(String [] args)
+    		{
+        		demo br_search=new demo();
+        		Scanner sc=new Scanner(System.in);
+        		System.out.println("Enter Size :  ");
+        		int ar_size=sc.nextInt();
+        		System.out.println("Enter Element in Array : ");
+        		int a[]=new int[ar_size];
+        		for(int i=0;i&ltar_size;i++)
+        		{
+            		a[i]=sc.nextInt();
+        		}
+        		System.out.println("Which Element Do you want to search : ");
+        		int search_ele=sc.nextInt();
+        		br_search.binarysearch(a,search_ele);
+
+    		}
+		}
+	</pre>
+</body>
+</html>

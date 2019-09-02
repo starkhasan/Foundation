@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Log In</title>
+		<link href="login.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		function validateForm()
+		{
+			var x=document.forms["myform"]["username"].value;
+			if(x=="")
+			{
+				alert("Username and password must be entered");
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="loginbox">
+		<h2>Login Here</h2>
+		<form name="myform" onsubmit="return validateForm()" method="post">
+			<p>Username</p>
+			<input type="text" name="username" placeholder="Enter Username" size="35">
+			<p>Password</p>
+			<input type="Password" name="password" placeholder="Enter Password"><br>
+			<input type="submit" name="" value="Login"><br>
+			<a href="#">New User</a>
+		</form>
+	</div>
+	<div class="container">
+		<h1 class="head">Easy<br>Online<br>Learning</h1>
+	</div>
+</body>
+</html>

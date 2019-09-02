@@ -1,0 +1,20 @@
+
+					HTML (Hypertext MarkUp Language)
+Hypertext => because it contain hyperlink
+Markup	=> because it contain tags
+
+HTML Form
+HTML forms are used to collect user input.
+The form element define HTML form
+
+
+<input> Element is the most important form element
+<input> element has many variation depending on the type attribute
+
+=> text	define noemal text input
+=> radio	define radio button for selecting one of many choices
+=> submit	define a submit button for submitting the form
+
+Text input
+<input type="text"> define one line input field for text input
+

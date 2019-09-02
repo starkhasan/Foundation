@@ -1,0 +1,214 @@
+<html>
+<head>
+	<title>Sorting</title>
+	<link rel="icon" href="D:\ICON\code1.jpg" type="image/icon">
+	<style>
+		*
+		{
+			box-sizing: border-box;
+		}
+		.column
+		{
+			float: left;
+			width: 50%;
+			padding: 5px;
+			height: 700px;
+		}
+		.row:after
+		{
+			content: "";
+			display: table;
+			clear: both;
+		}
+		.selection
+		{
+			font-size: 20px;
+			font-family: arial;
+			font-style: italic;
+			
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		function bubble_sort()
+		{
+			var input;
+			input=get.ElementById("num").value;
+			var str_arr=input.split(" ");
+			var str_len=str_arr.length;
+			var arr=[str_len];
+			var i,j,temp;
+			for(i=0;i<str_len;i++)
+			{
+				arr[i]=parseInt(str_arr[i]);
+			}
+			for(i=0;i<str_len;i++)
+			{
+				for(j=0;j<str_len-1;j++)
+				{
+					if(arr[j]>arr[j+1])
+					{
+						temp=arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=temp;
+					}
+				}
+			}
+
+
+			for(i=0;i<str_len;i++)
+			{
+				document.write(arr[i]+" ");
+			}
+			
+		}
+	</script>
+	<div class="row">
+		<div class="column">
+		<h1>Bubble Sort</h1>
+		<pre><b>
+		import java.util.Scanner;
+		class demo
+		{
+			public static void main(String [] args)
+			{
+				Scanner cs=new Scanner(System.in);
+				System.out.println("Enter Size  : ");
+				int ar_size=sc.nextInt();
+				int ar[]=new int[ar_size];
+				System.out.println("Enter Element in Array");
+				for(int i=0;i&ltar_size;i++)
+				{
+					ar[i]=sc.nextInt();
+				}
+				int temp=0;
+
+				for(int i=0;i&ltar_size;i++)
+				{
+					for(int j=0;j&ltar_size-1;j++)
+					{
+						if(ar[j]>a[j+1])
+						{
+							temp=ar[j];
+							ar[j]=ar[j+1];
+							ar[j+1]=temp;
+						}
+					}
+				}
+
+				for(int i=0;i<=ar_size;i++)
+				{
+					System.out.print(ar[i]+" ");
+				}
+			}
+		}
+		</div>
+		<div class="column">
+			<h1 align="center">Result</h1>
+			<p>Enter Number<br>
+			<input id="num">
+			<button type="button" onclick="bubble_sort()">Enter</button> 
+		</div>
+	</div>
+	<h1>Insertion Sort</h1>
+	<pre class="selection">
+		import java.util.*;
+		class demo
+		{
+			public static void main(String [] args)
+			{
+				Scanner sc=new Scanner(System.in);
+				int a[]=new int[10];
+				int i,j,n,key=0;
+				System.out.println("ENTER THE SIZE OF THE ARRAY");
+				n=sc.nextInt();
+				System.out.println("ENTER  THE ELEMENTS IN THE ARRAY");
+				for(i=1;i<=n;i++)
+		   			a[i]=sc.nextInt();
+				for(j=2;j<=n;j++)
+				{
+					key=a[j];
+					i=j-1;
+					while(i>0&&a[i]>key)
+					{
+						a[i+1]=a[i];
+						i=i-1;
+					}
+					a[i+1]=key;
+				}
+			System.out.println("SORTED ARRAY");
+			for(i=1;i<=n;i++)
+				System.out.print(" "+a[i]);
+			}
+		}
+	</pre>
+	<h1>Selection Sort</h1>
+	<pre class="selection">
+		import java.io.*;
+		class demo
+		{
+    			public String[] sorting(String new_str1)
+    			{
+        			String new_str[]=new_str1.split(" ");
+        			int new_length=new_str.length;
+        			int a[]=new int[new_length];
+        			for(int i=0;i&ltnew_length;i++)
+        			{
+            			a[i]=Integer.parseInt(new_str[i]);
+        			}
+        			int temp=0,min=0,loc;
+        			for(int i=0;i&ltnew_length;i++)
+        			{
+            			min=a[i];
+            			loc=i;
+            			for(int j=0;j&ltnew_length-1;j++)
+            			{
+                			if(mini&lta[j])
+                			{
+                    			min=a[j];
+                    			a[j]=a[loc];
+                    			a[loc]=min;
+                			}
+            			}
+        			}
+
+        			for(int i=0;i&ltnew_length;i++)
+        			{
+            			new_str[i]=String.valueOf(a[i]);
+        			}
+
+        			for(int i=0;i&ltnew_length;i++)
+        			{
+            			System.out.print(new_str[i]+" ");
+        			}
+        
+        			return new_str;
+
+    			}
+    			public static void main(String []  args)
+    			{
+        			try
+        			{
+            			demo d=new demo();
+            			BufferedReader b=new BufferedReader(new InputStreamReader(System.in));
+            			System.out.println("Pass Number : ");
+            			String str_num=b.readLine();
+            			String new_str[]=str_num.split(" ");
+            			int new_length=new_str.length;
+            			new_str=d.sorting(str_num);
+            			for(int i=0;i&ltnew_length;i++)
+            			{
+                			System.out.println(new_str[i]+" ");
+            			}
+            			//System.out.println(str);
+        			}
+        			catch(Exception e)
+        			{
+            			System.out.println(e);
+        			}
+    			}
+		}
+	</pre>
+</body>
+</html>
