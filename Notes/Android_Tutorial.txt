@@ -65,6 +65,7 @@ For activities and services an intent defines the action to be perform (for exam
 
 
 The Manifest file :---------------------
+
 Before the Android system can start an app component , start system must know that the component exist by reading the app's manifest file AndroidManifest.xml.
 Your app must declare all its component  in this file which must be at the root of the app project directory.
 
@@ -131,15 +132,15 @@ As you can see in this example, the res/ directory contains all the resources (i
 
 animator / 	XML files that define property animations
 anim/		XML file that define tween animation
-color/		XML file that deinf ea state list of color
+color/		XML file that define as state list of color
 drawable/		Bitmap files (.png, .9.png, .jpg, .gif) or XML files that are compiled into the following drawable resource subtypes
 mipmap/		Drawable files for different launcher icon densities
 layout/		XML files that define a user interface layout
-menu/		XML files that define app menus such as Oprions Menu or Sub Menu
+menu/		XML files that define app menus such as Options Menu or Sub Menu
 raw/		Arbitrary files to save in their raw form.
 values/		XML files that contain simple values, such as string integers and colors.
 
-These resources that you save in the subdirectories defined in table 1 are your dfault resources. That is these resources define the default design and content for your app.
+These resources that you save in the subdirectories defined in table 1 are your default resources. That is these resources define the default design and content for your app.
 
 
 	Providing Alternative Resources :----------------------------
@@ -152,16 +153,20 @@ Almost every app should provide alternative resource to support device configura
 To specify configuration-specific alternatives for a set of resources:
 
 Create a new directory in res/ named in the form <resources_name>-<config_qualifier>.
+
 <resources_name> is the directory name of the corresponding default resources (defined in table 1).
 <qualifier> is a name that specifies an individual configuration for which these resources are to be used (defined in table 2).
 You can append more than one <qualifier>. Separate each one with a dash.
 Save the respective alternative resources in this new directory. The resource files must be named exactly the same as the default resource files.
 
 
+The hdpi qualifier indicates that the resources in that directory are for devices with a high-density screen. The images in each of these drawable directories are sized for a specific screen density, but the filenames are exactly the same. This way, the resource ID that you use to reference the icon.png or background.png image is always the same, but Android selects the version of each resource that best matches the current device, by comparing the device configuration information with the qualifiers in the resource directory name.
+
 
 
 
 	String and other simple values :-----
+
 To create an alias to an existing string simply use the resource ID of the desired string as the value for the new string
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -191,12 +196,21 @@ To create an alias to an existing drawable use the <drawable> element:
     <color name="highlight">@color/red</color>
 </resources>
 
-if you save this file as drawable.xml (in an alterative resource directory such as res/value-en-rCA/ ), it is compiled into a resource that you can reference as R.drawable.icon, but is actually an alias for the R.drawable.icon_ca resource (which is saved in res/drawable/).
+If you save this file as drawable.xml (in an alterative resource directory such as res/value-en-rCA/ ), it is compiled into a resource that you can reference as R.drawable.icon, but is actually an alias for the R.drawable.icon_ca resource (which is saved in res/drawable/).
+
 
 
 
 	Accessing your app resources :-------------------------
+
 Once you provide a resource in your application, you can apply it by referencing its resource ID. All resource IDs are defined in your project's R class, which the aapt tool automatically generates.
+
+
+AAPT2 :------
+AAPT2 (Adroid Assest Packaging Tool) is a build tool that Android Studio and Android Gradle Plugin use to compile and package your app's resurces. AAPT2 parse indexes and compiles the resources into binary format that is optimized for the Android platform.
+
+	Android Gradle plugin 3.0.0 and higher enable AAPT2 by default and you typically won't need to invoke AAPT2 yourself. However if you prefer to use your terminal and your own build system over Android Studio you can use AAPT2 from command line. 
+
 
 When your application is compiled, aapt generates the R class, which contains resource IDs for all the resources in your res/ directory. For each type of resource, there is an R subclass (for example, R.drawable for all drawable resources), and for each resource of that type, there is a static integer (for example, R.drawable.icon). This integer is the resource ID that you can use to retrieve your resource.
 
@@ -224,6 +238,174 @@ imageView.setImageResource(R.drawable.myimage);
 
 you can also reterive individual resources using methods in Resources which you can  get an instance of with getResources().
 
+Here are some examples of accessing resources in code .
+
+
+// Load a background for the current screen from a drawable resource
+getWindow().setBackgroundDrawableResource(R.drawable.my_background_image) ;
+
+// Set the Activity title by getting a string from the Resources object, because
+//  this method requires a CharSequence rather than a resource ID
+getWindow().setTitle(getResources().getText(R.string.main_title));
+
+// Load a custom layout for the current screen
+setContentView(R.layout.main_screen);
+
+// Set a slide in animation by getting an Animation from the Resources object
+flipper.setInAnimation(AnimationUtils.loadAnimation(this,
+        R.anim.hyperspace_in));
+
+// Set the text on a TextView object using a resource ID
+TextView msgTextView = (TextView) findViewById(R.id.msg);
+msgTextView.setText(R.string.hello_message);
+
+
+
+
+	Accessing resources from XML :-------------------------
+
+you can define values for some XML attributes and element using a reference to an  existing resource.
+
+If we add Button to your layout we should use a string resource for button text:
+
+<Button
+	android:layout_widget="fill_parent"
+	android:layout_height="fill_parent"'
+	android:text="@string/submit" />
+
+
+Use Cases :------------------------
+In some cases you must use a resource for a value in XML (for example to apply a drawable image to a widget image to a widget) but you can also use a resource in XML any place that accepts a simple value. For example if you have the following resource file that includes a color resource and a string resource
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="opaque_red">#f00</color>
+	<string name="hello">Hello!</string>
+<resources>
+
+
+you can use these resource in the following layout file to set the text color and text string:
+
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:textColor="@color/opaque_red"
+    android:text="@string/hello" />
+
+
+you can even use resources in XML to create aliases. For example you can create a drawable resource that is an alias for another drawable resource:
+
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/other_drawable" />
+
+
+
+
+	Accessing platform resources :-------------------------
+Android contains a number of standard resources such as styles, theme, and layouts. To access these resource qualify your resource reference with the android package name. For example provides a layout resource you can use got list items ina ListAdapter:
+
+
+setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myarray));
+
+In this example simple_list_item_1 is a layout resource defined by the platform for items in a ListView.
+
+
+	Menus :------------------
+Menus are a common user interfaces component in amny types of applications.To provides a familier and consistent user experiance.you should use the Menu APIs to present user actions and other options in your acitivities.
+
+Beginning with Android 3.0 (API level 11), Android-powered devices are no longer required to provide a dedicated Menu button with this change Android apps should migrate away from a dependence on the traditional 6-item menu-panel and intead provide an app bar to present common user actions.
+
+How to create the three fundamental types of menus or action presentations on all versions of Android :----------------
+
+Options / Menu and  / App bar:-----------------
+
+1) The Option menu is the primary collection of menu items for an activity. It's where you should place actions that have a global impact on the app such as Search Compose email and Setting.
+
+To specify the option menu for an activivy overirde onCreateOptionMenu()  (fragments provide their own onCreateOptionMenu() callback). In this method you can inflate your menu resource (defined in XML) into the Menu provided in the callback.
+
+@Overirde
+public boolean onCreateOptionMenu(Menu menu)
+{
+	MenuInfalter infalter=getMenuInflater();
+	inflater.infalte(R,menu.game)menu,menu);
+	return true;
+}
+
+you cal also add items using add() and reterive items with findItem() to revise thier properties with menuitem APIs
+
+Handling click events :----------------------------
+When the user selects an items from the options menu(including action items in the app bar) the system calls your activity's onOptionItemSelected() method. This method passes the MenuItem selected. you can identify the item by calling getItemId() which returns the unique ID for the menu item. you can match this ID against known menu items to perform the appropriate action.
+
+For Example:---
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle item selection
+    switch (item.getItemId()) {
+        case R.id.new_game:
+            newGame();
+            return true;
+        case R.id.help:
+            showHelp();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+    }
+}
+
+When you successfully handle a menu item, return true. If you don't handle the menu item, you should call the superclass implementation of onOptionsItemSelected() (the default implementation returns false).
+
+
+
+Context Menu and contextual action mode :-----------------------------
+A context menu is a floating menu that appears when the user performs a long-click on an element.It provides actions that affect the selected content ot context frame.
+The contextual action mode display action items that affect the selected content in a bar at the top of the screen and allows the user to select multiple items.
+
+A contextual menu offers actions that affect a specific item or context frame in the UI. You can provide a context menu for any view, but they are most often used for items in a ListView, GridView, or other view collections in which the user can perform direct actions on each item
+
+There are two ways to provide contextual actions:
+
+1) In a floating context menu. A menu appears as a floating list of menu items (similar to a dialog) when the user performs a long-click (press and hold) on a view that declares support for a context menu. Users can perform a contextual action on one item at a time.
+
+2) In the contextual action mode. This mode is a system implementation of ActionMode that displays a contextual action bar at the top of the screen with action items that affect the selected item(s). When this mode is active, users can perform an action on multiple items at once (if your app allows it).
+
+
+
+	Activity: -----------------------------------
+Generally one activity implements one screen in an app
+
+Activity life cycle :----
+1) onCreate()	// First callback and called when activity is first created
+2) onStart()	// This callback is called when the activity become visible to user
+3) onResume()	// this is called when user interacting with application
+4) onPause()	// paused activity does not receive any input and cannot execute
+5) onStop()	// this activity is called  when activity is not visible
+6) onRestart()	// this callback is called when activity restart after stopping
+7) onDestroy()	// this callback is called before activity is destroyed by the system
+
+	onCreate() :--------------------
+
+You must implement this callback, which fires when the system first creates the activity. On activity creation, the activity enters the Created state. In the onCreate() method, you perform basic application startup logic that should happen only once for the entire life of the activity. For example, your implementation of onCreate() might bind data to lists, associate the activity with a ViewModel, and instantiate some class-scope variables. This method receives the parameter savedInstanceState, which is a Bundle object containing the activity's previously saved state. If the activity has never existed before, the value of the Bundle object is null
+
+The following example of the onCreate() method shows fundamental setup for the activity, such as declaring the user interface (defined in an XML layout file), defining member variables, and configuring some of the UI. In this example, the XML layout file is specified by passing file’s resource ID R.layout.main_activity to setContentView().
+
+
+
+
+
+	Services Overview :------------------------
+A serivce is an application that can perform long-running operations in the background and it doesn't provide a user interface. Another application component can start a service and it contines to run in the background even if the user switches to another application.
+
+Additionally a component can bind to a service to inteact with it and even perform interprocess communication (IPC)
+
+{ Interprocess communication (IPC) is a set of programming interfaces that allow a programmer to coordinates activities that can run concurrently in an opearating system. This allows a program to handle many user request at the same time. }
+
+
+ 
+	Bound :--------------------------
+
+A service is bound when an application component binds to it by calling bindService(). A bound service offers a client-server interface that allows components to interact with the service, send requests, receive results, and even do so across processes with interprocess communication (IPC). A bound service runs only as long as another application component is bound to it. Multiple components can bind to the service at once, but when all of them unbind, the service is destroyed.
 
 
 
@@ -251,6 +433,8 @@ startService(Intent)	/ bindService(Intent, ServiceConnection, int)	=> to communi
 Intent has been used to call another acitivity
 Its most significant use  is in the launching of activites, where it can be throught of as the glue between activites.
 It is basically a passive data structure holding an abstract description of an action to be performed.
+
+
 
 Intent Structure :--------------
 The primary pieces of information in an intent are :
