@@ -1,4 +1,162 @@
+	Android AlertDialogBox Example :----------------------------
+Android Alert DialogBox can be used to display the Dialog message with OK and Cancel button. It can be used to interuppt and ask the user about his\her chioce to continue of discontinue.
 
+Methods of AlterBox class :--------------------------
+
+1) public AlertDialog.Builder setTitle(Char sequence)	this method is used to set the title of AlertDialogBox
+
+2) public AlertDialog.Builder setMessage(Char Sequence)	this is used to set the message for AlertDialogBox
+
+3) public AlertDialog.Builder setIcon(int)			this method is used to set the icon over AlertDialogBox
+
+
+
+
+Android Spinner Example :-----------------------------------
+Android Spinner is like the combo box of AWT or Swing .It can se used to display the multiple option to the user in which one item can be selected by the user.
+
+Android spinner is like the drop down menu with multiple values from which the end user can select only one value.
+Android spinner is associate with AdapterView . So you need to use one of the adapter classes with spinner.
+
+Android spinner class is subclass of Asdspinner class.
+
+	Andorid Spinner Example :-------------------------
+
+In this example we are going to display the country list. you need to use ArrayAdapter class to store the country list.
+
+
+
+
+	Android Manifest File :------------------------------------------
+
+Every app project must have an Androidmanifest.xml file(with precisely that name) at the root of the project source set. The manifest file describe essential information about your app to the Android build tools
+
+Among many other things the manifest file is required to declare the following :-
+
+1) The app's package name which usually matches your code's namespace. The Android build tools use this to determine the location of code entities when building your project. When packaging the app the build tools replace this value wiht the application ID from Gradle build files, which is used as the unique app identifier on the system.
+
+Package name and application ID :-
+The manifest file's root element requires an attribute for your app's package name.
+For example the following snippet shows the root <manifest> element with the package name "com.example.myapp"
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    ...
+</manifest>
+
+while building your app into the final application package (APK) the Android build tools use the package attribute for two things
+1) It applies this name as the namespace for your app's generated R.java class (used to access your app resources).
+
+
+Example with the above manifest the R class is created at com.example.myapp.R
+
+R.java is generated file by ADT or Android Studio. It will be located under app\build\generated\source\r directory
+
+
+
+	Compiling :--------------------
+This is where we will dig deeper When we run our code from the editor following proces takes aplce.
+
+1) java compiling Packaging
+Android java code files compiles to .class files view javac command
+
+2) .class fiels gets converted to .dex
+.class files is also known as java byte-code this byte code further get converted to delvik byte-codes which is the format which android OS understands here all .class fiels and any .jar library files compiles to single classes .dex using dx command. DEX is called executable files.
+
+DEX files is memory efficient and loads very swiftly compared to JVM based .class files and is lightweight too.
+
+3) Packaging (.APK file)
+
+Packaging is done using android apkbuilder rool (APPT).It generated a .apk file from a DEX file + non-java libraries + zipped resources. The classes.dex file resource files are compressed by aapt (Android Asset Packaging Tool) This.apk file is what you run on adnroid device and is distributed to all the major app stored after beign singned for release. User gets to download this files from Google Play Store and other app stored on their android powered device.
+
+
+
+
+
+	App components :--------------------------
+
+For each app component that you create in your app you must declare a corresponding XML element in the manifest file:
+
+<activity> for each subclass of Activity.
+<service> for each subclass of Service
+<receiver> for each subclass of BroadcastReceiver
+<provider> for each subclass of Content provider
+
+if you subclass any of these components without declaring it in the manifest file the system cannot start it.
+
+The name of your subclass must be specified with the name attribute using the full packaging designation. an Activity subclass can be declared as follows:
+
+<manifest ... >
+    <application ... >
+        <activity android:name="com.example.myapp.MainActivity" ... >
+        </activity>
+    </application>
+</manifest>
+
+
+However, if the first character in the name value is a period, the app's package name (from the <manifest> element's package attribute) is prefixed to the name. For example, the following activity name is resolved to `"com.example.myapp.MainActivity"`:
+
+<manifest package="com.example.myapp" ... >
+    <application ... >
+        <activity android:name=".MainActivity" ... >
+            ...
+        </activity>
+    </application>
+</manifest>
+
+If you have app components that reside in sub-packages (such as in com.example.myapp.purchases), the name value must add the missing sub-package names (such as ".purchases.PayActivity") or use the fully-qualified package name.
+
+
+Intent filters
+App activities, services, and broadcast receivers are activated by intents. An intent is a message defined by an Intent object that describes an action to perform, including the data to be acted upon, the category of component that should perform the action, and other instructions.
+
+Icons and labels
+A number of manifest elements have icon and label attributes for displaying a small icon and a text label, respectively, to users for the corresponding app component.
+
+Permissions
+Android apps must request permission to access sensitive user data (such as contacts and SMS) or certain system features (such as the camera and internet access). Each permission is identified by a unique label. For example, an app that needs to send SMS messages must have the following line in the manifest:
+
+<manifest ... >
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    ...
+</manifest>
+
+
+
+Device compatibility
+The manifest file is also where you can declare what types of hardware or software features your app requires, and thus, which types of devices your app is compatible with. Google Play Store does not allow your app to be installed on devices that don't provide the features or system version that your app requires.
+
+<uses-feature>
+The <uses-feature> element allows you to declare hardware and software features your app needs. For example, if your app cannot achieve basic functionality on a device without a compass sensor, you can declare the compass sensor as required with the following manifest tag:
+
+<manifest ... >
+    <uses-feature android:name="android.hardware.sensor.compass"
+                  android:required="true" />
+    ...
+</manifest>
+
+
+<uses-sdk>
+Each successive platform version often adds new APIs not available in the previous version. To indicate the minimum version with which your app is compatible, your manifest must include the <uses-sdk> tag and its minSdkVersion attribute.
+
+However, beware that attributes in the <uses-sdk> element are overridden by corresponding properties in the build.gradle file. So if you're using Android Studio, you must specify the minSdkVersion and targetSdkVersion values there instead:
+
+android {
+  defaultConfig {
+    applicationId 'com.example.myapp'
+
+    // Defines the minimum API level required to run the app.
+    minSdkVersion 15
+
+    // Specifies the API level used to test the app.
+    targetSdkVersion 28
+
+    ...
+  }
+}
 
 
 
@@ -52,6 +210,14 @@ access. Through the content provider, other apps can query or modify the data if
 For example, the Android system provides a content provider that manages the user's contact information.
 
 
+An  activity is a single focused thing that the user can do. Almost all activities interact with the user so the Activity class take care of creating a window for you can place UI with setContentView(View) while activities are often presented to the user as full-screen windows, they can also be used in other ways as floating windows (via a theme with R.attr.windowIsFloating set), Multi-Window mode or embedded into other windows. 
+There are two methods almost all subclasses of Activity will implement:
+
+=> onCreate(Bundle) is where you initialize your activity. Most importantly, here you will usually call setContentView(int) with a layout resource defining your UI, and using findViewById(int) to retrieve the widgets in that UI that you need to interact with programmatically.
+
+=>onPause() is where you deal with the user pausing active interaction with the activity. Any changes made by the user should at this point be committed (usually to the ContentProvider holding the data). In this state the activity is still visible on screen.
+
+
 
 	Activating Components :----------------
 
@@ -64,7 +230,96 @@ For activities and services an intent defines the action to be perform (for exam
 
 
 
-The Manifest file :---------------------
+	Fragments :- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+A Fragment represents a behavior or a portion of user interface in a FragmentActivity. You can combine multiple fragments in a single activity to build a multi-pane UI and reuse a fragment in multiple activities.
+				You can think of a fragment as a modular section of an activity, which has its own lifecycle, receives its own input events, and which you can add or remove while the activity is running.
+
+A fragment must always be hosted in an activity and the fragment's lifecycle is directly affected by the host activity's lifecycle. 
+
+A fragment must always be hosted in an activity and the fragment's lifecycle is directly affected by the host activity's lifecycle. For example, when the activity is paused, so are all fragments in it, and when the activity is destroyed, so are all fragments. 
+
+When you add a fragment as a part of your activity layout, it lives in a ViewGroup inside the activity's view hiserarchy and the fragment defines its own view layout. You can insert a fragment into your activity layout by declaring the fragment in the activity's layout file, as a <fragment> element, or from your application code by adding it to an existing ViewGroup.
+
+
+A Fragment is a piece of an activity which enable more modular activity design.It will not be wrong if we say a fragment is a kind of sub-activity.
+
+Following are important points about Fragment :-
+
+=> A fragment has its own layout and its own behaviour with its own life cycle callbacks.
+=> you can add or remove fragment in an activty while the activity is running
+=> you can combine multiple activity in a single activity to build a multi-pane UI
+=> A fragment can be used in multiple activitties
+=> Fragment life cycle is closely related to life cycle of its host activity which means when the activity is paused all the fragments available in the activity will also be stopped.
+
+=> Fragment were added to the Android API in Honeycomb.
+
+
+
+	Creating a Fragment :-----
+
+To create a fragment you must create subclass of Fragment (or an eisting subclass of it).
+The Fragment class has code that looks a lot like an activity.
+
+
+It contains callback methods similar to an activity such as 
+
+Here is the list of methods which you can to override in your fragment class -
+
+onAttach()The fragment instance is associated with an activity instance.The fragment and the activity is not fully initialized. Typically you get in this method a reference to the activity which uses the fragment for further initialization work.
+
+onCreate() The system calls this method when creating the fragment. You should initialize essential components of the fragment that you want to retain when the fragment is paused or stopped, then resumed.
+
+onCreateView() The system calls this callback when it's time for the fragment to draw its user interface for the first time. To draw a UI for your fragment, you must return a View component from this method that is the root of your fragment's layout. You can return null if the fragment does not provide a UI.
+
+onActivityCreated()The onActivityCreated() is called after the onCreateView() method when the host activity is created. Activity and fragment instance have been created as well as the view hierarchy of the activity. At this point, view can be accessed with the findViewById() method. example. In this method you can instantiate objects which require a Context object
+
+onStart()The onStart() method is called once the fragment gets visible.
+
+onResume()Fragment becomes active.
+
+onPause() The system calls this method as the first indication that the user is leaving the fragment. This is usually where you should commit any changes that should be persisted beyond the current user session.
+
+onStop()Fragment going to be stopped by calling onStop()
+
+onDestroyView()Fragment view will destroy after call this method
+
+onDestroy()onDestroy() called to do final clean up of the fragment's state but Not guaranteed to be called by the Android platform.
+
+
+
+
+=> How to use Fragments?
+
+This involves number of simple steps to create Fragments.
+
+First of all decide how many fragments you want to use in an activity. For example let's we want to use two fragments to handle landscape and portrait modes of the device.
+
+Next based on number of fragments, create classes which will extend the Fragment class. The Fragment class has above mentioned callback functions. You can override any of the functions based on your requirements.
+
+Corresponding to each fragment, you will need to create layout files in XML file. These files will have layout for the defined fragments.
+
+Finally modify activity file to define the actual logic of replacing fragments based on your requirement.
+
+
+=> Types of Fragments
+
+Basically fragments are divided as three stages as shown below.
+
+1) Single frame fragments - Single frame fragments are using for hand hold devices like mobiles, here we can show only one fragment as a view.
+
+2) List fragments - fragments having special list view is called as list fragment
+
+3) Fragments transaction - Using with fragment transaction. we can move one fragment to another fragment.
+
+
+
+
+
+
+
+	The Manifest file :-----------------------------------------------
+
 
 Before the Android system can start an app component , start system must know that the component exist by reading the app's manifest file AndroidManifest.xml.
 Your app must declare all its component  in this file which must be at the root of the app project directory.
@@ -114,6 +369,77 @@ The system identifies the components that can respond to an intent by comparing 
 Once you externalize your app resource you can access them using resources IDs that are generated in your project's R class. This document shows you how to group your resources in your Android project and provide alternative resources for specific device configurations and then access them from your app code or other XML files.
 
 
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.broadcastreceiver">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+		
+            android:screenOrientation="sensorLandscape">	// android:screenOrientation="sensorLandscape" is used for screen oritation of app
+						   sensorLandscape is used for only landscape either in left or right
+						// portrait is only used for horizontal
+						// fullSensor means rotate in any direction with respect to sensor
+						// landscape that will only be in one direction that is landscape
+						// fullUser & sensor
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="alihasan"></action>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	App resources Overview :--------------------------------
 
 Resources are the additional files and static content that your code uses such as bitmap, layout definitions, user interfaces string, animation instruction and more.
@@ -122,7 +448,7 @@ device configurations by grouping them in specially-named resources directories.
 
 
 
-	Grouping resource types :-
+	Grouping resource types :- - - - - - - - - - - - - - -
 
 You should place each type of resource in a specific subdirectory of your project's res/directory.
 
