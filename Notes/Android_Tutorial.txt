@@ -25,6 +25,195 @@ Android spinner class is subclass of Asdspinner class.
 In this example we are going to display the country list. you need to use ArrayAdapter class to store the country list.
 
 
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+						Android Fragment
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+A Fragment is a piece of an activity which enable more modular activity design.
+It will not be wrong if we say a fragment is a kind of sub-activity.
+A fragment represent a behavior or a portion if user interface in a FragmentActivity.
+
+
+Important Points of Fragment :-----------------------------------------
+
+=> you can combine multiple fragments in a single activity to build a multi-pane UI.
+=> Fragment has its own life-cycle
+=> Fragment has its own input events and which you can add or remove while the activity is running.
+=> Fragment must always be hosted in an activity
+=> Fragment's life-cycle is directly affected by the host activity's lifecycle.
+	When an activity is paused so are all fragments in it and when the activity is destroyed so are all fragments.
+=> While activity is running you can manipulate each fragment independently such as add or remove them.When you perform such a fragment transaction
+	you can also add it to a back stack that's managed by the activity--each back stack entry in the activity is a record of the fragment transaction that occured.
+
+
+=> When you add a fragment as a part of your activity layout, it lives in a ViewGroup inside the activity's view hierarchy and the fragment defines its own view layout. You can insert a fragment into your activity layout by declaring the fragment in the activity's layout file, as a <fragment> element, or from your application code by adding it to an existing ViewGroup.
+
+=> Design Philosophy
+Android introduced fragments in Android 3.0 (API level 11), primarily to support more dynamic and flexible UI designs on large screens, such as tablets. Because a tablet's screen is much larger than that of a handset, there's more room to combine and interchange UI components. 
+
+
+
+=>Creating a Fragment Life cycle of Fragment :-
+
+To create a fragment you must create a subclass of Fragment (or an existing subclass of it ). The Fragment class has code that looks a lot like an 
+activity.
+
+Here is the list of methods which you can to overide in your fragment class --
+
+1) onAttach()
+The fragment instance is associate with an activity instance.The fragment and the activity is not fully initialized.
+
+2) onCreate() 
+The system calls this method when creating the fragment. you should initialize ezzential component of the fragment that you want to retain when the fragment is paused or stopped then resumed.
+
+3) onCreateview()
+The system calls this callback when it's time for the fragment to draw the user interface for the frist time.
+To draw a UI for your fragment you must return a View component from this method that is the root of your fragment's layout.
+
+4) onActivityCreated()
+The onActivityCreated() is called after onCreateView() method when the host activity is created
+
+5) onStart()
+The onStart() method is called once the fragment gets visible
+
+6) onResume()
+The fragment become active
+
+7) onpause()
+the system calls this method as the first indication that the user is leabing the fragment
+
+8) onStop() 
+Fragment going to be stopped by calling onStop()
+
+9)onDestroyView()
+Fragment view will destroy after call this method
+
+10) onDestroy()
+onDestroy() called to do final clean up of the fragment's state but Not guaranteed to be called by the Android platform.
+
+
+It contains callback methods similar to an activity such as onCreate(), onStart(), onPause() and onStop().
+
+
+=> Adding a user Interface :---------------------------------------
+a fragment is usually used as part of an activity's user interface and contributes its layout to the activity.
+To provide a layout for a fragment you must implement the onCreateview() callback method which the Android system calls when it's time for the fragment to draw its layout. Your implementation of this method must return a View that is the root of your fragment's layout.
+
+
+=> to return a layout from onCreateview() you can inflate it from a layout resource defined in XML.to help you do so onCreateView() provides a layoutInflater object.
+
+
+public static class ExampleFragment extends Fragment
+{
+	@Override
+	public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle saveInstanceState)
+	{
+		return inflater.inflate(R.layout.exaple_fragment,container,false)
+	}
+}
+
+container parameter passed to onCreateView() is the parent ViewGroup in which your fragment layout is inserted.
+saveInstanceState parameter is a Bundle that provide data about the previous instance of the fragment.
+
+=> infalte() method (means it read the XML file which describe a layout and to crate the some objects of it).
+Here it takes three arguments:
+1) resource ID of the layout you want to inflate
+2) viewgroup to be the parent of the inflate layout.
+3) boolan indicating whether the infalted layout should be attached to the ViewGroup (the second parameter) during inflation ( in this case this false because the systemm inserting the inflated layout into the container--passing true would create a redundant view group in the final layout)
+
+
+=> Adding a fragment to an activity
+Usually a fragment contribute a portion of UI to the host activty which is embedded as a part of the activity overall view hierarchy.
+There are two ways you can add a fragment to the activity layout:
+
+1) Declared the fragment inside the activity's layout file.
+In this case you can specify layout properties for the fagment as if it were a view.For example here's the layout file for an activity with two fragments:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <fragment android:name="com.example.news.ArticleListFragment"
+            android:id="@+id/list"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    <fragment android:name="com.example.news.ArticleReaderFragment"
+            android:id="@+id/viewer"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+</LinearLayout>
+
+The android:name attribute in the <fragment> specifies the Fragment class to instantiate in the layout.
+
+=> Programmatically add the fragment to an existing ViewGroup.
+At any time while your activity is running, you can add fragments to your activity layout.
+
+<//
+
+FragmentManager fragmentManager = getSupportFragmentManager();
+FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+//>
+
+
+To make fragment transactions in your activity (such as add, remove, or replace a fragment), you must use APIs from FragmentTransaction.
+
+<//
+
+ExampleFragment fragment = new ExampleFragment();
+fragmentTransaction.add(R.id.fragment_container, fragment);
+fragmentTransaction.commit();
+
+//>
+
+The first argument passed to add() is the ViewGroup in which the fragment should be placed, specified by resource ID, and the second parameter is the fragment to add.
+
+Once you've made your changes with FragmentTransaction, you must call commit() for the changes to take effect.
+
+
+=> Managing Fragments :----
+To manage the fragment in your activity you need to use FragmentManager.
+to get it call getSupportFragmentManager() from your activity.
+
+Some things that you can do with FragmentManager include:
+
+Get fragments that exist in the activity, with findFragmentById() (for fragments that provide a UI in the activity layout) or findFragmentByTag() (for fragments that do or don't provide a UI).
+Pop fragments off the back stack, with popBackStack() (simulating a Back command by the user).
+Register a listener for changes to the back stack, with addOnBackStackChangedListener().
+
+Before you call commit(), however, you might want to call addToBackStack(), in order to add the transaction to a back stack of fragment transactions. This back stack is managed by the activity and allows the user to return to the previous fragment state, by pressing the Back button.
+
+=> Communicating with the Activity
+
+Although a Fragment is implemented as an object that's independent from a FragmentActivity and can be used inside multiple activities, a given instance of a fragment is directly tied to the activity that hosts it.
+
+Specifically, the fragment can access the FragmentActivity instance with getActivity() and easily perform tasks such as find a view in the activity layout:
+
+View listview = getActivity().findViewById(R.id.list);
+
+Likewise your activity can call methods in the fragment by acquiring a reference to the Fragment from FragmentManager using findFragmentById() or findFragmentByTag(). For example
+
+ExampleFragment fragment = (ExampleFragment)getSupportFragmentMnager().findFragmentById(R.id.example_fragment);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	Android Manifest File :------------------------------------------
@@ -76,7 +265,7 @@ Packaging is done using android apkbuilder rool (APPT).It generated a .apk file 
 
 
 
-	App components :--------------------------
+	App components in manifest file:--------------------------
 
 For each app component that you create in your app you must declare a corresponding XML element in the manifest file:
 
@@ -735,6 +924,11 @@ A service is bound when an application component binds to it by calling bindServ
 
 
 
+
+
+
+
+
 10:31 AM 9/3/2019
 
 	Intent :------------
@@ -890,6 +1084,13 @@ We can define a filter with multiple instances of <action>, <category> or <data>
 
 
 :
+
+
+
+
+
+
+
 
 10:11 AM 9/4/2019
 
