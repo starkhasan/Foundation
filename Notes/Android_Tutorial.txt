@@ -125,8 +125,20 @@ Here it takes three arguments:
 Usually a fragment contribute a portion of UI to the host activty which is embedded as a part of the activity overall view hierarchy.
 There are two ways you can add a fragment to the activity layout:
 
+
 1) Declared the fragment inside the activity's layout file.
+
 In this case you can specify layout properties for the fagment as if it were a view.For example here's the layout file for an activity with two fragments:
+
+=>Steps for creating the Fragment statically
+
+1) create another layout xml file for Fragment
+2) create Fragment (by extending class of fragment)
+3) set the layout xml file to fragment
+4) use fragment tag to include fragment in xml layout
+
+
+
 
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
