@@ -14,6 +14,7 @@ class demo
         }
     }
 
+    //ali hasan
     public void insert(int data)
     {
 
