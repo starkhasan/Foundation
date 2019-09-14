@@ -1566,6 +1566,128 @@ Notification notification = new NotificationCompat.Builder(context, CHANNEL_ID)
 
 
 
+00:00 15-09-2019	Content Provider :----------------------------------------------------------
+A content provider manages access to central repository of data. A provider is part of an Android Application which often provides its own UI for working with the data.
+However content providers are primarily intended to be used by other application which access the provider client object.
+
+Typically you work with content providers in one of two scenarios; 
+1) you may want to implement code to access an existing content provider in another application
+2) You may want to create a new content provider in your application to share data with other applications.
+
+we are just going to describe the following cases: --------------------
+=> How content providers works.
+=> The API you use to reterieve data from a content provider
+=> API you use to insert, update or delete in content provider
+=> other API features that facilitate working with providers.
+
+
+
+A content provider presents data to external application as one or more tables that are similar to the tables found in a relational databse.
+A row represent an instance of some type of data the provider collects.
+Each column in the row represent an individual piece of data collected for an instance.
+
+1) Sharing access to your application data with other applications.
+2) Sending data to a widget
+3) Returning custom search suggestions for your application through the search framework using SearchRecentSuggestionsProvider
+4) Synchronizing application data with your server using an implementation of AbstractThreadedSyncAdapter
+5) Loading data in yout UI using a CursorLoader.
+
+
+
+
+=> Acceesing a Provider :-----------------------------------------
+When you want to access data in a content provider, you use the ContentResolver object in your application's Context to communicate with the provider asa client.
+The ContentResolver object communicates with the provider object an instance of a class that implements ContentProvider.
+The provider object receives data request from client perform the requestd action and returns the results.
+The ContentResolver methods provide the basic CRUD ( create, reterive, update and delete) functions of persistent storage.
+
+The common pattern for accessing a ContentProvider from your UI uses a CursorLoader to run an asynchronous query in the background.The Activity or Fragment in your UI call a CursorLoader to the query, which in turn gets the ContentProvider using the ContentResolver. This allows the UI to continue to be available to the user while the query is running. 
+
+
+To get a list of the words and their locales from the User Dictionary Provider you call ContentResolver.query().
+The query() method calls the ContentProvider.query() method defined by the Dictionary Provier. The following line of code:---
+
+// Queries the user dictionary and returns results
+cursor = getContentResolver().query(
+    UserDictionary.Words.CONTENT_URI,   // The content URI of the words table
+    projection,                        // The columns to return for each row
+    selectionClause,                   // Selection criteria
+    selectionArgs,                     // Selection criteria
+    sortOrder);                        // The sort order for the returned rows
+
+
+how the arguments to query(Uri, projection, selection, selectionArgs,sortOrder) match an SQL SELECT statement:
+
+
+Uri  		FROM table_name		Uri maps to the table in the provider named table_name.
+projection		col, col, col		projection is an array of columns that should be included for each row reterived.
+selection		WHERE col=value		selection specifies the criteria for selecting rows
+selectionArgs	(Now exact equivalent
+		  selection arguments
+		replace ?  place holders
+		in the selection clause.
+
+sortOrder		ORDER BY col, col		sortOrder specifies the order in which rows appear in the returned Corsur.
+
+
+
+Content URIs :-------------------------------------------
+A content URI is a URI that identifies data in a provider. Content URIs include the symbolic name of the entire provider (its authority) and a namr that points to a table  (a pth). When you canna client method to access a table in a provider, the content URI for the table is one of the arguments.
+
+
+In the preceding line of code the constant CONTENT_URI contains the content URI of the user dictionary's words table. The ContentResolver object parses out the URI's authority and uses it to resolve the provider by comparing the authority to a system  table of known providers. The ContentResolver can then dispatch the qurey arguments to the correct provider.
+								The ContentProvider uses the   path part of the content URI to choose the table to access.
+
+In the previous line of code the full URI for the words table is :
+content://user_dictionary/words
+
+where the user_dictionary string is the provider's authority and the words string is the table's path.
+The String content:// (the scheme) is always present and identifies this as a content URI.
+
+Many providers allow you to access asingle row in a table by appending an ID value to the end of the URI. For example to reterive a row whose _ID is 4 from user dictionary you can use this content URI:
+
+Uri singleUri=ContentUris.withAppendedId(UserDictionary.Words.CONTENT_URI,4);
+
+
+
+=> Retrieving data from the provider :--------------------------------------------
+
+This sections describes how to reterive data from a provier using the User Dictionary Provider as an example
+
+To reterive data from a provider follow these basic steps:;-------------------
+1) Request the read access permission for the provider
+2) Define the code that sends a query to the provider
+
+
+Requesting read access permission :-
+To reterive data from a provider your application needs read access permission for the provider. You can't request this permission at run time; instead you have to specify that you need this permission in your manifest, using the 
+	
+	<uses-permission> element and exact permission name defined by the provider
+when users install your application they implicitly grant this request.
+
+The User Dictionary Provider defines the permission android.permission.READ_USER_DICTIONARY in its manifest file, so an application that wants to read from the provider must request this permission.
+
+
+
+	Constructing the query :--------------------------------------
+The next step in reteriving data from a provider is to construct a query. This first snippet defines some variable for accessing the User Dictronary
+Provider :
+
+// A "projection" defines the columns that will be returned for each row
+String[] mProjection =
+{
+    UserDictionary.Words._ID,    // Contract class constant for the _ID column name
+    UserDictionary.Words.WORD,   // Contract class constant for the word column name
+    UserDictionary.Words.LOCALE  // Contract class constant for the locale column name
+};
+
+// Defines a string to contain the selection clause
+String selectionClause = null;
+
+// Initializes an array to contain selection arguments
+String[] selectionArgs = {""};
+
+
 
 
 
