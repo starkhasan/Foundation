@@ -1,0 +1,4 @@
+{
+    "gitlens.currentLine.format": "${Ali Hasan}, ${agoOrDate} • ${message}${author}",
+    "gitlens.hovers.currentLine.over": "line"
+}
