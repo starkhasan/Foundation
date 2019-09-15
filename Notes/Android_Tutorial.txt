@@ -1567,6 +1567,7 @@ Notification notification = new NotificationCompat.Builder(context, CHANNEL_ID)
 
 
 00:00 15-09-2019	Content Provider :----------------------------------------------------------
+
 A content provider manages access to central repository of data. A provider is part of an Android Application which often provides its own UI for working with the data.
 However content providers are primarily intended to be used by other application which access the provider client object.
 
@@ -1587,7 +1588,7 @@ A row represent an instance of some type of data the provider collects.
 Each column in the row represent an individual piece of data collected for an instance.
 
 1) Sharing access to your application data with other applications.
-2) Sending data to a widget
+2) Sending data to a widget 
 3) Returning custom search suggestions for your application through the search framework using SearchRecentSuggestionsProvider
 4) Synchronizing application data with your server using an implementation of AbstractThreadedSyncAdapter
 5) Loading data in yout UI using a CursorLoader.
@@ -1595,17 +1596,24 @@ Each column in the row represent an individual piece of data collected for an in
 
 
 
+
 => Acceesing a Provider :-----------------------------------------
-When you want to access data in a content provider, you use the ContentResolver object in your application's Context to communicate with the provider asa client.
+
+When you want to access data in a content provider, you use the ContentResolver object in your application's Context to communicate with the provider as a client.
 The ContentResolver object communicates with the provider object an instance of a class that implements ContentProvider.
-The provider object receives data request from client perform the requestd action and returns the results.
+The provider object receives data request from client perform the requested action and returns the results.
 The ContentResolver methods provide the basic CRUD ( create, reterive, update and delete) functions of persistent storage.
 
 The common pattern for accessing a ContentProvider from your UI uses a CursorLoader to run an asynchronous query in the background.The Activity or Fragment in your UI call a CursorLoader to the query, which in turn gets the ContentProvider using the ContentResolver. This allows the UI to continue to be available to the user while the query is running. 
 
 
 To get a list of the words and their locales from the User Dictionary Provider you call ContentResolver.query().
+
+/*
+this operation runs in the background after calling the ContentResolver.query()
 The query() method calls the ContentProvider.query() method defined by the Dictionary Provier. The following line of code:---
+*/
+
 
 // Queries the user dictionary and returns results
 cursor = getContentResolver().query(
@@ -1631,8 +1639,11 @@ sortOrder		ORDER BY col, col		sortOrder specifies the order in which rows appear
 
 
 
-Content URIs :-------------------------------------------
-A content URI is a URI that identifies data in a provider. Content URIs include the symbolic name of the entire provider (its authority) and a namr that points to a table  (a pth). When you canna client method to access a table in a provider, the content URI for the table is one of the arguments.
+
+
+=> Content URIs :-------------------------------------------
+
+A content URI is a URI that identifies data in a provider. Content URIs include the symbolic name of the entire provider (its authority) and a name that points to a table  (a pth). When you canna client method to access a table in a provider, the content URI for the table is one of the arguments.
 
 
 In the preceding line of code the constant CONTENT_URI contains the content URI of the user dictionary's words table. The ContentResolver object parses out the URI's authority and uses it to resolve the provider by comparing the authority to a system  table of known providers. The ContentResolver can then dispatch the qurey arguments to the correct provider.
@@ -1654,7 +1665,7 @@ Uri singleUri=ContentUris.withAppendedId(UserDictionary.Words.CONTENT_URI,4);
 
 This sections describes how to reterive data from a provier using the User Dictionary Provider as an example
 
-To reterive data from a provider follow these basic steps:;-------------------
+To reterive data from a provider follow these basic steps :-------------------
 1) Request the read access permission for the provider
 2) Define the code that sends a query to the provider
 
@@ -1670,6 +1681,7 @@ The User Dictionary Provider defines the permission android.permission.READ_USER
 
 
 	Constructing the query :--------------------------------------
+
 The next step in reteriving data from a provider is to construct a query. This first snippet defines some variable for accessing the User Dictronary
 Provider :
 
@@ -1686,6 +1698,96 @@ String selectionClause = null;
 
 // Initializes an array to contain selection arguments
 String[] selectionArgs = {""};
+
+
+
+	
+
+	Reteriving data from the provider :-------------------------------
+This section describes how to reterive data from a provider using the User Directory Provider as an example.
+
+To reterive data from a provider follow these basic stpes:-
+1) Request the read access permission for the provider
+2) Define the code that sends a query to the provider.
+
+
+=> Requesting read access permission:-
+To reterive data from provider your application needs read access permission for the provider. you can;t request this permission at run-time instead, you have to specify that you need this permission in your manifest , using the 
+
+	<uses-permission> element and  the exact permission name defined by the provider.
+When you specify this element in your manifest you are in effect requesting this permission for your application. When user install your application they implicitly grant this request.
+
+
+
+
+=> Constructing the Query
+The next stpe in reteriving data from a provider is to constrcut a query. This first snippet defines some variables for accessing the User Directory Provider.
+
+// A "projection" defines the columns that will be returned for each row
+String[] mProjection =
+{
+    UserDictionary.Words._ID,    // Contract class constant for the _ID column name
+    UserDictionary.Words.WORD,   // Contract class constant for the word column name
+    UserDictionary.Words.LOCALE  // Contract class constant for the locale column name
+};
+
+// Defines a string to contain the selection clause
+String selectionClause = null;
+
+// Initializes an array to contain selection arguments
+String[] selectionArgs = {""};
+
+
+
+
+Example of Contact List :--------------------------------------------------------------
+
+package com.example.content;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.net.Uri;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.os.Bundle;
+import android.provider.ContactsContract;
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+    private ActionBar actionBar;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        actionBar=getSupportActionBar();
+        actionBar.setTitle("Contact List");
+        fetchContact();
+    }
+
+    public void fetchContact()
+    {
+        ArrayList<String> contacts=new ArrayList<>();
+        Uri uri= ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+        String[] projection={ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,ContactsContract.CommonDataKinds.Phone.NUMBER};
+        String selection=null;
+        String[] selectionArgs=null;
+        String sortOrder="";
+
+        ContentResolver resolver=getContentResolver();
+        Cursor cursor=resolver.query(uri,projection,selection,selectionArgs,sortOrder);
+
+        while(cursor.moveToNext())
+        {
+            String name=cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+            String number=cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+            contacts.add(name+"\n"+number);
+        }
+
+        ((ListView)findViewById(R.id.listview)).setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,contacts));
+
+    }
+}
 
 
 
