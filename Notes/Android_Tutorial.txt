@@ -1795,6 +1795,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 	Drawable resource :---------------
 
 A drawablw resource is a general concept for a graphics that can be drawn to the screen and which you can reterieve with APIs such as getDrawable(int) or apply to another Xml resource 
