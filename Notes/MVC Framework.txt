@@ -1,0 +1,20 @@
+	Model-View-Controller :------------------------------
+
+Model-View-Controller ( usually known MVC ) is a software design pattern commonly used for developing user interfaces which divides the related program logic into three interconnection elements. This is done to separate internal representation of information from the ways information is presented to and accepted from the user.
+
+Traditionally used for desktop graphical user interfaces (GUIs) this pattern has become popular for designing web applications. Popular programming language like JavaScript, Python, Ruby, PHP, Java and C# have framework that are used in web application development straight out of the box.
+
+
+The Model-View-Controller is an architectural pattern that separates an application into three main logical components : the model, the view and the controller. Each of these components are built to handle specific development aspects of an application. MVC is one of the most fequently used industry-standard web development framework to create scalable and extensible projects.
+
+Following are the components of MVC:-
+
+Model :--
+The Model component correspods to all the data-related logic that the user works with. This can represent either the data that is beign transferred between the View and Controller components or any other businners logic-related data.
+
+View :-
+The View component is used for all the logic of the application. For example the sustomer view will include all the UI components such as text boxes, dropdowns etc. that the final user interacts with.
+
+
+Controller :-
+Controller act as interface between Model and View components to process all the business logic and incoming request manipulate data using the Model component and interact with the Views to render the final output.
