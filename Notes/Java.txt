@@ -69,7 +69,7 @@ Hence JDK is Kit which include two things 1) Development Tools (to provide an en
 Java Runtime Enviroment (to say JRE) is an application package which provides enviroment to only run( not develop) the java program (or application) onto your machine
 Example=> counting with the same example after developing your accounting application you want to run this application into your client's machine . Now in this case your client only need to run your application into his/her machine so your client should install JRE in-order to run your applicationn into his/her machine.
 
-Hence JRE in only used by them who only wants to run the java program end userd your system
+Hence JRE in only used by them who only wants to run the java program end users your system
 
 
 
@@ -298,7 +298,7 @@ Java generally satisfies almost all the conditions except condition #5 as Java s
 
 > Encapsulation
    It is the mechanism that  binds together code and the data it manipulate and keep both  safe  from outside interface and misuse
-   One way to think about encapsulation is as a protective wrapper that prevents the code and data from being arbitrarily accessed by other other    code defined outside the wrapper.
+   One way to think about encapsulation is as a protective wrapper that prevents the code and data from being arbitrarily accessed by other code    defined outside the wrapper.
     Encapsulation is the act of wrapping up of attributes (represented by data members) and operations (represented by functions) under one                single unit (represented by class)   
 
 	

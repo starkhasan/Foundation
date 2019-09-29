@@ -1,0 +1,79 @@
+JSON :----------------------------------
+
+JSON (JavaScript Object Notation).It is light weight data-interchange format. It is easy for human to read and write.
+JSON is a text format completely independent of language.
+
+JSON syntax is basically considered as a subset of JavaScript syntex, It includes the following
+=> Data is represented as name/value pair
+=> curly braces hold object and each name is followed by colon(:) the name/value pairs are separated by comma(,)
+=> Square brackets hold arrays and values are separated by comma (,)
+
+
+JSON is built on two structure :-
+=> A collection of namevalue pairs.In various language this is realized as an object records, struct, dictonary, hash table, keyed list, or Associative array
+=> An ordered list value .This is realized as an array vector list sequence.
+
+
+In JSON they take on these forms :
+
+=>An object is an unordered set of name/value pairs. An object begins with { left braces and ends with } right braces. Each name is followed by : colon the name value  pairs are separated by , comma.
+=> An ordered list of values.In most language this is realized as an array vector list or sequence.
+
+
+In JSON they take on these forms:
+
+=> AN object is an onordered set of name/value. An object beigns with { left beigns and end with } right braces.
+Each name is followed by : and the name/value pairs are separated by , comma.
+
+=> An array is an ordered collection of values. An array beigns with [ left bracket and ends with ] right bracket. Values are separated by , comma.
+
+
+=> A value can be a string in double quotes or a number , or true or false or null , or an object or an array. These strcutrure can be nested.
+
+
+
+Why use JSON :---------------------
+Since the JSON format is text only it can easily be sent to and from a server and used as a data format by any programming laguage.
+JavaScript has a built in function to convert a string written  in JSON format into native JavaScript Objects:
+JSON.parse()
+so we can receive data from a server in JSON format you can use it like any other JavaScript object.
+
+
+
+
+
+JSON Android:--------------------------
+There are three classes 
+=> JSON Array	A dense indexed sequenced of values
+=> JSONObject	A modifiable set of anme/value mapping
+=> JSONStringer	Implements JSONObject#toString and JSONArray#toString.
+=> JSONTokenizer	Parse a JSON(RFC 4627) encoded string into the corresponding object.
+
+EXception
+JSONException	Throw to indicate a problem with the JSON API.
+
+Andorid provides four different classes to manipulate JSON data.These classes are JSONArray, JSONObject, JSONStringer and JSONTokenizer.
+
+The fist step is to identify the field in the JSONdata in which you are intersted in.
+
+
+JSon Elements:---------------------------
+ AN JSON file consist of many components.Here is the table defining the component ofan JSON file and their description
+
+Array[]	In JSON file square bracket [ represent a JSON array
+
+Object{	In a JSON file curly bracket represent a JSON object
+
+Key	A JSON object contains a key that is just a stinrg .Pairs of key/value make up a JSON object
+
+Value	Each key has a value that could be string integer or double 
+
+
+JSON Parsing:-------------------------------
+
+1) For parsing a JSON object we will create an object of class JSONObject and specify a string containing JSON data to it
+
+String in;
+JSONObject reader=new JSONObject(in);
+
+The last step is to parse the JSON . A JSON file consist of different obejct with the different key/value pair, SO JSONObject has a separate function for parsing each of the component of JSON file 
