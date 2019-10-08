@@ -37,7 +37,7 @@ This is a libraray for build
 
 
 
-	Application Fundamentals :------------
+	Application Fundamentals :-------------------------
 
 Android apps can be written using Kotlin,Java and C++ languages . The Android SDK tools compiles your code along with any data and recources files into an APK, an Android package
 which is an archive file with an .apk suffix.
@@ -50,11 +50,11 @@ The Android system implements the principle of least privilage .That is each app
 
 
 
-	Application Component :-----------------
+	Application Component :----------------------------
 
 App components are essentially building blocks of an Android app. Each component is an entry point through which the system or a user can enter your app. Some component depends on others.
  
-there are four different types of app components :-
+There are four different types of app components :-
 1) Activities
 2) Services
 3) Broadcast Receiver
@@ -70,7 +70,8 @@ Example :- An email app might have one activity that shows a list of new emails,
 
 2) Services
 A services is a general-purpose entry point for keeping an app running background for all kinds of reasons.
- It is a component that runs in the background to perform long-running operations or to perform work for remote processes. A services does not provide a user interface.
+It is a component that runs in the background to perform long-running operations or to perform work for remote processes.
+A services does not provide a user interface.
 Example : A service might play music in the background while the user is in a different app, or it might fetch data over the network without blocking user interaction with an activity.
 
 
@@ -328,6 +329,8 @@ package="com.example.splashscreen">
 </application>
 
 </manifest>
+
+
 	Android AlertDialogBox Example :----------------------------
 
 Android Alert DialogBox can be used to display the Dialog message with OK and Cancel button. It can be used to interuppt and ask the user about his\her chioce to continue of discontinue.
@@ -647,11 +650,11 @@ ExampleFragment fragment = (ExampleFragment)getSupportFragmentMnager().findFragm
 
 
 
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+					                 Android ManifestFile
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-
-	Android Manifest File :------------------------------------------
-
-Every app project must have an Androidmanifest.xml file(with precisely that name) at the root of the project source set. The manifest file describe essential information about your app to the Android build tools
+Every app project must have an Androidmanifest.xml file (with precisely that name) at the root of the project source set. The manifest file describe essential information about your app to the Android build tools
 
 Among many other things the manifest file is required to declare the following :-
 
@@ -686,13 +689,13 @@ This is where we will dig deeper When we run our code from the editor following 
 Android java code files compiles to .class files view javac command
 
 2) .class fiels gets converted to .dex
-.class files is also known as java byte-code this byte code further get converted to delvik byte-codes which is the format which android OS understands here all .class fiels and any .jar library files compiles to single classes .dex using dx command. DEX is called executable files.
+.class files is also known as java byte-code this byte code further get converted to ( delvik byte-codes ) which is the format which android OS understands here all .class fiels and any .jar library files compiles to single classes .dex using dx command. DEX is called executable files.
 
 DEX files is memory efficient and loads very swiftly compared to JVM based .class files and is lightweight too.
 
 3) Packaging (.APK file)
 
-Packaging is done using android apkbuilder rool (APPT).It generated a .apk file from a DEX file + non-java libraries + zipped resources. The classes.dex file resource files are compressed by aapt (Android Asset Packaging Tool) This.apk file is what you run on adnroid device and is distributed to all the major app stored after beign singned for release. User gets to download this files from Google Play Store and other app stored on their android powered device.
+Packaging is done using android apkbuilder rool (APPT).It generated a .apk file from a DEX file + non-java libraries + zipped resources. The classes.dex file resource files are compressed by aapt (Android Asset Packaging Tool) This.apk file is what you run on android device and is distributed to all the major app stored after beign singned for release. User gets to download this files from Google Play Store and other app stored on their android powered device.
 
 
 
@@ -733,7 +736,8 @@ If you have app components that reside in sub-packages (such as in com.example.m
 
 
 => Intent filters
-App activities, services, and broadcast receivers are activated by intents. An intent is a message defined by an Intent object that describes an action to perform, including the data to be acted upon, the category of component that should perform the action, and other instructions.
+App activities, services, and broadcast receivers are activated by intents.
+An intent is a message defined by an Intent object that describes an action to perform, including the data to be acted upon, the category of component that should perform the action, and other instructions.
 
 
 
@@ -784,9 +788,6 @@ android {
 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-					                 Android ManifestFile
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 Before the Android system can start an app component , start system must know that the component exist by reading the app's manifest file AndroidManifest.xml.
 Your app must declare all its component  in this file which must be at the root of the app project directory.
@@ -887,6 +888,76 @@ Once you externalize your app resource you can access them using resources IDs t
 
 
 
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+					                 Android ActivityLife-Cycle
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+As a user navigates through out of and back to your app the Activity instances in your app transition through different states in their lifecycle. The Activity class provides a number of callbacks that allow the activity to know that a state has changed: that the system is creating , stopping, or resuming an activity or destroying the process in which the activity resides.
+	within the lifecycle callback method you can declare how your activity behaves when the user leaves and re-enters the activity.
+
+A good implementation of the activity callback can help ensure that your app avoids:
+1) Crashing if the user receives a phone call or switches to another app while using your app.
+2) Consuming valuable system resources when the user is not actively using it.
+3) Losing the user's progress if they leave your app and return to it at a later time.
+4) Crashing or losing the user's progress when the screen rotates betwnn landscape and portrait orientation.
+
+
+Activity-lifecycle concepts :--------------------------
+To navigate transition between stages of the activity lifecycle, the Activity class provides a core set of six callbacks:
+1) onCreate()
+2) onStart()
+3) onResume()
+4) onPause()
+5) onStop()
+6) onDestroy()
+
+Depensing on the complexity of your activity you probably don't need to implement all the lifecycle method. However, it's important that you understand each one and implement those that ensure your app behaves the way users expect.
+
+Some actions such as calling setContentView() belong in the activity lifecycle methods themselves. However the code implementing the actions of a dependent component should be placed in the component itself.
+
+
+=> onCreate()
+On activity creation the activity enters the Create state. In the onCreate() method you perform basic application startup logic that should happen only once for the entire life of activity.
+
+The method receives the parameter saveInstanceState which is a Bundle object containing the activity's previously saved state.If the activity has never existed before the value of the Bundle object is null.
+
+onCreate() method is called when activity gets memory in the OS. To use create state we need to override onCreate(Bundle saveInstanceState) method.
+
+When the activity first call or launched then onCreate(Bundle savedInstanceState) method is responsible to create the activity.
+
+
+
+=> onStart()
+onStart() method is called just afer it's creation. In other case Activity can also be calling rstart method after activity stop.So this means onStart() gets called by Android OS.when  user switch between applications.
+If a user was using Application A and then a notification comes and user clicked on notification and moved to Application B in this case Application A will paused. And again if a user click on app icon of Application A then Application A which was stopped will again gets started.
+
+
+=> onResumed()
+Activity resumed is that situation when it is actually visible to user means the data displayed in the activity is visible to user. In lifecycle it always gets called after activity start and in most use case after activity paused (onPause).
+
+
+=> onPaused()
+Activity is called paused when it's content is not visible to user, in most case onPause9) method called by Android OS when user press Home button (center Button on Device) to make hide.
+Activity also gets paused before stop called in case user press the back navigation button. The activity will go in paused state for these reasons also if a notification or some other dialog is overlaying any part (top or bottom) of the activity (screen). Similarly, if the other screen or dialog is transparent then user can see the screen but cannot interact with it. For example, if a call or notification comes in, the user will get the opportunity to take the call or ignore it.
+
+=> Activity Stopped: onStop():
+
+Activity is called stopped when it’s not visible to user. Any activity gets stopped in case some other activity takes place of it. For example, if a user was on screen 1 and click on some button and moves to screen 2. In this case Activity displaying content for screen 1 will be stopped.
+
+Every activity gets stopped before destroy in case of when user press back navigation button. So Activity will be in stopped state when hidden or replaced by other activities that have been launched or switched by user. In this case application will not present anything useful to the user directly as it’s going to stop.
+
+=> Activity onRestart()
+Activity is called in restart state after stop state. So activity’s onRestart() function gets called when user comes on screen or resume the activity which was stopped. In other words, when Operating System starts the activity for the first time onRestart() never gets called. It gets called only in case when activity is resumes after stopped state.
+
+=> Activity Destroyed: onDestroy():
+
+Any activity is known as in destroyed state when it’s not in background. There can different cases at what time activity get destroyed.
+
+First is if user pressed the back navigation button then activity will be destroyed after completing the lifecycle of pause and stop.
+
+In case if user press the home button and app moves to background. User is not using it no more and it’s being shown in recent apps list. So in this case if system required resources need to use somewhere else then OS can destroy the Activity.
+
+After the Activity is destroyed if user again click the app icon, in this case activity will be recreated and follow the same lifecycle again. Another use case is with Splash Screens if there is call to finish() method from onCreate() of an activity then OS can directly call onDestroy() with calling onPause() and onStop().
 
 
 
@@ -1152,6 +1223,7 @@ When you successfully handle a menu item, return true. If you don't handle the m
 
 
 Context Menu and contextual action mode :-----------------------------
+
 A context menu is a floating menu that appears when the user performs a long-click on an element.It provides actions that affect the selected content ot context frame.
 The contextual action mode display action items that affect the selected content in a bar at the top of the screen and allows the user to select multiple items.
 
@@ -1206,10 +1278,85 @@ A service is bound when an application component binds to it by calling bindServ
 
 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10:31 AM 9/3/2019		Android Intent
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+An Intent is a messaging object you can use to request an action from another app component. Although intents facilitate communication between components in several ways there are three fundamental use cases:-
 
-10:31 AM 9/3/2019
+=> Starting an activity :-
+An Activity represents single screen in an app.You can start a new instance of an Activity by passing an Intent to startActivity(). The Intent describes the activity to start and carries any  necessary data.
 
-	Intent :------------
+	Intent new_intent=new Intent(Context context,NextActivity.class)
+	new_intent.putExtra(name,value);
+	startActivity(new_intent);
+
+
+
+If you want to receive a result from the activity when it finishes call startActivityForResult(). your activity receives the result as a separate Intent object in your activity's onActivityResult() callback.
+
+
+
+=> Starting a service
+you can start a service by  using  methods of the Service class. You can start a service to perform a one-time operation (such as downloading a file) by passing an Intent to startService().The Intent describes the service to start and carries any necessary data.
+
+
+=> Delivering a broadcast
+A broadcast is a message that any app can receive.The system delivers various broadcasts for system events, such as when the system boots up or  th device starts charging. you can deliver a broadcasr to other apps by passing an Intent to send Broadcast() or sendOrderedBroadcast().
+
+
+Intent types :-----------------------
+there are two types of Intents
+1) Implicit Intent
+2) Explicit Intent
+
+Explicit Intent  specify which application will saticfy the intent by supplying either the target app's package name or fully-qualified component class name.You will typically use an explicit intent to start a component in your own app because you know the class name of the activity or service. to download file in the background.
+
+Implicit intent do not name a specific component but instead declare a general action to perform which allows a component from another app to handle it. For example if you want to show the user a location on a map you can use an implicit intent to request that another capable app to show a specific location on a map.
+
+
+When you use an implicit intent the Android system finds the appropriate component  to start by comparing the contents of the intent to the intent filter declared in the manifest file of other apps on the device. if the intent matches an intent filer the sytsem starts that component and deliver it the intent object.If multiple intent filters are compatible the system displays a dialog so the user can pick which app to use. 
+
+
+
+
+Building an Intent :---------------------------------------
+
+An  intent object carries information that the android system uses to determine which component to start (such as the exact component name or component category that should recevice the intent), plus information that the recipient component uses in order to properly perform the action( such as the action to take and the data to act upon).
+
+The primary information contained in an Intent is the following:
+
+=> Component name	( The name of the component to start)
+
+=> Action (A string that specifies the generic action to perform (such as view or pick)).
+
+1) ACTION_VIEW
+use this action in an intent startActivity() when you have some information that an activity ca show to the user such as photo to view in a gallery app or an address to view in a map app.
+
+2) ACTION_SEND
+Also known as the share intent you should use this in an inten twith startActivity() when you have some data that the user can share through another app such as an email app or social sharing app.
+
+
+=> Data
+The URI ( a Uri object) that reference the data to be acted on and /or the MIME type of that data. The type od data supplied is generally dictated by the intent's action.For example if the action ACTION_EDIT the data should contain the URI of the document to edit.
+
+When creating anintent it's often important to specify the type of data (its MIME type) in addition to its URI. 
+To set only data URI call setData(). To set only the MIME type call setType() .If necessary you can set both explicitly with setDataAndType().
+
+
+Category
+A string containing additional information about the kind of component that should handle the intent. Any number of category description can be placed in an intent but most intent do not require a category.
+
+CATEGORY_BROWSABLE
+The target activity allows itself to be started by a web browser to display data referenced by a link such as an image or an e-mail message.
+
+CATEGORY_LAUNCHER
+The activity is the initial activity of a task and is listed in the system's application launcher.
+
+
+Extras
+Key-value pairs that carry additional information required to accomplish the requested action.Just as some actions use particular kinds of data URIs some actions also use particular extras.
+You can add extra data with various putExtra() method each accepting two aprameter the ley name and the value.
+You can also create Bundle object with all the extra data then insert the Bundle in the Intent with putExtras().
 
 public class Intent extends Object implements Parcelable, Cloneable
 
@@ -1361,12 +1508,65 @@ We can define a filter with multiple instances of <action>, <category> or <data>
 
 
 
-:
+23:54 02-10-2019 ListView :----------------------------------------------------------------------------------
+Display a vertically scrollable collection of views where each view is positioned immediately below the previous view in the list.
+
+To display a list you can include a.ist in your layout  XML file
+<ListView
+      android:id="@+id/list_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+
+A list view is an adapter view that does not know the details such as type and content of view it contains. Instead list view request views on demand from a list adapter as needed such as to displaynew views as the user scrolls up or down.
+
+In order to display items in the lilst call setAdapter(android.widget.ListAdapter) to associate an adapter with the list.
 
 
 
 
 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	ArrayAdapter :---------------
+
+Use this Adapter when your data source is an array. By default ArrayAdapter creates a view for each array item by calling toString() on each item and placing the content in TextView.
+
+For example if you have an array of strings you want to display in a ListView, initialize a new ArrayAdapter using a constructor to specify the layout for each string and the string array.
+
+
+ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        android.R.layout.simple_list_item_1, myStringArray);
+
+The argument of this constructor are :
+
+=> Your app Content
+=> The Layout that contains a TextView for each string in the array
+=> The String array
+
+Then simple cann setAdapter() on your ListView
+
+ListView listView = (ListView) findViewById(R.id.listview);
+listView.setAdapter(adapter);
+
+=> SimpleCursorAdapter
+Use this dapter when your data comes froma Cursor. When using SimpleCursorAdapter you must specify a layout to use for each row in the Cursor and which columns in the Cursor should be inserted into which views of the layout.
+		For eample if you want to create a list of people's names and phone numbers you can perform a query that return a Cursor containing a row for each person and columns for the name and numbers. You then create a string array specifying which columns from the Cursor you want in the layout for each result and an integer array specifying the corresponding views that each column should be placed:
+
+
+String[] fromColumns = {ContactsContract.Data.DISPLAY_NAME,
+                        ContactsContract.CommonDataKinds.Phone.NUMBER};
+int[] toViews = {R.id.display_name, R.id.phone_number};
+
+
+When you instantiate the SimpleCursorAdapter, pass the layout to use for each result, the Cursor containing the results, and these two arrays:
+
+SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+        R.layout.person_name_and_number, cursor, fromColumns, toViews, 0);
+ListView listView = getListView();
+listView.setAdapter(adapter);
+
+
+The SimpleCursorAdapter then creates a view for each row in the Cursor using the provided layout by inserting each fromColumns item into the corresponding toViews view.
 
 
 
@@ -2129,6 +2329,104 @@ The return value wraps the response in a Call object with the type of the expect
 Call<List<User>> groupList(@Path(“id”) int groupId, @Query(“sort”) String sort);
 
 Retrofit supports Authentication for API calls that require the user to be authenticated before using the API to access resources. Querying Twitter, Facebook and StackoverFlow all require authentication. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+14:18 06-10-2019 Chronometer in Android :------------------------------------------------------------------------------------------------------------------------------------------------------------
+In Android Chronometer is a class that implements a simple timer. Chronometer is a subclass of TextView.
+This class helps us to add a timer in our app.
+
+You can give it start time in the SystemClock#elapsedRealtime timebase and it counts up from that or if you don't give it a base time it will use the time at which you call start().
+
+The timer can also count downword towards the base time by setting setCountDown(boolean) to true.
+
+By default it will display the current timer value in the "MM:SS" or "H:MM:SS" or you can use setFormat(String) to format the timer value into an arbitrary string.
+
+
+interface Chronometer.OnChronometerTickListener		A callback that notifies when the chronometer has incremented on its own.
+
+
+android:countDown	=> Specifies whether this Chronometer counts down or counts up from the base. 
+android:format	=> Format string: if specified, the Chronometer will display this string, with the first "%s" replaced by the current timer 		     value in "MM:SS" or "H:MM:SS" form. 
+
+
+=> Chronometer code in XML
+
+<Chronometer
+android:id="@+id/chronometer_timer"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"/>
+
+
+=> Public constructors
+
+	Chronometer(Context context)				initialize this Chronometer object
+
+	Chronometer(Context context,AttributeSet attrs)		initialize with standdard view layout information
+	
+	Chronometer(Context context,AttributeSet attrs,int defStyleAttr) initialize with standard view layout information and style
+	
+	Chronometer(Context context,AttributeSet attrs,int defStyleAttr,int defStyleRes)
+
+
+public methods:------------------
+
+CharSequence	getAccessibilityClassName()
+Return the class name of this object to be used for accessibility purposes.
+
+long	getBase()
+Return the base time as set through setBase(long).
+
+CharSequence	getContentDescription()
+Returns the View's content description.
+
+String	getFormat()
+Returns the current format string as set through setFormat(String).
+
+Chronometer.OnChronometerTickListener	getOnChronometerTickListener()
+boolean	isCountDown()
+boolean	isTheFinalCountDown()
+void	setBase(long base)
+Set the time that the count-up timer is in reference to.
+
+void	setCountDown(boolean countDown)
+Set this view to count down to the base instead of counting up from it.
+
+void	setFormat(String format)
+Sets the format string used for display.
+
+void	setOnChronometerTickListener(Chronometer.OnChronometerTickListener listener)
+Sets the listener to be called when the chronometer changes.
+
+void	start()
+Start counting up.
+
+void	stop()
+Stop counting up.
+
+
+
+XML Attributes:---------------------------
+
+android:countDown
+Specifies whether this Chronometer counts down or counts up from the base. If not specified this is false and the Chronometer counts up.
+
+May be a boolean value, such as "true" or "false".
+
+android:format
+Format string: if specified, the Chronometer will display this string, with the first "%s" replaced by the current timer value in "MM:SS" or "H:MM:SS" form. If no format string is specified, the Chronometer will simply display "MM:SS" or "H:MM:SS".
+
+
 
 
 
