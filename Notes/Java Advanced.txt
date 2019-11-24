@@ -788,6 +788,8 @@ this sql query return the top 10 data of(Id,ProductName, UnitPrice, Package) fro
 
 					-----------------: Servlet Java :---------------
 
+
+
 Servlet technology is used to create a web application (reside at server and generates the dynamic web pages).
 
 Servlet technology is robust and scalable because of java language. Before servlet , CGI(Common Gateway Interface) scripting language was common as a server-side programming language.
@@ -830,9 +832,11 @@ CGI technology enable the web server to call an external program and pass HTTP r
 	Disadvantage of CGI :-
 
 There are many disadvantage of the CGI:-
-1) if the number of client increase it takes more time for sending response 
+1) if the number of client increase it takes more time for sending response.
 2) for each request it start  a process and the web server is limited to start process.
-3) it uses platform independent language
+3) it uses platform independent language.
+
+
 
 
 	Advantage of servlet :---------
@@ -854,7 +858,7 @@ Advantage of servlet :-
 	Web Termonology :---------------
 
 
-	servlet			Description
+	Servlet			Description
 
 	HTTP			it  is the commonication protocol used to established communication between client and server.
 
@@ -897,17 +901,16 @@ prebuilt content is same every time the page is loaded		content is generated qui
 
 it used the HTML code for developing a website			it uses the server side language such as php,servlet.jsp and ASP.net
 
-it sends exactly the same response for every request			it may generate different hTML for each of the request
+it sends exactly the same response for every request			it may generate different HTML for each of the request
 
 flexibility is the main advantage of the static web site			content management system is the main advantage of dynamic page
 
 
 
 
-
 	HTTP ( Hyper Text Transfer Protocol ) :---
 
-The hypertext transfer protocol(HTTP) is application level protocol for collabrative distributed by per media information 
+The Hypertext transfer protocol(HTTP) is application level protocol for collabrative distributed by per media information 
 it is the data communication protocol used to established communication between client and server.
 
 HTTP is TCP/IP communication protocol which is used to deliver the data like image files query results HTML files etc on the World Wide Web (WWW) with the default  port id TCP 80. It provides the standardized way for computer to communicate with each other.
@@ -971,6 +974,7 @@ Three servlet container state:-
 
 
 
+
 	Servlet container perform many opearation :----------------
 
 1) Life cycle Management
@@ -993,7 +997,7 @@ There are two types of server :-
 2) Application sever
 
 
-	Web Server :-
+	Web Server :------
 
 Web server contains only web or servlet container . it can be used for servlet jsp, strut, jsf etc.
 It is the computer where web content  can be stored . In general web server can be used to host the web sites but there also used some web server also such as FTP email storage gaming etc.

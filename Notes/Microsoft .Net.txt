@@ -25,7 +25,7 @@ Cross-language interoperability is needed for the creation of large distributed 
 It is also desireble for programming software components because the most valuable component is one that can be used by the widest variety of computer languages in greatest number of operating environments.
 
 
-Another features lacking in java is full integration with the Windows platform. Although java programs can be executed in a Windows environment  (assuming that the java virtual machine has been installed) java and window are not closely coupled. Since windows is the most widely used oprating system in the world lack of directly support for windoes is a drawback to java.
+Another features lacking in java is full integration with the Windows platform. Although java programs can be executed in a Windows environment  (assuming that the java virtual machine has been installed) java and window are not closely coupled. Since windows is the most widely used oprating system in the world lack of directly support for windows is a drawback to java.
 
 
 
@@ -57,6 +57,8 @@ Question => Is the C#  truly object oriented programming language ?
 
 No C# is not a truly object oriented programming language.
 
+
+Question => Why C# is not truly object oriented programming language?
 
 
 
@@ -96,17 +98,17 @@ namespace HelloWorld
 
 	=> class
 
-it is a keyword which is used to define class
+It is a keyword which is used to define class
 
 	=> Program
-it is the class name. A class is a blueprint or template from which object are created  data members and methods. Here it has only Main method
+It is the class name. A class is a blueprint or template from which object are created  data members and methods. Here it has only Main method
 
 
 	=> static
-it is keyword which means object is not required to access static members. So it save memory.
+It is keyword which means object is not required to access static members. So it save memory.
 
 	=> void
-it is the return type of the method. It doesn't return any value. In such case return statement is not required.
+It is the return type of the method. It doesn't return any value. In such case return statement is not required.
 
 
 	=> Main
@@ -125,6 +127,8 @@ Here System is the namespace, Console is the class defined in System namespace. 
 	=> Using public modifier
 
 we can use specify public modifier before class and Main() method. Now, it can be accessed from outside the class also.
+
+
 
 using System;
 public class Program
@@ -163,10 +167,10 @@ namespace ConsoleApplication
 
 
 
+
 	=> Data types in C#
 
 There are three different type of the Data types in C#
-
 
 1) Value Data
 
@@ -178,6 +182,26 @@ such as Integer, Boolean, Float etc.
 
 b) userdefined data type
 such as Structure, Enumeration etc.
+
+
+
+Example=>
+
+//Example of the Value type data
+class Program
+{
+    public static void Main(string[] args)
+    {
+        System.Console.WriteLine("Enter the Number : ");
+        int a, b;
+        a = System.Convert.ToInt32(System.Console.ReadLine());
+        b = System.Convert.ToInt32(System.Console.ReadLine());
+        System.Console.WriteLine("A = " + a);
+        System.Console.WriteLine("B = " + b);
+
+    }
+}
+
 
 
 
@@ -605,6 +629,7 @@ class Program
 Outpur=>
 Enter Size pf Pattern :
 10
+
 1
 1 2
 1 2 3
@@ -1078,6 +1103,7 @@ public class Program
         int num = Convert.ToInt32(Console.ReadLine());
         int[,] arr = new int[num, num];
         Console.WriteLine("Enter Element in Multidimensional Array : ");
+      
         for(int i=0;i<num;i++)
         {
             for(int j=0;j<num;j++)
@@ -1250,12 +1276,12 @@ execute => Program.exe Hi there,  how are you?
 Since C# is an object-oriented program is designed using object and classes in C#.
 
 
-	C# Object:-
+	C# Object :---------------
 
 In C# Object is a real world entity for example chair,pen , table, mobile etc.
 In other words object is an entity that has state (variable) and behavior(method). Here state means data and behaviour means functionality
 
-object is runtime entity it is created at runtime.
+Object is runtime entity it is created at runtime.
 object is an instance of a class . All the members of the class can be accessed through object.
 
 
@@ -1267,11 +1293,11 @@ The new keyword allocates memory at runtime.
 
 
 
-	C# Class :-
+	C# Class :---------------
 
 In C# class is a group of similar object. 
 It can also be said that it is the blueprint of object.
-It is a template from which object are created. it can have field, methods, constructor etc.
+It is a template from which object are created. It can have field, methods, constructor etc.
 
 
 Example=>
@@ -1692,7 +1718,7 @@ public class Program
 
 	C# Enum :-------------------
 
-Enum is C# is also known as enumeration. It is used to store set of names constants such as season, days month, size etc.
+Enum in C# is also known as enumeration. It is used to store set of names constants such as season, days month, size etc.
 The enum constant are also known as enumerators.
 Enum in C# can be declared within or outside class and structs.
 
@@ -1771,7 +1797,7 @@ public class Program
 
 
 
-	C# enum example: traversing all values using getValues() :-------------------
+	C# enum example: Traversing all values using getValues() :-------------------
 
 using System;
 public class Program

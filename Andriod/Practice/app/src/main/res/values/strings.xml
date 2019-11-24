@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Code Language</string>
+    <string name="navigation_drawer_open">Open Naviagtion Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="DataStructure">A Data Structure is a model where data is  organised managed and stored in a format enables efficiently access and modification of the data</string>
+    <string name="AbstractDataTypes">Abstract Data types are defined by its behaviours from the point of view of the user of the data.It defines it in terms of possible values operations on data and the behaviour of these operations.</string>
+
+</resources>

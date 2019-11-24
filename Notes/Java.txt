@@ -790,7 +790,7 @@ false
                                                                                          Type Conversion Wrapper Class in Java
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
-> Java automatic conversion
+> Java Automatic conversion
 
    When one type of data is assigned to another type of variable, an automatic type conversion will take place if the following two condition met:
    1) the two type are compatible
@@ -808,6 +808,54 @@ false
 
 
 
+Example=>
+
+import java.util.Scanner;
+class demo
+{
+    public static void main(String [] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        Integer a=new Integer(sc.nextInt());
+        Integer b=new Integer(sc.nextInt());
+        if(a==b){
+            System.out.println("This is working");
+        }
+        else{
+            System.out.println("This is not working");
+        }
+
+        if(a.equals(b)){
+            System.out.println("Second method is working");
+        }
+        else{
+            System.out.println("Second method is not working");
+        }
+
+        Integer x=Integer.valueOf(5);
+        Integer y=Integer.valueOf(5);
+        if(x==y){
+            System.out.println("True");
+        }
+        else{
+            System.out.println("False");
+        }
+        sc.close();
+    }
+}
+
+
+
+Explanation of direct assignment of an literal to an Integer reference is an example of auto-boxing concept where the literal value to object conversion code is ahndeled by the compiler converts Integer a=5   to  Integer a=Integer.valueOf(5);
+
+
+
+AutoBoxing =>
+The conversion of a primitive value into an object of the corresponding wrapper class is called autoboxing.
+
+
+Unboxing =>
+The conversion an object of a wrapper type to its corresponding primitive value is called unboxing.For Example conversion of Integer to int.
 
 
 
@@ -817,7 +865,7 @@ false
 				                ---------------: Wrapper class :--------------
 
 
-Wrapper class in java provides the mechanism to convert primitive into object and object into primitive. Since J2SE 5.0 autoboxing and unboxing feature conerts primitve into object and object into primitive automatically . The automatic conversion of primitive into object is know as autoboxing and vice-versa unboxing.
+Wrapper class in java provides the mechanism to convert primitive into object and object into primitive. Since J2SE 5.0 autoboxing and unboxing feature conerts primitve into object and object into primitive automatically . The automatic conversion of primitive into object is known as autoboxing and vice-versa unboxing.
 
 The eight classes of java.lang package are known as wrapper classes in java. The list of eight wrapper classes are given below.
 
@@ -882,6 +930,12 @@ Note: Recompile with -Xlint:deprecation for details.
 
 D:\Hacker\collectionframework>java demo
 3 3 3
+
+
+
+
+
+
 
 
 
@@ -1027,7 +1081,7 @@ A binary operator is an operator  that operate on two operand and manipulates th
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Why java is not a pure Object-Oriented Language
-Pure object oriented language or complete object oriented language are fully object orinted language which supports or have features which
+Pure object oriented language or complete object oriented language are fully object oriented language which supports or have features which
 
 => It is a programming paradigms that provides many concept such as Inheritence, Encapsulation ( Data Hiding ), Polymorphism  etc.
 => It is a software develoment methodology that is based on modeling a real-world system.
@@ -1442,7 +1496,6 @@ if we are overriding the static method then that is treated as the Method Hiding
 
 				                ------------------: Final Keyword in java :--------------------
 
-
 Final keyword are  used before the class , method and before the variable
 
 1) final variable 
@@ -1474,10 +1527,12 @@ class demo
             fees=a;
             System.out.println("Your Fee : "+fees);
     }
+
     public static void main(String [] args)
     {
         demo d=new demo(4);
     }
+
 }
 
 output=>   4

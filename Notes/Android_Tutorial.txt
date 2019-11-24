@@ -1,4 +1,19 @@
-00:47 25-09-2019 Android Libraries :------------------------------------------------------------
+10:30 23-11-2019  Context in Android :-------------------------------------------------------------
+A context is handle to the system. It provides services like resolving resources obtaining access to  databas and preferences and so on. An Android app has activities Context is like a handle to the environment your application is running in.
+
+getApplicationContext() => Return the context of the process of all activitie running inside it.If you need a context that bind lifecycle of application you can use this.You should use it in across the activity.
+
+getBaseContext() => if you want to access context from another context within application you can access.
+
+getContext() Returns the context view inly running activity.
+
+
+ViewPager  :----------------------------------
+Layout manager  that allows the user to flip left and reight page of data.You  supply an implementation of a PageAdapter to generates the pages that the view shows.
+The view's position can be controlled via its android:layout_gravity attribute.
+
+
+00:47 25-09-2019     Android Libraries :------------------------------------------------------------
 In Programming a libraries is a collection of precompiled routines that a program can use.
 The routines sometimes called module are stored in object format.
 Libraries are particularly useful for storing frequently used routine because you don't need to explicitly link them to every program that uses them.
@@ -104,6 +119,79 @@ Intent bind individual component to each other at runtime. An intent is created 
 specific type of component (impicit intent).
 
 For activities and services an intent defines the action to be perform (for example to view  or send something) 
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Android Toast
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A toast provides simple feedback about an operation in a small popup.It only fills the amount of space required for the message and the current 
+and current activity remains visible and interactive. Toasts automatically disapper after a timeout.
+
+
+The Basics :----
+First instantiate a Toast object with one  of the makeText() methods. This method take three parameter the application context, the text message and the duration for the toast. It returns a properly initialized Toast object.You can display the toast notification with show() as shown in the following example.
+
+Context context = getApplicationContext();
+CharSequence text = "Hello toast!";
+int duration = Toast.LENGTH_SHORT;
+
+Toast toast = Toast.makeText(context, text, duration);
+toast.show();
+
+we can also chain our methods and avoid holding on to the Toast object like this:
+
+	Toast.makeText(context,text,duration).show();
+
+
+=> Positioning the Toast Notification
+
+A standard toast notification appears near the button of the screen cetered horiontally.You can change this position with the setGravity(int,int,int) methods. This accepts three parameter a Gravity constant an x-position offset and a y-position offset.
+
+	toast.setGravity(Gravity.TOP|Gravity.LEFT, 0, 0);
+
+
+
+=> Creating Custom Toast View
+If a simple text message isn't enough you can create a customized layout for your notification. To create a custom layout define a View layout in XML or in your application code and apss the root View object to the setView(View) method.
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/custom_toast_container"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:padding="8dp"
+              android:background="#DAAA"
+              >
+    <ImageView android:src="@drawable/droid"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginRight="8dp"
+               />
+    <TextView android:id="@+id/text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#FFF"
+              />
+</LinearLayout>
+
+Notice that the ID of the LinearLayout element is "custom_toast_container".You must use this ID and the ID of the XML layout file "custom_toast" to inflate the layout as shown here
+
+
+LayoutInflater inflater = getLayoutInflater();
+View layout = inflater.inflate(R.layout.custom_toast,(ViewGroup) findViewById(R.id.custom_toast_container));
+
+TextView text = (TextView) layout.findViewById(R.id.text);
+text.setText("This is a custom toast");
+
+Toast toast = new Toast(getApplicationContext());
+toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+toast.setDuration(Toast.LENGTH_LONG);
+toast.setView(layout);
+toast.show();
+
+
 
 
 
@@ -227,6 +315,9 @@ private OnItemClickListener messageClickedHandler = new OnItemClickListener() {
 
 listView.setOnItemClickListener(messageClickedHandler);
 
+
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 TextInputLayout
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -240,11 +331,40 @@ What is the TextInputLayout ?
 
 A TextInputlayout widget behaves exactly as a LinearLayout it's just a wrapper. TextInputLayout only accepts one child element similar to a ScrollView. The child element needs to be  an EditText Element.
 When TextInputLayout is used around an EditText is automatically takes  the hint text defined in the EditText and shows it as a floating label.
-Another feature we can also set an error message to Edittext by using setErrorEnable() and setError() methods.
+Another feature we can also set an error message to Edittext by using setErrorEnable(boolean) and setError(Char Sequence) methods.
+
+
+passord visibility toggling is also supportted via the setPasswordVisibilityToggleEnabled(boolean) API and related attribute.If enabled a button is displayed to toggle between the password being displayed as plain-text or distiguised when your Edittext is set to display a passord.
+
 
 TextInputLayout takes the value of android:hint assigned to EditText and displays it as floating label. 
 
+The TextInputEditText class is provided to be used as a child of this layout.Using TextInputEditText allows TextInputLayout greater control over the visual aspect of any text input. An example uasge is as so:
 
+	 <android.support.design.widget.TextInputLayout
+         		android:layout_width="match_parent"
+         		android:layout_height="wrap_content">
+
+     		<android.support.design.widget.TextInputEditText
+             		android:layout_width="match_parent"
+             		android:layout_height="wrap_content"
+             		android:hint="@string/form_username"/>
+
+ 	</android.support.design.widget.TextInputLayout>
+
+
+
+Summary XML Attributes :---------
+TextInputLayout_android_hint
+TextInputLayout_counterEnabled
+TextInputLayout_counterMaxLength
+TextInputLayout_errorEnabled
+TextInputLayout_errorTextAppearence
+TextInputLayout_hintAnimationEnabled
+TextInputLayout_hintEnabled
+TextInputLayout_hintTextAppearance
+TextInputLayout_passwordToggleContentDescription
+TextInputLayout_passwordToggleDrawable
 
 
 
@@ -890,7 +1010,7 @@ Once you externalize your app resource you can access them using resources IDs t
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-					                 Android ActivityLife-Cycle
+					              Android ActivityLife-Cycle
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 As a user navigates through out of and back to your app the Activity instances in your app transition through different states in their lifecycle. The Activity class provides a number of callbacks that allow the activity to know that a state has changed: that the system is creating , stopping, or resuming an activity or destroying the process in which the activity resides.
 	within the lifecycle callback method you can declare how your activity behaves when the user leaves and re-enters the activity.
@@ -1278,6 +1398,10 @@ A service is bound when an application component binds to it by calling bindServ
 
 
 
+
+
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 10:31 AM 9/3/2019		Android Intent
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1294,6 +1418,16 @@ An Activity represents single screen in an app.You can start a new instance of a
 
 If you want to receive a result from the activity when it finishes call startActivityForResult(). your activity receives the result as a separate Intent object in your activity's onActivityResult() callback.
 
+
+Here this is an example of of accessing camera and take a photo using startActivityFor Result(intent,CONSTANT);
+static final int REQUEST_IMAGE_CAPTURE = 1;
+
+private void dispatchTakePictureIntent() {
+    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+    }
+}
 
 
 => Starting a service
@@ -1337,13 +1471,15 @@ Also known as the share intent you should use this in an inten twith startActivi
 
 
 => Data
+
 The URI ( a Uri object) that reference the data to be acted on and /or the MIME type of that data. The type od data supplied is generally dictated by the intent's action.For example if the action ACTION_EDIT the data should contain the URI of the document to edit.
 
 When creating anintent it's often important to specify the type of data (its MIME type) in addition to its URI. 
 To set only data URI call setData(). To set only the MIME type call setType() .If necessary you can set both explicitly with setDataAndType().
 
 
-Category
+=> Category
+
 A string containing additional information about the kind of component that should handle the intent. Any number of category description can be placed in an intent but most intent do not require a category.
 
 CATEGORY_BROWSABLE
@@ -1353,7 +1489,7 @@ CATEGORY_LAUNCHER
 The activity is the initial activity of a task and is listed in the system's application launcher.
 
 
-Extras
+=> Extras
 Key-value pairs that carry additional information required to accomplish the requested action.Just as some actions use particular kinds of data URIs some actions also use particular extras.
 You can add extra data with various putExtra() method each accepting two aprameter the ley name and the value.
 You can also create Bundle object with all the extra data then insert the Bundle in the Intent with putExtras().
@@ -1419,36 +1555,63 @@ ACTION_MAIN with category CATEGORY_HOME -- Launch the home screen.
 ACTION_GET_CONTENT with MIME type vnd.android.cursor.item/phone -- Display the list of people's phone numbers, allowing the user to browse through them and pick one and return it to the parent activity.
 
 
+=> Example of the Explicit Intent
+An explicit intent is one that you use to launched a specific app component such as a particular activity or service in your app.To cretae an explicit intent the component name for the Intent object all other intent properties are optional
+
+Example=>
+		// Executed in an Activity, so 'this' is the Context
+		// The fileUrl is a string URL, such as "http://www.example.com/image.png"
+		
+		Intent downloadIntent = new Intent(this, DownloadService.class);
+		downloadIntent.setData(Uri.parse(fileUrl));
+		startService(downloadIntent);
+
+Example implicit Imtemt =>
+
+An implicit intent specifies an action that can invoke any app on the devce able to perform the action. Using an implicit intent is useful when your app cannot perform the action other apps probably can and you 's like the user to pick which app to use.
+
+For example if you have content that you want the user to share with other people create intent with the ACTION_SEND action and add extras that specify the content to share.
+
+// Create the text message with a string
+Intent sendIntent = new Intent();
+sendIntent.setAction(Intent.ACTION_SEND);
+sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);
+sendIntent.setType("text/plain");
+
+// Verify that the intent will resolve to an activity
+if (sendIntent.resolveActivity(getPackageManager()) != null) {
+    startActivity(sendIntent);
+}
+
+
+// Create the text message with a string
+Intent sendIntent = new Intent();
+sendIntent.setAction(Intent.ACTION_SEND);
+sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);
+sendIntent.setType("text/plain");
 
 
 
-Intent  Resolution :---------------
-There are two primary forms of intens you will use
+To show the chooser, create an Intent using createChooser() and pass it to startActivity(), as shown in the following example. This example displays a dialog with a list of apps that respond to the intent passed to the createChooser() method and uses the supplied text as the dialog title.
 
-1) Explicit Intent
-2) Implicit Intent
+Intent sendIntent = new Intent(Intent.ACTION_SEND);
+...
+
+// Always use string resources for UI text.
+// This says something like "Share this photo with"
+String title = getResources().getString(R.string.chooser_title);
+// Create intent to show the chooser dialog
+Intent chooser = Intent.createChooser(sendIntent, title);
+
+// Verify the original intent will resolve to at least one activity
+if (sendIntent.resolveActivity(getPackageManager()) != null) {
+    startActivity(chooser);
+}
 
 
-Explicit Intent :-----------
-In Android Explicit Intent explicitly specify the name of component to be invoked by an activity and we use explicit intents to start a component in out own app.
-By using explicit intents we can send or share data / content from one activity to another activity based on your requirement
-Explicit intent going to be connected internal world of application suppose if you wants to connect one activity to another activity we can do this quoteby explicit intent.
-To create an Explicit Intent we need to define the component name for Intent object.
 
+=> Intent-filter :------------------
 
-
-Implicit Intent :-----------
-These intent do not name a target and the field of the component name is left blank. Implicit intents are often used to activate component in other application.
-It is not specified a component instead they must include enough information for the system to determine which of the available component is best to run for that intent.
-
-When using implecit intent given such an arbitaray intent we need to know what to do with it.This is handle by the process of intent resolution which maps an intent to an Activity
-BroadCastreceiver or Service 
-
-		The intent resolution mechanism basically revolve around matching an intnet against all of <intent-filter> descriptions in the installation package.
-
-There are three pieces of information in the intent that are used for resolution: the action , type , and category
-
-Intent-filter :------------------
 Intent Filter is an expression in app's manifest file (ActivityManifest.xml) and it is used to specify the type of intent that the component would like to receive. In case if we create Intent filter 
 for an activity there is a possibility for other apps to start our activity by sending a certain type of intent.
 											otherwise the activity can be started only by an explicit intent.
@@ -1509,6 +1672,8 @@ We can define a filter with multiple instances of <action>, <category> or <data>
 
 
 23:54 02-10-2019 ListView :----------------------------------------------------------------------------------
+
+
 Display a vertically scrollable collection of views where each view is positioned immediately below the previous view in the list.
 
 To display a list you can include a.ist in your layout  XML file
@@ -1526,8 +1691,12 @@ In order to display items in the lilst call setAdapter(android.widget.ListAdapte
 
 
 
+
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	ArrayAdapter :---------------
+	ArrayAdapter :------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use this Adapter when your data source is an array. By default ArrayAdapter creates a view for each array item by calling toString() on each item and placing the content in TextView.
 
@@ -1567,6 +1736,8 @@ listView.setAdapter(adapter);
 
 
 The SimpleCursorAdapter then creates a view for each row in the Cursor using the provided layout by inserting each fromColumns item into the corresponding toViews view.
+
+
 
 
 
@@ -2031,8 +2202,9 @@ Notification notification = new NotificationCompat.Builder(context, CHANNEL_ID)
 
 
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 00:00 15-09-2019	Content Provider :----------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 A content provider manages access to central repository of data. A provider is part of an Android Application which often provides its own UI for working with the data.
 However content providers are primarily intended to be used by other application which access the provider client object.
@@ -2265,6 +2437,391 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+20:02 12-10-2019 		ListView
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Displays a vertically-scrollable collection of views where each view is positioned immediately below the previous view in the list.
+
+Step (1)	to display a list we can include a list view in our layout XML file:
+
+<ListView 
+	android:id="@+id/list_view"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" />
+
+
+Step (2)
+A list view is an adapter view that does not know the details such as type and content of the views it contains instead list view requests views on demands from a listadapter as needed such as to display new views as the user scrolls up or down.
+
+in order to display items in the list call setAdapter(android.widget.ListAdapter) to associate an adapter with the list.
+
+
+To display more custom view for each item in your dataset implement a ListAdapter.For example extends BaseAdapter and create andd configure the view for each data item in getView(...)
+
+=> XML attributes
+
+android:divider			Drawable or color to draw between list items.
+android:dividerHeight		Height of the divider
+android:entries			Reference to an array resources that will populate the ListView.
+android:footerDividersEnabled		When set to false, the ListView will not draw the divider before each footer view. 
+android:headerDividersEnabled	When set to false, the ListView will not draw the divider after each header view. 
+
+
+
+=> Custom ListView
+
+Step (1)
+Create a ListView in activity_main.xml
+set string[] and Integer[] for image 
+
+
+Step (2)
+create a new class object and pass the context,string,imageid
+
+pass the object of custom class with listview   instance.setAdapter(instace_of_custom_class)
+ perform set onclick listener on list view
+call list.setOnClickListener(new AdapterView<?> parent,View view,int position,long id)
+
+Step (3)
+go to custom_class 
+make variable of string and image id that have pass from mainactivity.class
+
+make constructor of the class
+for initializing the variable
+
+override the getView method
+inflate the view from xml file where we declare the custom layout of custom list view
+using view inflator set the TextView and imageview and after that set string and image with position
+and return the view.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+23:58 10-10-2019 		RecyclerView
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Android RecyclerView is a more advanced powerful and flexible version of the ListView.
+RecyclerView is similar to ListView except that it forces us to use RecyclerView.ViewHolder class to hold the element which is not a compulsion in ListView.
+
+As the name suggests Android RecyclerView is used to reuse cells when scrolling up and down by recycling the items in the list.
+Another improvement in RecyclerView is that it allows us to set the LayoutManager dynamically at runtime, unlike the ListView which was only available in a vertical scrolling List.
+
+LinearLayoutManager : it supports both vertical and horizontal lists
+StaggeredLayoutManager : it supports staggered lists
+GridLayoutManager : it supports displaying grids as seen in GalleryView earlier
+
+Glossary of terms :--------------------
+
+=> Adapter: A subclass of RecyclerView.Adapter responsible for providing views that represent items in a data set.
+
+=> Position: The position of a data item within an Adapter.
+
+=> Index: The index of an attached child view as used in a call to getChildAt(int). Contrast with Position.
+
+=> Binding: The process of preparing a child view to display data corresponding to a position within the adapter.
+
+=> Recycle (view): A view previously used to display data for a specific adapter position may be placed in a cache for later reuse to display the same type of data again later. This can drastically improve performance by skipping initial layout inflation or construction.
+
+=> Scrap (view): A child view that has entered into a temporarily detached state during layout. Scrap views may be reused without becoming fully detached from the parent RecyclerView, either unmodified if no rebinding is required or modified by the adapter if the view was considered dirty.
+
+=>Dirty (view): A child view that must be rebound by the adapter before being displayed.
+
+
+=> Step to create the RecyclerView
+
+Step (1)
+in main activity infalte the recycler view that we have declared in the activity_main.xml
+set the layout of the Recycler view using LayoutManager
+ set the adapter of the RecyclerView and pass the instance of the view Holder where we declared the recycle view
+
+
+
+Step (2)
+create a new layout where we declare the view which we are going to the use in recycler view
+
+the class that we pass the instance in the recyclerview adapter
+extends that class with RecyclerView.Adapter<class.classViewHolder>
+
+create a constructor of the class 
+where we pass the data of the mainactivity to show in recycler view
+
+override the three method 1) onCreateViewHolder 2) getItemCount 3) onBindView
+
+1)
+we will use layout inflater to infalte the view and return it to the classViewHolder
+
+we will binfthe data with position in onBindView method
+
+we will count the length of data in getItemCount.
+
+in classViewHolder we will recycle the view using constructor of classViewHolder
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------14:13 13-10-2019		Android Firebase
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Firebase a mobile and web application development platform by Firebase Inc in 2011 then acquired by Google in 2014. As of October 2018 the Firebase platform has 18 products which are used by 1.5 million apps.
+
+The services provided by the Firebase :-
+
+=> Firebase Analytics
+Firebase Analytics is a cost-free app measurnment solution that provides insight into app usage and user engagement.
+
+
+=> Fire Cloud Messaging
+Formerly known as Google Cloud Messaging(GCM) Firebase Cloud Messaging (FCM) is a cross-platform solution for message and notification for Android,IOS and web applicatio at no cost.
+
+=> Firebase Auth
+Firebase Auth is a service that can authenticate users using only client-side code.It support social login provides facebook,GitHub, Twittter and Google (and Google Play Games). Additionaly it includes a user management system whereby developers can enable user authentication with email and password store with Firebase.
+
+=> Firebase Realtime Database
+Firebase provides a realtime database abd backend as a service. The servce provides application developers an API that allows application data to be synchronized across clients and stored on Firebase's cloud. The company provides client libraries that enable integration with Android,IOS,JavaScript,java,Objective-C,Swift and Node.java application. The database is also accessible through RESTAPI.
+
+=> Firebase Storage
+Firebase Hosting is  a static dynamic web hosting service that launched on May 13,2014.It supports hosting static files such as CSS,HTML,JavaScript and other files as wellas support through Cloud Functions.The service delivers files over a content delivery network (CDN) through HTTP Secure (HTTPS) and Secure Sockets layer encryption (SSL).
+
+
+=> ML Kit
+ML kit is mobile machine learning system for developers. ML kit API's feature a variety of feature including text recognition , face detecting scanning  barcodes, labelling images and recognising landmarks. It is currently available for IOS or Android developers. you may also import your own TensorFlow lite models if models if the given API's aren't enough .The API's can be used on device or on cloud.
+
+
+Step to start Firebase in Android.
+
+=> we can connnect our  Android app to Firebase using one of the following options:
+option1: use the Firebase console setup workflow
+option2: use the Android Studio Assistant (requires additional configuration)
+
+Option 1 Add Firebase using the Firebase console
+Adding Firebase to your app involves taks both in the Firebase console.
+
+Step 1
+Before you can add Firebase to your Android app, you need to create a Firebase project to connect to your Android app Visit understand Firebase Project to learn more about Firebase projects.
+
+Step 2 Register your app with Firebase
+After you have a Firebase project you can add your Android app to it.
+
+ After creatting a project in Firebase
+
+ Enter your app's package name / application ID in the Andorid package name field.
+
+ An application ID is sometimes referred to as a package name.
+
+ find this application ID in your module app-level Gradle file usually app/build.gradle (example ID: com.yourcompany.yourproject)
+ 
+=> (Optional) Enter other app information as prompted by the setup workflow (The nick name is an intent convenience identifier and is only visible to you in the Firebase console.)
+
+SHA-1 information is required by Firebase Authentication (when using Google -Sign in or PHone number sign in) and Firebase Dynamic Links.
+
+
+Step 3 : Add a Firebase configuration file
+
+1 => Add the Firebase Android configuration file to your app:
+
+=> click Donload google-service.json to obtain your Firebase Android config file(google-service.json)
+	=> You can download your Firebase Android config file again at any time.
+	=> Make sure the config file is not appended with additional characters
+
+
+2 => To enable Firebase products in your app add the google-service plugin to your Gradle files.
+	=> In your root-level (project-level) Gradle file (build.gradle), add rules to include the Google Services plugin. Check that you have 		     Google's Maven repository, as well.
+
+
+buildscript {
+
+  repositories {
+    // Check that you have the following line (if not, add it):
+    google()  // Google's Maven repository
+  }
+
+  dependencies {
+    // ...
+
+    // Add the following line:
+    classpath 'com.google.gms:google-services:4.3.2'  // Google Services plugin
+  }
+}
+
+allprojects {
+  // ...
+
+  repositories {
+    // Check that you have the following line (if not, add it):
+    google()  // Google's Maven repository
+    // ...
+  }
+}
+
+
+b => In your module (app-level) Gradle file (usually app/build.gradle), add a line to the bottom of the file.
+
+apply plugin: 'com.android.application'
+
+android {
+  // ...
+}
+
+// Add the following line to the bottom of the file:
+apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
+
+
+
+
+Step (4) Add Firebase SDKs to your app .
+
+you can add any of the support Firebase products to your Android app.
+
+1. To your module (app-level) Gradle file (usually app/build.gradle) add the dependencies for the Firebase products that you want to use in your app.
+
+dependencies {
+  // ...
+
+  // Add the Firebase SDK for Google Analytics
+  implementation 'com.google.firebase:firebase-analytics:17.2.0'
+
+  // Add the SDKs for any other Firebase products you want to use in your app
+  // For example, to use Firebase Authentication and Cloud Firestore
+  implementation 'com.google.firebase:firebase-auth:19.1.0'
+  implementation 'com.google.firebase:firebase-firestore:21.1.1'
+
+  // Getting a "Could not find" error? Make sure that you've added
+  // Google's Maven repository to your root-level build.gradle file
+}
+
+Sync your app to ensure that all dependencies have the necessary versions.
+
+
+Option 2: Add Firebase using the Firebase Assistant
+
+
+Note that the recommended option to connect your app to Firebase is to use the Firebase console setup workflow.
+
+Open your Android project in Android Studio.
+
+Select Tools > Firebase to open the Assistant window.
+
+Expand one of the listed Firebase products (for example, Analytics), then click the provided tutorial link (for example, Log an Analytics event).
+
+Click Connect to Firebase to register your app with an existing or new Firebase project and to automatically add the necessary files and code to your Android project.
+
+Check that your plugin and library versions are up-to-date:
+
+In your root-level (project-level) Gradle file (build.gradle), check that your Google Services plugin version is up-to-date (com.google.gms:google-services:4.3.2).
+
+In your module (app-level) Gradle file (usually app/build.gradle), check that your Firebase Android library versions are up-to-date.
+
+
+
+
+ML Kit  (Machine Learning ) :-----------------------------------------------------
+
+Detect Faces with ML kit on Android :-
+you can use ML kit to detect faces in image and video
+
+Step to dive in ML kit face detection :---------------------
+
+=> In your project-level build.gradle file make sure to include google's maven rpository in both your buildscript and allproject sections.
+=> Add the dependencies for the ML kit android libraries to your module (app-level) gradle file (usually app/build.gradle):
+
+dependencies {
+  // ...
+
+  implementation 'com.google.firebase:firebase-ml-vision:23.0.0'
+  // If you want to detect face contours (landmark detection and classification
+  // don't require this additional model):
+  implementation 'com.google.firebase:firebase-ml-vision-face-model:18.0.0'
+}
+apply plugin: 'com.google.gms.google-services'
+
+
+=> Optional but recommended : Configure your app to automatically download the ML module to the device after your app is installed from the Play store
+To do so add the following declaration to your app's AndroidManifest.xml file:
+
+<application ...>
+  ...
+  <meta-data
+      android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+      android:value="face" />
+  <!-- To use multiple models: android:value="face,model2,model3" -->
+</application>
+
+
+
+Input image guideline :---
+ for ML kit accurately detect faces input image must contain faces that are represented by sufficient pixel data.In general each face you want to detect in an image should be at least 100x100 pixels.if you want to detect the contours of faces ML Kit requires higher resolution input each face should be at least 200x200 pixels.
+
+if you are detecting faces in a real time application you might also want to consider the overall dimensions of the input image. Smaller image can
+be processed faster so to reduce latency capture image at lower resolution and ensure that the subject's face occupies as much of the image as possible .
+
+Poor image focus can hurt accuracy.If you aren't getting acceptable results try asking the user to recapture the image .
+
+
+1. Configure the face detector
+If we want to change any of the face detector's default setting specify those setting with a FirebaseVisionFaceDetectorOption object you can change the following setting.
+
+
+Settings :-------------------------------------------------------------------------------------------------------------------
+
+Performance mode		FAST (default) | ACCURATE
+			Favor speed or accuracy when detecting faces.
+
+Detect landmarks		NO_LANDMARKS (default) | ALL_LANDMARKS
+			Whether to attempt to identify facial "landmarks": eyes, ears, nose, cheeks, mouth, and so on.
+
+Detect contours		NO_CONTOURS (default) | ALL_CONTOURS
+			Whether to detect the contours of facial features. Contours are detected for only the most prominent face in an 			image.
+
+
+Classify faces		NO_CLASSIFICATIONS (default) | ALL_CLASSIFICATIONS
+			Whether or not to classify faces into categories such as "smiling", and "eyes open".
+
+Minimum face size		float (default: 0.1f)
+			The minimum size, relative to the image, of faces to detect.
+
+Enable face tracking		false (default) | true
+			Whether or not to assign faces an ID, which can be used to track faces across images.
+
+			Note that when contour detection is enabled, only one face is detected, so face tracking doesn't produce useful 			results. For this reason, and to improve detection speed, don't enable both contour detection and face tracking.
+
+
+
+
+
+
 
 
 
@@ -2342,7 +2899,10 @@ Retrofit supports Authentication for API calls that require the user to be authe
 
 
 
-14:18 06-10-2019 Chronometer in Android :------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+14:18 06-10-2019 Chronometer in Android :----------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 In Android Chronometer is a class that implements a simple timer. Chronometer is a subclass of TextView.
 This class helps us to add a timer in our app.
 
@@ -2431,3 +2991,65 @@ Format string: if specified, the Chronometer will display this string, with the 
 
 
 
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+12:56 12-10-2019	ConnectivityManager --------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Class that answer queries about the state of network connectivity.It also notifies applications when network connectivity changes.
+
+The primary responsibility of this class are to :
+1) Monitor network connections (WiFi, GPRS, UMTS, etc )
+2) Send broadcast intents when network connectivity changes
+3) Attempt to fail over to another network when connectivity to a network is lost.
+4) Provide an API that allows applications to query the coarse-grained or fine-grained state of the available networks
+5) Provide an API that allows applications to request and select networks for their data traffic
+
+
+class		ConnectivityManager.NetworkCallback (Base class for NetworkReuest callback)
+
+interface		ConnectivityManager.OnNetworkActiveListener
+		( Callback for use with ConnectivityManger #addDefaultNetworkActiveListener) to find out when the system default 		network has gone in to a high poser state.
+
+
+
+Public methods :---------------------------------------------------------------------------------------
+
+void 		addDefaultNetworkActiveListener(ConnectivityManager,OnNetworkActiveListener l)
+		start listening to report when the system's default data network is active meaning it is a good time to perform network.
+
+boolean		bindProcessToNetwork(Network network)
+		Binds the current process to network
+
+Network		getActiveNetwork()
+		Return a Network object corresponding to the currently active default data network.
+
+NetworkInfo	getActiveNetworkInfo()
+		get an instance that represents current network connection.
+
+
+NetworkInfo[]	getAllNetworkInfo[]/getAllNetworks()	Returns an array of all Network currently tracked by the framework.
+
+ProxyInfo		getDefaultProxy()	Get the default HTTP proxy setting
+
+
+
+
+=> Determine if you have an internet connection
+There is no need schedule an update based on an internet resource if you aren't connected to the internet.the following snippet show how to use the ConnectivityManager to query the active network and determine if it has Intenet sconnectivity.
+
+
+	ConnectivityManager cm =(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+	NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+	boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+=> Determine the type of your internet connection
+It's also possible to determine the type of internet connection currentlyavailable.
+Device connectivity can be provided by mobile data,WiMAX,Wi-Fi and ethernet connections.By querying the type of the active network as shown below, you can alter your refresn rate based on the bandiwth available.
+
+	boolean isWiFi= activeNetwork.getType()==ConnectivityManger.TYPE_WIFI

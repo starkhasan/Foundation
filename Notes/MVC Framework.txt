@@ -10,10 +10,10 @@ The Model-View-Controller is an architectural pattern that separates an applicat
 Following are the components of MVC:-
 
 Model :--
-The Model component correspods to all the data-related logic that the user works with. This can represent either the data that is beign transferred between the View and Controller components or any other businners logic-related data.
+The Model component corresponds to all the data-related logic that the user works with. This can represent either the data that is begin transferred between the View and Controller components or any other businners logic-related data.
 
-View :-
-The View component is used for all the logic of the application. For example the sustomer view will include all the UI components such as text boxes, dropdowns etc. that the final user interacts with.
+View :--
+The View component is used for all the logic of the application. For example the customer view will include all the UI components such as text boxes, dropdowns etc. that the final user interacts with.
 
 
 Controller :-
