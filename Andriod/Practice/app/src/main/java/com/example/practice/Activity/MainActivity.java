@@ -117,7 +117,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-
         viewPager.setAdapter(new ViewPagerAdapter(MainActivity.this,listIMage));
 
         Log.d(TAG,"Create Method");

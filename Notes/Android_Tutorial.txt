@@ -9,7 +9,7 @@ getContext() Returns the context view inly running activity.
 
 
 ViewPager  :----------------------------------
-Layout manager  that allows the user to flip left and reight page of data.You  supply an implementation of a PageAdapter to generates the pages that the view shows.
+Layout manager  that allows the user to flip left and right page of data.You  supply an implementation of a PageAdapter to generates the pages that the view shows.
 The view's position can be controlled via its android:layout_gravity attribute.
 
 

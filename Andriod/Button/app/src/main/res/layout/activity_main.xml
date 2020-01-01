@@ -4,99 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
+    <include layout="@layout/layout_customactionbar"
+        android:id="@+id/toolbar"/>
 
-    <Button
-        android:id="@+id/button1"
+    <LinearLayout
+        android:id="@+id/llLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="mymethod1"
-        android:background="@color/backgroundcolor1"
-        android:textColor="@color/textcolor1"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/button" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="10dp">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:onClick="mymethod1"
-        android:background="@color/backgroundcolor2"
-        android:textColor="@color/textcolor2"
-        android:text="@string/button1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:weightSum="1">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:onClick="mymethod1"
-        android:background="@color/backgroundcolor2"
-        android:textColor="@color/textcolor2"
-        android:text="Button 3" />
+            <RelativeLayout
+                android:id="@+id/rlSpinnerPicker"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@drawable/spinner_back">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:onClick="mymethod1"
-        android:background="@color/backgroundcolor2"
-        android:textColor="@color/textcolor2"
-        android:text="Button 4" />
+                <Spinner
+                    android:id="@+id/spinnerText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/TextAppearance.AppCompat.Widget.DropDownItem"
+                    android:spinnerMode="dropdown"/>
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:onClick="mymethod1"
-        android:background="@color/backgroundcolor2"
-        android:textColor="@color/textcolor2"
-        android:text="Button 5" />
+            </RelativeLayout>
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:onClick="mymethod1"
-        android:background="@color/backgroundcolor2"
-        android:textColor="@color/textcolor2"
-        android:text="Button 6" />
+            <View
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:onClick="mymethod1"
-        android:background="@color/backgroundcolor2"
-        android:textColor="@color/textcolor2"
-        android:text="Button 7" />
+            <RelativeLayout
+                android:id="@+id/rlDatePicker"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@drawable/spinner_back">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:src="@drawable/NF.png" />
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"/>
 
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_calendar"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"/>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/lltimePicker"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner_back">
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text=""/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_time"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -18,3 +18,7 @@ The View component is used for all the logic of the application. For example the
 
 Controller :-
 Controller act as interface between Model and View components to process all the business logic and incoming request manipulate data using the Model component and interact with the Views to render the final output.
+
+
+
+
