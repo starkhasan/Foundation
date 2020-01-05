@@ -562,7 +562,7 @@ class demo
 
 
 
-What is Datatype?
+What is Datatype ?
 
 Data type specifies the size and type of values that can be stored in an identifier
 
@@ -850,18 +850,18 @@ Also in the case of Object.toString() if the instance is null a NullPOinterExcep
                                                                                          Type Conversion Wrapper Class in Java
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
-> Java Automatic conversion
+=> Java Automatic conversion
 
    When one type of data is assigned to another type of variable, an automatic type conversion will take place if the following two condition met:
    1) the two type are compatible
    2) the destination type is larger than the source type
 
-   when these two condition are met a widening conversion take place.
+   When these two condition are met a widening conversion take place.
    ex => int a;
              byte b;
              a=(int)b;
   
-   when destination type is smaller than the source type that is called narrowing conversion.
+   When destination type is smaller than the source type that is called narrowing conversion.
     ex => int a;
               byte b;
               b=(byte)a
@@ -925,7 +925,7 @@ The conversion an object of a wrapper type to its corresponding primitive value 
 				                ---------------: Wrapper class :--------------
 
 
-Wrapper class in java provides the mechanism to convert primitive into object and object into primitive. Since J2SE 5.0 autoboxing and unboxing feature converts primitve into object and object into primitive automatically . The automatic conversion of primitive into object is known as autoboxing and vice-versa unboxing.
+Wrapper class in Java provides the mechanism to convert primitive into object and object into primitive. Since J2SE 5.0 autoboxing and unboxing feature converts primitve into object and object into primitive automatically . The automatic conversion of primitive into object is known as autoboxing and vice-versa unboxing.
 
 The eight classes of java.lang package are known as wrapper classes in java. The list of eight wrapper classes are given below.
 
@@ -943,7 +943,6 @@ The eight classes of java.lang package are known as wrapper classes in java. The
 			double					Double
 
 
-
 Example=>  AutoBoxing
 
 class demo
@@ -958,8 +957,8 @@ class demo
 }
 
 
-output=>
 
+Output=>
 D:\Hacker\collectionframework>java demo
 20
 
@@ -1068,9 +1067,9 @@ Relational operator are used to compare the value of two expressions, Relational
 
 Logical Operator are used with Boolean value you can combine relational operator using logical operator.
 
-Logical AND (&&)
-Logical OR (||)
-Logical NOT (!)
+Logical AND ( && )
+Logical OR ( || )
+Logical NOT ( ! )
 
 
 
@@ -1124,6 +1123,7 @@ Example =>
 	class demo
 	{
 		public static void main(String [] args)
+
 		{
 			double number=-5.5;
 			String result;
@@ -1148,7 +1148,7 @@ example
 
 => Binary Operator
 
-A binary operator is an operator  that operate on two operand and manipulates them to return a result.
+A Binary operator is an operator  that operate on two operand and manipulates them to return a result.
 
 		x+y
 		x-y
@@ -1192,6 +1192,7 @@ Example=>
 
 class Student
 {
+
   String name;	//instance variable
   int age;		//instance variable
 
@@ -1200,11 +1201,12 @@ class Student
      Student stu=new Student()	// Creating an object of Student
      System.out.println(name+" "+age);
   }
+
 }
 
 
- An Object can be defined as an instance of a class. An object contains an address and takes up some space in memory.
- Object is created  to call non-static function which are not present inside the main method but present inside the class.
+An Object can be defined as an instance of a class. An object contains an address and takes up some space in memory.
+Object is created  to call non-static function which are not present inside the main method but present inside the class.
 
 There are different ways we can create the object in java
 1) by new Keyword
@@ -1265,9 +1267,9 @@ package name	should be in lowercase letter e.g. java, lang, sql, util etc.
 
 CamelCase in java Naming Convention__
 
-java follows camelcase syntex for naming the class,interface,method and variable.if name is combined with two words,second word will start with uppercase latter always
+Java follows camelcase syntex for naming the class,interface,method and variable.if name is combined with two words,second word will start with uppercase latter always
 
-eg - actionPerformed() , firstName , ActionEvent , ActionListener 
+Eg - actionPerformed() , firstName , ActionEvent , ActionListener 
 
 
 
@@ -1280,7 +1282,7 @@ eg - actionPerformed() , firstName , ActionEvent , ActionListener
 What is Object?
 An object is an entity that has properties for identifying its state, methods or behaviour.
 >Anything which is having state and behaviour is object
->object is created to call non-static methods which are not present inside the main method but present inside the class
+>Object is created to call non-static methods which are not present inside the main method but present inside the class
 
 
 > The class is at the core of java .It is the logical construct upon which the entire java language is built because it define the shape and nature of an      object
@@ -1308,10 +1310,10 @@ Important =>
  
    > Box mybox=new Box()
    > After this statement execution mybox will be an instance of Box.
-     Thus it will have physical reality.As mention earlier ,each time you create an instance of a class,you are creating an object that contains its own       copy of each instance variable defined by the class
+     Thus it will have physical reality.As mention earlier ,each time you create an instance of a class,you are creating an object that contains its own        copy of each instance variable defined by the class
   > Every Box object will contain its own copies of the instance variable width,height and length.
 
-  >>     Box mybox=new Box
+  =>     Box mybox=new Box
             >Box mybox;                //declare references to object
             >mybox=new Box();   //allocating a Box object
             >new  operator dynamically allocates the memory  for an object and return a reference to it. 
@@ -1336,13 +1338,13 @@ Every time an object is created using the new() Keyword, at least one constructo
 => It calles a deafult constructor if there is no constructor available in the class. In such case Java compiler provides deafult  constructor.
 
 
->> A constructor initializes an object immediatly upon creation
->> the primary use of constructor is to initilize member of object instance variable
->> It has the same name as the class in which it resides and is syntactically similar to a method
->> Once define ,the constructor automatically called when the object is created
->> In constructor there is no return type, not even void
+=> A constructor initializes an object immediatly upon creation
+=> the primary use of constructor is to initilize member of object instance variable
+=> It has the same name as the class in which it resides and is syntactically similar to a method
+=> Once define ,the constructor automatically called when the object is created
+=> In constructor there is no return type, not even void
 
->>Two type of the constructor
+=>Two type of the constructor
 
   > Parametrized constructor
   > Non parametriaed constructor
@@ -1383,7 +1385,7 @@ if class contain a constructor than compiler not going to provide the default co
 
 
 
-=> can you make a constructor final ?
+=> Can you make a constructor final ?
 Apply a final keyword to a method means you cannot override that method but by default in java no constructor can be overridden so there is no need to use final keyword with a constructor. A construtor can't inherited so can't overridden, so there is no use of making constructor final.
 
 
@@ -1394,7 +1396,7 @@ Apply a final keyword to a method means you cannot override that method but by d
 
 Polymrophism is an important feature of an object oriented programming
 Polymorphism means poly => many   and   morph =>form
-when one task is performed by different ways that is known as polymorphism.
+When one task is performed by different ways that is known as polymorphism.
 
 Two types of polymorphism
 
@@ -1429,6 +1431,7 @@ class demo
         c=sc.nextInt();
         d.sum1(a,b);
         d.sum1(a,b,c);
+
     }
 }
 
@@ -1480,7 +1483,7 @@ class demo
 
 => IIB (Instance Initializer Block / Anonymous Block)
 
-      It is utility which is provided to java developer by the java compiler to define statements , it is common to all constructor. at the time of compilation.
+It is utility which is provided to java developer by the java compiler to define statements , it is common to all constructor. at the time of compilation.
 
      syntax
   
@@ -1496,7 +1499,7 @@ class demo
 => what is the difference between the constructor and method
 
 
-                                                     constructor                                         |                                          methods
+                                                     Constructor                                         |                                          Methods
                                                                                                                    |
 						|
                it is used for initialize the state of an object                       |                       it is used to expose behaviour of object
@@ -1517,18 +1520,22 @@ class demo
 2) Method Overriding (Dynamic / Runtime polymorphism)
     
     ( when we have the same method in the parent class as well as in the child class that process in known as method overriding )
-    ( method overriding is a feature which we will get when we implement inheritance in program ) 
+    ( Method overriding is a feature which we will get when we implement inheritance in program ) 
 
     IS-A Relationship
-    it is also known as Inheritance
-    when there is an extends or implements keyword in the class declaration in java then the specific class is said to be following the IS-A     Relationship.
 
-Advatages of Polymorphism:-
-1) method overriding is used to provide specific implementation of a method that is already provided by the super class
-2) method overriding is used for runtime polymorphism
+    It is also known as Inheritance
+    when there is an extends or implements keyword in the class declaration in java then the specific class is said to be following the IS-A         Relationship.
 
 
-Example=>
+
+Advatages of Polymorphism :-
+
+1) Method overriding is used to provide specific implementation of a method that is already provided by the super class
+2) Method overriding is used for runtime polymorphism
+
+
+Example =>
 
 class parent
 {
@@ -1551,7 +1558,7 @@ class demo extends parent
 }
 
 
-    output =>  Colored pic :
+    Output =>  Colored pic :
 
 
 

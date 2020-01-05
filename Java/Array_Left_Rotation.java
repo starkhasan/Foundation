@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 class demo
 {
@@ -20,9 +19,9 @@ class demo
             System.out.print(a[i]+" ");
         }
 
-        System.out.println("Enter Number of Rotation : ");
+        System.out.println("\nEnter Number of Rotation : ");
         int rotation=sc.nextInt();
-        int key=0,temp=0;
+        int key=0;
 
         for(int i=0;i<rotation;i++)
         {
@@ -34,6 +33,7 @@ class demo
             a[size-1]=key;
         }
 
+        System.out.println("\nArray After Left Rotation : ");
         for(int i=0;i<size;i++)
         System.out.print(a[i]+" ");
 
