@@ -684,7 +684,7 @@ example => String s=new String("Welcome");
 
 	Java String pool :------------ 
 
-Java string pool refers to collection of String which are stored in heap memory . In this whenever a new object is created String pool first chech whether the object is already present in the pool or not . If it is present then some reference is returned  to the variable else new object will be created in the string pool and the respective reference will be returned.
+Java string pool refers to collection of String which are stored in heap memory . In this whenever a new object is created String pool first check whether the object is already present in the pool or not . If it is present then some reference is returned  to the variable else new object will be created in the string pool and the respective reference will be returned.
 
 example=> String s1="Apple";
 	  String s2="Apple";
@@ -842,7 +842,7 @@ StringBuilder is same as the StringBuffer that is it stores the object in heap a
 
  According to the Java documentation String.valueOf() returns if the argument is null then a string equal to null otherwise the value of obj.toString() is returned. 
 
-Also in the case of Object.toString() if the instance is null a NullPOinterException will be thrown so argubly it is less safe
+Also in the case of Object.toString() if the instance is null a NullPointerException will be thrown so argubly it is less safe
 
 
 
@@ -995,6 +995,37 @@ D:\Hacker\collectionframework>java demo
 
 
 
+				------------------: How to get the Type of the Variable :-----------------
+
+
+1) If variable are of the object type Like NonPrimitiveData Types
+
+class demo{
+    public static void main(String [] args){
+        Integer str=12;					//NonPrimitiveTypes variable 
+        System.out.println(str.getClass().getName());		// it will return java.lang.Integer
+        int a=12;
+        System.out.println(((Object)a).getClass().getName());
+    }
+}
+
+
+2) if variable are of the Primitive types 
+ int a=12;
+float f=2.3f;
+
+
+class demo{
+    public static void main(String [] args){
+     
+        int a=12;						// Primitive Data types 
+        System.out.println(((Object)a).getClass().getName());		// it will return java.lang.Integer
+
+    }
+}
+
+
+
 
 
 
@@ -1002,7 +1033,7 @@ D:\Hacker\collectionframework>java demo
 
 				           ----------------: Annotation (Metadata) :------------------
 
-Beginning with JDK5 a new facility was added to java that enables you to embed supplemental information into source file. this information called an annotaion does not change the actions of a program Thus, an annotation leaves the semantics of a progam unchanges.
+Beginning with JDK5 a new facility was added to java that enables you to embed supplemental information into source file. this information called an annotation does not change the actions of a program Thus, an annotation leaves the semantics of a progam unchanges.
 
 Annotation is created through a mechanism based on the interface. Let's begin with an example.
 	Here is the declaration for an annotation called MyAnno:
@@ -1153,6 +1184,208 @@ A Binary operator is an operator  that operate on two operand and manipulates th
 		x+y
 		x-y
  
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+						Control Statement
+
+
+
+A programming language used control statements to cause the flow of execution to advance and branch based on change to the state of a program.  
+
+Java's program control statements can be put into following categories
+1) Selection
+2) Iteration
+3) Jump
+
+
+
+Selection => selection statements allow your program to choose different paths of execution based upon the outcome of an expression of or the state of a variable.
+
+
+Java supports two selection statements if and switch. These statements allow you to control the flow of your program's execution based upon conditions known only during run time
+
+IF  =>
+The if statement is java's conditional branch statement. It can be used to route program execution through two different paths. Here is the general form of if statement:
+
+	if(condition) statement1;
+	else statement2;
+
+Here each statement may be a single statement or a compound statement enclosed in curly braces (that is block).  The condition is any expression that return a boolean value.
+				The else clause is optional
+
+The if work like thisL If the condition is true then statement1 executed. Otherwise statement2 (if it exist) it executed. 
+
+In no case will both statement be executed. For example consider the following:
+
+	int a,b;
+	
+	if(a<b)
+	a=0;
+	else	
+	b=0;
+ 
+
+Here if a is less than b then a is set to zero. Otherwise b is set to zero. In no case are they noeth set to zero.
+
+
+Most Often the expression used to control the if will involve th realational operators. However this is not technically necessary. It is possible to control the if using a single boolean variable as shown in this code fragment:
+
+boolean dataAvailable
+
+if(dataAvailable)
+	ProcessData();
+else
+	waitForMoreData();
+
+Remember only one statement can appear directly after the if or else. If you want to include more statements you'll need to create block as in this fragment:
+
+int bytesAvailable;
+
+if(bytesAvailable>0){
+	ProcessData();
+	bytesAvailable-=n;
+} else
+	waitForMpreData();
+
+Here both statements within the if block will execute if bytesAvailable is greater than zero.
+
+
+
+
+Nested ifs :------------------------------
+A nested if is an if statement that is the target of another if or else. Nested ifs are very common in programming. When you nest ifs the main thing to remember is that an else statement always refers to the nearest if statement that is within the same block as the else and that is not already
+associated with an else
+
+
+if(i==20){
+	if(j<20) a==b;
+	if(k>100) c=d;
+	else a=c;
+} else
+a=d;
+
+
+
+
+=> The if-else if Ladder :------------------------------
+A common programming construct that is based upon a sequense of nested ifs is the if-else-if ladder. It looks like this:
+
+if(condition)
+	statement:
+else if(condition)
+	statement;
+else if(condition)
+	statement;
+.
+.
+
+The if statements are executed from the top down.
+As soon as one of the condition controlling the if  is true, the statement associated with that if is executed and the rest of the ladder is bypassed.
+if none of the condition is ture then the final else statement will be executed. The final else acts as a default condition that is if all other conditional tests fail, then last else statement is performed.
+
+If there is not final else and all other conditions are false then no action will take place.
+
+
+
+.
+.
+
+
+
+
+
+
+	switch :----------------------------------------------------
+The switch statement is Java's multiway branc statement. It provides an easy way to dispatch execution to different parts of your code based on the value of an expression.
+As such it often provides a better alternative than large series of if-else-if statements.
+
+General form of switch statement:
+
+switch(exxpression){
+case value 1:
+//statement sequence
+break;
+case value2:
+//statement sequence
+break;
+case valueN:
+//statement sequence
+break;
+default:
+break;
+}
+
+
+For version of Java prior of JDK 7 expression must be of type byte short int char or an enumeration. 
+Beginning with JDK 7 expression can also be type String. Each value specified in the case statement must be a unique constant expression (such as literal value).
+
+Duplicate case value are not allowed. The type of each value must be compatible with the type of exression.
+
+The switch statement works like this. the value of the expression is compared with each of the value in the case statements. If a match is found the code sequence following that case statement is executed. If none of the constant matched the value of the expression then the default statement is executed.
+			However the default statement if optional. If no case matches and no default is present then no further action is taken.
+
+The break statement is used inside the switch to terminate a statement sequence. When a break statement is encountered execution branches to the first line of code that follows the entire switch statement.This has the effect of jusmping out of the switch.
+
+
+
+
+
+
+
+
+
+Iteration =>
+Iteration statements enable program execution to repeat one or more statements (that is iteration statements form loops)
+java's iteration statement are for , while and do-while. 
+
+These statement create what we commonly call loops. As you know a loop repeatedlly the same set of instrcutions until a termination condition is met.
+
+while :----------------------
+The while loop is Java's most fundamental loop statement. IT repeats a statement or block while its controlling expression is true. Here is tis general form 
+
+while(condition)
+{
+	//body of loop
+}
+
+
+
+
+for :--------------------
+Beginning with JDK 5 there are two form of the for loop. the first is the traditional form that has been in use since original version of Java. the second is the newer for-each form Both types of for loops are discussed here beginning with the traditional form
+
+Here is the general form of the traditional for statement
+
+for(initialization; condition; iteration){
+//body
+}
+
+if only one statement is being repeated there is no need for curly braces.
+
+
+
+
+
+
+
+
+
+
+Jump =>
+Jump statements allow your program to execute in a nonlinear fashion.
+
+Java support three jump statements break, continue and return. These statements transfer control to another part of your program. Each is examined here.
+
+
+Using break:
+In java the break statement has uses First as you have seen, It terminates a statement sequence in a switch statement. Second it can be used to exit a loop. Third it can be used as civilized form of goto..
+
+
+
+
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                                                                                        OOPs (Object Oriented Programming Structure)
@@ -2049,7 +2282,9 @@ Java static block is the group of statements that gets executed when the class i
 
 1) Static block is used to initialize the static variables of the class.
 2) we can't acess the non-static  variables in the static block.
-3) Static bock code is executed only once when the class is loaded into memory.
+3) Static block code is executed only once when the class is loaded into memory.
+
+
 
 
 
@@ -2344,7 +2579,7 @@ Volume of mybox2 is 0.076
 super has two general forms. the first calls the superclass constructor and second is used to access member of the superclass that has been hidden by a member of a subclass
 
 => using super to call superclass constructor
-a subclass can call a constructor by its supercalss by use of the following forms of super :
+a subclass can call a constructor by its superclass by use of the following forms of super :
 
 	super(arg-list):
 super must be always be the first statement executed inside a subclass constructor
@@ -3463,6 +3698,85 @@ class demo
                     }
 }
 
+=> Scanner Class :----------------------
+Scanner class in java is found in the java.util.package. Java provides various ways to read input from the keyboard the java.util.Scanner class is one of them. The Java Scanner class breaks the input into tokens using delimeter which is whitesapce by default. It provides many method to read and various primitive values.
+
+The Java Scanner class is widely used to parse text for string and primitive types using a regular expression. It is the simplest way to get input in Java.BY help of Scanner in Java we can get input from the user in primitive types such as int,long double,byte float,short etc.
+
+The Java Scanner class extends Object and implements Iterator and Closable interfaces.
+
+The Java Scanner class Provides nextXXX() methods to return the type of the value such as nextInt(), nextbyte(), next(), nextLine(), nextDouble(), nextFloat(), nextBoolean() etc. To get a single Character  we can call next().charAt(0) method which returns  single character.
+
+Java Scanner Class Declaration :------------
+
+public final class Scanner extends Object implements Iterator<String>
+
+=> How to get Java Scanner
+To get the instance of Java Scanner which reads from the user we need to pass the input stream(System.in) in constructor of the Scanner class.
+
+Scanner sc=new Scanner(System.in);
+
+
+=> Java Scanner class Constructors
+
+Scanner(File Source)	it constrcut a new Scanner that produces values scanned from the specific file.
+Scanner(Readable source)	it construct a new Scanner that produces values scanned from the specidfied source.
+Scanner(String source)	it constructs a new Scanner that produces values scanned from the specified string.
+Scanner(Path source)	it constructs a new Scanner that produces values scanned from the specified file.
+
+
+=> Use of Delimiter in Scanner class
+
+import java.util.Scanner;
+class demo{
+    public static void main(String [] args) {
+        String input = "1    fish   2    fish red   fish blue fish blue fish";
+        Scanner s = new Scanner(input).useDelimiter("\\s*fish\\s*");
+        System.out.println(s.nextInt());
+        System.out.println(s.nextInt());
+        System.out.println(s.next());
+        System.out.println(s.next());
+        System.out.println(s.next());
+        s.close();
+    }
+}
+
+output=>
+
+D:\Repo\Data_Structure>javac demo.java
+
+D:\Repo\Data_Structure>java demo
+1
+2
+red
+blue
+blue
+
+
+
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.io.File;
+class demo{
+    public static void main(String [] args)throws FileNotFoundException {
+        File txt=new File("New Text Document.txt");
+        Scanner sc=new Scanner(txt);
+    
+        while(sc.hasNext()){
+            System.out.print(sc.next());
+        }
+        sc.close();
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
            					
@@ -3665,7 +3979,7 @@ in java we have two types of the input and output stream
 2) Character Oriented
 
 
-Commonly used byte oriented stream are:-
+Commonly used Byte Oriented Stream are:-
 1) InputStream
 2) OutputStream
 3) ByteArrayInputStream
@@ -3915,7 +4229,7 @@ class demo
 
 => What is a thread?
 
-     It a flow of execution.
+     It's a flow of execution.
      for every flow of execution a separate job is there.
      Thread consumes CPU in best possible manner, hence enables multi processing . Multi threading reduces idle time of CPU which improves         		performance of application
      

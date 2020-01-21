@@ -1,0 +1,1089 @@
+1:10 PM 1/21/2020
+
+Kotlin is a cross-platform, statically types general purpose programming language with type interface. Kotlin is designed to interoperated fully with Java and the JVM version of its standard
+library depends on the java class Library but type interface allows its syntex to be more concise.Kotlin mainly targets the JVM but also compiles to JavaScript or native code.
+
+On 7 May 2019 Google announced that the kotlin programming language is  nor preferred language for Android app developers.
+Since the release of Android Studio 3.0 in October 2017 Kotlin has been included as an alternative to standard Java Compiler.
+The Android Kotlin compiler lets the user choose betwen targeting java 6 or java 8 compatibility bytecode.
+
+
+The name comes from Kotlin Island near Petersburg Andrey Breslav mentioned that the team decided to name it after an island just like Java was named after the indonesian with this version.
+
+At Google I/O 2017 Google announced first-class support for kotilin on Android.
+
+Kotlin v1.2 was released on 28 November 2017 Sharing code between JVM and JavaScript platform feature was newely added to this release.
+
+
+=> Designed
+Development lead Andrey Breslav has said that Kotlin is designed to be an industrial-strength object-orieted language and a better language than Java but still be fully interoperable with
+Java code, allowing companies to make a gradual migration from java to Kotlin.
+
+
+1) Semicolon are optional as a statement terminator in most cases a newline is sufficient for the compiler to deduce that the statement has ended.
+
+2) Kotlin variable declarations and parameter lists have data type come after the variable name ( and with a colon separator) similar to Pascal and TypeScript.
+
+3) Variable in kotlin can be immutable decared with val keyword  or mutable declared with the var keyword.
+
+5) class member are public by  default and classes themselves are final by defult meaning that creating a derived class is disabled unless the base class is declared with the open keyword.
+
+6) In addition to the classes and methods (called member functions in kotlin)  of object-oriented programming also support procedural programming with the use of unctions. Kotlin functions
+(and constructor) support deault arguments, variable-length argument list named arguments and overloading by unique signature. Class member functions are virtual.
+
+
+
+Kotlin is a statically-typed general purpose programming language. It is widely used to develop Android Applications.
+It runs on JVM and can be used anywhere Java is used today. It can used to develop Android apps, server-siDe apps and much more.
+
+
+Features of Kotlin :----------------------
+
+Concise :- Kotlin reduces writing the extra codes, this makes kotlin more concise.
+
+Null-Safety :- kotlin is null safety language. Kotlin aimes to eliminated the NullPointerException (null reference) from the code.Interperable.
+
+Smart Cast :- It explicitly typecast  the immutable value and insert the value in its safe cast automatically.
+
+Compilation Time :- It has better perfromance and fast compilation time.
+
+
+
+
+Kotlin First Program Concept :------------------
+ 
+
+fun main(args: Array<String>){
+println("Hello World!")
+}
+
+=> First line of program defines a functions called main(). In Kotlin function is a group of statement that perform a Group of task. Function start with a keyword fun followed by function name
+(main in case).
+
+=> Main function takes an array of string (Array<String>) as a parameter and returns unit. Unit is used to indicate the function and does not return any value (void as in Java).
+
+
+
+main() function is the entry point of the program it is called first when kotlin program start execution.
+
+
+
+fun means define a function
+
+main is by convention the entry point for an application   the main funtion(...)  is a list of function's arguments.
+
+args in this case is the  name of the single argument to the function
+
+:Array<String> is the type of the argument in this case an array of String
+
+so it passes the command line argument into the starting function of an application.
+
+
+
+fun main(args: Array<String>){
+    print("Enter Text : ")
+    val stringInput= readLine()  		//Here we can take the input from the user
+    val name=82
+    println("You Entered : $stringInput size : ${stringInput.length}")
+}
+
+
+
+
+Kotlin Variable :---------------------------
+Variable refers to a memory location.It is used to stored data. the data of variable can be changed and used depending on condition or information passed to program.
+
+Varaible Declaration :-
+Kotlin variable is declared using keyword var and val.
+
+var language="Java"
+val salary=30000
+ 
+
+var is like a general variable and can be assigned multiple times and is known as the mutable variable in Kotlin.
+
+Whereas val is a constant variable and can not be assigned multiple times and can initialized only single time and is known as the immutable variable in kotlin..
+
+
+Globla Variable Top Level Variable:-------------------------
+
+In Kotlin , A Global variable is a variable that is declared at the top of the program and outside of all the functions similar to C and C++. 
+
+A lcoal variable can only be used in the particular block where it is declared. A Global variable can be used in all functions.
+
+Example =>
+
+var x = 100		// Global variable
+
+fun fn() { 
+    x = x + 100 	
+}
+
+fun main(args: Array<String>) {
+    println("X Value : $x")
+    
+    fn()
+    
+    println("X Value : $x")
+}
+
+
+
+==> 
+var language: String ="Java"
+var salary:Int =3000
+
+Here a variable language is String type and variable salary in Int type . We don't require specifying the type of variable explicitly Kotlin compiler known this by initializer expression
+
+It is not mecessary to initialize variable at the time of its declaration. Variable can be initialize later on when the program is executed.
+
+
+
+
+Kotlin Data Types :------------------------------------------------------------------
+
+Data types (basic type) refers to type and size of data associated with variable and functions. 
+Data types is used for declaring of memory location of variable which determine the feature of data.
+
+=> In Kotlin Everything is object which means we can call member function and properties on any variable.
+
+Kotlin Built-in Data types categories in following  different categories:-
+1) Number
+2) Character
+3) Boolean
+4) Array
+5) String
+
+
+Number Types :-
+Number types of data are those which hold only number type data variables. It is further categorized into different Integer and Floating Point.
+
+
+1) Byte 
+2) Short
+3) Int
+4) Long
+5) Float
+6) Double
+
+
+Character (Char) Data Type :------------------------
+Characters are represented using the keyword Char. Char types are declared using single quotes (' ').
+
+
+val calue='A'
+
+val value2:Char
+value2='A'
+
+
+
+
+Boolean Data Types :----------------------------------
+Boolean data is represented using the type Boolean. It contains value either true or false.
+val flag=ture
+
+
+
+
+Array :---------------------------------
+Arrays in kotlin are represented by the Array class. Array are created using library function arrayOf()  and Array() constructor.
+
+Array has get()   set()   function size property as well as some other useful member funtions.
+
+
+Creating Array using library function arrayOf() :-------------------------------------------------
+The arrayOf() function create array of wrapper types. The item value are passed inside arrayOf() function like arrayOf(1,2,3) which create an array[1,2,3].
+
+The elements of array are accessed through their index values   array[index]   Array index are start from zero.
+
+val id=arrayOf(1,2,3,4,5)
+val firstId=id[0]
+val lastId=id[id.size-1]
+
+
+Creating Array using Array() Constructor :--------------------------------
+
+Creating array using Array() constructor takes two arguments in Array() constructor:
+
+1) First argument as a size of array
+2) Second argument as the function,  which is used to initilize and return the value of array element given its index.
+
+val array=Array(5,{i - > i*2 } )
+
+
+
+
+String :-------------------------------------------------
+String in kotlin is represent by String class. String immutable which means we cannot change the elements in String.
+
+String declaration :
+
+val text="Hello World"
+
+Types of String :--------------------
+There are two different types of String in kotlin.
+
+1) Excaped String 
+Ecaped String is declared within double quotes (" ") and may contain escape characters like '\n','\t','\b'
+
+val text1 ="Hello, JavaTpoint"  
+//or  
+val text2 ="Hello, JavaTpoint\n"  
+//or  
+val text3 ="Hello, \nJavaTpoint"  
+
+
+2) Raw String
+Raw String is declared within triple quotes ("""  """). It provides facility to declare String in new lines and contain multiple lines. Raw String cannot contain any escape character.
+
+val text1 ="""  
+             Welcome   
+                 To  
+           JavaTpoint  
+    """
+
+
+
+
+
+Kotlin Type Conversion :------------------------------------------
+
+Type conversion is a process in which one data type variable is converted into another data type type.
+
+In kotlin implicit conversion of smaller data type into larger data is not supported.
+
+var value1=10
+val value2:Long =value1	//Compile error type mismatch
+
+However in kotlin conversion is done by explicit in which smaller data type is converted into larger data type and vice-versa. This is done by using helper function.
+
+var value1=10
+val value2:Long = value1.toLong()
+
+The list of helper functions used for numeric conversion in Kotlin is given below:
+
+=> toByte()
+=> toShort()
+=> toInt()
+=> toLong()
+=> toFloat()
+=> toDouble()
+=> toChar()
+
+
+
+
+Kotlin Type Converion Example :---------------------------
+ 
+
+fun main(args: Array<String>){
+var value1=100
+var value2:Long=value1.toLong()
+println(value2)
+}
+
+
+
+we can also converse from Larger data type to smaller data type
+
+fun main(args: Array<String>){
+var value1:Long=200
+val value:Int=value.toInt()
+println(value2)
+}
+
+
+
+
+
+
+
+
+Kotlin Operator :-----------------------------------------------------
+Operator are special character which perform operation on operands (values or variable). There are various kind of operator available in kotlin.
+
+=> Arithmentic Operator
+=> Relational Operator
+=> Assignment operator
+=> Unary Operator
+=> Bitwise Operator
+=> Logical Operator
+
+
+
+Arithmetic Operator :---------------------
+Arithmetic operator are used to perform basic mathematical operations such as addition (+) subtraction (-) multiplication(*), division (/)  
+
+Example of the Arithmetic Operator in Kotlin :-----------
+
+//Example fo the Arithmetic operator in Kotlin
+fun main(args:Array<String>){
+    var a=10
+    var b=5
+    println(a+b)
+    println(a-b)
+    println(a*b)
+    println(a/b)
+    println(a%b)
+}
+
+
+
+
+Relation Operator :------------------------------------
+Relation operator shows the relation and compares between operands. Following are the relational operators:
+
+Operators
+
+>	Greater than
+<	Less than
+>=	Greater than or Equal to
+<=	Less than or Equal to
+==	is Equal to
+
+
+Example =>
+
+// Example of the Relational Operator
+fun main(args:Array<String>){
+    val a=5
+    val b=10
+    val max=if(a>b){
+        println("A is Greater than B")
+        a
+    }else{
+        println("B is Greater than A")
+        b
+    }
+
+    println("Max = $max")
+}
+
+
+
+
+Assignment Operator :----------------------------------------
+Assignment operator "=" is used to assign a value to another variable. The Assignment of value takes from right to left.
+
+Oprator
++=
+-=
+*=
+/=
+%=
+
+
+
+//Example of Assignment Operator
+fun main(args:Array<String>){
+    var a=20;var b=5
+    a+=b
+    println("a+=b"+a)
+
+}
+
+
+
+Logical Operator :----------------------------------------------
+
+Logical Operator are used to check condition between operands.List of Logical operaotrs are given below.
+
+
+Operator
+
+&&	return truw if all expression are true
+||	return true if any expression are true
+!	return complement of expression
+
+
+//Example of LogicalOperator
+fun main(args: Array<String>){  
+    var a=10  
+    var b=5  
+    var c=15  
+    var flag = false  
+    var result: Boolean  
+    result = (a>b) && (a>c)  
+    println("(a>b) && (a>c) :"+ result)  
+    result = (a>b) || (a>c)  
+    println("(a>b) || (a>c) :"+ result)  
+    result = !flag  
+    println("!flag :"+ result)  
+  
+} 
+
+
+
+
+Kotlin Standard Input/Output :------------------------------------------------
+Kotlin standard input output operations are performed to flow byte stream from input device (keyboard) to main memory and from main memory to output device  (screen).
+
+=> Kotlin Output
+Kotlin output operations is performed using the standard methods print() and println().
+
+Example:-
+fun main(args: Array<String>) {  
+    println("Hello World!")  
+    print("Welcome to  JavaTpoint")  
+} 
+
+
+
+
+Kotlin Input ====>
+Kotlin has standard library readLine() which is used for reads line of string input from standard input stream. It returns the line read or null.
+
+fun main(args: Array<String>) {  
+    println("Enter your name")  
+    val name = readLine()  
+    println("Enter your age")  
+    var age: Int =Integer.valueOf(readLine())  
+    println("Your name is $name and your age is $age")  
+}
+
+
+
+
+
+
+
+
+
+
+
+Kotlin when Expression  :-------------------------------
+Kotlin when expression is a conditional expression which returns the value . kotlin when expression is replacement of switch statement. kotlin when exression works as switch statement of other language (Java, C, C++)
+
+
+fun main(args: Array<String>){
+
+var number=4
+var numberProvided=when(number){
+1 -> "One"
+2 -> "Two"
+3 -> "Three"
+4 -> "Four"
+
+else -> "invalid number"
+}
+
+println("You provide $numberProvided)
+}
+
+
+
+Multiple Statement when Using Braces :--------------------------------
+ we can use multiple statement enclose within block of condition
+
+fun main(args : Array<String>){
+
+var number =1
+when(number){
+
+1 -> {
+println("Monday")
+println("First day of the week")
+}
+7 -> {
+println("Sunday")
+}
+
+else -> println("Other Days")
+
+}
+}
+
+
+
+
+Multiple Branches of When :--------------------------------
+ fun main(args :Array<String>){
+
+var number=8
+when(number){
+3,4,5,6 -> 
+println("It is summer Season")
+7,8,9 ->
+println("It is Rainy Season")
+10,11 -> 
+println("It is winter season")
+else  -> println("Invalid  input")
+}
+}
+
+
+
+
+Using when in the range :------------------------
+The when expression also check the ranges of input provided in when condition. A range is created using  (double dot)  operator
+
+The in operator is used to check if a value belongs to a range
+
+fun main(args:Array<String>){
+var number=7
+when(number){
+in 1..5 -> println("Input is provided in the range 1 to 5)
+in 6..10 -> println("Input is provided in the range 6 to 10)
+else -> println("none of these above")
+}
+}
+
+
+
+
+Kotlin for Loop :-----------------------------------
+Kotlin for loop is used to iterate a part of program several times. It iterates through arrays ranges collections or anything that provides for iterate. Kotlin for loop is equivalent to the 
+foreach loop in language like c#.
+
+for(item in collection){
+//body of loop
+}
+
+
+Iterate through array 
+fun main(args : Array<String>) {  
+    val marks = arrayOf(80,85,60,90,70)  
+    for(item in marks){  
+        println(item)  
+    }  
+}
+
+
+
+Iterate through range :---------------------------------
+
+fun main(args: Array<String>){
+for (i in 1..5) print(i)  
+    println()  
+    print("for (i in 5..1) print(i) = ")  
+    for (i in 5..1) print(i)             // prints nothing  
+    println()  
+    print("for (i in 5 downTo 1) print(i) = ")  
+    for (i in 5 downTo 1) print(i)  
+    println()  
+    print("for (i in 5 downTo 2) print(i) = ")  
+    for (i in 5 downTo 2) print(i)  
+    println()  
+    print("for (i in 1..5 step 2) print(i) = ")  
+    for (i in 1..5 step 2) print(i)  
+    println()  
+    print("for (i in 5 downTo 1 step 2) print(i) = ")  
+    for (i in 5 downTo 1 step 2) print(i)  
+}
+
+
+output :-
+for (i in 1..5) print(i) = 12345
+for (i in 5..1) print(i) = 
+for (i in 5 downTo 1) print(i) = 54321
+for (i in 5 downTo 2) print(i) = 5432
+for (i in 1..5 step 2) print(i) = 135
+for (i in 5 downTo 1 step 2) print(i) = 531
+
+
+
+
+Kotlin while Loop :------------------------------
+The while loop is used to iterate a part of program several times. Loop execute the block of code until the condition has true. Kotlin while loop is similar to java while loop
+
+while(condition){
+//body of loop
+}
+
+
+fun main(args: Array<String>){  
+    var i = 1  
+    while (i<=5){  
+        println(i)  
+        i++  
+    }  
+}
+
+
+output=>
+1
+2
+3
+4
+5
+
+
+
+Kotlin do while Loop :--------------
+
+Kotlin Return and Jump :----------------------
+There are three jump expression in kotlin.these jump expression are used for control the flow of program execution. these jump structure are :
+=> break
+=> continue
+=> return
+
+
+Break Expression :----------------
+A break expression is used for terminate the nearest enclosing loop.It is almost used with if -else consition
+
+for(..){  
+       //body of for  
+       if(checkCondition){  
+           break;  
+       }  
+}  
+
+
+
+
+
+
+Kotlin continue JUmp Strcuture :-------------------------------
+Kotlin continue statement is used to repeat the loop.It continue the current flow of the program and skip the reamaining code at specific condition.
+
+
+for(...){
+if(checkCondition){
+continue
+}
+}
+
+fun main(args: Array<String>) {  
+        for (i in 1..3) {  
+            println("i = $i")  
+            if (j == 2) {  
+                continue  
+            }  
+            println("this is below if")  
+        }  
+}  
+
+
+
+
+	Kotlin Function :---------------------------------
+
+Function is a group of interrelated block of code which perform specific task.  Function is used to break a program into different sub module .it makes reusability of code and makes program more manageable.
+
+In Kotlin functions are declared uin fun keywork. there are two types of fcunctons depending on whether it is available in standard libraray or defined by user.
+
+=> Standard library function
+=> user defined function
+
+Standard library Function :-----------
+Kotlin Standard library function is built-in library which are implicitly present in library and availble for use..
+
+
+fun main(args: Array<String>){  
+    var number = 25  
+    var result = Math.sqrt(number.toDouble())  
+    print("Square root of $number is $result")  
+}  
+
+
+
+User Defined Function :-------------------------
+User Defined function which is created by user defined function take the parameter perform an action and return the result of that action as a value.
+
+fun functionName(){  
+// body of function  
+}
+
+Kotlin Simple User defined function :-
+
+fun main(args: Array<String>){  
+    sum()  
+    print("code after sum")  
+}  
+fun sum(){  
+    var num1 =5  
+    var num2 = 6  
+    println("sum = "+(num1+num2))  
+} 
+
+
+
+
+Kotlin Parametrized Function and Return value :---------------------------------
+
+Function are also takes parameter as argument and return value.Kotlin functions are defined using Pascal notation.
+
+fun main(args: Array<String>){  
+   val result = sum(5, 6)  
+    print(result)  
+}  
+fun sum(number1: Int, number2:Int): Int{  
+    val add = number1+number2  
+    return add  
+}
+
+
+
+
+
+
+Kotlin Array :----------------------------------
+
+Array is collection of similar data types either of Int String etc. Array is Kotlin is mutable in nature with fixed size which means we can perform both read and write operatios of element of array.
+
+Construtor of Array :
+Array constructor is declared with specified size and init function. the init function is used to return the elemnts of array with their index.
+
+Array(size:int, init:(Int) -> T)
+
+Kotlin Array can be created using arrayOf(), intArrayOf(), charArrayOf(), booleanArrayOf(), longArrayOf(), shortArrayOf(), byteArrayOf() functions.
+
+
+
+
+Kotlin String :------------------
+In Kotlin String equality comparision are done on the basic of structural equality (==) and referential equality (===)
+
+Structural Equality two object have separate instance in memory but contain same value.
+Referential equality specifies that two different reference point the same instance in memory
+
+Structural equality (==)
+To check the two object s containing the same value we use == operator or != for negation..It is equivalent to equals() in java.
+
+fun main(args:Array<String>){
+val str1="Hello World!"
+val str2="Hello World!"
+
+print(str1==str2)
+print(str1!==str2)
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kotlin Class and Object :-----------------------------------------
+
+Kotlin supports both object oriented programming (OOP) as well as functional programming.Object orinted programming is based on real time object classes.
+Kotlin also support pillers of OOP language such as encapsulation inheritance and polymorphism.
+
+Kotlin class is similar to java class a class is a blueprint for the object which have common properties.Kotlin classes are declared using keyword class. 
+Kotlin class has a header which specifies its type parameter construct and the class body which is surrounded by curly braces.
+
+
+class className{   // class header  
+      // property  
+      // member function  
+} 
+
+
+
+Kotlin Object
+Object is real time entity or may be a logical entity which has state and behavior. It has the characteristics:
+
+state: it represents value of an object.
+behavior: it represent the functionality of an object.
+Object is used to access the properties and member function of a class. Kotlin allows to create multiple object of a class.
+
+Create an object
+
+
+class Account {  
+    var acc_no: Int = 0  
+    var name: String =  ""  
+    var amount: Float = 0.toFloat()  
+    fun insert(ac: Int,n: String, am: Float ) {  
+        acc_no=ac  
+        name=n  
+        amount=am  
+        println("Account no: ${acc_no} holder :${name} amount :${amount}")  
+    }  
+  
+    fun deposit() {  
+        //deposite code  
+    }  
+  
+    fun withdraw() {  
+       // withdraw code  
+    }  
+  
+    fun checkBalance() {  
+        //balance check code  
+     }  
+  
+}  
+fun main(args: Array<String>){  
+    Account()  
+    var acc= Account()  
+    acc.insert(832345,"Ankit",1000f) //accessing member function  
+    println("${acc.name}") //accessing class property  
+}  
+
+
+
+
+Create anObject :----------------------------------
+Kotlin object is created in two steps the first is to create reference and then create an object.
+
+var obj1=className()
+
+Creating multiple object
+
+var obj1=className()
+var obj2=className()
+
+Accessing class property and member function :-----------------------
+Properties and member functions of class are accessed by operator using object For example:
+
+obj.deposit()
+obj.name=Ajay
+
+
+
+
+Kotlin Nested class and Inner Class :------------------------------
+
+Nested class is such class which is created inside another class. In Kotlin nested class is by default static, so its data member and member function can be accessed without creating an object of class.
+
+Nested class cannot be able to access the data member ot outer class.
+
+
+class outerClass{  
+    private var name: String = "Ashu"  
+    class nestedClass{  
+var description: String = "code inside nested class"  
+        private var id: Int = 101  
+        fun foo(){  
+          //  print("name is ${name}") // cannot access the outer class member  
+println("Id is ${id}")  
+        }  
+    }  
+}  
+fun main(args: Array<String>){  
+// nested class must be initialize  
+println(outerClass.nestedClass().description) // accessing property  
+var obj = outerClass.nestedClass() // object creation  
+    obj.foo() // access member function  
+}
+
+
+
+Kotlin Inner class :--------------------
+
+Inner class is a class which is created inside another class with keyword inner.Inother words we can say that a nested class which is marked as inner is called inner class.
+
+class outerClass{  
+   //outer class code  
+    inner class innerClass{  
+      //nested class code  
+    }  
+} 
+
+
+
+The adavantage if inner class over nested class is that it is able to access member of outer class even it is private.Inner class keeps a reference to an object ot outer class.
+
+class outerClass{  
+     private  var name: String = "Ashu"  
+     inner class  innerClass{  
+var description: String = "code inside inner class"  
+        private var id: Int = 101  
+       fun foo(){  
+println("name is ${name}") // access the outer class member even private  
+println("Id is ${id}")  
+        }  
+    }  
+}  
+fun main(args: Array<String>){  
+println(outerClass().innerClass().description) // accessing property  
+var obj = outerClass().innerClass() // object creation  
+    obj.foo() // access member function  
+  
+} 
+
+
+
+Kotlin Constructor :------------------------------------------------
+
+In Kotlin, constructor is a block of code similar to method. Constructor is declared with the same name as the class followed by parenthesis '()'.
+Constructor is used to initialize the variables at the time of object creation.
+
+
+Types of Kotlin constructors
+There are two types of constructors in Kotlin:
+
+Primary constructor
+Secondary constructor
+
+
+Kotlin primary constructor
+Primary constructor is used to initialize the class. It is declared at class header. Primary constructor code is surrounded by parentheses with optional parameter.
+
+class myClass(val name: String, var id: Int) {  
+}  
+fun main(args: Array<String>){  
+val myclass = myClass ("Ashu", 101)  
+  
+println("Name = ${ myclass.name}")  
+println("Id = ${ myclass.id}")  
+}  
+
+
+
+Kotlin Secondary Constructor :----------------------------
+In Kotlin secondary constructor can be created one or more in class. The secondary constructor is created using "constrcutor" keyword.
+
+Here we declared secondary constructor of my Class with two parameter name and id.
+
+class myClass{  
+  
+    constructor(id: Int){  
+        //code   
+    }  
+    constructor(name: String, id: Int){  
+        //code   
+    }  
+}
+
+
+we can also use both primary as well as secondary constructor in a same class. By using primary as well secondary constructor in same class, secondary constructor needs to authorized to parimary constructor. Authorization to another constrcutor in same class is done using this() keyword.
+
+class myClass(password:String){
+
+    constructor(name: String, id: Int, password: String): this(password){  
+println("Name = ${name}")  
+println("Id = ${id}")  
+println("Password = ${password}")  
+    }  
+}  
+fun main(args: Array<String>){  
+val myclass = myClass ("Ashu", 101, "mypassword")  
+  
+} 
+
+
+
+
+
+Kotlin Visibility Modifier :------------------------------
+visibility modifier are the keyword which are used to restrict the use of class, interface , methods and property of kotlin in the application. These modifier are used at multiple
+places such as class header or method body
+
+In Kotlin visiblity modifiers are categorized into four different types :
+
+1) public 
+2) protected
+3) internal
+4) private
+
+
+
+public modifer :-----------
+public moifier is accessible from everywhere in the project it is default modifer in kotlin. if any class interface etc are not specified with any access modfier then that class interface are 
+used in public scope.
+
+public class Example{  
+}  
+class Demo{  
+}  
+public fun hello()  
+fun demo()  
+public val x = 5  
+val y = 10  
+
+Protected modifier :--------------------------------------------
+
+A protected modifier with class or interface allows visibility to its class or subclass only.
+A protected declaration (when overridden) in its subclass is also protected modifier unless it is explicitly changed.
+
+open class Base{  
+    protected val i = 0  
+}  
+  
+class Derived : Base(){  
+  
+    fun getValue() : Int  
+    {  
+        return i  
+    }  
+}  
+
+
+
+
+Internal Modifier :---------------------------------------------
+
+the internal modifier are newely added in kotlin, it is not available in java. Declaraing anything makes that field meked as internal field. The internal modifier makes the field only inside
+the module in which it is implemented.
+
+internal class Example{  
+    internal val x = 5  
+    internal fun getValue(){  
+  
+    }  
+}  
+internal val y = 10  
+
+
+
+private modifier :------------------------------------------------------------------
+A private modifier allows the declaration to be accessible only within the block in which properties, fields, etc. are declare. 
+The private modifier declaration does not allow to access the outside the scope. A private package can be accessible within that specific file.
+
+private class Example {  
+    private val x = 1  
+     private valdoSomething() {  
+    }  
+}
+
+
+
+
+
+
+Kotlin Inheritance :--------------------------------------------------------------
+
+Inheritance is an important feature of object oriented programming language. Inheritance allows to inherit the feature of existing class (or base or parent class) to new class 
+(or derived class or child class).
+
+The main class is called super class (or parent class) and the class which inherits the superclass is called subclass (or child class).
+The subclass contains features of superclass as well as its own.
+
+In Kotlin, the derived class inherits a base class using: operator in the class header (after the derive class name or constructor)
+
+open class Base(p: Int){  
+  
+}  
+class Derived(p: Int) : Base(p){  
+  
+}  
+
+
+
+As classes are final by default they cannot be inherited simply we use the open keyword before the class to inherit a class and make it non-final
+
+open class Base{  
+val x = 10  
+}  
+class Derived: Base() {  
+    fun foo() {  
+println("x is equal to " + x)  
+    }  
+}  
+fun main(args: Array<String>) {  
+val derived = Derived()  
+    derived.foo()   
+} 
+
+
+
+
+Kotlin Interface :-------------------------------
+An Interface is

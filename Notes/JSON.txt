@@ -22,13 +22,13 @@ In JSON they take on these forms :
 
 In JSON they take on these forms:
 
-=> AN object is an onordered set of name/value. An object beigns with { left beigns and end with } right braces.
+=> AN object is an unordered set of name/value. An object beigns with { left beigns and end with } right braces.
 Each name is followed by : and the name/value pairs are separated by , comma.
 
 => An array is an ordered collection of values. An array beigns with [ left bracket and ends with ] right bracket. Values are separated by , comma.
 
 
-=> A value can be a string in double quotes or a number , or true or false or null , or an object or an array. These strcutrure can be nested.
+=> A value can be a string in double quotes or a number , or true or false or null , or an object or an array. These structure can be nested.
 
 
 

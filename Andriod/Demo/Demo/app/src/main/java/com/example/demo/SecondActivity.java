@@ -1,11 +1,15 @@
 package com.example.demo;
 
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +27,17 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_second);
         ButterKnife.bind(this);
         settoolbar();
+
+        String path = Environment.getExternalStorageDirectory()+File.separator+"DCIM";
+        Log.v("Files", "Path: " + path);
+        File directory = new File(path);
+        File files[] = directory.listFiles();
+        Log.v("Files", "Size: "+ files.length);
+        for (int i = 0; i < files.length; i++)
+        {
+            Log.v("Files", "FileName:" + files[i].getName());
+        }
+
     }
 
     public void settoolbar(){

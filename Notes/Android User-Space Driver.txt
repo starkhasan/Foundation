@@ -1,0 +1,28 @@
+User Space Drivers: -----------------------------------
+
+To allow app developers to register new device driver wih the framework, Android Things introdices the concept of a user-driver.
+User drivers are component regiterd from the within apps that existing Android framwork services.
+
+
+Device driver types :----------------
+
+Location - GNSS staelliet constellation such as GPS provide high accuracy physical location information to apps integratring the location result from receiver devices with a user driver allows the framrwork to conect that data with other location sources such as Wifi and Google Fused Location Provides.
+
+HID - Human Interface Devices (HID) provide user input to apps. Touch pads, keyboards, and game controllers are all examples of devices that provide this type of input. Input user drivers let devices interact with the enhanced input framework APIs, such as Gesture Support or Drag and Drop.
+
+
+Sensors - Sensors measure and report the conditions of the physical environment. The Android sensor framework implements sensor fusion to combine the raw data from multiple physical sensors into a single virtual sensor. This is particularly common with motion sensors, such as accelerometers and gyroscopes. Connecting your sensor to the framework with a user driver allows the data it produces to be included in sensor fusion.
+
+
+
+=> Location 
+Location user drivers allow your app to publish updates to the device's physical location through the android location service. The API support constellation of the Global Navigation Satellite System  such as Global Positioning System (GPS).
+
+GNSS module are receive only device that triangulate signals from remote satellite in order to determine an accurate physical location.Once the module collects enough satellite data to calculate an accurate position it has a valid location that it can report.
+
+Receiver modules typically connect to the host system via UPART but may use other forms of Peripheral I/O. For example they may contain additional GPIO pins to control power management or report when the module hash gained or lost fix
+
+
+Addiing the required permission :--------------
+
+<uses-permission android:name="com.google.android.things.permission.MANAGE_GNSS_DRIVERS"/>

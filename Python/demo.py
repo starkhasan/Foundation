@@ -1,56 +1,75 @@
-import random
-class Error(Exception):
-    pass
-class ValueTooLargeError(Error):
-    pass
-class ValueTooSmallError(Error):
-    pass
-def Game():
-    number=random.randint(0,10)
-    i=0
-    num=2
-    while i<num:
-        try:
-            i=i+1
-            print("You have ",num-i+1," Chance ")
-            i_num = int(input("Guess a Number Between 0 -10 = "))
-            if i_num < number:
-                raise ValueTooSmallError
-            elif i_num > number:
-                raise ValueTooLargeError
-            break
-        except ValueTooSmallError:
-            print("This value is too small, try again!")
-            print()
-        except ValueTooLargeError:
-            print("This value is too large, try again!")
-            print()
-        except ValueError:
-            print("Wrong Input Please Enter Number")
-            i=i-1
-            print()
-        
-    if i_num==number:
-        print("Congratulations! You guessed it correctly.")
-        choose_game()
-    else:
-        print("Sorry You Loose!")
-        print("The Correct Number was ",number)
-        choose_game()
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+def estimate_coef(x, y):
+	# number of observations/points
+	n = np.size(x)
+
+	# mean of x and y vector
+	m_x, m_y = np.mean(x), np.mean(y)
+
+	# calculating cross-deviation and deviation about x
+	SS_xy = np.sum(y*x - m_y*m_x)
+	SS_xx = np.sum(x*x - m_x*m_x)
+
+	# calculating regression coefficients
+	slop = SS_xy / SS_xx
+	intercept = m_y - slop*m_x
+
+	return(intercept, slop)
+
+def plot_regression_line(x, y, b):
+	# plotting the actual points as scatter plot
+	plt.scatter(x, y, color = "m",
+			marker = "o", s = 30)
+
+	# predicted response vector
+	y_pred = b[0] + b[1]*x
+
+	"""n_size=np.size(x)
+	error=y-y_pred
+	sqr_error=pow(error,2)
+	rmse=math.sqrt(sum(sqr_error)/n_size)
+	print("RMSE =",rmse)"""
+	# plotting the regression line
+	plt.plot(x, y_pred, color = "g")
+
+	# putting labels
+	plt.xlabel('x')
+	plt.ylabel('y')
+
+	# function to show plot
+	plt.show()
 
 
-def choose_game():
-        user_chioce=input("\nDo you want to Play Again (Y/N) ")
-        if user_chioce=="Y" or user_chioce=="y" or user_chioce=="yes" or user_chioce=="YES" or user_chioce=="Yes":
-            print("\nWelcome Back to Luck by Chance Game")
-            Game()
-        else:
-            print("Thank you have a Nice Day !")
+print("Linear Regression Model")
+dataset_size=int(input("Enter the Size of the Data Set."))
+x_model=[]
+y_model=[]
+print("Enter Data For X Model")
+for i in range(dataset_size):
+    x_model.insert(i,int(input()))
 
+print("Enter Data For Y Model")
+for i in range(dataset_size):
+    y_model.insert(i,int(input()))
 
-user_chioce=input("Do you want to Play Game (Y/N) ")
-if user_chioce=="Y" or user_chioce=="y" or user_chioce=="yes" or user_chioce=="YES" or user_chioce=="Yes":
-    print("\nWelcome to Luck by Chance Game\n")
-    Game()
+x = np.array(x_model)
+y = np.array(y_model)
+
+# estimating coefficients 
+b = estimate_coef(x, y)
+print("Estimated coefficients:\nIntercept = {} \nSlop = {}".format(b[0], b[1]))
+
+user_chioce=input("Do you want to Visualize the Model Graphically (Y/N)  :  ")
+if user_chioce=="y" or user_chioce=="Y" or user_chioce=="yes" or user_chioce=="Yes":
+    # plotting regression line
+    plot_regression_line(x, y, b)
 else:
-    print("Thank you have a Nice Day !")
+    pass
+
+user_check=int(input("Check For Another Number  :  "))
+print("Your Result : ",b[1]*user_check+b[0])
+
+ 

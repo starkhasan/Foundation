@@ -1,5 +1,35 @@
+22:47 05-01-2020   Using Lambda Expression in Android :--------------------------------------------
+
+Lambda expression are one of the most important java 8 feature which helps us to write compact and clear functional interface (ie interfaces with only one abstract method ) be removing boilerplate code.
+
+In Android we usually use functionally interfaces while implementing anonymous inner classes as event listeners a typical use of a functional interfaces is implementing a button;s View.OnClickListener in an activity or Fragment where we pass functionality as an argument to a method (eg buttonSend.setOnClickListener(...)).
+
+
+which Android version supports Lambda expression?
+Android Naught (version 7.0 API level 24) supports lambda expression so if you are planning to use lambda expression then your app should target 
+API level 24 or above
+
+
+How to enable Lambda expression in the APP?
+In order to use the lambda expression and other support Java 8 feature in your app. you have to use the Jack toolchain (Jack toolchain cimpiles)
+java source into Android radable DEX bytecode.
+
+
+What is the syntax of the Lambda Expression.
+A Lambda expression consist of the following:
+A comma separated list of formal parameters enclose in the paranthsis can be omitted if there is only one parameter
+ the arrow token ->
+
+
+
+
+
+
+
+
 10:30 23-11-2019  Context in Android :-------------------------------------------------------------
-A context is handle to the system. It provides services like resolving resources obtaining access to  databas and preferences and so on. An Android app has activities Context is like a handle to the environment your application is running in.
+
+A context is handle to the system. It provides services like resolving resources obtaining access to  database and preferences and so on. An Android app has activities Context is like a handle to the environment your application is running in.
 
 getApplicationContext() => Return the context of the process of all activitie running inside it.If you need a context that bind lifecycle of application you can use this.You should use it in across the activity.
 
@@ -8,7 +38,10 @@ getBaseContext() => if you want to access context from another context within ap
 getContext() Returns the context view inly running activity.
 
 
-ViewPager  :----------------------------------
+
+
+=>   ViewPager  :----------------------------------
+
 Layout manager  that allows the user to flip left and right page of data.You  supply an implementation of a PageAdapter to generates the pages that the view shows.
 The view's position can be controlled via its android:layout_gravity attribute.
 
@@ -84,6 +117,8 @@ Example :- An email app might have one activity that shows a list of new emails,
 
 
 2) Services
+
+A Serivces is an application component that can perform long-running operations in the background, and it doesn't provide a user interface. Another application component can start a service and it continues to run in the background even if the user switches to another application.
 A services is a general-purpose entry point for keeping an app running background for all kinds of reasons.
 It is a component that runs in the background to perform long-running operations or to perform work for remote processes.
 A services does not provide a user interface.
@@ -91,6 +126,15 @@ Example : A service might play music in the background while the user is in a di
 
 
 Bound services run because some other app (or the system) has said that it wants to make use of the service. This is basically the service providing an API to another process.
+
+
+
+
+
+
+
+
+
 
 3) Broadcast Receiver
 A broadcast receiver is a component that enables the system to deliver events to the app outside of a regular user flow, allowing the app to respond to system-wide broadcast 
@@ -131,7 +175,7 @@ and current activity remains visible and interactive. Toasts automatically disap
 
 
 The Basics :----
-First instantiate a Toast object with one  of the makeText() methods. This method take three parameter the application context, the text message and the duration for the toast. It returns a properly initialized Toast object.You can display the toast notification with show() as shown in the following example.
+First instantiate a Toast object with one  of the makeText() methods. This method take three parameter the application context, the text message and the duration for the toast. It returns a properly initialized Toast object. You can display the toast notification with show() as shown in the following example.
 
 Context context = getApplicationContext();
 CharSequence text = "Hello toast!";
@@ -147,7 +191,7 @@ we can also chain our methods and avoid holding on to the Toast object like this
 
 => Positioning the Toast Notification
 
-A standard toast notification appears near the button of the screen cetered horiontally.You can change this position with the setGravity(int,int,int) methods. This accepts three parameter a Gravity constant an x-position offset and a y-position offset.
+A standard toast notification appears near the buttom of the screen cetered horiontally.You can change this position with the setGravity(int,int,int) methods. This accepts three parameter a Gravity constant an x-position offset and a y-position offset.
 
 	toast.setGravity(Gravity.TOP|Gravity.LEFT, 0, 0);
 

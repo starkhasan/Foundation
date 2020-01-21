@@ -1,9 +1,15 @@
 C++ began as an expended version of C. The C++ extension were first invented by Bjarne Stroustrup in 1970 at bell laboratories in Murray hill new Jersay. It was  initially called the new langugae "C with Classes" however in 1983 the name was changed to C++,
 
 
+
+C++ is a compiled language. For a program to run its source text has to be processed by a compiler producing object files, which are combined by a linker yeilding an executable program. A C++ program typically consists of many source code files (usually simply called source files).
+
+An executable program is created for a specific hardware/system combination it is portable, say from a Mac to Windows PC. When we talk about protability of C++ prorams we usually mean protability of source code.
+
+
 Books:-
 Programming Principle and practice using c++
-The c++ programming language
+The C++ programming language
 The Complete Reference of C++
 
 
@@ -54,7 +60,7 @@ int main()
 {}		//the minimal C++ program
 
 this defines a funciton called main, which takes no argument and does nothing
-curly braces{} express grouping in c++ Here they indicate the start and end of the function body.
+curly braces{} express grouping in C++ Here they indicate the start and end of the function body.
 Every C++ program must have exactly one global function named main()
 the program starts by executing that function
 
@@ -72,6 +78,8 @@ without these declaration the expression
 would make no sense.
 
 
+The std:: specifies that the name cout is to be found in the standard library namespace
+
 
 the operator << writes its argument onto its first.
 
@@ -79,7 +87,7 @@ the operator << writes its argument onto its first.
 
 
 
-	Types, variable and Arithmetic:--------------
+	Types, Variable and Arithmetic:--------------
 
 Every name and every expression has a type that determine the operation that may be performed  on it.
 Example=>
@@ -101,7 +109,7 @@ Every fundamental type corresponding directly to hardware facilities and has a f
 
 Arithmetic operator can be used for appropriate combinations of these types:-
 x+y	// plus
-+x	// unary plus
+++x	// unary plus
 
 
 int i=7.2		// i become 7
@@ -112,6 +120,15 @@ the = form is traditional and dates back to C but if in doubt use the general {}
 
 =>In C you must declare all local variable used a block at the start of that block. you can't declare a variable in a block after an action statement has occured.
 			while compilation in C++ will execute perfectly.
+
+
+Constant :--------------------------
+C++ Supports two notions of immutability
+
+=> const meaning roughly I promise not to change this value. This is used primarily to specify interfaces so that data can be passed to functions without fear of it being modified.
+
+=> constexpr : meaning rounghly to be  evaluated at compile time.
+
 
 
 =>The most common use of the "default-to-int" rule is with function return types. it was common practice to not specify int explicitly when a function returned an integer result
@@ -971,6 +988,27 @@ You entered: Programming is fun.
 In this program, a string str is declared. Then the string is asked from the user.
 Instead of using cin>> or cin.get() function, you can get the entered line of text using getline().
 getline() function takes the input stream as the first parameter which is cin and str as the location of the line to be stored.
+
+
+
+=> We can find the length of the string by using the inbuild method
+
+str.length();
+
+Example:=>
+#include<conio.h>
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string str;
+    getline(cin,str);
+
+    cout<<"My name in string form  "<<str.length();
+
+}
+
 
 
 
