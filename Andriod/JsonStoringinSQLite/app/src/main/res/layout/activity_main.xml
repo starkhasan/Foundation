@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/etJSONID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter JSON ID"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"/>
+
+
+    <EditText
+        android:id="@+id/etfetchID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Fetch ID"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:layout_below="@id/btnSetData"/>
+
+
+    <Button
+        android:id="@+id/btnGetData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fetch with ID"
+        android:textColor="#000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/etfetchID"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnSetData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set with ID"
+        android:layout_below="@id/etJSONID"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/etID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Delete ID"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:layout_below="@id/btnGetData"/>
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete with ID"
+        android:layout_below="@id/etID"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnDeleteAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete All"
+        android:textAllCaps="false"
+        android:layout_marginTop="100dp"
+        android:layout_below="@id/btnDelete"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btnFetchAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fetch All"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnDeleteAll"/>
+
+
+
+</RelativeLayout>

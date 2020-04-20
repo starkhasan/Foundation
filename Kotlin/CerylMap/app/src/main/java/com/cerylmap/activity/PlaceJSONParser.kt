@@ -1,4 +1,4 @@
-package com.cerylmap
+package com.cerylmap.activity
 
 import org.json.JSONArray
 import org.json.JSONException

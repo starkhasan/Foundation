@@ -1,0 +1,45 @@
+11:40 25-01-2020
+
+TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of task. It is a symbolic math library and is also useful for machine learning application such as nueral networks.  and also for deep learning.
+It is used for both research and production at Google.
+
+TensorFlow was developed by the Google Brain team for internal Google use.
+Google product uses machine learning in all of its products to improve the search engine translation image captioning and recommendations.
+Google uses can experience a faster and more refined the search with AI. If the user types a keyword at the search bar, Google provides a recommendation about what could be the nest word.
+
+
+TensorFlow Architecture :------------------------
+Tensorflow architecture works in three parts:
+=> Preprocessing the data
+=> Build the model
+=> Train and extimate the model
+
+(Vodafone Number => 8507879503)
+It is called Tensorflow because it takes input as a multi-dimensional array also known as tensors. You can construct a sort of flowchart operations (called a Graph) that you want to perform on that input. The input goes in at one end, and then it flows through this system of multiple operations and comes out the other end as output.
+
+That is why it is called TensorFlow because then tensor goes in it flows through a list of operations and then it comes out the other side.
+
+
+
+Deploy machine learning models on mobile and IoT devices :--------------------------
+TensorFlow Lite is an open source deep learning framework for on-device interface.
+
+How it works :---------------------------------
+
+1) Pick a model or retain an existing one
+2) Convert a TensorFlow model into a compressed flat buffer with the TensorFlow Lite Converter
+3) Take the compressed .tflite file and load it into a mobile embedded device
+4) Quantize by converting 32-bit floats to more efficient 8-bit integers or run on GPU.
+
+
+Common Mobile Use Case :----------------------------------------------------
+
+1) Image classification  Identify hundreds of object including people activities animals plants and places.
+2) Object detections Detect multiple object with bounding boxes
+3) Pose extimation 	Estimate poses for single or multiple people. IMagine the possibilities inclusing sticky figure dance parties
+4) Smart reply Generate reply suggestions to  input conversational chat messages
+5) Style transer Apply and styles on a input image to create a new artistic image
+6) Text classification Categorized free text into predefined groups.Potential application includes abusive content moderation tone detection 
+7) Question and Answer Answer user queries based on information extrated from given text archive.
+
+

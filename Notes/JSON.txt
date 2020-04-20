@@ -4,8 +4,8 @@ JSON (JavaScript Object Notation).It is light weight data-interchange format. It
 JSON is a text format completely independent of language.
 
 JSON syntax is basically considered as a subset of JavaScript syntex, It includes the following
-=> Data is represented as name/value pair
-=> curly braces hold object and each name is followed by colon(:) the name/value pairs are separated by comma(,)
+=> Data is represented as name / value pair
+=> curly braces hold object and each name is followed by colon(:) the name / value pairs are separated by comma(,)
 => Square brackets hold arrays and values are separated by comma (,)
 
 

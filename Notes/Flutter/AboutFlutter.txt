@@ -1,0 +1,629 @@
+Facebook with Login Problem in Flutter :------------------------------
+
+[dart] The method 'logInWithReadPermissions' isn't defined for the class 'FacebookLogin'
+
+Solution :-  if you are using flutter_facebook_login version above 2.0.1 change the fblogin.loginWithReadPermission(['email','public_profile'])  with fbLogin.**logIn**(['email', 'public_profile']) The Future function has been renamed to just logIn(List permissions)
+
+
+
+
+
+
+
+mainAxisSize property :---------------------------------------------
+MainAxisSize mainAxisSize 
+
+How much space should be occupied in the main axis
+After allocating space to childreb there might be some remainingfeww space. This value control whether to maximize or minimize the amount of the free space to the incoming layout constraints.
+If some children have a non-zero flex fector  (and none have a fit of FlexFit loose) they will expand to consure all the avaialble space and there will be no  remaining free space to maximizing or minimizing making this value irrelevant to the final layout.
+
+
+
+
+
+
+
+Flutter Visibility :------------------------------------------------------------------------
+When it come to manage your widget visibility in Flutter, you have many options. Flutter provides us with some cool widgets for this purpose. 
+
+1) Use Opacity widget
+
+Opcaity(
+	opacity:0.0,
+	child:Container(
+		child:child
+	)
+)
+
+This widget  simply sets  the child's opacity to sero but still renders it. So the child it hidden but take space and you can interact with t.
+
+
+
+2) Offstafe widget :-------------------------------------------------------
+
+Offstage(
+	offstage:true,
+	child:child(
+	)
+);
+
+Offstage renders the child widget off set the screen. This means that the widget is not rendered in the subtree and so doesn't take any space.
+
+
+3) Use Visibility
+
+Visibility(
+	visibility:false
+	child:child(
+	)
+);
+
+Here child widget is not rendered in the subtree and Flutter uses instead a shrinked sized box to replace it. the result is pretty much the same as with Offstage..
+
+
+
+
+
+
+
+Start thinking Declaratively :----------------------------------------------------
+If you're coming to Flutter from an impretive framework (such as Android SDK or IOS UIKit) you need to start thinking about app development from a new prespective.
+
+Many assumption that you might have don't apply to Flutter. For example in Flutter it's okay to rebuild parts of your UI from scratch instead of modifying it. Flutter is fast enough to do that even on every frame if needed.
+
+Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app:
+
+When the state of your app change (for example the user flips switch in the setting screen), you change the state and that triggers a redraw of the user interface. There is no imperative changing of the UI itself ( like widget.setText ) you change the state and the UI rebuilds from scratch.
+
+The declarative style of UI programming has many benefits. Remarkably there is only one code path for any state of the UI. you describe what that UI should look like for any given state once and that is it.
+
+In the broadest possible sense the state of an app is eveything that exist in memory when the app is running. This includes the app's assets, all the variable that the flutter framework keeps about the UI animated state textures fonts ans so on.
+While this broadest possible definition of state is valid it's not very usefult for architecture an app.
+
+
+Ephemeral State :-----------------------
+Ephemeral state (sometimes called UI state or local state) is the state you can neatly contain in a single widget
+This is intentionally a vague definition so here are a few examples.
+
+current page in PageView
+current progress of a complex animation
+current selected tab in a BottomNavigationBar
+
+
+App state :------------------------------------
+State that is not ephemeral that you want to share across many parts of your app, and that you want to keep between user sessions is what we call application state (sometimes also called shared state).
+
+Examples of application state :
+User preferences
+Login Info
+Notifications in a social networking app
+The Shopping cart in an e-commerce app
+Read/unread state of articles in a newsapp
+
+
+
+
+Widget in Flutter are categorized into two categories :
+1) Stateless widget
+2) Stateful widgets
+
+The Simple difference between the two is that the data (State) that is used in creating the Stateful widget can change. Data in a Stateless widget can't
+
+Example of Stateless widget :-
+class StatelessButton extends StatelessWidget {
+@override
+Widget build(BuildContext context) {
+     return Text("HI!");
+    }
+}
+
+wenotice that nothing is really changing inside the Widget object and if we try to defined variable inside the class 
+
+String _name  = "Adnan" ;
+
+Flutter would warn us that :
+This class  (or a classwhich this class inherits from ) is marked as  '@immutable' but one or more of its instance fields are not final.
+
+which means that the variable we defined it useless as it won't contribute to the future state of the widget.
+
+Stateful widget on the other hand can have variable that could contribute in the future state of the widget.
+
+
+A little extra thing that helps with this process is the State class 
+=> you might wonder why StatefulWidget and State are separate objects. In Flutter these two types of object have different life cycles.
+
+=> Widget are temporary object used to construct a presentation of the application in its current state.
+
+=> State object on the other hand are persisitent between calls to build(), allowing them to remember information.
+
+=> the build method calls a method  ( setState() ) that inside we do the modification on the state variables.
+
+=> after the setState method is executed the Widget object is replaced with a new one having the modified variable values.
+
+when the RaisedButton is pressed setState is triggered and run which change the _name variable. This variable is then used to create a new updated widget object.
+
+
+
+Why a declarative UI ?
+Framwork from win32 to web Android and iOS typically use an impretive style of UI programming. This might be the style you're most familier with where you manually construct a full-functioned UI entity such as UIView or equivalent and later mutate it using method and setters when the UI changes.
+
+In order to lighten the burden on developers from having to program how to transition between variaous UI states, Flutter by contrast lets the developer describe the current UI state and leaves the transitioning to the framwork. this is however requires a slight shift in thinking for manipulating UI.
+
+
+
+
+
+What is the difference between AbsorbPointer and IgnorePointer in Flutter ?
+The difference is when we have two widget overlapping each other that can both receive clicks
+Consiber a red and blue square clicable where the blue square is smaller and on the top of the red square:
+
+
+By default without IgnorePointer / AbsorbPointer tapping blue send a click event on blue and red gets nothing.
+
+In that situation wrapping blue square into an AbsorbPointer means that when tapping the blue zone neither the blue square nor the red one gets the click event.
+
+If we instead used an IgnorePointer the red square would receive click event when taping the blue square.
+
+
+
+Ignore Pointer :-------------------------
+When ignoing is true this widget (and its subtree) is invisible to hit testing. It still consumes space during layout and paints its child as usual.It just cannot be the target of located events it returns false from the RenderBox.hitTest.
+
+AbsorbPointer Class :-----------------------------
+When absorbing is true this prevent its subtree from receiving pointers events by terminating hit testing at itself. It still consumes space during layout and paints its child as usual: It just prevents its children from being the target of located events because it returns true from RenderBox.hitTest.
+
+
+
+
+Flutter provides some really amazing widgets out of the box which comes pre-built for handling touch events sych as in InkWell and InkResponse. These widgets wrap your widgets so that they are able to respond to touch events. In addition to doing this it also adds the Material Ink splash and widget. InkResponse for example has options to control the shape and clipping of the splash as it extends out of the widget boundary. 
+
+AN interesting thing to note is InkWell and InkResponse don't do any rendering instead they update the parent Material widget . Acommon example of this is an image if you wrap an image is an inkWell you would notice that the ripple is not visible. This is because it is drawn behind the image on the Material.
+
+
+ To make the Ink splash visible, wrap your image using Ink.Image. 
+
+=> They both provide many common feature like onTap, onLongPress etc. The main difference is GestureDetector provides more controls like dragging etc. on the other hand it doesn't  include ripple effect tap which InkWell does.
+
+=> You can use either of them according to your needs you want ripple effects go with InkWell need more controls go with GestureDetector or even combine both of them.
+
+
+
+
+BoxFit enum :--------------------------
+How a box should be inscribe into another box.
+
+Constants :-----------------------
+
+1) contain    const BoxFit
+As large as possible while still containing the source entirely within the target box.
+
+2) cover    const  BoxFit
+As small as possible while still covering the entire taeget box.
+
+fill const BoxFit
+3) fill Fill the target box by distorting the source's aspect ratio
+
+4) fitHeight
+Make sure thefull height of the source shown regardless of whether this means the source overflows the target boc horizontally.
+
+
+RichText :-----------------------------------------------
+The RichText widget display text that uses multiple different styles. The text to display is described using a tree of TextSpan objects each of which has an associate style that is used for that subtree. The Text might break across multiple lines or might all be displayed on the same line depending on the layout constraints breakacross multiple lines or might all be displayed on the same line depending on the layout constrains.
+
+
+
+
+
+
+To add customcolor in flutter
+To convert the colors code in dart ( from hexadecima to integer)
+
+color: Color(int.parse('#000000'.replaceAll('#', '0xff')))
+
+
+
+
+Working with futures : async and await :----------------------------------
+The async and wait keywords provides a declarative wat to define asynchronous and use their results.
+=> To define an async function add async before the function body.
+=> The await keyboard works only in async functions.
+
+Example => Here's an example that convert main() from a synchronous function.
+First add the async keyboard before the function body.
+
+void main() async{
+
+}
+
+if the function has declared return type then update the type to be Future<T> where is the type value that the function returns if the function doesn't explicitly return a value then the return type is Future<void>
+
+Future<void> main() async{
+}
+
+
+Now that you have as async function you can use the await keyboard to wait for a function to complete.
+
+print(await createOrderMessage());
+
+
+The asynchronous example is different in three ways :-
+1) The return type for createOrderMessage() changes from String to Future<String>
+2) The async keyword appears before the function bodies for createOrderMessage() and main()
+3) The await keyword appears bfore calling the asynchronous functions fetchUserOrder() and createOrderMessage()
+
+
+
+Key terms :----------------
+async  :- you can use the aysn keyword bfore a functions body to mark it as asynchromous.
+async function :- An async function is a function labeled with the async keyword.
+await you can use the await keyword ot get the complete result of an asynchronous expression. The await keyword only works with in async functions.
+
+Execution flow with async and await :-------------------------------
+An async function runs synchronously until first await keyword.This means that within an async function body all synchronous code bfore the first await executes immediately.
+
+
+
+
+FloatingActionButton :------------------------------------------
+Flutter offers two types of FloatingActionButton out-of-the-box.
+1) FloatingActionButton
+2) FloatingActionButton.extended
+
+
+
+FlaotingActionButton :-
+The default constructor creates a simple circular FAB with a child widget inside it. It takes an onPressed method to react to taps and a child (not compulsory) to display a widget inside the FAB.
+
+The code is relatively straightforword and is most often used with the floatingActionButton parameter of the Scaffold widget.
+
+
+2) FlaotingActionbutton.extended
+FloatingActionButton.extended offers awide FAB usually with an icon and a label inside it.
+
+Instead of a child parameter we now have label and icon parameters.
+
+FloatingActionButton.extended(
+onPressed:(){},
+icon:Icon(Icons.send),
+label:Text('Send')
+}
+
+
+
+
+
+
+initState() is a method of class State and it is considered as an important lifecycle method in Flutter initState() is called only Once and we use it for one time initializations.
+
+
+
+
+
+How do i lay out my widget? Where is my XML layout file?
+
+In Android you write layouts in XML but in Flutter you write your layouts with a widget tree.
+The following example shows how to display a simple widget widget with padding:
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Sample App"),
+      ),
+      body: Center(
+        child: MaterialButton(
+          onPressed: () {
+	//do something on button pressed.
+          },
+          child: Text('Hello'),
+          padding: EdgeInsets.only(left: 10.0, right: 10.0),
+        ),
+      ),
+    );
+  }
+
+
+
+How do i use a Canvas to draw/paint ?
+In Android you would use the Canvas and Drawable to draw images and shapes to the screen. Flutter has a similar Canvas API as well since it is based on the same low-level endering engine,Sika. As a result painting to a acanvas in Flutter is a very familiar task for Android developers.
+
+Flutter has two classes that help you draw to the canvas: CustomPaint and CustomPainter the latter of which implements you algorithm to draw to the canvas.
+
+
+
+Intents :------------------------------------------
+What is the equivalent of an intent in Flutter ?
+In Android there are two main use cases for Intents: navigation between Activities and communicating with components. Flutter on the other hand does not have the concept of intent, although you can still start intents through native integrations (using a Plugin)
+
+Flutter doesn't reslly have a direct equivalent to activies and fragment rather in Flutter you navigate between screens using a Navigator and Routes all within the sameActivity.
+
+A route is an abstraction for screen or page of an app, and a Navigator is a widget that manages routes. A route roughly maps to an Activity but it does not carry the same meaning. A navigator can push and pop routes to move from screen to screen. Navigatiors work like a stack on which you can push() new routes you want to and from which you can pop() routes when you want to go back.
+
+In Android you declare your activies inside the app's Manifest.xml
+In Flutter you have a couple options to navigate between pages"
+1) Specify a Map of route names (using MaterialApp)
+2) Directly navigate to route (using WidgetApp)
+
+
+The following example builds a Map.
+void main() {
+ runApp(MaterialApp(
+   home: MyAppHome(), // becomes the route named '/'
+   routes: <String, WidgetBuilder> {
+     '/a': (BuildContext context) => MyPage(title: 'page A'),
+     '/b': (BuildContext context) => MyPage(title: 'page B'),
+     '/c': (BuildContext context) => MyPage(title: 'page C'),
+   },
+ ));
+}
+
+
+Navigate to a route by pushing its name to the Navigator.
+Navigator.of(context).pushNamed('/b');
+
+
+
+What is Equivalent of OkHttp on Flutter?
+Making a network call in Flutter is easy when you use the popular http package.
+While the http package doesn't have every feature in OkHttp, it abstract away much of the network that you would normally implenting yourself, making it a sinple wat to make network calls:
+
+To use the http package add it yo your dependencies in pubsec.yaml:
+
+dependencies:
+	
+	http: ^0.11.3+16
+
+to make a network call await to the async function http.get():
+
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+[...]
+  loadData() async {
+    String dataURL = "https://jsonplaceholder.typicode.com/posts";
+    http.Response response = await http.get(dataURL);
+    setState(() {
+      widgets = json.decode(response.body);
+    });
+  }
+}
+
+
+
+
+How do i show the progress for a long runnng task?
+In Android you would typically show a ProgressBar view in your UI while executing a long running task on a background thread.
+In Flutter use a progressIndicator widget. Show the progress programmatically by controlling when it's rendered through a boolean flag. Tell Flutter to update its state before your long running task starts and hide it after it ends.
+
+In the following example, the build function is separated into three different functions. If showLoadingDialog() is true (when widgets.length == 0), then render the ProgressIndicator. Otherwise, render the ListView with the data returned from a network call.
+
+
+
+Project structure & resources :-------------------------------------
+Where do i store my resolution-dependent image files?
+
+While Android treats resources and assets as distinct items Flutter apps have only assets. All resource that would live in hte res/drawable folder on Android are placed in an assets folder for Flutter.
+
+Flutter follows a simple density-based format like iOS. Assets might be 1.0x, 2.0x, 3.0x, or any other multiplier. Flutter doesn’t have dps but there are logical pixels, which are basically the same as device-independent pixels. The so-called devicePixelRatio expresses the ratio of physical pixels in a single logical pixel.
+
+Android density qualifier	Flutter pixel ratio
+ldpi			0.75x
+mdpi			1.0x
+hdpi			1.5x
+xhdpi			2.0x
+xxhdpi			3.0x
+xxxhdpi			4.0x
+
+Assets are located in any arbitray folder Flutter has no predefined folder structre.You declare the assets (with location ) in pubsec.yml file and Flutter picks them up.
+
+
+val flutterAssetStream = assetManager.open("flutter_assets/assets/my_flutter_asset.png")
+
+
+Where do i store string? How do i handle localization?
+Flutter currently doesn't have dedicated resources line system for string. At the moment the best practice is to hold your copy text in a class as static field and accessing them from there
+
+class Strings {
+  static String welcomeMessage = "Welcome To Flutter";
+}
+
+
+Then in your code you can access your string as such:
+Text(Strings.welcomeMessage)
+
+
+How do i listed to Android activity lifecycle events ?
+In Android you can override methods from the Activity to capture lifecycle lifecycle methods for the activity itself or register ActivityLifeCycleCallback on the Applction. In Flutter you have neither cocept but you can instead listen to lifecycle events by hooking into the widgetBinding oberver and listening ot the didChangeAppLifeCycleState() change event.
+
+The observable lifecycle events are:
+
+inactive — The application is in an inactive state and is not receiving user input. This event only works on iOS, as there is no equivalent event to map to on Android.
+paused — The application is not currently visible to the user, not responding to user input, and running in the background. This is equivalent to onPause() in Android.
+resumed — The application is visible and responding to user input. This is equivalent to onPostResume() in Android.
+suspending — The application is suspended momentarily. This is equivalent to onStop in Android; it is not triggered on iOS as there is no equivalent event to map to on iOS.
+
+
+
+layouts :------------------------------
+What is the equivalent of a Linearlayout?
+
+In Android a LinearLayout is used to lay your widget out linearly either horizontally or vertically. InFlutter use the Row or Column widget to achieve the saem result.
+
+
+What is the equivalent of RelativeLayout?
+A RelativeLayout lays your widget out relative to each other. In Flutter there are a few ways to achieve the same result.
+you can achieve the result of RelativeLayout by using a combination of Column Row and Stack widget.
+
+
+
+What is the Equivalent of a  ScrollView?
+In Android use  a ScrollView to layout your widget if the user's device has a smaller screen than your content it scrolls.
+
+In Flutter the easiest way to do this is using the ListView widget. this might seem like overkill coming from Android but in Flutter a ListView widget is both ScrollView and an Android ListView.
+@override
+Widget build(BuildContext context) {
+  return ListView(
+    children: <Widget>[
+      Text('Row One'),
+      Text('Row Two'),
+      Text('Row Three'),
+      Text('Row Four'),
+    ],
+  );
+}
+
+
+How do i handle landscape transition in Flutter?
+FlutterView handles the config change if AndroidManifest.xml contains:
+
+android:configChange = "orientation | screenSize"
+
+ 
+
+
+=> Chaging widget in response to input :---------------------------------------------------
+So far this page has only stateless widgets. Stateless widget recevice argument from their widget. which only store in final member variables. When a widget is asked to build(), it use these stored values to derived new argument for the widget it creates.
+
+In order to build more complex experience for example to react in more interesting ways to user input applications typically carry some state. Flutter uses StatefulWidgets to capture this idea. 
+
+
+setState(){
+
+}
+
+setState() function tells Flutter framework that something has changed in this State which cause it to rerun the build method below so that the display can reflect the update values. if we change some value without calling setState values then the build method won't be called again, and so nothing would appears.
+
+
+
+What is Scaffold ?
+A Scaffold Widget provides a framework which implements the basic material design visual layout structure of the flutter app. It provides APIs for showing the drawer snack bars and bottom sheets. Have a look at its constructor and the properties it has.
+
+
+
+
+
+
+
+
+
+
+Add the visible widget to the layout widget ;--------------------
+
+All layout widget have wither of the following:
+=> child property if they take a single child    for example Center or Container
+=> A chilren property if they take alist of widgets  for example Row , Column , ListView , Stack.
+
+
+
+Material Apps :-
+For a Material app you can use a Scaffold widget it provides a default banner background color and has API for Adding drawer snack bars and bottom sheets.
+
+
+Non-Material apps :------------------------
+For a non-Material app you can add the Center widget to the app's build() method.
+
+By default a non Metrial app doesn't include an AppBar, title or background color. If you want these feature in non-Material app you have to build them your self.
+
+
+
+Layout multiple widget vertically and horizontally :--------------------------------------
+One of the most common layout pattern is to arrange widget vertically or horizontally. You can use Row widget to arrange widgets horizontally and column widget to arrange widget vertically.
+
+
+Row and Column are two of the most commonly used layout patterns.
+Row and Column each take a list of child widgets.
+A Child widget can itself be a row column or other complex widget.
+ To create a row or column in Flutter you add a list of Children widget to Row or Column widget . In turn each whild can itself be a row or column and so on.
+
+
+
+Alignning widgets :-------------------------------
+You control how a row or column align its children using the mainAxisAlignment and crosAxisAlignment properties.
+
+Fow a row the main axis runs horizontally and the cross axis runs vertically. For a column the main runs vertically and the cross axis runs horizontally.
+
+
+Example =>
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    Image.asset('images/pic1.jpg'),
+    Image.asset('images/pic2.jpg'),
+    Image.asset('images/pic3.jpg'),
+  ],
+);
+
+in the following example each of the 3 image is 100 pixel wide. the render box (in this case the entire screen) is more than 300 pixels wide so setting the main acis alignment to spaceEvenly divides the free horizontal space evenly between before and after each image.
+
+
+Sizing widgets :-----------------------------------------
+When a layout is too large to fit a device a yellow and black striped pattern appearn along the affected edge. Here is an example of row that is too wide:
+
+Widget can be sized to file within a row or column by using Expanded widget. To fix the previous example where the row of image is too wide for its endex box wrap each image with an Expanded widget.
+
+Row(
+  crossAxisAlignment: CrossAxisAlignment.center,
+  children: [
+    Expanded(
+      child: Image.asset('images/pic1.jpg'),
+    ),
+    Expanded(
+      child: Image.asset('images/pic2.jpg'),
+    ),
+    Expanded(
+      child: Image.asset('images/pic3.jpg'),
+    ),
+  ],
+);
+
+
+
+
+Flex :-----------------------------
+Perhaps you want a widget to occupy twice as much as space as its sibling. For this use the Expanded widget flex property an integer that determine th fles for a widget. The default flex factor is 1.
+
+Row(
+  crossAxisAlignment: CrossAxisAlignment.center,
+  children: [
+    Expanded(
+      child: Image.asset('images/pic1.jpg'),
+    ),
+    Expanded(
+      flex: 2,
+      child: Image.asset('images/pic2.jpg'),
+    ),
+    Expanded(
+      child: Image.asset('images/pic3.jpg'),
+    ),
+  ],
+);
+
+
+Packing Widget :-----------------------------------
+By default a row or column occupies as much space along its main axis as possible but if you want to pack the children closely togther set its mainAxisSize to min.
+
+
+Widget fall into two category : Standdard widget from the widget libraray and specialized widgets from the Material library. ANy app can use the widgets library but only material app can use the Mateiral Components library.
+
+
+
+Container :-----------------------------Many layout make liberals use of Container to separate widget passing or to add borders or margin you can change the device background by placing the entire layout into Container and Changing its backgroud color of image.
+
+Container 
+=> Add padding margin borders
+=. Change background color or image
+=> Contains a single child widget but that child can be Row Column or even the root of a widget tree.
+
+GridView :--------------------------Use GridView to layouto widget out as two dimensionally GrideView provides two prefabricated lists or you can build your own custom grid. When a Grid View detect that its content are too long to fit the render box, it automatically scrolls.
+
+Layout widget out in a grid
+Detect when the column content exceeds the render box automatically provides scrolling.
+Build your own custom grid or use one of the provideing grids:
+=> GridView.count
+=. GridView.extends
+
+
+ListView, GridView Widget Inside the Column and Row Causes the Error try to put that inside the Expended  and make the child of the Expended to List, Grid 
+
+

@@ -1,5 +1,6 @@
-package com.cerylmap
+package com.cerylmap.activity
 
+import TaskLoadedCallback
 import android.content.Context
 import android.graphics.Color
 import android.os.AsyncTask

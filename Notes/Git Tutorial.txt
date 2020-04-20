@@ -1,0 +1,16 @@
+What is a version control system?
+
+Version control system are a category software tools that helps record changes to files by keeping a trach of modifications done to the code.
+Version Control program for your project. By tracking and logging the changes you make to your file or file sets over time a version control system gives you the power to review or even restore earlier versions.
+
+Types of Version Control Systems :-
+=> Local Version Control Systems
+=> Centralized Version Control Systems
+=> Distributed Version Control Systems.
+
+
+What is GitHub :--------------------
+In the discussion of Git vs GitHub it's been said that GitHub is to Git. GitHub is designed as a Git repository hosting service. It is a Online database that allows you to keep track of and share your Git version control project outside of your local computer/server.
+
+GitHub is cloud hosting service that lets you manages Gitrepositories.
+

@@ -1,0 +1,56 @@
+What is Type Checking :--------------------
+Type checking is the process of verifying and enforcing the constraint of types and it can occur either at compile time( statically)  or at runtime (dynamically). Type checking is all about ensuring that the program is type safe meaning that the possibility of type errors is kept to a minimum.
+
+type error could be a situcation where an operation is performed on a data integer with the intent that it is a float or even something such as adding a string and an integer together.
+
+
+Static typed language :------------------------
+A language is statically typed if the type of  a variable is known at compiled time instead of at run time.
+Common examples of statically typed language included java C C++ FORTRON Pascal and Scala.
+
+In Statically typed language once a variable hash been declared with a  type it cannot ever be  assigned to some other variable  of different type and doing so will raise  a type error at compiled time.
+
+Adavantages :--------------------
+
+=> A large class of error are caught in the early stage of development process.
+=> Static typing usually results in compiled code that executes more quickly because when the compiler knows the exact data type that are in use it can produce optimized machine code
+
+
+
+
+Dynamically typed languages :--------------------------------
+A language is dynamically typed if the type of a variable is checked during run-time .Common example of Dynamically typed language includes javaScript Objective-C PHP Python Ruby Lisp Tcl,
+
+In Dynamically typed language variable are bound to objects at run time by means of assignment statement and it is possible to bind the same variable to object of different types during the execution of the program.
+
+
+
+Strongly typed languages :-----------------------------
+A strongly typed language is one in which variables are bound to specific data type and will result  in type errors if types do not match up as excepted in the expression regardless of when type checking occurs.
+
+	=>  Python is strongly typed and so is Java.
+
+
+
+
+
+FaceBook Integration in Android :---------------------------------------------------
+
+ About GraphAPI :----------------------
+The Android SDK has support for integrating with facebook Graph API. With the GraphRequest and GraphResponse classes you can make request and get response in JSON asynchronously. you can also make batch request with a single round trip to the facebook servers with GraphRequestBatch.
+
+
+GraphRequest Class :----------------------
+The graphRequest class has a new MeRequest method which calls the /user/me endpoint to fetch the user data for the given access token.
+
+Android SDK sends any permission your app has in the access_token and this control data acces. If your app has no available access token, Graph API returns only publicly available information.
+
+By default newMeRequest method fetches default from a user object. if you need any additional field or want to reduce the response payload for performance reason you can add fields parameter and request specific fields:
+
+
+
+
+
+
+
+

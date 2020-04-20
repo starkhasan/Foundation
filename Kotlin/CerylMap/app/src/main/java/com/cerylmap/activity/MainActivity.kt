@@ -1,4 +1,4 @@
-package com.cerylmap
+package com.cerylmap.activity
 
 import android.app.Activity
 import android.content.Context
@@ -12,6 +12,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.cerylmap.R
 import com.cerylmap.adapter.SearchAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONException
@@ -61,6 +62,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        btnMove.setOnClickListener {
+            startActivity(Intent(this@MainActivity,SecondActivity::class.java))
+        }
 
     }
 
@@ -161,22 +166,29 @@ class MainActivity : AppCompatActivity() {
             for (i in 0 until result!!.size) {
                 result[i]["description"]?.let { list.add(it) }
                 result[i]["reference"]?.let { hashMap.put("reference", it) }
-                map.add(hashMap)
+                map.add(
+                    hashMap
+                )
             }
 
 
             var searchAdapter : SearchAdapter = SearchAdapter(context as Activity,list){ position:Int, view:View ->
                 locality = map.get(position).get("reference").toString()
                 STREETNAME = list.get(position) as String;
-                var localityTask = GEtLocalityTask()
+                var localityTask =
+                    GEtLocalityTask()
                 localityTask.execute(locality);
-                var url = " https://maps.googleapis.com/maps/apin/place/details/jso?key=AIzaSyBcFpWT7vu4mLXbEPmkr5GJDG5jWBI67x0&placeid="+locality
+                var url = " https://maps.googleapis.com/maps/apin/place/details/jso?key=AIzaSyBcFpWT7vu4mLXbEPmkr5GJDG5jWBI67x0&placeid="+ locality
             }
 
 
-            rvSearch = (context as Activity).findViewById(R.id.rvSearchResult)
-            linearLayoutManager = LinearLayoutManager(context as Activity,LinearLayoutManager.VERTICAL,false)
-            rvSearch.layoutManager = linearLayoutManager
+            rvSearch = (context as Activity).findViewById(
+                R.id.rvSearchResult
+            )
+            linearLayoutManager = LinearLayoutManager(
+                context as Activity,LinearLayoutManager.VERTICAL,false)
+            rvSearch.layoutManager =
+                linearLayoutManager
             rvSearch.adapter = searchAdapter
 
             //activity.getBinding().rvSearch.setAdapter(adapter);
@@ -205,7 +217,8 @@ class MainActivity : AppCompatActivity() {
             super.onPostExecute(result)
             // Creating ParserTask
             // Starting Parsing the JSON string returned by Web Service
-            var localityParserTAsk = LocalityParserTAsk()
+            var localityParserTAsk =
+                LocalityParserTAsk()
             localityParserTAsk.execute(result)
         }
 
@@ -290,7 +303,9 @@ class MainActivity : AppCompatActivity() {
             if (hashMap.containsKey("administrative_area_level_1")) {
                 intent?.putExtra("state", hashMap.get("administrative_area_level_1"))
             }
-            intent?.putExtra("street_name", STREETNAME);
+            intent?.putExtra("street_name",
+                STREETNAME
+            );
         }
     }
 

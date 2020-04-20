@@ -84,6 +84,6 @@ class demo
 		for(int i=0;i<new_length;i++)
 			new_str+=str1[i];
 		d.reverse(new_str);
-
+		sc.close();
 	}
 }

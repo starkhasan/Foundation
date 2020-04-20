@@ -1,0 +1,112 @@
+Map Fragment :--------------------------------------
+A Map component in an app. This fragment is the simplest way to place a map in an application. It is a wrapper around a view of a map to automatically handle the nessary life cycle needs. Being a fragment htis component can be added to an activity layout file simply with the XML below.
+ 
+<fragment
+    class="com.google.android.gms.maps.MapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
+A GoogleMap must be acquired using getMapAsync(OnMapReadyCallback). This class automatically initializes the maps system and the view.
+
+
+Sample request and response :------------------
+you access the Direction API through an HTTP interface with requests constructed as a URL string using text string or latitude.longitude coordinate to identify along with your API key
+
+The following example request the driving direction from Disneyland to Universal Studio Hollywood in JSON format
+
+
+https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=YOUR_API_KEY
+
+
+
+The response returns the driving directions.
+
+
+Introduction :------------------------------
+The Direction API is a service that calculate directions between locations using an HTTP request
+
+with the Direction API you can 
+=> Search for direction for several modes of transportation including transit,driving walking or cycling
+=> returns mltipart directions using a series of way points
+=> Specidy origins (Chicago Darwin NT Australia)
+
+The API returns the most efficient routes when calculating directions. Travel time is the primary factor optimizing but the API may also take into account other factors such as distance number of turns and many more when deciding which route is the most efficient..
+
+
+
+Directions Requests :---------------------------------
+A Directions API request takes the following form:
+
+	https://maps.googleapis.com/maps/api/directions/outputFormat?parameters
+
+where outputFormat may be either of the following values:
+
+json  (recommanded) indicies output in JavaScript Object Notaions (JSON)
+xml indicates out as XML
+
+
+HTTPS or HTTP  => both can be used as per requirement.
+
+Request Parameters :
+Certain parameters are required while other are optional. As is standard in URLs all parameters are separated using the ampersand (&) character. The list of parameters and their possible values are below.
+
+Required parameters
+
+There are three important required paramter
+
+1) Origin
+
+=> If you pass an address the directions service geocodes thestring and convert it to a latitude/longitude coordinates directions. Thisi coordinated may be different from the returned by the Geocoding API
+
+	origin=24+Sussex+Drive+Ottawa+On
+
+=> if you pass coordinated they are used unchnaged to calculate directions Ensure that no space existed  between the latitude and longitude values.
+
+	origin=41.43206,-81.38992
+
+=> Place IDs must be prefixed with place_id:. the place ID may only be specified if the request includes an API key or Google Maps Platform Premium Plan Client Id.
+
+
+2) destination -
+The address textual latitude/longitude value or place ID to which you wish to calculate directions. The options for the destination parameter are the same as for the origin parameter descriebed above.
+
+
+3) Key
+TYour application API key this key identifies your application for purpose of quota managemnt
+
+
+
+Some of the Optionam Paramters :------------------------
+
+=> mode Specifies the mode of tansport to use when calculating directions.valid values and other request details are specified in Travel  Modes.
+
+=> waypoints - specifeis an array of intermediate locations to includes along the routs between the origin and destination points as pass through or stopper locations.
+
+
+
+Example Directions Requests :------------------------
+The following request returns driving directions from Tronoto,, Ontario to Montreal, Quebec
+
+https://maps.googleapis.com/maps/api/directions/json?
+origin=Toronto&destination=Montreal
+&key=YOUR_API_KEY
+
+BY Chaning mode and avoid paramter the initial reqest can be modified to return directions for a scenic bycycle that avoids major highways.
+
+https://maps.googleapis.com/maps/api/directions/json?
+origin=Toronto&destination=Montreal
+&avoid=highways
+&mode=bicycling
+&key=YOUR_API_KEY
+
+
+The following request return driving from Glasgow UK to Perth UK using place IDs
+
+
+Markers :------------------------------------------
+Markers indicates single locations on the map. You can customize your markers by changing the default color or replacing the marker icon with a custom image
+
+
+Marher indentify location on the map. The default marker uses a standard icon common to the Google Maps look and feel. It's possible to change the icon's color image or anchor point via the API.
+marker are object of type marker and are added to the amp with the GoogleMap.addmarker(markerOptions) methods.
+

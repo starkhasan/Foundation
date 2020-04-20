@@ -849,7 +849,7 @@ R.java is generated file by ADT or Android Studio. It will be located under app\
 	Compiling :--------------------
 This is where we will dig deeper When we run our code from the editor following process takes palce.
 
-1) java compiling Packaging
+1) Java compiling Packaging
 Android java code files compiles to .class files view javac command
 
 2) .class fiels gets converted to .dex
@@ -859,7 +859,7 @@ DEX files is memory efficient and loads very swiftly compared to JVM based .clas
 
 3) Packaging (.APK file)
 
-Packaging is done using android apkbuilder rool (APPT).It generated a .apk file from a DEX file + non-java libraries + zipped resources. The classes.dex file resource files are compressed by aapt (Android Asset Packaging Tool) This.apk file is what you run on android device and is distributed to all the major app stored after beign singned for release. User gets to download this files from Google Play Store and other app stored on their android powered device.
+Packaging is done using android apkbuilder rool (APPT). It generated a .apk file from a DEX file + non-java libraries + zipped resources. The classes.dex file resource files are compressed by aapt (Android Asset Packaging Tool) This.apk file is what you run on android device and is distributed to all the major app stored after beign Singned for Release. User gets to download this files from Google Play Store and other app stored on their android powered device.
 
 
 
@@ -874,7 +874,7 @@ For each app component that you create in your app you must declare a correspond
 <receiver> for each subclass of BroadcastReceiver
 <provider> for each subclass of Content provider
 
-if you subclass any of these components without declaring it in the manifest file the system cannot start it.
+If you subclass any of these components without declaring it in the manifest file the system cannot start it.
 
 The name of your subclass must be specified with the name attribute using the full packaging designation. an Activity subclass can be declared as follows:
 
@@ -908,7 +908,7 @@ An intent is a message defined by an Intent object that describes an action to p
 => Icons and labels
 A number of manifest elements have icon and label attributes for displaying a small icon and a text label, respectively, to users for the corresponding app component.
 
-=> Permissions
+=> Permissions :----------------------------------------------------------------------
 Android apps must request permission to access sensitive user data (such as contacts and SMS) or certain system features (such as the camera and internet access). Each permission is identified by a unique label. For example, an app that needs to send SMS messages must have the following line in the manifest:
 
 <manifest ... >
@@ -918,7 +918,8 @@ Android apps must request permission to access sensitive user data (such as cont
 
 
 
-=> Device compatibility
+=> Device Compatibility  :------------------------------------------------------------
+
 The manifest file is also where you can declare what types of hardware or software features your app requires, and thus, which types of devices your app is compatible with. Google Play Store does not allow your app to be installed on devices that don't provide the features or system version that your app requires.
 
 <uses-feature>
@@ -1101,7 +1102,7 @@ Activity resumed is that situation when it is actually visible to user means the
 
 
 => onPaused()
-Activity is called paused when it's content is not visible to user, in most case onPause9) method called by Android OS when user press Home button (center Button on Device) to make hide.
+Activity is called paused when it's content is not visible to user, in most case onPause() method called by Android OS when user press Home button (center Button on Device) to make hide.
 Activity also gets paused before stop called in case user press the back navigation button. The activity will go in paused state for these reasons also if a notification or some other dialog is overlaying any part (top or bottom) of the activity (screen). Similarly, if the other screen or dialog is transparent then user can see the screen but cannot interact with it. For example, if a call or notification comes in, the user will get the opportunity to take the call or ignore it.
 
 => Activity Stopped: onStop():

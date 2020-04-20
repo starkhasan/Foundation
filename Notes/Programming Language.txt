@@ -1,0 +1,79 @@
+About Programming Language :------------------------------------------------
+
+1) What is the difference Between the Functional Programming Language and Object Oriented Programming Language?
+
+Functional Programming is the programming technique that accentuates the functional factor required for creating and implementing the programs. OOP or the Object Oritented Programs are the conceptual programming techniquies that uses object as the key. The programming model used in functional prorgamming is a declarative programming model, while object orinted programming uses the impretive programming model. Infunctional program variable and functions are the main elements of the code, while in object oriented program objects and method are the key elements.
+
+
+Functional Programming ;---------------------------
+Functional programming also supports the programming language like List, Clojure Wolfram, Erlang, Hashkell, F#, R and other promininet and domain-specified Function programming is a great fit for data science work and R is the popular language among the data scientist.
+
+FP language can be translated well into an interactive enviroment which makes the understanding of code easier
+
+=> Functional programming provides advantages like efficiency lazy evaluation nested function  bug free code parallel programming. In simple language function programming is to write the function having statements to eceture a particular task for the application.
+
+=> The function can be easily invoked and reused atb any point. It also help the code to manage and the same thing or statements does not need to write again and again.
+
+=> Functional Programming based on different concept is 
+1) High Order Functions (HOF)
+2) Pure functions
+3) Recursion
+4) Strict and Non-strict Evaluation
+5) Type System
+6) Referential Transperency
+
+
+
+OOP (Object - Oriented Programming )
+
+=> Object orinted programming based on the main features that are 
+1) Abstraction :- It helps is letting the useful information or relevant data to a user which increase the effiency of the program and make the things information or relevant data to a user, which increase the efficency of the program and make the things simple
+
+2) Inheritance :- It helps in inheriting the method function properties and field of a base class in hte derived class
+3) Polymorphism It helps in doing one task in many ways with the heko of overloasing and overriding which is also known as compile time and run time polymorphism respectively
+4) Encapsulation :- it helps in hiding the irrelevant data from a user and prevents the user from unauthorized access.
+
+Object - oriented programming language are C++,C#, Java, Python,Ruby,PHP,Perl,Objective-C,Swift,Dart,Lisp etc,  In an object printed application object can be easily reused in another application. New objects can be easily created for the same class and code can be easily maintained and altered.
+
+It also has the feature of memory management It provides a great benefit in desiging large program which canbe easily divided into smaller parts and helps in distinguishing the components or pharses that needs to be executed or plnned in a certain way.
+
+
+
+
+
+
+
+
+What is the difference between Statically types language and compiled type language?
+
+1) Statically Types Language
+A language is statically types if the types of a variable is known at compiled time. For some language this means that you  as the programmer must specify that what type each variable is (Java, C, C++) other language offer some form of type interface the capability of the type system to deduce the type of a variable (HashKell Scala,Kolin)
+
+The main advantage here is that all kinds of checking can be done by the compiler and therefore a lot of trivial bugs caught at a very early stage
+
+Example C C++ Java Rust Go Scala
+
+
+
+Dynamic Types Language :----------------------------------------------------
+A language is dynamically types if the type is associated with run-time values and not names variable/fields/etc. This means that you as a programmer can write a little quicker because you do not have to specify types every time (unless using a statically-types language with type interface).
+
+ExamplePerl,Ruby,Python,JavaScript.
+
+
+
+=> Dart is pure obect oriented programming language.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

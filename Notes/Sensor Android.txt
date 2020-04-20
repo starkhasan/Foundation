@@ -1,0 +1,34 @@
+Sensor is a device module machine or subsystems whose purpose is to detect events or changes in its environment and send the information to other electronics.
+
+Most Android powered devices have built in sensors that measure motion orientation and various environmental conditions. These sensor are capable of providing raw data with high precision and accuracy and are useful if you want to monitor three dimensional
+
+Android platform support three broad categories of sensor:
+
+=>Motion sensors
+These sensors measure acceleration forces and rotational forces along three axes. This category includes accelerometers gravity gyroscopes and rotational vector sensors.
+
+=> Environmental sensors
+These sensors measure various environmental parameters such as ambient air temperature and pressure illumination and humidity. This category includes barometers photometers and thermometers.
+
+=> Position sensors
+these sensors measure the physical position of a device . This category includes orientation sensors and magnetometers.
+
+
+We can access sensors available on the device and acquire raw sensor data by using the Android sensor framework. The sensor framework provides several classes and interfaces that help you perform a wide varity of sensor related task.
+
+
+Android sensor framework lets you access many types of sensors . Some of these are Hardware-based and some are software-based
+
+1) Hardware based sensore are physical components built into handset or tablet device. They derived their data by directly measuring specific environmental property, such as acceleration geomagnetic field strength or angular change.
+
+2) Software based sensor are not physical devices although thry mimic hardware-based sensore. Software based sensore derive their data from one or more of the hardware-based sensore and are sometimes called virtual or synthetic sensore.
+Linear acceleration sensore and gravity sensore are example of the Software based sensore.
+
+
+
+Proximity sensore =>
+Meaure the proximity of an object in cm relative to the view screen of a device. This sensore is typically used to determine whether a handset is being held up to a person's ear.
+
+
+=> Sensore Framework
+We can access these sensore acquire raw sensore data by using the Android sensore framework. the sensore framework is part of the android.hardware package and include the following classes and interfaces:

@@ -49,13 +49,10 @@ class demo
                     System.out.println();
                 }
             }
-        }
-        catch(NumberFormatException ae){
+        }catch(NumberFormatException ae){
             System.out.println(ae.getMessage());
         }
-    
         sc.close();
-
     }
 }
 

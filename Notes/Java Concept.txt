@@ -1,0 +1,332 @@
+NullPointer Exception :------------------------------------------
+NullPointerException is a RuntimeException. In java a special null vaue can be assigned to an object reference. A NullPointerException is throws when an application attempts to use an object reference that has the null value. These include
+
+=> Calling an instance method on the object referred by a null reference.
+=> Accessing or modifying an instance field of the object referred by a null reference.
+=> it the reference type is an array type taking the length of a null reference.
+=> If the reference type is an array type, accessing or modifying the slots of a null reference.
+=> It the reference type is a subtype of Throwable, throwing a null reference.
+
+
+Application should throw instance of this class to indicate other illegal uses of the null object.
+
+Object obj = null;
+obj.toString()
+
+The code show one of the pitfalls of Java and the most common source of bugs. No object is created and the compiler does not detect it. NullPoinsterException is one of the most common exceptions throws in Java.
+
+
+Whhy do we need null?
+The reason we need it  is because many times we need to create an object reference before the object itself is created. Object references cannot exist without a value so we assign the null value to it
+
+public Person getPerson(boolean isWoman) {
+  Person person = null;
+  if (isWoman) {
+    person = createWoman();
+  } else {
+    person = createMan();
+  }
+  return person;
+}
+
+In the above code we want to create the Person inside the if-else but we also want to return the object references to the caller so we need to create the object reference outside of the if else because of the scoping rule in Java. Incorrent error-hadling and poor contract design can be a pitfalll with any programming language, This is also true for Java.
+
+
+Now we will describe how to prevent NullPointerException. We do not describe general techniques for how you should program Java, we just hope to make you more aware of null values, and to be more careful about generating them yourself.
+
+This list is not complete  -- there are no rules for preventing NullPointerException entirely in Java, because the standard libraries have  to be used  NullPointerException Also it is possible to observe an uninitialized final field in Java  so you can;t even treat a final field as being completely trusted during the object's creation.
+
+A good approach is to learn how to deal with NullpointerException first and become cometent with that. These suggestions wil help you to cause less NullPointerException but they don't replace the need to know about NullPointerException.
+
+
+
+Comparing string variable with a string literal
+
+When you compare a variable with a string literal, most of people would do that this way:
+
+Example	Code section 6.15: Bad comparison.
+
+if (state.equals("OK")) {
+  ...
+}
+Always put the string literal first:
+
+Example	Code section 6.16: Better comparison.
+
+if ("OK".equals(state)) {
+  ...
+}
+If the state variable is null, you get a NullPointerException in the first example, but not in the second one.
+
+
+2) Minimize the use of the keyword 'null' in assignment statements.
+String s = null;
+while (something) {
+    if (something2) {
+        s = "yep";
+    }
+}
+
+if (s != null) {
+    something3(s);
+}
+
+
+You can replace this with:
+
+boolean done = false;
+while (!done && something) {
+    if (something2) {
+       done = true;
+       something3("yep");
+    }
+}
+
+
+3) Check all reference obtained from 'untrusted' method
+Many method that can return a reference null reference. Make sure you check these.
+
+File file = new File("/etc");
+File[] files = file.listFiles();
+if (files != null) {
+    stuff
+}
+
+
+
+For each loop trap :-------------------------
+Beaware if you loop on an array or a collection in a for each loop
+
+Collection<Integer> myNumber = nuildNumbers();
+for(Integer myNumber : myNumber){
+	System.out.println(myNumber);
+}
+
+
+If the object is null, it does not just do zero loops, it throws a null pointer exception. So don't forget this case. Add an if statement or return empty collections:
+
+Example	Code section 6.23: Visit a collection safety.
+Collection<Integer> myNumbers = buildNumbers();
+if (myNumbers != null) {
+  for (Integer myNumber : myNumbers) {
+    System.out.println(myNumber);
+  }
+}
+
+
+
+
+
+
+
+=> What is the Difference Between the Relational Operator and Logical operator ?
+
+Relational operator are used to compare the values of two expressions.
+
+Logical operator are typically used with Boolean values
+
+
+
+13:51 29-02-2020
+
+As stated earlier each object has its own copies of the instance variables. this means that if you have two Box objects, each has its own copy of depth , width and height. It is important to understand that changes to the instance variable of one object have no effect on the instance variable of another.
+
+Example =>
+
+class Box {
+	double width;
+	double height;
+	double depth;
+}
+
+class BoxDemo2 {
+	
+	public static void main(String args[]) {
+	
+	Box mybox1 = new Box();
+	Box mybox2 = new Box();
+	double vol;
+	// assign values to mybox1's instance variables
+	mybox1.width = 10;
+	mybox1.height = 20;
+	mybox1.depth = 15;
+	/* assign different values to mybox2's
+	instance variables */
+	mybox2.width = 3;
+	mybox2.height = 6;
+	mybox2.depth = 9;
+	// compute volume of first box
+	vol = mybox1.width * mybox1.height * mybox1.depth;
+	System.out.println("Volume is " + vol);
+	// compute volume of second box
+	vol = mybox2.width * mybox2.height * mybox2.depth;
+	System.out.println("Volume is " + vol);
+        }
+}
+
+
+The output produced by this program is shown here:
+Volume is 3000.0
+Volume is 162.0
+As you can see, mybox1’s data is completely separate from the data contained in mybox2
+
+
+
+
+The class name followed by parentheses specifies the constructor for the class. A constructor defines what occurs when an object of a class is created.
+
+
+Assigning Object Reference Variables :-------------------------------
+
+Object reference act differently than you might expect when an assignment takes place.
+Box b1 = new Box();
+Box b2 = b1;
+
+b1 and b2 will both refer to the  same object.The assigment of b1 to b2 did not allocate any memory or copy any part of the original object.
+It simply makes b2 refer to the same object as does b1. Thus any changes made to the object through b2 will affect the object which b1 is referring since they are same object.
+
+
+
+Let's reexamined the new operator. As you know when you allocate an object you use the following general form 
+
+	class-var  = new classname();
+
+now you can understand why the parantheses are needed after the class name. What is actually happening is that the constructor for the class is being called. Thus in the line 
+
+	Box mybox = new Box()
+
+new Box() is calling the Box() constructor(). When you do not explicitly define a constructor for a class then java creates a default constructor for the class ..
+
+The default constructor automatically initializes all instance variable to their default values.
+
+
+
+This Keyword :-----------------
+Sometimes a methods will need to refer to the object that invoked it. To allow this java defines the this keyword this can be used inside any method to refer to the current object.
+				that is this is always a reference to the object on which the method was invoked. we can use this anywhere a reference to an object of the current class type is permitted.
+
+
+Instance Variable Hiding :-
+As we know it is illigal in java to declare two local variable with the same name inside the same or enclosing scopes.  However when a local variable has the same name as an instance variable the local variable hides the instance variable. 
+
+	this can be use it to resolve any namespace collision that might occur between instance variable and local variable.
+
+
+the finalized() Method   :------------------------------
+
+ Sometimes an object will need to perform some action when it is destroyed. For example if an object is holding some non-java resource such as file handle or character font then you might want to make sure these resource are free before an object is destroyed.
+
+
+class demo {  
+    public static void main(String[] args)   
+   {   
+       demo obj = new demo();   
+       System.out.println(obj.hashCode());   
+       obj = null;   
+       // calling garbage collector    
+       System.gc();
+   }   
+
+
+   @Override  
+   protected void finalize()   
+   {   
+       System.out.println("finalize method called");   
+   }   
+
+}  
+
+
+Abstraction in Java :-----------------------
+Data Abstraction is the property by virtue of which only the essential details are displayed to the user. The trivial or non-essetial units are not displayed to ther user
+
+
+
+abstract class A{
+    abstract void callme();
+}
+class B extends A{
+    @Override
+    public void callme(){
+        System.out.println("THis is mehtid");
+    }
+}
+class demo{
+    public static void main(String[] args) {
+        B b=new B();
+        b.callme();
+    }
+}
+
+
+
+Abstract classes and Abstract Method :-
+1) An abstract class is a class that is declared abstract keyword.
+2) An Abstract method is a method that declared without the implementation
+3) An abstract method may or may not have all abstract methods some of them can be concrete methods.
+4) There can be no object of an abstract class That is an abstract class can not be directly instatiated with the new operator.
+
+
+
+
+Interface in Java :------------------------------------------------------------
+Like a class aninterface can have methods and variable but the methods declared in an interface are by default abstract ( only method signatureno body)
+
+=> Interfaces specify what aclass must do and not how. It is the blueprint of the class.
+=> An interface is about capabilities like a player may be an interface and any  class implementing player must be able to (or must implement) move(). So it specifies a set of methods that the class has to implement.
+=> if a class implements aninterface and does not provide methods bodies for all functions specifies in the interface then the class must be declared abstract.
+
+interfae <interface_name>{
+
+	//delared constant fields
+	//declare method that abstract
+	// by default
+}
+
+
+To declare an interface use interface keyword. It is used to provide total abstract. That means all the methods in an interface are delared with in empty body and are public and all fields are public static and final by default.
+A class that implement interface must implement all the methods declared in the interface. To implement interface use implements keyword.
+
+
+Why do we use Interface ? 
+=> It is used to achieve total abstraction.
+=> Sine java does not support multiple inheritance in case but by using interface it cam achieve multiple inheritance
+=> It is also used to aheive loose coupling
+=> Interface are used to implement abstraction. So question arises why use interfaces when we hae abstract classes (the reseon is abstract classes may contain non-final variable whereas variable in interface are final public static).
+
+
+
+
+
+Java Strictfp keyword :-----------------------------------------------------
+
+In java floating point representations and computations are platform dependent strictfp modifier ensures that all floating point operations across different JVMs and platform will provide consistent and same result predicted by IEEE 754.
+
+When we use strictfp performs floating-point computations using values that can be represented by a standard Java float or double guaranteeing that the result of the computations will match exactly across all JVMs and platforms.
+
+Legal code for strictfp keyword :-
+
+The strict keyword can be applied on methods classes and interfaces / 
+The strictfp keyword cannot be applied an abstract method variable or constrcutor.
+
+
+
+Example of strictfp :-----
+
+strictfp class demo{
+    public static void main(String[] args) {
+        double MAX = Double.MAX_VALUE; 
+        System.out.println(Double.MAX_VALUE - 1);   
+    }
+}
+
+
+1.7976931348623157E308
+
+
+
+
+
+
+Inheritance in Java :------------------------
+Member Access and Inheritance:-  Although a subclass all of the member of its superclass it cannot access those members of the superclass that have been declared as private.

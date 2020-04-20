@@ -1,11 +1,9 @@
-package com.cerylmap
+package com.cerylmap.activity
 
 import android.content.Context
-import android.net.wifi.WifiConfiguration.AuthAlgorithm.strings
 import android.os.AsyncTask
 import android.util.Log
 import java.io.BufferedReader
-import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
@@ -33,7 +31,12 @@ class FetchURL(var mContext: Context?) : AsyncTask<String, Void, String>() {
 
     override fun onPostExecute(s: String?) {
         super.onPostExecute(s)
-        val parserTask = mContext?.let { PointsParser(it, directionMode) }
+        val parserTask = mContext?.let {
+            PointsParser(
+                it,
+                directionMode
+            )
+        }
         // Invokes the thread for parsing the JSON data
         parserTask?.execute(s)
     }

@@ -1,4 +1,4 @@
-package com.cerylmap
+package com.cerylmap.activity
 
 import com.google.android.gms.maps.model.LatLng
 import org.json.JSONArray

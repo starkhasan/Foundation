@@ -78,10 +78,10 @@ class demo
     }
     public void swap(Node temp)
     {
-        {
-        if(temp==null)
+        if(temp==null){
             return;
         }
+        
         Node temp1=temp.left;
         temp.left=temp.right;
         temp.right=temp1;

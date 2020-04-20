@@ -1,5 +1,3 @@
-package com.cerylmap
-
 import com.google.android.gms.maps.model.PolylineOptions
 
 

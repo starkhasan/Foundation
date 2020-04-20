@@ -53,24 +53,21 @@ class demo
 		temp.next=new_node;
 		new_node.prev=temp;
 	}
-	public static void main(String [] args)
-	{
+	public static void main(String [] args){
 		
 		Scanner sc=new Scanner(System.in);
 		demo d=new demo();
 		System.out.println("Enter Size : ");
 		int list_size=sc.nextInt();
 		System.out.println("Enter Element in List : ");
-		for(int i=0;i<list_size;i++)
-		{
+		for(int i=0;i<list_size;i++){
 			d.insert(sc.nextInt());
 		}
-
 		d.display();
 		System.out.println("Enter Last Element : ");
 		int last_ele=sc.nextInt();
 		d.add_last(last_ele);
 		d.display();
-
+		sc.close();
 	}
 }

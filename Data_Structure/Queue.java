@@ -81,7 +81,8 @@ class demo
 		int data=d.remove();
         System.out.print("\nData Removed from Queue : "+data);
         System.out.println("\n\nQueue After Deletion First Element ");
-        d.show();
+		d.show();
+		sc.close();
 
 	}
 }

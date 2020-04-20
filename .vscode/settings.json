@@ -1,4 +1,5 @@
 {
     "gitlens.currentLine.format": "${Ali Hasan}, ${agoOrDate} • ${message}${author}",
-    "gitlens.hovers.currentLine.over": "line"
+    "gitlens.hovers.currentLine.over": "line",
+    "python.pythonPath": "D:\\Python\\python.exe"
 }

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Ceryl</string>
+    <string name="Open">open</string>
+    <string name="Close">close</string>
+    <string name="facebook_app_id">390142861663637</string>
+    <string name="fb_login_protocol_scheme">fb390142861663637</string>
+
+
+    <string-array name="country">
+        <item>India</item>
+        <item>Australia</item>
+        <item>Canada</item>
+        <item>China</item>
+        <item>Pakistan</item>
+    </string-array>
+</resources>

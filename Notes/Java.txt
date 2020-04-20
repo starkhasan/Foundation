@@ -18,6 +18,27 @@ It includes  programs that do real work for user . example => word processors, s
 
 
 
+=> The Birth of Modern Programming Language :-------------------------------------
+The C language shook the compiter world. Its impact should not be underestimated because it fundamentally changed the way programming was approached and thought about. The creation of C was direct result of the need for a structured efficient high-level language that could replace assembly code when creating programs. As you probably know when a computer language is designed trade offs are often made such as the followings :---------------
+
+1) Ease of use versus power
+2) Safety versus efficiency
+3) Rigidity versus extensibility 
+
+
+
+Computer language innovation  and development occurs for two fundamental reasons:
+=> To adapt to changing enviroment and uses
+=> To implement refinements and improvements in the art of programming
+
+Java's Lineage :-
+java is realated to C++ which is a direct descendant of C. Much of the character of  java inherited from these two language.
+From C java derived its syntex Many of java object-oriented feature were influenced by C++.
+
+
+
+
+
 	The History and Evolution of Java :---------------------
 
 Somewhere surprisingly the original impetus for java was not the Internet! Instead the primary motivation was the need for a platform-independent (that is architecture-neutral) language that could be used to create software to be embedded in various consumer electronic  devices, such as microwave ovens and remote controls.
@@ -27,7 +48,7 @@ The second force was ofcourse the World Wide Web (WWW).
 
 
 
-Platform ::- Any Hardware or Software enviroment in which a program runs, is known as a platform.
+Platform :- Any Hardware or Software enviroment in which a program runs, is known as a platform.
 
 
 	Platform Independence :---------------
@@ -38,10 +59,6 @@ it is important to note that some language are platform independent at source co
 While you execute Java programs, they are interpreted by a program named as Java Run-time Environment (JRE) which is platform dependent in nature. Here I consider  the term platform as a combination of underlying hardware and operating system. There are different JREs for different platforms. For example I can run the same  Java program within my PC (  windows + Pentium 4 processor),  laptop( Linux + Core i3 processor) and Raspberry Pi (Linux + ARM) without even recompiling. This is not the case for other languages without a virtual machine associated with them. An example will be Turbo C. The Turbo C compiler will produce a platform dependent executable so that you have to compile them for each platform. While in the case of java compiler (javac), it will produce byte codes instructions within class files that can be executed (interpreted + JIT compilation) by JRE which is present within target platform.
 How platform independence helps software developers
 
-
-
-First  compiled to bytecode a program called javac as shown in hte left section of the  imgage
-Then as shown in the right section another program called java starts the java runtime environment and it may compile and / or interpret the bytecode by using the java interpreter JIT compiler.
 
 
 =====================================
@@ -82,7 +99,7 @@ Hence JRE in only used by them who only wants to run the java program end users 
 
 	JVM :--------------
 
-Java Virtual Machine(JVM) is a very important part of both JDK and JRE because it is contained or inbuilt in both. Whatever java program you run using JRE or JDK goes into JVM and JVM is responsible to execute the java program line by line hence it is also known as interpreter(we will discuss about interpreter later). Hence you don't need to install JVM separately into your machine because it is inbuilt into your JDK or JRE installation package.
+Java Virtual Machine(JVM) is a very important part of both JDK and JRE because it is contained or inbuilt in both. Whatever java program you run using JRE or JDK goes into JVM and JVM is responsible to execute the java program line by line hence it is also known as interpreter . Hence you don't need to install JVM separately into your machine because it is inbuilt into your JDK or JRE installation package.
 
 =====================================
 
@@ -279,7 +296,7 @@ Java generally satisfies almost all the conditions except condition #5 as Java s
 
 
 
-> Two paradigms 
+=> Two paradigms 
     All computer program consist of two elements : Code and Data
     there  are two paradigms that governs how a program is constructed.
     1) Process-oriented model
@@ -1465,8 +1482,28 @@ Anonymous object means nameless. An object which has no reference is known as an
 
 
 2) Class
-Collection of objects is called class. It is a logical entity.
 
+A Simple Class :-
+Let's begin our study of the class with a simple example. Here is a called Box that defines three instance variable width, height and depth. Currently Box does not contain any methods
+
+class Box{
+	doble width;
+	double height;
+	double depth;
+}
+As stated a class defines a new type of data. In this case the new data type is called Box. you will use this name to declare object of type Box.
+It is important to remember that a class declaration only creates a template it does not create an actual object.
+
+Box mybox  = new Box()  //Creating a Box object called mybox
+After this statement executes mybox will be an instance of Box. This it will have physical reality.
+As mentioned earlier each time you create aninstance of a class you are creating an obejct that contains its own copy of each instance variable defied by the class.
+
+
+
+
+
+
+Collection of objects is called class. It is a logical entity.
 A class can also be defined as a blueprint from which you can create an individual object. Class doesn't consume any space.
 
 3) Inheritence

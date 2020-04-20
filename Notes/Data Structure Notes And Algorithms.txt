@@ -1,0 +1,228 @@
+Introduction :------------------------------
+Data Structure can be  defined as the group of data element which provides an efficient way of storing and organizing data in the computer so that it can be  used efficiently. SOme examples of data struture are array LinkedList, Stack , Queue etc. Data Structure are idely used in almost every aspet of Computer Science. operating System, Compiler Design Artificial Intelligence Graphics and many more.
+
+Data Structure are main part of may computer algorithm as they enable the programmer to handle the data in efficient way. It plays a vital role in enhancing the performance of a software or a program as the main functions of the software is to store and reterive the user's data as fast as possible.
+
+A data structure is specialized format for organizing processing reteriving and storing data.While there are several basic and advances structure types, any data structure is designed to arrange data to split purpose so that it can be accessed and worked with in appropriate ways.
+
+
+
+
+Characteristics of data structures :---------------------------------
+Data Structure are oftem classified by their characteristics. Possible characteristics are :-
+
+=> Linear or non-linear
+This characteristics describes whether the data item are arranged in chronological sequence , such as with an  array or in an unordered sequence such as with a graph.
+
+=> Homogeneous or non homogeneous: This characterics describes whether all data items in a given repository are of the same types or of various types.
+
+=> static or dynamic
+This characteristics describes how the data structures are compied. Static data structure have fixed sizes structures and memory location at compiled time. Dynamic data structure have sizes structures and memory location that can shrink or expand depending on the use.
+
+
+
+
+Adavantages of the data structure :-----------------------------------------------
+Efficiency :-
+Efficiency of a program depends upon the choie of the data structure . suppose we have some data and we need to perform the search for a particular records. In that case if we organized our data in an array we will have to search sequentially element by element hence using array may not be very effiient here. There are better data structure which can make the search process efficient like ordered array binary tree or hash tables.
+
+Reusability :-
+Data Structure are reusable once we have implemented a particular data structure we can use it any other place implementation of data structure can be compiled into libraries which can used by different clients.
+
+
+
+Classification of the Data Structures :-------------------------------------------
+
+Data Struture Classified in to two different types :-
+1) Primitive Data Structure   (integer Float Character Boolean)
+2) Non Primitive Data Struture
+
+Non Primitive Data Structure are further divided in to two parts
+1) Linear Data Structure
+2) Non Linear Data Structure
+
+Linear Data Structure :-------------------------------------
+A Data Structure is called of all of its element are arranged in the linear order. In linear data struture the elementare stored in non hierarchical way where each element has  the successors and predessor except the first and last element.
+
+
+Types of Linear Data Struture are :-
+1) Array 
+2) Linked List
+3) Stack
+4) Queue
+
+
+Non Linear Data Strutures :----------------
+This data structure does not form a sequece each item is conneted with two or more items in non linear arrangement. The data element are not arranged in equential structure.
+
+types of Non Linear Data Structure are given below :---------------------
+
+1) Trees
+2) Graph
+
+
+
+Operations of Data Structure :-----------------------------------------------
+
+1) Traversing
+Every data structure contains the set of data structure Traversing the data structures means visiting each element of the data structure in order to perform some speified operations like searching or sorting.
+
+
+2) Insertion :-
+Insertion can be defined as the process of adding the element to the data structure at any location
+
+3) Deletion :-
+The process of removing an element fromthe data structure is called Deletion. We can delete element from the data structure at any random location
+
+4) Searching :-
+The process of finding the location of an element within the data structure is called Searcning. These are two algorithm to perform searching Linear Search and Binary Search. We will disuss one of them later in this tutorial.
+
+5) Sorting :-
+The process of arraning the data structure in a specified order is known as Sorting. There are many algortihm  that can be used to perform sorting forexample insertion sort selection sort bubble sort.
+
+6) Merging :-
+When two List A and List B of size M and N respectively if similat type of element, cludded or joined to produced the third list List C of size (M+N) then this process is called merging.
+
+
+ => Linked List Implementation Using Java :-
+
+Syntax 
+
+class Node{
+ 	Node next;
+	int data;
+	Node(int data){
+		this.data = data;
+		next = null;
+	}
+}
+
+
+Binary Search Tree :------------------------------------------
+
+Binary Searh Tree is a node-based tree data structure which has the following properties:
+=> The left subtree of node contains only nodes with the keys lesser than node's key
+=> The right subtree of a node ontains only nodes with keys greater than the node's key.
+=> The left and right subtree eah must also be a binary search tree.
+There must be no duplicate element.
+
+The main operation ini binary tree are :- search ,  insert and delete. We will see the worst case time complexity of these operations in binary trees.
+
+Binary Tree :-
+In a binary tree a node can have maximum teo children.
+
+Searching :- For searching element we have to traverse all element (assuming we do breadth first traversal) Therefore searching in binary tree worst case complexity of O(n).
+
+Insertion :- For inserting element as left child of 2 we have to traverse all element .  Therefore insertion in binary tree has worst base complexity of O(n).
+
+Deletion For deletion of element 2 we have to traversal all elements to find 2 (assuming we do breadth first traversal) Therefore deletion in binary tree has worst case complexity of O(n).
+
+
+
+What is Breadth First Search :----------------------------------
+The Breadth First Search (BFS) is an algorithm for traversing or searching tree or graph data structures. It explore all the nodes at the present depth before moving on the nodes at the next depth level.
+
+It an be implemented using a queue.
+
+As the name BFS suggestes you are required to treaverse the graph breadthwise as follows:
+
+1) First move horizontally and visit all the nodes of the current layer
+2) move to the next layer
+
+
+Time complexity :-----------------
+The Time omplexity of BFS if the entire tree is traversed if O(V) where V is the number of nodes. In the case of a graph the time cimplexity is O(V+E) where V is the number of vertexes and the E is the number of edges.
+
+
+
+
+
+
+Divide and Conquere :------------------------------------------------------------
+Mnay useful algorithm are recursive in structure: to solve a given problem they call themselves one or more times to deal with losely related sub problems. these algorithm typically follow divide and conquer approaches: they break the problem into several subproblems that are similar to the original problem but smaller in size solve the subproblem recursively and then combine these solutions to create a solution to the original problem.
+
+
+the divide and conquer paradigms involes three steps at each level of the recursion:
+Divide : the problem into a number of subproblem that are smaller instanes of the same problem.
+
+Conquer : the subproblem by solving them recursevely. If the subproblem sizes are small enough however just solve the subproblem in a straightforword manner.
+
+Combine: the solutions to the subproblem into the solution for the original problem.
+
+
+
+Insertion sort on small array in merge sort :-------------------------
+Although merge sort runs in nlogn worst case time and insertion sort runs in n^2 worst case time the constant factors in insertion sort can make it faster in practice for small problem sizes on many machines.
+
+
+
+
+Quick Sort Algorithm :-----------------------------------------------------------
+Quik Sort is an effiient sorting algorith. Developed by British computer scientist Tony Hoare in 1959 and published in 1961. It is still a commonly used algorithm for sorting. When implemented well it can be about two or three times faster than its main competitors merge sort and heapsort.
+
+Quicksort is a divide-and-conquer algorithm. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. The sub-arrays are then sorted recursively. This can be done in-place, requiring small additional amounts of memory to perform the sorting.
+
+There are many different version of quick sort that pick pivot in different ways.
+
+1) Always pick first element as pivot
+2) Always pick last element as pivot
+3) Pick a random element as pivot
+4) Pick median as pivot.
+
+
+Formal Analysis :--------------------------------
+
+Worst Case Analysis :---------------------
+The most unbalanced partition occurs when one of hte sublists returned by the partitioning routine is of size n-1. this may occur if the pivot happens to be smallest or largest element in the list or in some implementations.
+
+If this happens repeatedly in every partition then each recursive call processes a list of size one less than the previous list. Consequently we can make n-1 nested calls before we reach a list of size 1.
+This means that the call tree is linear chain of n-1 nested calls. the ith call does O(n-1) work to do the partition, and so in that case Quicksort takes O(n²) time. 
+
+
+Best-case analysis
+In the most balanced case, each time we perform a partition we divide the list into two nearly equal pieces. This means each recursive call processes a list of half the size. Consequently, we can make only log2 n nested calls before we reach a list of size 1. This means that the depth of the call tree is log2 n. But no two calls at the same level of the call tree process the same part of the original list; thus, each level of calls needs only O(n) time all together (each call has some constant overhead, but since there are only O(n) calls at each level, this is subsumed in the O(n) factor). The result is that the algorithm uses only O(n log n) time.
+
+Average-case analysis
+To sort an array of n distinct elements, quicksort takes O(n log n) time in expectation, averaged over all n! permutations of n elements with equal probability. We list here three common proofs to this claim providing different insights into quicksort's workings.
+
+
+
+
+
+Selection Sort Algortihm :-------------------------------------------------
+In computer science selection sort is an in-place comparision sorting algorithm. It has an O(n^2) time complexity which makes it inefficient on large lists and generally performs worse than the similar insertion sort.
+
+Worst complexity => O(n^2)
+Average complexity => O(n^2)
+Best complexity => O(n^2)
+
+Space Compleity => O(1)
+
+
+
+
+Binary Search :-------------------------------------------
+
+In Computer Science Binary search also known as half interval search logarithmic search orbinary chop is a search algorithm that finds the position of target value within a sorted array. Binary search compares the target value to the middle element of the array. If they are not equal the half in which the target cannot lie is estimated and the searh continues on the remaining half asin taking middle element to compare to the target value and repeating this until the target value is found. if the search ends the remaining half beign empty the target is not in the array.
+
+
+Binary search runs in logarithmic time in the worst case, making O(log n) comparisons, where n is the number of elements in the array, the O is Big O notation, and log  is the logarithm. Binary search is faster than linear search except for small arrays. However, the array must be sorted first to be able to apply binary search. There are specialized data structures designed for fast searching, such as hash tables, that can be searched more efficiently than binary search. However, binary search can be used to solve a wider range of problems, such as finding the next-smallest or next-largest element in the array relative to the target even if it is absent from the array.
+
+
+Queation :- Find next-smallest or next-largest element 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
