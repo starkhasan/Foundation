@@ -636,17 +636,3 @@ class Demo{
         sc.close();
     }
 }*/
-class Demo{
-
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter Number : ");
-        int ar_size = sc.nextInt();
-        int ar[]=new int[ar_size];
-        System.out.println("Enter the Element in Array : ");
-        for(int i=0;i<ar_size;i++){
-            ar[i]=sc.nextInt();
-        }
-        sc.close();
-    }
-}
