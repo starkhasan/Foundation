@@ -115,6 +115,7 @@ class Demo{
         }
         int leftDepth = height(focusNode.left);
         int rightDepth = height(focusNode.right);
+    
         int max=0;
         if(leftDepth>rightDepth){
             max = leftDepth+1;
@@ -501,3 +502,151 @@ class Demo{
     }
 }
 */
+
+/*
+public class Demo 
+{ 
+  final int MAX = 100; 
+  final int NIL = -1; 
+  
+  int lookup[] = new int[MAX]; 
+  
+  
+  void _initialize() 
+  { 
+    for (int i = 0; i < MAX; i++) 
+        lookup[i] = NIL; 
+  } 
+  
+  
+  int fib(int n) 
+  { 
+    if (lookup[n] == NIL) 
+    { 
+      if (n <= 1) 
+          lookup[n] = n; 
+      else
+          lookup[n] = fib(n-1) + fib(n-2); 
+    } 
+    return lookup[n]; 
+  } 
+  
+  public static void main(String[] args) 
+  { 
+    Demo f = new Demo(); 
+    int n = 6; 
+    f._initialize(); 
+    System.out.println("Fibonacci number is" + " " + f.fib(n));
+  }   
+} 
+*/
+/*
+class Demo{
+
+    final int MAX = 100; 
+    final int NIL = 1;
+    int lookup[] = new int[MAX];
+
+    void initialize(){
+        for(int i=0;i<MAX;i++){
+            lookup[i] = NIL;
+        }
+    }
+
+    public int fact(int n){
+        if(lookup[n] == NIL){
+            if(n<=1){
+                lookup[n] = NIL;
+            }else{
+                lookup[n] = n * fact(n-1);
+            }
+        }
+
+        return lookup[n];
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Demo d=new Demo();
+        d.initialize();
+        System.out.println("Enter the Number : ");
+        int number = sc.nextInt();
+        int result = d.fact(number);
+        System.out.println("Result =  "+result);
+    }
+}
+*/
+/*
+class Demo{
+    public static void main(String[] args) {
+        Demo d=new Demo();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of Array : ");
+        int ar_size = sc.nextInt();
+        int[] ar = new int[ar_size];
+        for(int i=0;i<ar_size;i++){
+            ar[i] = sc.nextInt();
+        }
+
+        int[] a = new int[5];
+        int one=0,two=0,three=0,four=0,five=0;
+        for(int i=0;i<ar.length;i++){
+            switch(ar[i]){
+                case 1:
+                    one++;
+                    a[0] = one;
+                    break;
+                case 2:
+                    two++;
+                    a[1] = two;
+                    break;
+                case 3:
+                    three++;
+                    a[2] = three;
+                    break;
+                case 4:
+                    four++;
+                    a[3] = four;
+                    break;
+                case 5:
+                    five++;
+                    a[4] = five;
+                    break; 
+                default:
+                    break;              
+            }
+        }
+
+        int max=0,pos=0;
+        for(int i=0;i<5;i++){
+            if(a[i]>max){
+                max=a[i];
+            }
+        }
+
+        for(int i=0;i<a.length;i++){
+            if(a[i]==max){
+                pos=i;
+                break;
+            }
+        }
+
+        System.out.print("Result = "+(pos+1));
+        //d.sortArray(a);
+    
+        sc.close();
+    }
+}*/
+class Demo{
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Number : ");
+        int ar_size = sc.nextInt();
+        int ar[]=new int[ar_size];
+        System.out.println("Enter the Element in Array : ");
+        for(int i=0;i<ar_size;i++){
+            ar[i]=sc.nextInt();
+        }
+        sc.close();
+    }
+}

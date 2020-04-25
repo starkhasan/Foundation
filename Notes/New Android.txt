@@ -1,3 +1,12 @@
+Hiding the SoftKeyboard Programatically :-----------------------------------------------------------
+public void hideSoftKeyboard(View v) {
+        InputMethodManager inputManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(v.getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
+}
+
+
+
 Adding GIF image in an ImageView in Android :----------------------------------
 Adding GIF in adndroid easily using the library
 

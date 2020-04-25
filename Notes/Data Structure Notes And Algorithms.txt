@@ -217,6 +217,81 @@ Queation :- Find next-smallest or next-largest element
 
 
 
+Dynamic Programming :-----------------------------------------------------------------------
+Dynamic Programming is mainly an optimizationover plainrecursion. Wherever we see a recursion solution that has repeated calls for same inputs , we can optimize it using Dynamic Progamming. The idea is to simply store the result of subproblems so that we do not have to recomputer them when needed later. This simple optimization reduces time complexities from exponential to polynomial. For example if we write simple recursion solution for Fibanacci numbers, we get exponential time complexity and if we optimize it by storing solutions of subproblems, time complexities reduces to linear.
+
+If sub-problem can be nested recursively inside larger problem, so that dynamic programming method are applicable then there is a relation between the value of the larger problem and the value of the sub-problem. In the Optimization literature this relatioship is called the Bellman equation.
+
+
+Dynamic programming How to solve Dynamic Programming problems :-
+There are following two different ways to store the values so that the values of a sub-problem can be reused. Here will discuss two pattern of solving DP problem:
+
+1) Tabulation  :  Bottom Up
+2) Memoization :  Top Down
+
+
+
+Tabulation Method - Bottom Up Dynamic Programming:-------------
+As thename itself suggestes starting from the bottom and cumulating answer to the top. Let's discuss in term of state transition.
+Let's desribe a state for our DP problem to be dp[x]  with dp[0] as base state and dp[n] as our destination state, we need to find the value of destination state dp[n].
+If we start our transition from our base state dp[0] and follow our state transition relation to reach our destination state dp[n] we call it Bottom up Approach as it is quite clear that we started our transition from the bottom base state and reached the top most desired state.
+
+To know this let’s first write some code to calculate the factorial of a number using bottom up approach. Once, again as our general procedure to solve a DP we first define a state. In this case, we define a state as dp[x], where dp[x] is to find the factorial of x.
+
+Now, it is quite obvious that dp[x+1] = dp[x] * (x+1)
+
+// Tabulated version to find factorial x.
+int dp[MAXN];
+
+// base case
+int dp[0] = 1;
+for (int i = 1; i< =n; i++)
+{
+    dp[i] = dp[i-1] * i;
+}
+
+
+
+
+Memoization Method  Top Down Dynamic Programming :-----------------
+Once again let's describe it in term of state transition. If we need to find the value for some state say dp[n] and instead of starting from the base state that dp[0] we ask our answer from the states that we can reach the destination state dp[n] following the state transition relation then it is topdown fashion of DP.
+
+
+Once again, let’s write the code for the factorial problem in the top-down fashion
+
+// Memoized version to find factorial x.
+// To speed up we store the values
+// of calculated states
+
+// initialized to -1
+int dp[MAXN]
+
+// return fact x!
+int solve(int x)
+{
+    if (x==0)
+        return 1;
+    if (dp[x]!=-1)
+        return dp[x];
+    return (dp[x] = x * solve(x-1));
+}
+
+
+Overlapping subproblem :--
+In computer science  a problem is said to have overlapping subproblem can be broken down into subproblem which are reused several times or a recursive algorithm for the problem solves the same subproblem over and over rather than always generating new subproblems.
+
+Dynamic Programming combines solutions to sub problem. Dynamic Programming is mainly used when solutions of same subproblem are needed again and again. In dynamic programming computed solutions to subproblem are stored in a table so that these don't have to be recomputed. Sp Dynamic Programming is not useful when there are no common subproblem because there is no point storing the solutions if they are not needed again.
+
+
+
+
+=> Difference Between the Tabulation(Bottom Up Approache) and Memoization (Top Down Approache)
+
+
+Optimal Substructure :-------------------------
+In computer science a problem is said to have optimal substructure if an optimal solution can be constructed from optimal solution of its subproblems. This property is used to determine the usefulness of dynamic programming and greedy algorithm for a problem.
+
+
 
 
 
