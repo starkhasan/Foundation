@@ -157,7 +157,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String str_dest = "destination=" + dest.latitude + "," + dest.longitude;
         String parameters = str_origin + "&" + str_dest;
         String output = "json";
-        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters+"&mode=walking&key=AIzaSyBcFpWT7vu4mLXbEPmkr5GJDG5jWBI67x0";
+        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters+"&mode=walking&key=YOUR_API_KEY";
         return url;
     }
 
