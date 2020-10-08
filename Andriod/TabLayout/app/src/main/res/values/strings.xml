@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TabLayout</string>
+    <string name="google_maps_key"
+        templateMergeStrategy="preserve" translatable="false">AIzaSyBp7D1ltNA_ko5YToxljvblz_Ffg0v0OZU</string>
+</resources>

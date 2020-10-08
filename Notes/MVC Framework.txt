@@ -24,3 +24,31 @@ Controller act as interface between Model and View components to process all the
 
 In MCV the View layer only know how to show the user interface (UI). If any data is needed for this it get it from the model layer. But the View does not directly ask the model to find the data, it does it through the Controller So the Controller calls the Model to provide the reqired data for the View.Once the data is ready the Controller inform the View that the data is ready to be acquired from the Model.
 Now View can get the data from the Model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

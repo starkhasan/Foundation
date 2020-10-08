@@ -176,7 +176,7 @@ class demo{
 Generic Functional Interfaces :-------------------------------
 
 A lambda expression itself cannot specifies type parameters. Thus a lambda expression cannot be generic. OfCourse because type interface all lambda expression exibit some "generic-like qualities.)
-	 However the functional interface associated with a lambda expression can be generic. In this case the target type of the lambda exression is determined in part by the type argument or arguments specied when functional interace reference is declared.
+	 However the functional interface associated with a lambda expression can be generic. In this case the target type of the lambda expression is determined in part by the type argument or arguments specied when functional interace reference is declared.
 
 
 
@@ -219,7 +219,7 @@ interface SomeFunc<T>{
 	T func(T t);
 }
 
-Hre T specifies both the return type and the parameter type func(). This means that is is compatible with any expression that takes one parameter and returns a value of the same type.
+Here T specifies both the return type and the parameter type func(). This means that is compatible with any expression that takes one parameter and returns a value of the same type.
 
 
 

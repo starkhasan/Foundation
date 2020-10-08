@@ -1,0 +1,885 @@
+Numpy is the fundamental package for scientific computation in Python.
+It is Python library that provides a multidimensional array object various derived objects (such as masked array and matrices) and an assorment of routines for fast operations on arrays, including mathematical logical shape manipulation sorting selecting I/O diecrete Fourier transformation basic linear algebra basic statistical operation random simulation and much more.
+
+At the core of the Numpy package is th ndarray object, This encapsulates n-dimnesional arrays of homogeneous data types with many operations being performed in compiled code for performance. There are several difference between Numpy arrays and the standard Python sequences:
+
+
+=> Numpy array have a fixed size at creation unlike Python list (which can grow dynamically) changing the size an ndarray will create a new array and delete the original.
+
+=> the element in numpy array are all required to be  the same data type and thus will be the same size in memory. The exception one can have array of (Python including Numy) object thereby allowing for arrays of different sized elements.
+
+=> Numpy arrays facilitate advanced mathematical and other types of operations on large numbers of data. Typically such operations are executed more efficiently and with less code is possible using Python's built-in-sequence.
+
+
+
+Numpy main object is the Homogneous Multidimensional array. It is a table of element (usually numbers) all of the same type indexed by a tuple of non negative integers. In Numpy dimensions are called axes.
+
+Numpy's array class is called ndarray. It is also known by the alias array.Note that numpy.array is not the same as the Standard Python Library class array. Array which only handles one-dimensional array and offer less functionality. The more important attributes of an ndarray object are:
+
+ndarray.ndim
+th number of axes (dimensions) of the array
+
+ndarray.shape
+the dimensions of the array. This is tuple of integers indicating the size of the array in each dimension. For a matrix with n rows and m column shape will be (n,m).
+
+
+
+Numpy arrays are bit like Python list but still very much different at the same time.
+
+=> Create a Numpy Array 
+Simplest way to create an array in Numpy is to use Python List
+
+myPythonList = [1,9,8,4]
+
+to convert python list to numpy array by using the object np.array
+
+numpy_array_from_list = np.array(myPythonList) 
+
+
+Th more important attributes of an ndarray object are :---------------------------------
+
+=> ndarray.ndim
+the number of axes (dimensions) of the array
+
+=> ndarray.shape
+the dimension of the array. this is a tuple of integer indicating the size of the array in each dimension. For a matrix with n row and m column shape will be (n,m) The length  of th shape tuple is therefore the  number  of axes ndim
+
+=> ndarray.size
+the toal number of element of the array. this is equal to the product of the elements of shape
+
+=> ndarray.dtype
+an object describes the type of the elements in the array.
+
+Example  =>
+import numpy as np
+new_list = [1,2,3,4,5,5]
+print('this is my ordinary list = ',new_list)
+
+numpy_array = np.array(new_list)
+print(numpy_array)
+
+numpy_array = numpy_array + 10
+
+print(numpy_array)
+print(numpy_array.ndim)
+print(numpy_array.shape)
+print(numpy_array.size)
+
+
+
+Example of Some Baisc Operation :--------------------------------------------
+
+
+import numpy as np
+n_dimensional_array = [[1,3,2],[5,4,6],[7,8,9],[3,4,1]]
+ndimen_numpy_array = np.array(n_dimensional_array)
+print(ndimen_numpy_array)
+print(ndimen_numpy_array.shape)
+print(ndimen_numpy_array.ndim)
+print(ndimen_numpy_array.dtype)
+print(ndimen_numpy_array.size)
+ndimen_numpy_array.sort()
+print(ndimen_numpy_array)
+
+#Creating N-dimensional Using Numpy 
+
+npArray = np.array([[4,3,2],
+[9,1,0],[5,2,3]])
+print(npArray)
+print(npArray.shape)
+
+d = np.array([
+    [[1, 2,3],
+        [4, 5, 6]],
+    [[7, 8,9],
+        [10, 11, 12]]
+])
+
+
+print(d)
+print(d.shape)
+
+
+
+numpy.asarray :--------------------------------------------------------------
+This function is similar to numpy.array except for the fact that it has fewer paramaters. this routine is useful for converting python squence into ndarray
+
+numpy.asarray(a,dtype = None,order = None)
+
+a =>  [array-like] input data in any form that can be converted to an array. This include list of tuples tuple of tuples tuples of list and ndarrays.
+dtype => [data-type, optioanl] by default the data type is inferred from the input data
+order: whether to use row-major or column-major 
+
+
+=> numpy.fromiter
+This function builds an ndarray object from any iterables object. A new on-dimensional array is returned by this function
+
+numpy.fromiter(iterables,dtype,count=-1)
+
+iterables => any iterables obejct
+dtype => Data type of resultant array
+count => the number of items to be read from iterator Default -1 which means all data to be read.
+
+
+
+Example =>
+import numpy as np
+old_list = [1,2,3,4,5]
+numpy_array = np.fromiter(old_list,dtype=int,count=-1)
+print(numpy_array)
+
+
+
+What is numpy.zeros() :----------------------------------------------
+ np.zeros() function is used to create a matrix full of zeros. It can be used when you initialize the weight during first iteration in TensorFlow and other statistic tasks.
+
+
+numpy.zeros(shape,dtype=foat,order='C')
+shape - is the shape of the array
+Dtype is the datatype it is optional The default value in float64
+Order Default is C which is an essesntial row style.
+
+
+Example :----------------------
+import numpy as np
+np.zeros((2,2))
+
+Example np zeros declaration with dtype :---------------------------------------------
+
+import numpy as np
+npArray = np.zeros((2,2),dtype=np.int)
+print(npArray)
+
+what is numpy.ones() :--------------------------------------------------------------------------
+np.ones() function is used to create a matrix full of ones. It can be used you initialize the weight during inTensorFlow and other static tasks.
+
+
+Example :------------------------------------------------------
+
+import numpy as np
+
+new_numpyArray = np.ones((2,2),dtype=np.int)
+print(new_numpyArray)
+
+
+
+Numpy Reshape :------------------------------------------------------------------------------
+The reshape() function is used to give a new shape to an array without changing its data. Array to be reshaped.
+
+
+python numpy reshape
+import numpy as np
+numpyArray = np.array([[1,2,3],[4,5,6]])
+print(numpyArray)
+print(numpyArray.shape)
+
+print("\n")
+numnumpyArray = numpyArray.reshape(3,2)
+print(numnumpyArray)
+print(numnumpyArray.shape)
+
+
+
+
+Flatten Operation :--------------------------------------------------------------------------------------------------
+The flatten() function is used to get a copy of an given array collapse into one dimension 'C means to flatten in row major (C-Style) order 'F means to flatten in column major () Fortran style order  A means to flatten in column major order if a is Fortran contigous in memory row -major order other wise.
+
+
+Example :-------------------------------------
+
+#python numpy reshape
+import numpy as np
+numpyArray = np.array([[1,2,3],[4,5,6]])
+print(numpyArray)
+print(numpyArray.shape)
+
+print("\n")
+numnumpyArray = numpyArray.reshape(3,2)
+print(numnumpyArray)
+print(numnumpyArray.shape)
+
+new_list_array = numpyArray.flatten()
+
+print(new_list_array)
+
+
+Example :-------------------------------------
+import numpy as np
+
+numpy_array = np.array([[1,2,3,4,5],[6,7,8,9,0]])
+
+print(numpy_array)
+
+new_type_C = numpy_array.flatten(order='C')
+new_type_F = numpy_array.flatten(order='F')
+new_type_A = numpy_array.flatten(order='A')
+new_type_K = numpy_array.flatten(order='K')
+
+print(new_type_C)
+print(new_type_F)
+print(new_type_A)
+print(new_type_K)
+
+
+
+
+numpy.hstack() and numpy.vstack() in python Example :----------------------------------------------
+
+with hstack you can append data horizontally. this is very convenient function in Numpy.Let study it with an example:
+
+
+Example :---------------------------------------------
+
+import numpy as np
+
+first_array = np.array([[1,2,3],[6,5,4]])
+second_array = np.array([[4,5,6],[9,8,7]])
+
+print('Horizontally Append',np.hstack((first_array,second_array)))
+print('Vertically Append',np.vstack((first_array,second_array)))
+
+
+
+
+
+Genrate Random Number :-------------------------------------------------------------
+To generate random numbers for Gaussian distribution use
+
+numpy.random.normal(loc,scale,size)
+
+Here:
+=> Loc: the mean The center of the  distribution
+=> scale : standard deviation
+=> size : numbers of returns
+
+
+Example :-
+
+normal_array = np.random.normal(5,0.5,10)
+
+print(normal_array)
+
+
+
+
+
+Numpy Arrange Function in Python :-----------------------------------------------
+numpy.arrange() is an built numpy function that return an ndarray object containing evenly spaced value with in defined interval. For instance you want to create values from 1 to 10; you  can use numpy.arrange() function.
+
+numpy.arrange(start,end, step)
+
+Here,
+start => Start of interval 
+end => End of interval
+step => Spacing between Default step is 1
+
+Example =>
+
+import numpy as np
+new_numpy_array = np.arange(1,10,2)
+print(new_numpy_array)
+
+
+
+numpy Linespace :----------------------------------------------------------------------
+Linespace gives evenly spaces samples :
+
+syntax :
+
+numpy.linespace(start,stop,num,ndpoint)
+
+Here,
+start: Starting value of the sequence
+stop :- End value of the sequence
+num :- number of sample to generates Default is 50
+Endpoint :- it True (default), stop is the last value if false stop value in not included
+
+
+#Example of the Linespace
+
+import numpy as np
+new_numpy_array = np.linspace(1,5,10)
+print(new_numpy_array)
+
+
+
+
+
+
+
+Dot Operation in Numpy :----------------------------------------------
+Numpy dot product is a powerful matrix computation. For instance you can compute the dot product with np.dot. Numpy.dot product is the dot product of a and b.
+
+syntax :-
+numpy.dot(x,y)
+
+Here x,y input arrays x and y both should be 1D or 2D for the function to work.
+
+output :-
+This the output argument For 1D array scalar is returned other wise ndarray
+
+### Linear algebra
+### Dot product product of two arrays
+
+f = np.array([1,2])
+g = np.array([4,5])
+
+np.dot(f,g)
+
+output =>  14
+
+
+Exampl :-
+
+import numpy as np
+first_np_array = np.array([1,2,3])
+second_numpy_array = np.array([4,5,6])
+
+print(np.dot(first_np_array,second_numpy_array))
+
+numpy_2d1_array = np.array([[1,2],[3,2]])
+numpy_2d2_array = np.array([[3,2],[1,1]])
+
+print(np.dot(numpy_2d1_array,numpy_2d2_array))
+
+new_dot_array = np.dot(numpy_2d1_array,numpy_2d2_array)
+
+print(new_dot_array)
+
+
+
+
+Numpy Statistical Functions with Example :--------------------------------------------------
+
+
+The normal Distribution is one of the most important distribution. It is also called the Gaussian Distribution.
+It fits the probability distribution of many events.
+
+Use the random.normal() method to get a normal Data Distrribution.
+
+It has three paramaters.
+1 loc => (Mean) where the peak of the bell exists.
+2 scale => (Standard Deviation) how the flat the graph distribution should be.
+3 size => The Shape of the returned array.
+
+
+
+
+Numpy has quite a few useful statistical function for finding minimum, maximum, percentile standard deviation and variance, etc from the given elements in the array. 
+
+The functions are explaind as follows :-
+
+Function			Numpy
+
+Min			np.min()
+Max			np.max()
+Mean			np.mean()
+Median			np.median()
+Standard deviation		np.std()
+
+What is the standard deviation ?
+Standard deviation is the square root of the average of squared deviation of the item from their mean Symbolically it is represented by sigma
+
+
+
+
+
+Consider th following Array :---------------------------------
+
+import numpy as np
+
+normal_array = np.random.normal(5,0.5,10)
+print(normal_array)
+
+print('Min = ',np.min(normal_array))
+print('Max = ',np.max(normal_array))
+print('Standard Deviation = ',np.std(normal_array))
+print('Mean = ',np.mean(normal_array))
+print('Median = ',np.median(normal_array))
+
+
+
+
+Numpy Indxing and Slicing :------------------------------------
+
+Contents of ndarray object canbe accessed and modified by indexing or slicing, just like Python's in-built container objects.
+
+The Types of indexing methods are available 
+1) field access 
+2) basic slicing
+3) advanced indexing
+
+
+Basic slicing is an extension of Python 's basic concept of slicing to n dimension.
+
+=> if only one paramter is put a single item corresponding to the index will be returned. If a : is inserted in front of it all item from that index onward will be extracted. If two paramters (with : between them) is used item between the two indexes  (not including the stop index) with default step one are sliced.
+
+
+
+
+
+
+Slicing data is trivial with numpy. We will slice th matrics 'e'. Note that in python you need to use the bracket to return the row or columns.
+
+Example :--------------------------
+import numpy as np
+
+new_array = np.array([[1,2,3],[4,5,6]])
+print(new_array)
+print('First Row = ',new_array[0])	//Selecting the First Row
+print('Second Row = ',new_array[1])	// Slecting Second Row
+
+
+Some Important Points :----------------------------
+1) The values before the comma stand for the rows
+2) The values on the right stands forthe columns
+3) If you want to select a column you need to  add : before th column index
+4) : means you want all the rows from the slected column
+
+
+Example :-------------------------------
+
+    import numpy as np
+
+    new_numpy_array = np.array([[1,2,3,4],[5,6,7,8],[9,0,1,2]])
+    print(new_numpy_array)
+
+    print(new_numpy_array.shape)
+    print(new_numpy_array.size)
+    print(new_numpy_array.dtype)
+    print(new_numpy_array.ndim)
+
+    #Performing indexing and Slicing in Numpy Array
+    print('\nPerforming the Indexing and Slicing in  Numpy Array')
+    print(new_numpy_array[:])
+
+    print(new_numpy_array[1:,2:])
+
+
+Advanced indxing :-----------------------------------------
+Advanced indexing always returns a copy of the data. As against this the slicing only parents a view
+
+Ther are two types of advanced indxing  - Indexing and Boolean
+
+
+Example =>
+import numpy as np
+
+x = np.array([[1,2],[3,4],[5,6]])
+y = x[[0,1,2],[0,1,0]]
+print(y)
+
+
+The slection includes elements at (0,0) (1,1) and (2,0) from th first array
+In th following example element place at corner of 4x3 array are selected. The row indices of selection are [0,0] and [3,3] whereas the column indices are [0,2] and [0,2].
+
+
+
+Example =>
+
+import numpy as np
+x = np.array([[ 0,  1,  2],[ 3,  4,  5],[ 6,  7,  8],[ 9, 10, 11]])
+print(x)
+
+rows = np.array([[0,0],[3,3]])
+cols = np.array([[0,2],[0,2]]) 
+
+print(rows)
+print(cols)
+print(x[rows,cols])
+
+
+Output =>
+
+[[ 0  1  2]
+ [ 3  4  5]
+ [ 6  7  8]
+ [ 9 10 11]]
+
+[[0 0]
+ [3 3]]
+
+[[0 2]
+ [0 2]]
+
+[[ 0  2]
+ [ 9 11]]
+
+
+
+Example :-----------------------------
+
+import numpy as np
+x = np.array([[ 0,  1,  2],[ 3,  4,  5],[ 6,  7,  8],[ 9, 10, 11]])
+print(x)
+z = x[1:4,1:3]
+y = x[1:4,[1,2]] 
+print(z)
+print(y)
+
+
+
+
+Boolean Array Indexing :-------------------------------------------------------------
+
+This type of adavanced indexing is used when th resultant object is meant to be the result of Boolean operations such as comparision operations.
+
+
+In this example itms greater than 3 are returned as a result of Boolean indexing.
+
+Exampl :-
+import numpy as np
+x = np.array([[ 0,  1,  2],[ 3,  4,  5],[ 6,  7,  8],[ 9, 10, 11]])
+print(x[x>3])
+
+
+Example 2 :-
+In this example NaN ( Not a Number) elements are omitted by using ~(complement operator)
+
+
+import numpy as np 
+a = np.array([np.nan, 1,2,np.nan,3,4,5]) 
+print a[~np.isnan(a)]
+
+
+
+Example 3 :-
+The following example show how to filter out the non-complex from an array.
+
+import numpy as np
+
+
+
+
+
+
+Broadcasting :-------------------------------------------
+The term broadcasting refers to the ability of Numpy to treat arrays of different shapes during arithmetic operations. Arithmetic operations on arrays are usually done on corresponsing elements. If two arrays are of exactly the same shape then these operation are smoothly performed.
+
+
+import numpy as np
+a = np.array([1,2,3,4])
+b = np.array([10,20,30,40])
+
+c = a+b
+print(c)
+
+
+
+
+General Broadcasting Rules :---------------------------------------------------------------
+When operating on two arrays Numpy compares their shapes element wise the trailing dimensions and works its way froward . Two dimension are compatible when
+1) they are equal 
+2) one of them is 1
+
+if these condition are not met a ValueError opends could not be broadcast together exception is thrown, indicating that the array have incompatible shapes.
+
+
+Example =>
+
+import numpy as np 
+a = np.array([[0.0,0.0,0.0],[10.0,10.0,10.0],[20.0,20.0,20.0],[30.0,30.0,30.0]]) 
+b = np.array([1.0,2.0,3.0])  
+
+print(a.size)
+print(b.size)
+   
+print('First array:') 
+print(a) 
+print('\n')  
+   
+print('Second array:') 
+print(b) 
+print('\n')  
+   
+print('First Array + Second Array') 
+print(a + b)
+
+
+
+NUmpy Iterating Over Array :--------------------------------------------------------------
+Numpy package coontain an iterator object numpy.nditer. it is an efficient multidimensional iterator object using which it is possible to iterate over an array. Each element of an array is visiting using pythi's standard iterator interface.
+
+
+
+Example: -
+
+import numpy as np
+numpy_array = np.arange(0,60,5)
+a = numpy_array.reshape(3,4)
+print(a)
+
+
+for x in a:
+    print(x)
+
+#using nditer
+for i in np.nditer(a):
+    print(i)
+
+
+
+
+Numpy Array Manipulation :--------------------------------------------------------------------------
+Several routines are available in Numpy packag for manipulation of element in ndarray object. They can be classifies into th following types :-
+
+
+Chaging Shape :----------------------------------------
+1) reshape	Gives a new shape to an array without chaning its data
+2) flat		A 1-dIterator over the array
+3) flatten		Rturns a copy of the array collapsed into on dimension
+4) ravel		Returns a contiguos flattened array
+
+
+
+Transpose Operations :------------------------------
+1) transpose	Permutes the dimension of an array
+2) ndarray		Samas self.transpose
+3) rollaxis		Rolls the specified axis backwards
+4) swapaxes	interchanges the tw axes of an array
+
+
+Changing Dimensions :----------------------------------------
+1) broadcast	Produces an object that mimics broadcasting
+2) broadcast_to	Broadcast an array to a new shape
+3) expand_dims	Expands the shape of an array
+4) squeeze	Removes single dimensional entries from the shape of an array
+
+
+Joining Arrays :------------------------------------------
+1) concatenate	Join a sequence of arrays along an xisting axis
+2) stack		Joins a sequence of array along a new axis
+3) hstack		Stacks array in sequence horizontally 
+4) vstack		Stacks arrays in sequence vertically
+
+Splitting Arrays :----------------------------------------
+1) split		Split an array into multiple sub-array
+2) hsplit		Split an array into multiple sub-array horizontally (column-wise)
+3) vsplit		Splits an array into multiple sub-array vertically
+
+
+Adding / Remocing Elements :-----------------------------------
+1) resize 		Returns a new array with the specified shape
+2) append		Appends the values to the end of an array
+3) insert		Insert the values along the given axis defor th given indices
+4) delete		Returns a new array with sub-arrys along an axis deleted
+5) unique		Finds the unique elements of an array
+
+
+
+Numpy String Functions :-----------------------------------------------------------------------------
+(Vectorization in Python  ... to do so Python has standard mathematical function for fast operation on entire arryas of data without having to write loops)
+(Vectorization is technique to implement array without the use of the loops)
+
+
+The following function are used to perform vectorization string operation for arrays of dtype numpy.string or numoy.unicode_.
+
+=> add()		Returns the string with multiple concatination element-wise
+
+Example :-
+import numpy as np
+
+print('Concatination two String')
+print(np.char.add(['Hello'],['xyz']))
+
+
+
+=> multiply	Returns the string with multiple concatenation element wise.
+
+Example ;-
+import numpy as np
+
+string_numyp = np.char.multiply('Hello',3)
+print(string_numyp)
+
+
+center()
+This function returns an array of the required width so that the input string is centered and padded on the left and right with fillchar.
+
+import numpy as np
+
+print(np.char.center('Hello',29,fillchar="*"))
+
+
+captalize() :-------------------------------------------------------
+Returns a copy of the string with only first character captilized
+
+import numpy as np
+print(np.char.captilize('Hello World))
+
+
+
+
+
+Numpy - Mathematical Functions :-------------------------------------------
+Quite understandable NumPy contains a large number of various mathematical operations. Numpy provides standard trigonometric function functions for arithmetic operations handling complex numbers,
+
+
+Trigonometrics Functions :-
+Numpy has standard trigonometic function which return trigonometics ration for a given angle in radians.
+
+Example :------------------------
+
+import numpy as np
+a = np.array([10,20,30,40,60,90])
+
+#Converting to Radians by multiplyinh with pi/180
+
+print(np.sin(a*np.pi/180))
+print(np.cos(a*np.pi/180))
+
+#Getting the value of sin in Degree
+print(np.sin(np.pi/4))
+
+Output :-
+[0.17364818 0.34202014 0.5        0.64278761 0.8660254  1.        ]
+[9.84807753e-01 9.39692621e-01 8.66025404e-01 7.66044443e-01
+ 5.00000000e-01 6.12323400e-17]
+0.7071067811865476
+
+
+Rounding Function in Numpy Python :------------------------------------------------------------
+numpy.around()
+
+This is a function that returns the value rounded to the desired precision. The function takes the following parameters.
+
+numpy.around(a,decimals)
+
+a => input data
+decimals => the number of decimals to round to . Default is 0 . If negative , the integer is rounded to position to the left of the decimals point.
+
+Example =>
+#Rounded Function
+import numpy as np
+a =  np.array([1.0,5.55,123,0.567,35.532])
+
+print('Original Data ',a)
+print(np.around(a))
+print(np.around(a,decimals=1))
+print(np.around(a,decimals=-1))
+
+
+
+Ceil Function in Numpy :------------------------------------------
+The ceil() function returns the ceiling of an input value the ceil of the scalar x is smallest integer i such that i>=x.
+
+Example ;-
+import numpy as np 
+a = np.array([-1.7, 1.5, -0.2, 0.6, 10]) 
+
+print 'The given array:' 
+print a 
+print '\n'  
+
+print 'The modified array:' 
+print np.ceil(a)
+
+
+
+
+
+Numpy - Arithmetic Operations :----------------------------------------
+Input Arrys for performing arithmetic operations such as add(), subtraction(), multiply(), and divide() must be wither of the sane shpae or should conform to array broadcasting rules.
+
+
+
+
+
+Example :--------------
+import numpy as np
+
+array = np.arange(1,10).reshape(3,3)
+
+print(array)
+
+b = np.array([10,10,10])
+
+print(np.add(array,b))
+print(np.subtract(array,b))
+print(np.multiply(array,b))
+print(np.divide(b,array))
+print(np.reciprocal(array))
+print(np.power(array,2))
+print(np.mod(array,b))
+print(np.remainder(b,array))
+
+Input arrys for performing arithmetic operation such as add(), subtract(), multiply() and divide(), reciprocal(),power()
+
+=> Reciprocal function is not designed to work with integer
+For Integer arguments with absolute value larger than 1 the result is always zero because of the way Python handles integer division. For integer zero the result is an overflow.
+
+numpy.mod()
+This function return the remainder of divisio of the corresponding elements in the input array. The function numpy.remainder() also produces the same result.
+
+The following fucntion are used to perform operations on array with complex numbers :----------------------------------------------
+numpy.real()  	return the real part of the complex data type argument
+numpy.imag() 	return the imaginary part of the complex data type argument
+numpy.conj()	returns the complex conjugate which is obtained by chaning the sign of the imaginary part
+numpy.angle()	return the angle of the complex argument .
+
+
+
+
+
+
+Numpy Linear Algebra :-------------------------------------------------------------------------
+Numpy package contains numpy.linalg module that provide all the functionality required for linear algebra. Some of the important functions in htis module are described in the following table.
+
+1) dot()		dot product of two array
+2) vdot()		dot product of the two vector
+3) inner()		inner product of two arrays
+4) matmul()	matrix product of two arrays
+5) determinant()	computes the determinant of the array
+6) solve() 		solve linear matrix equation
+7) inv()		return multiplicative inverse of the matrix
+
+
+
+Determinant of the Matrix :---------------------------------
+Determinant of a matrix is scalar property of that matrix. Determinant is a special number that is defined for only square matrices (plural for matrix). Square matrix have same number of the rows and columns.
+
+Determinant is used to know whether the matrix can be inverted or not it is usedful in analysis and solution of simultaneous linear equation used in calculas used to find the area of the triangle and more.
+	Determinant of a matrix A is denoted by |A| or det(A).
+
+
+Properties of the Determinant :---------------------------
+1) Determinant evaluates across any row or column is same.
+2) Determinant of a Identity matrix is 1
+3) If rows and column are interchanged then values of determinant remians same
+4) if any two row (or two column) of a determinant are interchanges the value of the determinant is multipled by -1.
+ 
+Identity Matrics :-------------(Unit Matrix)
+A square matrix  with n ones on the main diagonal and zeros elsewhere it is denoted by In.
+
+Example :-----------------------------
+import numpy as np
+
+numpy_array = np.array([[1,2],[3,4]])
+print(numpy_array.size)
+print(np.linalg.det(numpy_array))
+
+
+
+Numpy Inverse :--------------------------------------------------------------------------------
+We use numpy.linalg.inv() function to calculate the inverse of a matrix. The inverse of a matrix is such that if it is multipled by the original matrix it results in identity matrix.
+
+Example =>
+
+import numpy as np
+
+numpy_array = np.array([[1,2],[3,4]])
+print(numpy_array.size)
+print(np.linalg.inv(numpy_array))
+
+
+
+Numpy matmul function :--------------------------------------
+The numpy.matnul() function return matrix product of two arrays. while it returns a normalproduct for 2D arrays if dimensions of either argument is >2 it is treated as a stack matrices residing in the last two indexes and is broadcast accordingly.
+
+
+import numpy as np
+
+a = np.array([[1,0],[0,1]])
+b = np.array([[4,1],[2,2]])
+
+print(np.matmul(a,b))

@@ -1,0 +1,1606 @@
+﻿Dart is a modern general-purpose programming lanuage originally developed by Google (designed by Lars Bak and Kasper Lund). Dart is a new programming language that appeared first time 2007 and it's latest stable version is released in june 2017.
+	Dart is an open source programming language not only used for developing mobile application but it is approved as a standard by EMCA and is used to build web server desktop mobile application and the Internet of Things (IoT). The Dart compiler come with its own virtual machine which allows Dart programs to run on every systems.
+
+	When Dart is used in web application there is a dar2js compiler which transpile Dart code into optimized javascript code so it runs on all modern web browsers.
+
+Dart Features :---------------------------------
+
+The Dart is an open source object oriented programming language. the Dart provides lots of convenient mainly focused on compilation execution,safety, memory management and concurrency. Below is a list of some of important features among Dart's features are:-
+
+1) Object Oriented Programming
+Dart is an object oriented programming language with support for inheritence interfacesand optional typing features it also support interfaces mixins abstract classes feified generics statis typing and a strong type systems.
+
+2) Open Source :- Dart is an open source programming language and it comes with a set of tools for compilling and executing Dart code. It is recognized as an ECMA standard and is available with BSD licences.
+
+3) Cross Platform
+Dart is cross platform and support all major operating systems. the Dart compiler come with its own Virtual Machine which allows Dart programs to run on every systems.
+
+4) Browser Support :-
+The Dart code can be trans compiled into JavaScript using source to source compilation. There is a dart2js compiler which transpile Dart code into optimization Javascript code run on all modern web browsers.
+
+5) Type Safe :-
+The Dart is type safe programming language. Dart uses a combination of static type checking and runtime checks to ensure that a variable value always match the variable statis type. Although dart is strongly typed type annotation are optional because of type interface.
+
+
+Example => 
+
+void main(){
+	print("Hello World");
+}
+
+
+main function()
+This is the most vital part of each and every Dart program, it is mandatory for every Dart program to have a top-level main() function definition.
+There can be only one main() function in dart progam. It serve as the entry point for every Dart program or app: the execution of a Dart program or application starts with the main() function. The Dart program can't be execute without main() function. 
+											The main() function is resonsible for execution of all the user defined statement functions and library function. The main() function further structured into variable declareation, function declaration and user defined executable statements. The main() function returns void and can have an optional; List<String> parameters as arguments.
+
+
+Dart is an object oriented language with C-style syntax which can optionally trans compile into JavaScript. It support a varied range of programming aids like interfaces, classes, generics and optional typing.
+
+Dart can be extensively used to create single page application. Single page application apply only to websites and web applications. Single page applications enable navigation between different screens of the websites without loading a different webpages in the browser.
+
+Syntax defines a set of rules for writing programs. Every language specification defines its own syntax. A Dart program is composed of - 
+=> Variable and Operator
+=> Classes
+=> Functions
+=> Expressions and Programming Constructs
+=> Decision Making and Looping Constructs
+=> Comments
+=> Libraries and Packages
+=> Typedefs
+=> Data structure represnted as Collections /  Generics
+
+
+
+Execute Dart Programs :--------------------------
+
+1) Via Terminal
+2) Via the WebStrom IDE
+
+
+1) To Execute Dart Program via the terminal
+=> Navigate to the path of the current project
+=> Type the following command in the Terminal window
+
+	dart file_name.dart
+
+
+
+
+Dart Returs Values :---------------------------------------------------
+Sometimes we may want a functions to return some values to the point it where it is called from. In dart there is return keyword allows a funtion to return value. The return statement is optional it not specified the function returns null. There can be only one return statement in a function.
+
+	return<expression/value>;
+
+Example =>
+void main(){
+  print(helloWorld());
+}
+String helloWorld(){
+  return "Hello World!";
+}
+
+
+
+
+Enabling Checked Mode :-------------
+Dart program run in two modes namely :-
+=> Checked Mode
+=> Production Mode (Default)
+
+it is recommended to run the Dart VM in checked mode during development and testing, since it adds warning and errors to aid development and debugging process. The checked mode enforces various check like type-checking etc.
+
+									To run on the check mode add the -c or --checked option before the script file name while running the script.
+
+
+
+
+
+Identifier in Dart:-------------------------------------------------
+
+Identifier are names given to elements in a program like variables, functions etc. The rules for identifiers are :-
+Identifiers can include both, characters and digital. However the identifier cannot begin with digit
+
+=> Identifiers cannot include special symbol except for underscore  or dollar sign 
+=> Identifier cannot be keywords
+=> They must be unique
+=> Identifier are case sensitive
+=> Identifiers cannot contain spaces.
+
+
+
+Whitespace and Line Breaks :-------------------------------
+Dart ignores spaces tabs and newline that appear in program. You can use spaces tab and newlines freely in our program and you are free to format and indent your programs in neat and consistent way that makes the code easy to read and understand.
+
+
+Dart is case-sensitive :------------------------------
+Dart is a case sensitive. This means that Dart differentiates between uppercase and lower characters.
+
+
+Statements end with a Semicolon :----------------------------------
+Each line of instruction is called a statement. Each dart statement must end with a semicolon(;) . A single line can contain multiple statements. However these statements must be separaed by a semicolon.
+
+Comments in Dart :---------------------------
+Dart supports the following types of comments -
+
+Single-line comments ( // ) - Any text between a "//" and the end of a line is treated as a comment
+
+Multi-line comments (/* */) - These comments may span multiple lines.
+
+Dart Documentation Comment ///
+
+
+
+
+
+Semicolons in Dart :------------------------------------
+The semicolon is a statement terminator, that is each of the individual statement must be ended with a semicolon. In Dart it is mandatory to put a semicolon(;) at the end of each of the executable statement. If you are typing multiple statement in single line then it is necessary to use a semicolon as a delimiter. Otherwise the compiler will raise a syntax error.
+
+
+Dart Keywords :-------------------------------------
+There is a set of reserved words that you cannot use as an identifier. These words are known as reserved words or Keywords. Keywords are standard identifiers and their function is predefied by the compiler. We cannot use keywords as variable names, class names or methods names or as any other idenfier.
+
+
+
+
+
+Dart Variable :------------------------------------
+Variable are used to represent reserved memory locations that is used to store values when we create a variable we are suppose to allocate some memory for that variable. Dart is a statically types programming language this means that variable always have a specific types programming language.This means that variable always have a specific type and that type cannot be changed. Every variable have data type associated to it data type for a variable defines -
+
+=> the amount of memory space allocated for variables.
+=> A data type specifies the possible values for variables.
+=> The operations that canbe performed on variables.
+
+Note :- Although Dart is strongly typed type annotations are optional because Dart can infer types.
+
+
+Data Types  :-------------------------------------------------
+
+One of the most fundamental characteristics of a programming language is the set of data types it supports. These are the type of values that can be represented and manipulated in a programming language.
+
+Dart language support the following data types :-------
+1) Numbers
+2) Strings
+3) Booleans
+4) Lists
+5) Maps
+
+
+Numbers :-
+Numbers in Dart are used to represent numeric literals. The Numbers  Dart come in two flavours -
+
+1) Integer 
+Integer values represent non-fractional values numeric values without a decimal point. For example the value "10" is an integer. Integer literals are represented using the int keyword.
+
+2) Double
+Dart also support fractional numeric value values with decimal points. The Double data type in Dart represent a 64 bit floating point number.
+
+
+List and Map :---
+The data types list and Map are used to represent a collection of objects. A List is an ordered group of object.
+
+The List Data type in Dart is anonymous to the concept of an array in other programming language.
+
+The Map data type represents a set of values as key-value pairs. The dart:core library enables creation and manipulation of these collection though the predefines List and Map Classes respectively.
+
+
+
+Variable name are called identifier.
+
+
+
+Dart Lists :-
+In Dart list data type is used to represent a collection of objects. A List is an ordered group of object. The List data type in Dart is synonymous to the concept of an array in other programming language. An Array is used to hold multiple values in single variable. In dart arrays are List object.
+			A list is defined by having separated by commas and anclosed within square bracket([]).
+
+var list = [1,2,3];
+
+
+Dart Maps :-
+The Map is an object that is used to represents a set of values as key-value pairs. In Map both keys and values canbe of any type of object. In Map each can only occurs once but the same value can be used multiple times. The Map can be defined by using curly braces ({}) and values can be assigned and accessed using square braces.
+
+
+Dart Runes :----
+Dart Sring is a sequence of Unicode UTF-16code unit 32-bit Unicode values within a string are represented using  special syntax. A rune is an integer representing a Unicode point. For example the heart character is represented using corresponsing  unicode equivalent \u2665
+
+
+
+Dart Dynamic Type :-----------------
+Dart is an optionally types language. If the type of  variable is not explicitly specified the variable's type is dynamic. the dynamic keyword can also be used as type annotation explicitly.
+
+
+
+Type Syntax :--------------------------------------
+A variable must be declared before it is used. Dart uses the var keyword to achieve the same. The syntax for declaring a variable is as given below :-
+
+var name = "Smith";
+All variable in dart store a reference to the value rather than containing the value.
+
+Dart supports type-checking by prefixing the variable name with the data type. type-checking ensures that a variable hold only data specified to a data type.
+
+String name = "Smith";
+int num =10;
+
+The dynamic keyword :----------------------
+Variable declared without a static type are implicitly as dynamic. Variable can be also declared using the dynamic keyword in place of the var keyword.
+
+
+
+Final and Const :------------------------
+The final and const keyword are used to declare constant. Dart prevent modiying the values of a variable declared using the final or const keyword.
+
+The const keyword is used to represent a compile time constant. variable declared using const keyword are implicitly final..
+
+
+
+Declaring multiple variable :-----------------------------------------------------
+in Dart it is possible to declare multiple variable of same type in a single statement separated by commas with a single type annotation as following
+
+Syntax :-
+
+	<type> <var1,var2....varN>;
+
+
+
+Default Values :--------------------------------------------------------
+In Dart uninitialized variable are provided with an initial value of null. Even variable with numeric type are initially assigned with null value, because numbers like everything else in Dart are objects.
+
+Example :-
+int ctr;
+assert(ctr == null );
+
+
+
+
+Operators in Dart ;--------------------------------------
+An operator is a special kind of statement that evaluate to a value. Every expression is compossed of 
+
+An operator is special symbol that is used to carry out some specific operatios on its operands.
+
+ 
+=> Operands  ---- Represents the data
+=> Operator  ----- Defines how the operands will be processed to produce a value.
+
+
+Operators that are available in Dart :-
+1) Arithmetic Operator
+2) Equality and Relational Operators
+3) Type test Operators
+4) Assignment Operator
+5) Logical Operators
+
+
+=> Arithmetic Operator Supported by Dart :-
++
+-
+-expr   Unary minus also known as negative (reverse the sign of the expression)
+*
+/
+%
+++
+--
+
+
+=> Equality and Relational Operator
+
+>
+<
+>=
+<=
+==
+!=
+
+
+Type test Operator :------------------------
+These operator are handy for checking types at runtime.
+
+=> is	true if the object has the specified type
+=> is!	false if the object has the specified type
+
+
+Bitwise Operator :---------------------
+
+
+Logical Operator :-------------------
+
+&& (and)
+||      (or)
+!        (not)
+
+
+
+
+Conditional Expressions :----------------------------
+Dart has two operators that let you evaluate expressions that might otherwise require ifelse statements -
+
+condition ? expr1 : expr2
+if condition if true then the expression evaluates expr (and returns its value) otherwise it evaluate and returns the value of expr2
+
+expr1 ?? expr2
+if expr1 is non null returns its value other wise evaluates and return the value of expr2.
+
+
+
+
+Cascade Operator :------------------------------------------------------
+Cascade (..) allow you to perform a sequence of operations on the same object. The Cascades notation(..) is similar to method chaining that saves you number of steps and need of temporary variable.
+
+
+
+
+
+
+Dart Programming Loops :--------------------------------------
+A loop represent a set of instructions that must be repeated. In a loop's context a repetition is termed as an iteration.
+
+Loop are further divided in to two types
+1) Definite Loop
+	=> for
+
+2) Indefinite Loop
+	=> while
+	=> do..while
+
+
+=> Definite Loop a loop whose number of iteration are definite/fixed is termed as a definite loop.
+for
+	the for loop is an implementation of a definite loop. The for loop executes the code block for a specified number of times. It can be used to iterate over a fixed set of values, such as an array 
+
+for...in loop
+	The for...in loop is used to loop through an object's properties.
+
+
+=> Indefinite loops
+An indefinite loop is used when the number of iterations in a loop is indeterminate or unknown . Indefinite loops can be implemented using-
+while loop
+do...while loop
+
+
+=> Control Statement & Description
+1) break Statement
+The break statement is used to take the control out of construct. Using break in loop cause the program to exit the loop. Following is an example of the break statement.
+
+
+2) continue Statement
+continue statement skip the subsequent statement in the current iteration and takes the control back to the beginning of the loop.
+
+Using label :----------------
+A label is simply an identifier followed by a colon(:)  that is applied to a statement or a block of code. A label can be used with break and continue the flow more precisely.
+Line breaks are not allowed the continue or break statement and its label name. Also there should not be any other statement between a label name and an associate loop.
+
+Dart support labels with Continue and break using this we can jump to labels.
+
+Example =>
+void main() { 
+   outerloop: // This is the label name 
+   
+   for (var i = 0; i < 5; i++) { 
+      print("Innerloop: ${i}"); 
+      innerloop: 
+      
+      for (var j = 0; j < 5; j++) { 
+         if (j > 3 ) break ; 
+         
+         // Quit the innermost loop 
+         if (i == 2) break innerloop; 
+         
+         // Do the same thing 
+         if (i == 4 ) break outerloop; 
+         
+         // Quit the outer loop 
+         print("Innerloop1: ${j}"); 
+      } 
+   } 
+}
+
+	
+
+Example of label using continue statement :------------------------------
+void main(){
+
+  for(var i=0 ; i<3;i++){
+    print("Outerloop : ${i}");
+    outerloop:
+
+    for(var j=0;j<5;j++){
+      if(j==3)
+        continue outerloop;
+
+      print("Innerloop ${j}");
+    }
+  }
+}
+
+
+
+Dart for...in loop :---------------------
+the for in loop takes an expression as iterator and iterate through the elements one at  a time in sequence. The value of the element is bound to var which is valid and available for the loop body. Once the loop statements are executed curent iteration the next element is fetched from the iterator and we loop another time when there is no more elements in iterator the for loop is ended.
+
+
+for (var in expression){
+	// Statement
+}
+
+Example ;-
+void main(){
+  var counter = [11,12,13,14,15];
+  print("Ali Hasan");
+  for(var i in counter){
+    print(i);
+  }
+}
+
+
+
+While loop in Dart :----------------------------
+
+The while loop will execute a block of statement as long as a test expression is true while loop is useful when the number of iteration can not be predicted beforehand. the while loop evaluates test  expression at beiginning of each pass.
+
+syntex :-
+while(condition){
+}
+
+
+Example=>
+void main(){
+  var counter=1;
+  var max=5;
+  print("ALi Hasan");
+  while(counter<max){
+    print(counter);
+    counter=counter+1;
+  }
+}
+
+
+Do while loop in Dart :------------------------------
+the do while loop executes block of statement inside loop first and then test the condition for next iteration and executes next only if condition is true.
+
+The do while loop is much similar to dart while loop with one major difference in do...while loop block of statement inside loop body executes at least once.
+
+do{
+
+}while(condition);
+
+
+
+
+
+
+		Conditional Statement in Dart Programming language :----------------------
+
+A conditional / decision making construct evaluates a condition before the instructions are executed.
+
+=> if 	An if statement consist of Boolean expression followed by one or more statements.
+
+Example =>
+import 'dart:io';
+void main(){
+  print("Enter a Number");
+  var number = int.parse(stdin.readLineSync());
+  if(number%2==0){
+    print("Even");
+  }else{
+    print("Odd");
+  }
+
+  //using conditional operator in Dart find the Odd  even program
+  var string = number%2==0 ? "Even" : "Odd";
+  print(string);
+
+}
+
+
+
+=> if..Else   An if can be followed by an optional block. The else block will execute if the Boolean expression tested by the if evaluates to false.
+=> else...if Ladder The else if ladder is useful to test multiple conditions. Following is the syntax of the same.
+=> switch...case Statement  the switch stement evaluates an expression matches the expression value to a case clause and executes the statement associate with that case.
+
+
+
+
+
+:: Read the input from the Console in Dart
+
+import 'dart:io';
+void main(){
+  print("Enter you Name : ");
+  var name = stdin.readLineSync();
+  print("How are you ${name} ");
+
+}
+
+
+
+
+
+Dart Number :----------------------
+
+The Number data type is used to hold the numeric values. Dart supports following numeric data types-
+
+1) Integer
+2) Double
+
+
+The num type is inherited by the int and double types. The dart core library allow numerous operations on numeric values.
+Integer => Integer are used to store whole numbers. An integer data type is used to represent 64 bit non decimal number between -2^63 to 2^63
+Integer can be used to store either signed number or unsigned number values. 
+Integer can be declared using int keyword.
+int age = 23;
+
+
+Double => In Dart double is used to represent a 64bit (double precision) floating point number or numbers with larger decimal points. Double can be declared using double keyword.
+
+double pi = 3.14;
+
+Example =>
+import 'dart:io';
+void main(){
+  print("Enter the Raidus of the circle ");
+  var radius = num.parse(stdin.readLineSync());
+  const pi = 3.14;
+  var area = pi*radius*radius;
+  print("Area of Circle = ${area}");
+}
+
+
+Parse Function in Dart Programming :-------------------------
+
+The parse function is used to convert a numeric string into a number.
+void main(){
+print(num.parse("15"));
+print(num.parse("153.86"))
+}
+
+
+
+The parse function throws FormatException if it is passed any value other than numerals. the following code shown how to pass an alpha numeric value to parse() functions.
+
+Example =>
+//Example of FormatException in Dart
+void main(){
+  var number = num.parse('12aaa');
+  print(number);
+}
+
+Unhandled exception:
+FormatException: 12aaa
+#0      num.parse (dart:core/num.dart:476:26)
+#1      main (file:///D:/Repo/Dart/demo.dart:3:20)
+#2      _startIsolate.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:307:19)
+#3      _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:174:12)
+
+
+
+Number Properties :-
+The following table lists the properties supported by Dart numbers.
+
+Example :-
+
+void main(){
+  var number = -12;
+  print(number.sign);
+  print(number.hashCode);
+  print(number.isNegative);
+  print(number.isOdd);
+  print(number.isEven);
+  print(number.isFinite);
+  print(number.isNaN);
+}
+
+
+
+
+
+Dart String :-----------------------------
+A String is variable is used to hold series of sequence of character letters numbers and special characters. In Dart string can be represented either using single quotes or double  quotes. In Dart string can be declared using the String keyword.
+	
+
+Printing String ;-
+In Dart the print() function is used to print the formatted message to the screen or other standard output device.The message can be string any other object or any expression the object and expression will be converted into string before written to the screen.
+
+print("Hello World");
+
+
+String Concatination :-----------
+in Dart string canbe concatenated simply using the plus (+) operator the += assignment operator
+
+
+
+String interpolation is the process of evaluating a string containing placeholder variable and interpolated expressions. When an interpolated stirng is evaluated the placeholder variable and expression are replaced with their corresponsing values. in Dart ${expression} is used for string interpolation.
+
+String Properties :-------------------
+
+1) isEmpty   => Returns true if this string is Empty
+2) Length     => returns the length of the string including space tab newline.
+
+
+void main(){
+  var str="";
+  print(str.isEmpty);
+}
+
+
+
+
+String Methods :--------------------------
+1) toLowerCase() 	=> COnvert all characters in this string to lower case.
+2) to UpperCase() 	=> COnvert all Cahracter in this string to uppercase.
+3) trim()
+4) compareTo()
+5) split()
+6) substring()
+7) toString()
+
+
+
+Dart Programing Boolean :---------------------------
+Dart provide an inbuilt support for the Boolean data type. The Boolean data type in Dart supports only two values   true and false.  The Keyword bool is used to represent a Boolean literal in DART.
+
+bool var_name = false;
+bool var_name = true;
+
+
+
+
+
+Dart Programming List :----------------------------------
+A very commonly used collection in programming is an array. Dart represents an array in the form of List object. A List is simply an ordered group of objects.
+The dart:core libraray provide the List class that enables creation and manipulation of list.
+
+
+=> The list contain in it the values 12,13,14. the memory blocks holding these values are known as elements.
+=> Each element in the List is identified by a unique number called the index. the index starts from zero and extends up to n-1.
+
+
+List can be classified as :-----------------
+1) Fixed Length List
+2) Growable List
+
+
+=> Fixed Length List
+A fixed length list cannot change at runtime. The syntax for creating a fixed length list is as given below :-
+
+var list_name = new List(initial_Size);
+
+//Example of List in Dart
+import 'dart:io';
+void main(){
+
+  print("Enter the Size of the List");
+  var initial_size = int.parse(stdin.readLineSync());
+  var fixed_list = new List(initial_size);
+  print("Enter Elment in List");
+  for(var i=0;i<initial_size;i++){
+    fixed_list[i]=int.parse(stdin.readLineSync());
+  }
+
+
+  for(var i=0;i<initial_size;i++){
+    print(fixed_list[i]);
+  }
+}
+
+
+
+
+Growable List in Dart :------------------------------------------
+A growable list's length can change at run time. The syntax for declaring and initializing list is as given below.
+
+var list = new List();
+list.add(data);
+
+
+List Properties :------------------------------
+1) first  		=> return the first elment case
+2) isEmpty  	=> returns true if the collection has no elements.
+3) length		=> returns the size of the list.
+4) isNotEmpty	=> return true if the collection has atleast one element.
+5) last		=> return the last element in the list.
+
+
+
+
+
+Dart programming Map :--------------------------
+ The Map object is a simple key/value pair. Keys and value in a map may be of any type. A Map is a dynamic collection. In other worsd maps can grow and shrink at runtime.
+
+Maps can be declread in two ways :-
+1) Using Map Listerals
+2) Using a Map construtor
+
+Example of Map Listerals :-----------------
+void main(){
+	var details = {"Username":"tom","Passowrd":"pass@123"};
+	print(details);
+}
+
+
+Example Map Constructor :-----------------------------
+
+//Example Map COnstructor
+void main(){
+  var mapExample = new Map();
+  mapExample["UserName"] = "Ali Hasan";
+  mapExample["Password"] = "alihasan@226";
+  print(mapExample);
+}
+
+
+
+Map � Properties
+The Map class in the dart:core package defines the following properties -
+
+1	Keys	Returns an iterable object representing keys
+
+2	Values	Returns an iterable object representing values
+
+3	Length	Returns the size of the Map
+
+4	isEmpty	Returns true if the Map is an empty Map
+
+5	isNotEmpty	Returns true if the Map is an empty Map
+
+
+
+Map - Functions
+Following are the commonly used functions for manipulating Maps in Dart.
+
+1 	addAll()	Adds all key-value pairs of other to this map.
+
+2	clear()	Removes all pairs from the map.
+
+3	remove()	Removes key and its associated value, if present, from the map.
+
+4	forEach()	Applies f to each key-value pair of the map.
+
+
+
+
+Enumeration in Dart :----------------------------------------------
+An enumeration is used for defining named constant values. An enumeration type is declared using the enum keyword.
+
+syntax :-
+
+enum enum_name{
+	enumeration list
+}
+
+Where :-
+	The enum_name specifies the enumeration type name
+	The enumeration list is comma separated list of identifiers
+
+Each of the symbols in the enumeration list stands for an integer value one grater than the symbol that precedes it, By default the value of the  first enumeration symbols is 0.
+
+
+enum Status { 
+   none, 
+   running, 
+   stopped, 
+   paused 
+}  
+void main() { 
+   print(Status.values); 
+   Status.values.forEach((v) => print('value: $v, index: ${v.index}'));
+   print('running: ${Status.running}, ${Status.running.index}'); 
+   print('running index: ${Status.values[1]}'); 
+}
+
+
+
+
+Function in Dart Programming Language :-----------------------
+
+Function are the building blocks of readable maintainable and reusable code . A function is a set of statement to perform a specific task. Functions oraganize the program into logical block of code.
+Once defined functions may be called to access code.
+This make the code reusable Moreover functions make it easy to read and maintain the program's code.
+
+
+Example =>
+Live Demo
+void main() { 
+   print(factorial(6));
+}  
+factorial(number) { 
+   if (number <= 0) {         
+      // termination case 
+      return 1; 
+   } else { 
+      return (number * factorial(number - 1));    
+      // function invokes itself 
+   } 
+} 
+
+
+
+Lambda Functions :------------------
+A Lambda function are a concise mechanism to represent functions. These functions are also called as Arrow functions.
+
+[return_type]function_name(parameter) => expression;
+
+
+Example =>
+//lambda function
+void main(){
+  printMsg();
+  print(test());
+}
+printMsg()=>
+print("Hello");
+int test()=>123;
+
+
+
+
+Dart Progamming OOPS :------------------------------------------------------
+Dart is an object oriented language. It supports object oriented programming features like classes interfaces etc. 
+A class in term of OOP is a blueprint for creating objects.
+
+
+Declaring a Class :-
+Use the class keyword to declare a class in Dart. A class definition starts with the keyword class followed by the class name.
+
+class class_name{
+<field>
+<getter/setters>
+<constructor>
+<functions>
+}
+
+
+A class definition can include the following -
+
+Fields - A field is any variable declared in a class. Fields represent data pertaining to objects.
+
+Setters and Getters - Allows the program to initialize and retrieve the values of the fields of a class. A default getter/ setter is associated with every class. However, the default ones can be overridden by explicitly defining a setter/ getter.
+
+Constructors - responsible for allocating memory for the objects of the class.
+
+Functions - Functions represent actions an object can take. They are also at times referred to as methods.
+
+
+class Car {  
+   // field 
+   String engine = "E1001";  
+   
+   // function 
+   void disp() { 
+      print(engine); 
+   } 
+}
+
+
+Creating Instance of the Class ;-
+To create an instance of the class use the new keyword followed by the class name. 
+
+var object_name = new class_name([arguments])
+1) new keyword is responsible for instantion
+2) right-hand side of the expression invokes the constructor. The constructor should be pased values if is is parametrixed.
+
+
+var obj = new Car("Engine 1")
+
+Accessing Attributes and Functions
+A class�s attributes and functions can be accessed through the object. Use the �.� dot notation (called as the period) to access the data members of a class.
+
+//accessing an attribute 
+obj.field_name  
+
+//accessing a function 
+obj.function_name()
+
+
+
+Example =>
+void main(){
+  Car car = new Car();
+  car.disp();
+}
+class Car{
+  //field
+  var engine = "E1001";
+  void disp(){
+     print(engine);
+   }
+}
+
+
+
+
+
+Dart Access Modifier :-----------------------------------------------------------
+Dart does not provide that kind of keyword (public, protected and private ). Instead you can use _ (underscore) at the start of the name to make a data member of a class becomes private.
+
+In Dart the privacy is at library level rather than class level. It means other classes and functions is the same library still have the access.So a data memeber is either public (if not preceded by _)  or private (it preceded by _)
+
+
+Example Usage of Fields :-
+For example there is a library a.dart with a class named A. the class has two fields first (public) and _second (private)
+
+class A{
+	String first;
+	String_second;
+}
+void main(){
+	A a = new A();
+	a.first  = "First";
+	a._second = "Second";
+	print("${a.first} and ${a._second});
+}
+
+It works fine when _second is accessed within the same library even from a function (main) outside the class. What will happen if it's accessed outside the library
+
+
+
+
+Example Usage of Variable OutSide : ------------------------------
+import 'a.dart';
+void main(){
+	A  a = new A();
+	a.first = "First";
+	a._second = "Second";	// Here we cannot use the private member of class A Directly, we'll have to define getter and setter method.
+	print("${a.first} and ${a._seocnd}");
+}
+
+
+
+
+
+
+Example Using getter and setter method to access the private variable :-
+
+class A{
+	String first;
+	String _second;
+
+	void setter(String second){
+		this._second = second;
+	}
+
+	String getter(){
+		return _second;
+	}
+}	
+
+import 'a.dart';
+void main(){
+	A a = new A();
+	a.first = "First";
+	a.setter("Second");
+	print("${a.first} and ${a.getter()});
+}
+
+=> Same thing is applicable for the function also if a function is declared using _ (Underscore) than it can't be access from outside the library.
+=> Don't use the _(Underscore) for the local variable
+
+	
+
+
+Dart Constructor :-------------------------
+A constructor is a special fucntion of the class that is responsible for initializing the variable of the class. Dart defines a constructor with the same name as that of the class. 
+A Constructor is a function and hence can be parametried However unlike a function, constructor have a return type. If you don't declare a constructor a default no-argument constructor is provided for you.
+
+
+
+Class_name(parameter_list){
+//constrcutor body
+}
+
+
+
+Example shows how to use the constructur in Dart
+
+void main(){
+	Car c = new Car("E001");
+}
+class Car{
+	Car(String engine){
+		print(engine);
+	}
+}
+
+
+
+Named Constructor :-------------------------------
+dart provides named constructor to enable a class defined multiple constructor. The syntax of named constructor is as given below :-
+
+Class_name.constructor_name(param_list)
+
+
+
+
+
+Dart this keyword :-------------------------------
+The this keyword refers to the current instance of the class. Here the parameter name and the name of the class's field are the same.
+To avoid ambiguity the class's field prefixed with the this keyword.
+
+
+class Car{
+  String engine;
+  Car(String engine){
+    this.engine=engine;
+    print("The engine is : ${engine}");
+  }
+}
+void main(){
+  Car c1=new Car("BMW");
+}
+
+
+
+
+
+Dart Class - Getter and Setters :----------------------------------
+Getter and Setter also called as accessor and mutator allow the program to initialize and reterive the value of class fields respectively. Getters or accessor are defined using get keyword .  Setter or mutator are defined using the set keyword.
+
+
+
+The following example shows how you can use getters and setters in a Dart class -
+
+class Student { 
+   String name; 
+   int age; 
+    
+   String get stud_name { 
+      return name; 
+   } 
+    
+   void set stud_name(String name) { 
+      this.name = name; 
+   } 
+   
+   void set stud_age(int age) { 
+      if(age<= 0) { 
+        print("Age should be greater than 5"); 
+      }  else { 
+         this.age = age; 
+      } 
+   } 
+   
+   int get stud_age { 
+      return age;     
+   } 
+}  
+void main() { 
+   Student s1 = new Student(); 
+   s1.stud_name = 'MARK'; 
+   s1.stud_age = 0; 
+   print(s1.stud_name); 
+   print(s1.stud_age); 
+}
+
+
+
+
+
+
+Class inheritence :---------------------------------------------------
+Dart support the concept of inheritence which is the ability of a program to create a new classes from an existing class. The class that is extended to create newer classes is called the parent class/super class. The newly created classes are called the child/sub classes.
+
+A class inherits from another class using the extends keywords Child classes inherites all properties and methods except constructor from the parent class.
+
+	class chid_class extends parent_class
+
+
+
+Types of Inheritence  :-------------------------
+Inheritence canbe of the following three types :-
+1) Single		Every class can at the most extend one parent class.
+2) Multiple		A class can inherits multiple classes. Dart doesn't multiple inheritence
+3) Multi-level	A class can inherits from another child class.
+
+
+
+Dart -- Class Inheritance and Method overriding
+Method Overiding is a mechanism by which the child class redefines a method in its parent class. 
+
+Live Demo
+void main() { 
+   Child c = new Child(); 
+   c.m1(12); 
+} 
+class Parent { 
+   void m1(int a){ print("value of a ${a}");} 
+}  
+class Child extends Parent { 
+   @override 
+   void m1(int b) { 
+      print("value of b ${b}"); 
+   } 
+}
+
+
+
+
+
+
+
+The Static keyword :----------------------------
+The static keyword can be applied to the data members of a class fields and methods. A static variable retains its value till the program finishes execution. 
+Static member are referenced by the class name.
+
+Example =>
+Live Demo
+class StaticMem { 
+   static int num;  
+   static disp() { 
+      print("The value of num is ${StaticMem.num}")  ; 
+   } 
+}  
+void main() { 
+   StaticMem.num = 12;  
+   // initialize the static variable } 
+   StaticMem.disp();   
+   // invoke the static method 
+}
+
+
+
+
+
+
+
+
+The super Keyword :----------------------
+The super keyword is used to refer to the immediate parent of a class. The keyword can be used to refer to the super class version of a variable , property or method.
+
+
+Live Demo
+void main() { 
+   Child c = new Child(); 
+   c.m1(12); 
+} 
+class Parent { 
+   String msg = "message variable from the parent class"; 
+   void m1(int a){ print("value of a ${a}");} 
+} 
+class Child extends Parent { 
+   @override 
+   void m1(int b) { 
+      print("value of b ${b}"); 
+      super.m1(13); 
+      print("${super.msg}")   ; 
+   } 
+}
+
+
+
+
+Dart Programming Object :------------------
+Object Oriented Programming defines an object as entity that has a defined boundry. "An object has the following
+=> State - Describes the object. the fields of a class represent the object's state.
+=> Behavour	Describe what an object can do
+=> Identity	A unique value that distinguishes an object froma set of similar other object. two or more objects can share the state and behaviour but not the identity.
+
+Live Demo
+class Student { 
+   void test_method() { 
+      print("This is a  test method"); 
+   } 
+   
+   void test_method1() { 
+      print("This is a  test method1"); 
+   } 
+}  
+void main()    { 
+   Student s1 = new Student(); 
+   s1.test_method(); 
+   s1.test_method1(); 
+}
+
+
+The Cascade operator (..) :-------------------------------
+The cascade operator can be used as shorthand in case where there is a sequence of invocations.
+the cascade (..) operator can be used to issue a sequence of calls via an object.
+
+
+class Student { 
+   void test_method() { 
+      print("This is a  test method"); 
+   } 
+   
+   void test_method1() { 
+      print("This is a  test method1"); 
+   } 
+}  
+void main() { 
+   new Student() 
+   ..test_method() 
+   ..test_method1(); 
+}
+
+
+
+Dart programming Runes :----------------------------------------
+String are a sequence of characters. Dart represents string as a sequence of Unicode UTF-16 code units. Unicode is a format that defines a unique numeric value for each letter digit and symbol.
+					Since a Dart String is a sequence of UTF-16 code units 32-bit Unicode values within a string are represented  using a special syntax. A rune is an integer represented a Unicode code point.
+
+The String class in the dart:core library provides mechanism to access runes. String code units / runes can access in three ways -
+
+	=> Using String.codeUnitAt() function
+	=> Using String.codeUnits property
+	=> Using String runes property
+
+
+String.codeUnitAt() function ;-------------------
+Code units in a string canbe accessed through their indexes. Returns the 16bit UTF 16 code uint at the given index.
+
+String.codeUnitAt(index) => Code unit in String can access through their indexes.Returns the 16bit UTF16 code unit at the given index.
+
+
+2) String.codeUnit Property
+this property returns an unmodifiable list of the UTF-16 code units of the specifies string
+
+String.codeUnits;
+
+
+3) String.runes which iterates through the unicode.
+
+
+
+
+Dart Enumeration :--------------------------------
+An enumeration is a set of predefined named values, called as members. Enumeration are useful when we want deal with limited set of values for variable.  For Example you can think of the colors of a traffic light can only be one of three colors-red yellow or green.
+
+
+Defining an enumeration :-
+In dart enumeration can be declared using the enum keyword followed by a list of the individual members enclosed between pair of curly brackets{}.
+
+enum <enum_name>{
+	const1,const2,............,constN
+}
+
+
+
+
+
+
+
+
+
+Dart Abstract Classes :------------------------------
+Any class taht contains one or more abstract methods is known as abstract class. A class can be declared using the abstract keyword followed by class declaration. A class declared abstract may or may not include abstract methods. An abstract class can have abstract method (methods without implementation) as well as concrete methods (methods with implementation). A normal class (non abstract class) is not allowed to have abstract methods.
+
+Abstract class can not be instantiated , which means you are not allowed to create an object of it. Abstract classes can only be extended and the subclass must provide implementation for all of the abstract method in its parent class. If a subclass does not implements abstract methods then the subclassmust also be declared abstract.
+
+Rules for Abstract Classes :----------------
+1) Abstract classes may or may not include abstract methods (methods without body)
+2) if a class has atleast one abstract method then the class must be declared abstract.
+3) An abstract class cannot be instantiated but can be extended.
+4) if you inherits an abstract class you have to provide implementations to all the abstract methods in it.
+5) An abstract class can be declared using abstract keyword.
+6) An abstract class may also have concrete (methods with body) methods
+
+
+Declration of Abstract Methods :-----------------------
+abstract class ClassName{
+	 Body of abstract class
+}
+
+
+
+Usage of Abstract Class :----------------------------
+Lets say we have class Employee that  has a method showEmpInfo() and we have two subclasses of it Manager and Engineer. Since the  each of the employee information differes from the other employee, then there is no point to implement showEmpInfo() method in parent class. This is because every subclass must override this methods to give its own implementations. Thus making this abtract would be the good choice as by making this methods absract we force all the sub classes to implement this method, also we need not to give any implementation to this method in parent class.
+
+Exmple =>
+abstract class Employee{
+  void showEmpInfo();
+}
+class Manager extends Employee{
+  @override
+  void showEmpInfo(){
+    print("I am Manager");
+  }
+}
+class Engineer extends Employee{
+  @override
+  void showEmpInfo(){
+    print("I am Engineer");
+  }
+}
+void main(){
+  Manager manager = new Manager();
+  Engineer engineer = new Engineer();
+  manager.showEmpInfo();
+  engineer.showEmpInfo();
+}
+
+
+
+
+Dart Interface :----------------------------------------
+An Interface an have method and variable just line a class but in interface can only contain method signature, there is no full bosy implementation of the method is provided . 
+In order to use interface methods the interface must be implemented by another class. Class should use the implements keyword (instead of extends). A class must redefined every method of the interface it is implementing.
+
+
+
+Usage of interfaces :----------------------------------
+In Dart interfaces is way to achieve full abstraction Since interface methods do not have bosy the class that implements interface must implement all the methods of that interface before it can be accessed.
+
+1) An interface is used to achieve abstraction
+2) Interface is a mechanism to achieve multiple inheritence in Dart.
+
+
+Declaring an Interface :-------------------------------
+In Dart there is no does for declaring interfaces directly. In Dart class declarations themselves implicitly defines an interface containing all the instance members of the class and of any interface it implements.
+
+=> Dart does not have a syntax for declaring interfaces. The class declaration is themselves interfacein Delhi
+=> Any class can be act as an interface. Classes can use implements keyword to use the 
+
+
+Syntax :-
+class class_name implements interface_name
+
+Example =>
+class Person {
+  
+  void walk() {
+    print("Person can walk");
+  }
+
+  void talk() {
+    print("Person can talk");
+  }
+}
+class Jay implements Person {
+  
+  @override
+  void walk() {
+    print("Jay can walk");
+  }
+
+  @override
+  void talk() {
+    print("Jay can talk");
+  }
+}
+
+main() {
+  Person person = new Person();
+  Jay jay = new Jay();
+
+  person.walk();
+  person.talk();
+
+  jay.walk();
+  jay.talk();
+}
+
+Output
+Person can walk
+Person can talk
+Jay can walk
+Jay can talk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Dart Programming Collections :-----------------------------
+
+Dart unlike other programming languages doesn't support arrays. Dart collections can be used to replicate data structure like an array
+
+Dart Collection and Description :-
+
+1) List
+A List is simple ordered group of object . The dart:core library provides the List class that enables creation and manipulation of lists.
+=> Fixed Length List
+=> Growable List
+
+
+2) Set
+Set represents a collection of object in which each object can occur only once. the dart:core library provides the the Set class to implement the same.
+
+3) Maps
+The Map object is simple key/value pair. keys and values in a map be of any type. A Map is dynamic collection. In other words Maps can grow and shrink at runtime.
+
+4) Queue
+A Queue is a collection that can be manipulated at both ends. Queues are useful when you want to build a fiest-in first out collection. Simply put a queue insert data one end and deletes from another end.
+
+
+
+Dart Programming Iterating Collections :--------------------------------------------------
+The Iterator class from the dart:core library enables easy collection traversal. Every collection has an iterator property. this property returns an iterator that points to the objects in the collection.
+
+
+Example =>
+import 'dart:collection'; 
+void main() { 
+   Queue numQ = new Queue(); 
+   numQ.addAll([100,200,300]);  
+   Iterator i= numQ.iterator; 
+   
+   while(i.moveNext()) { 
+      print(i.current); 
+   } 
+}
+
+
+moveNext() function returns a Boolean value indicating whether there is a subsequent entry. the current property of the interator object returns the value of the object that the iterator currently point to.
+
+
+
+
+
+Dart Programming Generics :--------------------------------
+
+Dart is an optionally types language. Collection in dart are heterogeneous by default. In other words a single Dart collection can host values of various types. However a Dart collection can be made to hold homogeneous values. The concept of Generics can be used to achieve the same.
+
+The use of Generics enforces a restriction on the data type of the values that can be contained by the collection. Such collection are termed as type-safe collections. Type safety is a programming feature which ensures that a memory block can only contain data of a specific data type.
+
+All Dart collections support type-safety implementation via generics. A pair of angular brackets containing the dart type is used to declare a type-safe collection. The syntax for declaring a type-safe collection is as given below.
+
+Collection_name <data_type> identifier = new Collection_name<data_type>
+
+
+Example=>
+Live Demo
+void main() { 
+   List <String> logTypes = new List <String>(); 
+   logTypes.add("WARNING"); 
+   logTypes.add("ERROR"); 
+   logTypes.add("INFO");  
+   
+   // iterating across list 
+   for (String type in logTypes) { 
+      print(type); 
+   } 
+}
+
+
+
+
+
+
+
+
+Dart Programming Exceptions :-----------------------
+
+An Exception (or exceptional event) is a problem that arises during the exception of a program. When an Exception occurs the normal flow of the program is disrupted and the program/Applicaton terminates abnormally.
+
+Every exception in Dart is a subtype of the pre-defined class Exception. Exceptions must be handled to prevent the application from terminating abruptly.
+
+The try / on / catch Blocks :----------------------------------
+The try block embeds code that might possibly result in an exception. The on block is used when the exception type needs to be specified. The catch block is used when the handler needs the exception object.
+
+
+ The try bloc must be followed by either exactly one on/catch block or one finally block (or one of both). When an exception occur in the try block the control is transferred to the below-
+
+try { 
+   // code that might throw an exception 
+}  
+on Exception1 { 
+   // code for handling exception 
+}  
+catch Exception2 { 
+   // code for handling exception 
+}
+
+
+
+Following are some points to remember -
+=> A code snippet can have more than one on /catch blocks to handle multiple exceptions.
+=> The on block and the catch block are mutually inclusive try block canbe assiciated with both the on block catch block.
+
+
+
+Finally Block :-
+the finally block includes code that should be executed irrespective of an exception's occurence. The optional finally block executes unconditionally after try/on/catch.
+
+
+
+
+Throwing an Exception :-----------------------------------
+The throw keyword is used to explicitly raise an exception. A raised exception should be handled to prevent the program from exiting abruptly.
+
+syntax forraising an exception explicitly is --
+
+	throw new Exception_name()
+
+Example -
+main() { 
+   try { 
+      test_age(-2); 
+   } 
+   catch(e) { 
+      print('Age cannot be negative'); 
+   } 
+}  
+void test_age(int age) { 
+   if(age<0) { 
+      throw new FormatException(); 
+   } 
+}
+
+
+
+Custom Exceptions :----------------------------------------
+As specified above every exception type in Dart is a subtype of the built-in class Exception. Dart enables creating exception by extending the existing ones. The syntax for defining a custom exception is as given below-
+
+class Custom_Exception implements Exception{
+	// can contain constructors variable and methods
+}
+
+
+Example =>
+class AmtException implements Exception { 
+   String errMsg() => 'Amount should be greater than zero'; 
+}  
+void main() { 
+   try { 
+      withdraw_amt(-1); 
+   } 
+   catch(e) { 
+      print(e.errMsg()); 
+   }  
+   finally { 
+      print('Ending requested operation.....'); 
+   } 
+}  
+void withdraw_amt(int amt) { 
+   if (amt <= 0) { 
+      throw new AmtException(); 
+   } 
+} 
+
+
+
+
+
+Dart typedef  :------------------------------
+A typedef or function-type alian helps to define pointers to executable code within memory. Simply put a typedef can be used as a pointer that reference a function.
+
+Given below are the steps to implement typedefs in Dart program.
+
+Step 1: Defininf a typedef
+A typedef ca be used to specify a function signature that we want specific functions to match. A fucntion signature is defined by fucntion's parameter (including their types) The return type is not a part of the function signatures.
+
+
+
+
+
+
+
+
+
+
+Dart Programming  Packages :--------------------------------
+A packages is a mechanism to encapsulated a group of programming utils. Applications might at times need integration of some third-party libraries or plugin. Every language has a mechanism for managing external packages like Maven or Gradle for Java, Nuget for .NET ,npm for Node.js etc.
+		The packages manager for Dart is pub.
+
+
+
+
+
+
+Dart Async :----------------------------------------------------
+Dart is a single threaded programming language that help the developer ensure that critical functions to be executed till completion, without preemption. In dart one operation is executed at a time thereafter the other operation; that means as long as one operation is executing it cannot be intrrupted by any other part of the program. Let's take an example to understand this concept.
+
+import 'dart:io';
+void main(){
+	print("Enter your Favourite color : ");
+	String color = stdin.readLineSync();
+	print("Your Favourite color Is : ${color});
+	print("End of Main");
+}
+
+
+Here we are using the 'dart:io' library to accepts the user input. In the above program the readLineSync() method is synchronous method. Since it is a synchronous method this will block the execution of all instruction after the readLintSync() function till it completes its task. In the above program the stdin.readLineSyns() function waits for the user input; it block the program execution and hold the exection until it receive the user's input.
+
+
+Dart Asynchronour programming :----------------------------
+To help keep the application responsive. Dart uses an asynchronous programming model, which let your program run without getting blocked. In asynchronous programming when program calls a method to perform an operation asynchronously the program continue execution while the asynchronous method perform its task. An asynchronous operation is executed in a separate thread from the  main application thread. In Dart, dart:async package facilitates implementing asynchronous programming.
+
+

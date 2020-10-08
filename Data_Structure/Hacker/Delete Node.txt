@@ -1,0 +1,24 @@
+static SinglyLinkedListNode deleteNode(SinglyLinkedListNode head, int position) {
+        SinglyLinkedListNode temp = head;
+        SinglyLinkedListNode prev = null;
+        int pos = 0;
+        if(position == 0){
+            prev = temp.next;
+            head = prev;
+        }else{
+            while(temp!=null){
+                if(pos == position){
+                    if(temp.next == null){
+                        prev.next = null;
+                    }else{
+                        prev.next = temp.next;
+                    }
+                }
+                pos+=1;
+                prev = temp;
+                temp = temp.next;
+            }
+        }
+
+        return head;
+    }

@@ -1,0 +1,52 @@
+public static int list_size(SinglyLinkedListNode focusNode){
+        int temp = 0;
+        while(focusNode!=null){
+            temp++;
+            focusNode = focusNode.next;
+        }
+        return temp;
+     }
+    
+    static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+
+        int first_list = list_size(head1);
+        int second_list = list_size(head2);
+        int i=0;
+        SinglyLinkedListNode newhead = null;
+        while(i<(first_list+second_list)){
+            if(newhead == null){
+                if(head1.data < head2.data){
+                    newhead = new SinglyLinkedListNode(head1.data);
+                    head1 = head1.next;
+                }else{
+                    newhead = new SinglyLinkedListNode(head2.data);
+                    head2 = head2.next;
+                }
+            }else{
+                SinglyLinkedListNode current = newhead;
+                while(current.next!=null){
+                    current = current.next;
+                }
+
+                if(head1!=null && head2!=null){
+                    if(head1.data < head2.data){
+                        current.next = new SinglyLinkedListNode(head1.data);
+                        head1 = head1.next;
+                    }else{
+                        current.next = new SinglyLinkedListNode(head2.data);
+                        head2 = head2.next;
+                    }
+                }else if(head1 == null){
+                    current.next = new SinglyLinkedListNode(head2.data);
+                    head2 = head2.next;
+                }else if(head2 ==null){
+                    current.next = new SinglyLinkedListNode(head1.data);
+                    head1 = head1.next;
+                }
+            }
+            i+=1;
+        }
+
+        return newhead;
+        
+    }

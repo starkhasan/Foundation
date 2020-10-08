@@ -72,19 +72,122 @@
 # user_check=int(input("Check For Another Number  :  "))
 # print("Your Result : ",b[1]*user_check+b[0])
 
-#Flow Division Operator in Python
+#OPerator in python
+
+#String in Python concatination
+
+'''
+count = 0
+file_open = open('Hasan.txt','r',encoding='utf-8')
+print(file_open.seek(10))
+print(file_open.read())
+print(file_open.tell())
+while True:
+    char = file_open.read(1)
+    if not char:
+        break
+    count = count + 1
+print("Total Number of Characters = ",count)
+file_open.close()
+'''
+
+'''
+#Example of the Linespace
+
+import numpy as np
+
+new_numpy_array = np.linspace(1,5,10)
+print(new_numpy_array)
+'''
+
+'''
+import numpy as np
+print('Generating the N Dimensional Array : ')
+
+numpy_array = np.array([[1,2,3,4],[5,6,7,8]])
+print(numpy_array)
+
+print(numpy_array.dtype)
+print(numpy_array.ndim)
+print(numpy_array.shape)
+print(numpy_array.size)
+numpy_array.sort()
+print(numpy_array)
+
+#Generating the Zeros of the Numpy Array 
+
+new_zeros_array = np.zeros((2,2),dtype=np.int)
+print(new_zeros_array)
+new_ones_array = np.ones((2,2),dtype=np.int)
+print(new_ones_array)
+
+#Reshape Operation in Numpy
+print('Shape of Old Numpy Array = ',numpy_array.shape)
+
+reshapce_numpy_array = numpy_array.reshape(4,2)
+
+print(reshapce_numpy_array)
+print('Shape of New Numpy Array = ',reshapce_numpy_array.shape)
+
+# Flatten Operation in Numpy Array
+print('\n')
+print('Old Numpy Array = ',numpy_array)
+flatten_numpy_array = numpy_array.flatten()
+print(flatten_numpy_array)
+print(flatten_numpy_array.size)
+print(flatten_numpy_array[1]) #Getting Particular Item using index in flatten Array
 
 
+# H Stack and V Stack in numpy Array
+print('\n')
+f = np.array([1,2,3,4])
+g = np.array([5,6,7,8])
 
+print(np.hstack((f,g)))
+print(np.vstack((f,g)))
+'''
 
-number = int(input("Enter Number\n"))
-li = [] 
-for i in range(2,number+1):
-	li.append(i)
-final_list = list(filter(lambda x: (number%x==0) , li)) 
-if(len(final_list) == 1):
-	print(number," is prime Number")
-else:
-	print(number," is not prime")
+'''
+import numpy as np
+new_numpy_array = np.array([[1,2,3,4],[5,6,7,8],[9,0,1,2]])
+print(new_numpy_array)
 
+print(new_numpy_array.shape)
+print(new_numpy_array.size)
+print(new_numpy_array.dtype)
+print(new_numpy_array.ndim)
 
+#Performing indexing and Slicing in Numpy Array
+print('\nPerforming the Indexing and Slicing in  Numpy Array')
+print(new_numpy_array[:])
+
+print(new_numpy_array[1:,2:])
+'''
+
+'''
+import numpy as np
+a = np.arange(24)
+a.ndim
+b = a.reshape(2,4,3)
+y = np.arange(8).reshape(4,2)
+print(b)
+print(y)
+print(y.itemsize)
+'''
+'''
+import numpy as np
+numpyarray = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(numpyarray)
+print()
+print(numpyarray[1:])
+print()
+print(numpyarray[...,1])
+print()
+print(numpyarray[1,...])
+'''
+
+# Reading input using stdin in python
+tuple_first = [1,2,3,4,5,6,7,8,9]
+tuple_second = [10,1,2,3,11,21,55,6,8]
+tuple_first.sort()
+print(tuple_first)

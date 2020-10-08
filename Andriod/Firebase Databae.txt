@@ -1,0 +1,12 @@
+Firebase Realtime Database determine who has read and write access to your database, how your data is structured and what indexes exist.These rules live on structured and what indexes exist. These rules live on the Firebase servers and are enforced automatically at all times. Every read and write request will only be completed if your rules allow it. By default your rules do not allow anuone access to your data. This is to protect your database from abuse until you have time to customize your rules or set up authentication.
+
+Realtime Database Rules have a JavaScript-like syntax and dome in four types:
+
+.read	Decribe if and when data is allowed to be read by users.
+.write	DEscribe if and When data is allowed to be written.
+.validate	Describe what a correctly formatted value will look like whether it has child attribute and the data type.
+.indexOn	Specifies a child to index to support ordering and quering.
+
+Realtime Database security overview :----------------
+The Firebase Realtime Database provides a full set of tools for managing the security of your app. These tool make it easy to authenticate your user enforce user permission and validate inputs.
+

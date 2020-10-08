@@ -1,0 +1,260 @@
+Pandas is an open source Python Library providing high-performance data manipulation and analysis tool using its powerful data structures. The name Pandas is derived from the word Panel Data - an Econometrics from Multidimensional data.
+
+
+Using pandas we can accomplish five typical steps in the processing and analysis of data regardless of the origin of data -- load prepare manipulate model analyze.
+
+Python with Pandas is used in wide range of field including academic and commercial domains including finance economics, Statistics analytics etc.
+
+
+Pandas deals with the following three data structures :-
+1) Series
+2) DataFrame
+3) Panel
+
+These data structure are build on the top of Numpy array which means they are fast.
+
+Dimension and Description :----------------------------------
+The best way to think these data structure is that the higher dimensional data structure is a container of its lower dimensional data structure. For Example 
+
+	DataFrame is continer of Series
+	Panel is a container of DataFrame
+
+
+Mutability :------------------------------------
+All Pandas data structures are value mutable (can be changed) and except Series all are size mutable. Series is size mutable.
+
+DataFrame is widely used and one of the most important data structure. Panel is used much less.
+
+
+Series
+Series is a one dimensional array like structrure with homogeneous data. For example the following series is a collection of integers 10,23,34
+
+Key points :-
+=> Homogeneous
+=> Size immutable
+=> Value of data Mutable
+
+
+
+Data Frame :---------------------------------------
+DataFrame is two dimensional array with heterogeneous data
+
+The is data is represented in rows and columns.
+
+Key points :-
+1) Heterogeneous data
+2) Size Mutable
+3) Data Mutable
+
+
+
+Panel :-----------------------------
+Panel is three dimensional data structure with heterogeneous data.  It is hard to represent the panel in graphical representation. but a panel can be illustrated as a container of DataFrame.
+
+Key points :-
+1) Heterogeous data
+2) Size Mutable
+3) Data Mutable
+
+
+
+
+
+
+Series  :----------------------------------------------------------------------------------------
+
+Series is 1D labeled array capable of holding data of any type (integer,string,float,python object etc). The axis lables are collectvely called index.
+
+=> pandas series can be created using the following constructor 
+
+	pandas.Series(data,index,dtype,copy)
+
+data => data takes various forms like ndarray, list, constants.
+
+index => index value must be unique and hashtable same length as data. Default np.arrange(n) if no index is passed.
+
+dtype => dtype is for data type. If none data type will be inferred
+
+
+A series can be created using various input like :-
+=> Array
+=> Dict
+=> Scalar value or contant
+
+
+Creating an Empty series :-
+
+import pandas as pd
+s = pd.Series()	#declaration of empty series
+print(s)
+
+demo.py:191: DeprecationWarning: The default dtype for empty Series will be 'object' instead of 'float64' in a future version. Specify a dtype explicitly to silence this warning.
+  s = pd.Series()
+Series([], dtype: float64)
+
+Example => 
+
+import pandas as pd
+s = pd.Series(dtype=float)
+print(s)
+
+output =>
+Series([], dtype: float64) 
+
+
+
+Creating a Series from ndarray :-----------------------------------------
+If data is an ndarray then index passed must be of the same length. If no index is passed then by default index will be range(n)  where n is array length [0,1,2,3 range(len(array))-1]
+
+Example =>
+
+import pandas as pd
+import numpy as np
+data = np.array(['a','b','c','d'])
+s = pd.Series(data)
+print(s)
+s = pd.Series(data,index=[1,2,3,4])
+print(s)
+
+Output =>
+D:\Repo\Python\Pandas>python series.py
+0    a
+1    b
+2    c
+3    d
+dtype: object
+1    a
+2    b
+3    c
+4    d
+dtype: object
+
+
+
+Creating a Series from dict :---------------------------------------
+A dict can be passed as input and if no index is specified then the dictonary keys are takes in a sorted order to construct index. If index is passed the values in data corresponding to the labels in the index will be pulled out.
+
+
+Example :-
+import pandas as pd
+import numpy as np
+data = {'a':1,'b':3,'c':2}
+s = pd.Series(data)
+print(s)
+
+
+Output :-
+a    1
+b    3
+c    2
+dtype: int64
+
+
+Example => 
+import pandas as pd
+import numpy as np
+data = {'a':1,'b':3,'c':2}
+s = pd.Series(data,index=['a','b','d'])
+print(s)
+
+OutPut =>
+a    1.0
+b    3.0
+d    NaN
+dtype: float64
+
+Obsever  - index order is persisted and missing element is filled with NaN (Not a Number)
+
+
+
+Creating a series from Scalar :-------------------------------------
+if data is scalar value an index must be provided. the value will be repeated to match the length of index
+
+Example =>
+import pandas as pd
+s = pd.Series(5,index=[0,1,2,3,4])
+print(s)
+
+OutPut =>
+0    5
+1    5
+2    5
+3    5
+4    5
+dtype: int64
+
+
+
+
+
+
+
+
+Accessing Data from Series with Position :---------------------------------------------
+Data in the series can be accessed similar to that in an ndarray.
+
+1) Reterive the first element as we already know the counting starts from zero for the array which means the first elements is stored at zero position and so on.
+
+
+2) Reterive the first three elements in the eries if a is inserted in front of it all item from that index onwards will be extracted. If two parameter is used item between the two indexes 
+
+
+Example =>
+
+import pandas as pd
+s = pd.Series(5,index=[0,1,2,3,4])
+print(s)
+print(s[0])
+print(s[:3])
+
+
+Output =>
+D:\Repo\Python\Pandas>python series.py
+0    5
+1    5
+2    5
+3    5
+4    5
+dtype: int64
+5
+0    5
+1    5
+2    5
+dtype: int64
+
+
+3) Reteriving Data using Label (Index)
+A Series is like fixed size dict in that you can get and set index label.
+
+Reterive a single element using index label value.
+
+Example => 
+import pandas as pd
+s = pd.Series([1,2,3,4,5],index = ['a','b','c','d','e'])
+
+#retrieve a single element
+print s['a']
+
+Output =>
+1
+
+
+4) Reterive multiple element using a list of index label values.
+
+Live Demo
+import pandas as pd
+s = pd.Series([1,2,3,4,5],index = ['a','b','c','d','e'])
+
+#retrieve multiple elements
+print s[['a','c','d']]
+
+
+Output  =>
+a  1
+c  3
+d  4
+dtype: int64
+
+
+Note => If a label is not contained, an exception is raised.
+

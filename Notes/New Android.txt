@@ -1,3 +1,19 @@
+What is the difference between the Alert Dialog and Dialog in Android ?
+Dialogs in Android are used to show alerts for making decisions to edit a single value.But there are some difference between an AlertDialog and a Dialog you always want to show message and atleast one Button for user interaction. In a Dialog you have custom view to  TextView or something more complex.
+
+AlertDialog is a lightweight version of a Dialog. This is supposed to deal with INFORMATIVE matters only. That's the reason why complex interaction with the user are limited. Dialog on the other hand is able to do even more complex things.
+
+=============================================================
+
+
+
+
+
+
+
+
+
+
 Hiding the SoftKeyboard Programatically :-----------------------------------------------------------
 public void hideSoftKeyboard(View v) {
         InputMethodManager inputManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -228,4 +244,12 @@ this is the only log level where you'll get the response body data . If you are 
 
 
 
+LocalBroadcast Manager in Android :------------------------------------------------------------------------------------
+In Android we use a Broadcast Receiver to send a particular message to every application that is associate with that specific Broadcast.
+
+
+If the communication is not between different application on the Android device then is it suggested not to use the Global Broadcast Manager because there can be some security holes while using Global Broadcastmanager and you don't have to register  and send a broadcast ofintents to local objects in your process. It has lots of advantages:
+
+1) you broadcast data will not leave your app. So if there is leakage in your app then you need not worry about that.
+2) Another thing that can be noted here is that other applications can't send kind of broadcast to your app. So you need not worry about security holes.
 

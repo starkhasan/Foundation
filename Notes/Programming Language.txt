@@ -14,6 +14,14 @@ FP language can be translated well into an interactive enviroment which makes th
 
 => The function can be easily invoked and reused atb any point. It also help the code to manage and the same thing or statements does not need to write again and again.
 
+
+
+
+Some other Defination :--------------------------------------------
+Functional programming (FP) is about passing data from function to function to funtion to get a result . In FP functions are treated as data meaning you can use them as parameters return them build functions from other functions and build custom functions. Functions in Fp have to be pure function, they should avoid shared state and side effect and data should be immutable. A pure function is a function that given the same type of input will always return same output it is not dependent on local and global state.
+
+
+
 => Functional Programming based on different concept is 
 1) High Order Functions (HOF)
 2) Pure functions
@@ -64,6 +72,7 @@ ExamplePerl,Ruby,Python,JavaScript.
 
 => Dart is pure obect oriented programming language.
 
+=> Structred programming is a programming paradigms aimed at improving the clarity quality and development time of a computer program by making extensive use of the structured control flow constructs of selection (if/then/else) and repetition (while or for) block structures and subroutines.
 
 
 

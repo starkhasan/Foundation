@@ -1,0 +1,73 @@
+Hashing is the process of converting a given key into another value. A hash function is used to generate the new value according  to a methematical algorithm. the result of a hash function is known as a hash value or simply a hash.
+
+
+A Hash function takes an input as a key which associated with a datum or records and used to identify it to the data and reterived application. The keys may be fixed length like an integer or variable length like a name. In some cases the key is the datum itself. the output is a hash  index  a hash table holding the data or records or pointer to them.
+
+
+/*
+The problem at hand is to speed up searching. Consider the problem of searching an array for a given value. If the array is not sorted, the search might require examining each and all elements of the array. If the array is sorted we can use the binary search and therefore reduce the worst-case runtime complexity O(logn). We coluld search even faster if we know in advance the indes at which that value is located in array. Suppose we do have that magis function that would tell us index fora given value. With thismagic function our search is reduced to just one prob, giving us a constant runtime O(1). Such function is called hash function. A hash function is a function shich when given a key generates an address in the table.
+*/
+
+
+A good hash fucntion uses a one-way hashing algorithm or in other words the hash cannot convert back into the original key.
+
+
+Collisions:-----------------------
+Keep in mind that two keys can generate the same hash. This phenomenon is known as a collision. There are several ways to handle collision.
+
+1) Separate Chaining Collision
+2) Open Addressing Collision
+
+
+
+
+
+
+1) Separate Chaining Collision :-
+The Idea is to make each cell of hash table point to a linked list of records that have same hash function value.
+
+
+Advantages :-
+a) Simple to implement
+b) Hash table never fills up we can always ad more elements to the chain
+c) Less sensitive to the hash function or load factor
+d) It is mostly used when it is unknown how many and how frequently keys may be inserted or deleted.
+
+
+Disadvatages :-
+a) Cache performance of chaining is not good as keys are stored using linked list. open Addressing provides better chace performance as everything is stored in the same table.
+b) Wastage of Space 
+c) If the chain becomes long then search time can become O(n) in the worst case.
+d) uses extra space for links.
+
+
+
+
+2) 
+
+
+
+
+
+
+
+Applications :------------------------------
+Hasing is most commonly used to implement hash table. A hash table store key/value pairs in the form of a list where any element can be accessed using ite index.
+
+Since there is no limit to the number of key/value pairs we can use a hash fucntion to map the keys of the table the hash value become the index for a given element
+
+
+
+Th simplest hashing approaches would be to take the modular of the key ( assuming it numerical against the table size):
+
+	index x = key MOD tablesize.
+
+This will ensure that hash is always within the limit of the table size Here is the code for such hash functions:
+def hashModular(key, size):
+  return key % size
+
+list_ = [None] * 10   # List of size 10
+key = 35
+index = hashModular(key, len(list_))   # Fit the key into the list size
+print("The index for key " + str(key) + " is " + str(index))
+

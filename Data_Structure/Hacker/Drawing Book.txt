@@ -1,0 +1,19 @@
+static int pageCount(int total_pages, int pageNumber) {
+        int mid = total_pages/2;
+        int pageTurn=0;
+        if(pageNumber>mid){
+            int temp = total_pages - pageNumber;
+            if(temp==1){
+                if(total_pages%2==0){
+                    pageTurn = 1;
+                }else{
+                    pageTurn = 0;
+                }
+            }else{
+                pageTurn = temp/2;
+            }
+        }else{
+            pageTurn = pageNumber/2;
+        }
+        return pageTurn;
+    }

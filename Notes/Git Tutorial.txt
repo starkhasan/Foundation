@@ -9,8 +9,135 @@ Types of Version Control Systems :-
 => Distributed Version Control Systems.
 
 
+Perfromance of Git :------------------------------------
+The raw performance characterictics of Git are very strong when compared to many alternatives. Committing new changes branching merging and comparing past version are all optimized for performance. The algorithm implemented inside Git take advantage of deep knowledge about common attributes of real source code file trees, how they are usually modified over time and what the access patterns are.
+
+Security :----
+Git has been designed with the integrity of managed source code as a top prority file and directories verion tags and commits all of these object in the Git repository are secured with a cryptographically secure hashing algorithm called SHA1.This protects the code and the change history against both accidental and malicous and ensure that the history is fully tracable.
+
+Flexibility :----------------------------
+Git has been designed to support branching and tagging as first class citizen and opration that affect branches and tag are also stoed as part of the changed history. Not all version control systems feature this level of tracking.
+
+
+Version Control with Git :--------------------------------------
+Git is the best choice for most software teams today. while every team is different and should do their own analysis, here are the main reasons why control with Git is preferred over alternatives:
+
+
+
+Crticism of Git :-------------------------------------------
+One common criticism of Git is than it can be difficult to learn. Some of the terminology in Git will be novelto newcomers and for user of other Systems, the Git terminology may be different.
+
+
+
+Pull Request :-------------------------------
+A pull request is a way to ask another developer to merge one of your branches into their repository. This not only make it easier for project leads to keep track of changes but also lets developers initiate discussions around their work before interating it with the rest of the codebase.
+
+
+
+Intall Git on Windows ;------------------------------------------
+
+open  a Command prompt (or Git Bash if during installation you elected not to use Git from Windown Command Prompt).
+
+Every time you interact with the remote repository you must supply a username/password combination. You can store these credentials insteads of supplying the combination every time with the Git Credential Manager for Windows.
+
+
+some fun fact about repositories :-------------------------
+=> you have access to all file in your local repository whether you are working on one file or multiple files
+=> you can review public repository with bitbucket account if  you have the URL for that repository
+=> Each repository belongs to a user account or a team. In the case of a user account, that user owns the repository. + In the case of a team, that team owns it.
+
+=> The repository owner is the only person who can delete the repository. If the repository belongs to a team, an admin can delete the repository.
+
+=> Each repository has a 2GB size limit but we recommand keeping your repositiry no larger than 1 GB.
+
+
+
+Create the REpository :-------------------------------
+Initially the repository you create in BitBucket is going to be empty without any code in it. That's okay Bitbucket repository will be the central repository for your files, which means that others can access that repository if you give them permission After creating a repository.
+you'll copy a version to your local system that way you can update it from one repo then transfer chnages to the other.
+
+
+Copy your Git repository and add files :-------------------------------
+Now that you have a place to add and share your space station files you need a way to get to it from your local system. To set that up you want to copy the BitBucket repositiry to your system. Git refers a to copying a repository as "cloning " it. When you clone a repository you create a connection between the bitbucket server (which Git known as origin ) and your local system.
+
+$git clone https://emmap1@bitbucket.org/emmap1/bitbucketstationlocations.git
+
+=> in some version of Microsot Windows operating system and Git you might see an error similar to the one in hte following example.
+
+Window close password error example :---------------------
+
+(If you get this erro enter the following at the command line     $git config --global core.askpass)
+
+Then go back  and repeat the close process. the bach agent should now prompt you for youe password, You should only have to do this  once.
+ 
+
+
+=====> Add file to your local repository and put it on BitBucket:-
+With the repository on your lcoal system start track of all your space station locations.
+
+create a file to your location respository :-
+$echo "Earth's Moon" >> location.txt
+
+if the command line doesn't return anything it means you create the file correctly.
+
+git status   ==> showing the working tree status
+
+the file untracked meaning that Git sees a file not part of a previous commit. The status putput also show you the next step adding the file.
+
+=> To Tell Gitto Track your new lcoation.txt file using the git add command. Just like when you create a file the git add command doesn't return abything when you enter it correctly.
+
+
+The git add command moves changes from the working directory to the Git staging area. The staging area is where you prepare a snapshot of a set of changes before committing them to the official history.
+
+=> git commit with commit messag as shown on the next line. The -m indicates that a commit message follows.
+
+up until this point everything you have done is on your local system and invisible to your BitBucket repository until you push those changes.
+
+=> git push origin master
+This command specifies that you are pushing to the master branch  (the branch on BiBucket on origin (the BitBucket Server)).
+
+=> git pull command merges the file from your remote repository into your local repository with a single command.
+
+
+
+
+
+
+Step 1 :- Create branch and make a chaneg :----------------------------------------------
+Create a branch where you can add future plans for the space station that you aren't ready to commit. When you are ready to make those plans known to all you can merge the changes into your Bitbucket repository and then delete the no-longer needed branch.
+
+
+
 What is GitHub :--------------------
-In the discussion of Git vs GitHub it's been said that GitHub is to Git. GitHub is designed as a Git repository hosting service. It is a Online database that allows you to keep track of and share your Git version control project outside of your local computer/server.
+In the discussion of Git vs GitHub it's been said that GitHub is to Git. GitHub is designed as a Git repository hosting service. It is a Online database that allows you to keep track of and share your Git version control project outside of your local computer server.
+
+It is important to understand that branches all Git needs to do is create a new pointer it doesn't create a whole new set of files or folders.
+
+=>  git branch future-plans
+this command creates a branch but does not switch you to that branch.
+
+The repository history remains unchanged. All you get is a new pointer to the current branch. To begain working on the new branch you have to checkout the branch you want to user.
+
+$git checkout future-plans
+
+
 
 GitHub is cloud hosting service that lets you manages Gitrepositories.
 
+
+
+Once you push the changes to your repo the Compare and pull request button will appear in GitHub.
+Click it and you'll be taken to this screen:
+Once a pull request by clicking the create pull request button. This allow the repo's maintainers to review your contribution. From here they can merge it if it is good or they may ask you to some changes.
+
+
+=>
+Pull request let you tell others about changes you've pushed to a GitHub repository. Once a pull request is sent interested parties can review the set of changes, discuss potential modifications, and even push follow up commits if necessary.
+
+Many open source projects on Github use pull request to manage changes from contributors as they are useful in providing a way to notify project maintainers about changes one has made and in initaiating code review and general discussion about a set of changes before being merged into the main branch.
+
+
+git pull =>
+git pull does a git fetch followed by git merge to update the local repo with the remote repo.
+
+To create a branch use git checkout -b <new-branch-name> where base-branch-name is optional and defaults to master. 

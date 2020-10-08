@@ -1,7 +1,7 @@
 Introduction :------------------------------
-Data Structure can be  defined as the group of data element which provides an efficient way of storing and organizing data in the computer so that it can be  used efficiently. SOme examples of data struture are array LinkedList, Stack , Queue etc. Data Structure are idely used in almost every aspet of Computer Science. operating System, Compiler Design Artificial Intelligence Graphics and many more.
+Data Structure can be  defined as the group of data element which provides an efficient way of storing and organizing data in the computer so that it can be  used efficiently. SOme examples of data struture are array LinkedList, Stack , Queue etc. Data Structure are widely used in almost every aspet of Computer Science. operating System, Compiler Design Artificial Intelligence Graphics and many more.
 
-Data Structure are main part of may computer algorithm as they enable the programmer to handle the data in efficient way. It plays a vital role in enhancing the performance of a software or a program as the main functions of the software is to store and reterive the user's data as fast as possible.
+Data Structure are main part of many computer algorithm as they enable the programmer to handle the data in efficient way. It plays a vital role in enhancing the performance of a software or a program as the main functions of the software is to store and reterive the user's data as fast as possible.
 
 A data structure is specialized format for organizing processing reteriving and storing data.While there are several basic and advances structure types, any data structure is designed to arrange data to split purpose so that it can be accessed and worked with in appropriate ways.
 
@@ -9,7 +9,7 @@ A data structure is specialized format for organizing processing reteriving and 
 
 
 Characteristics of data structures :---------------------------------
-Data Structure are oftem classified by their characteristics. Possible characteristics are :-
+Data Structure are often classified by their characteristics. Possible characteristics are :-
 
 => Linear or non-linear
 This characteristics describes whether the data item are arranged in chronological sequence , such as with an  array or in an unordered sequence such as with a graph.
@@ -17,7 +17,7 @@ This characteristics describes whether the data item are arranged in chronologic
 => Homogeneous or non homogeneous: This characterics describes whether all data items in a given repository are of the same types or of various types.
 
 => static or dynamic
-This characteristics describes how the data structures are compied. Static data structure have fixed sizes structures and memory location at compiled time. Dynamic data structure have sizes structures and memory location that can shrink or expand depending on the use.
+This characteristics describes how the data structures are compield. Static data structure have fixed sizes structures and memory location at compiled time. Dynamic data structure have sizes structures and memory location that can shrink or expand depending on the use.
 
 
 
@@ -42,7 +42,7 @@ Non Primitive Data Structure are further divided in to two parts
 2) Non Linear Data Structure
 
 Linear Data Structure :-------------------------------------
-A Data Structure is called of all of its element are arranged in the linear order. In linear data struture the elementare stored in non hierarchical way where each element has  the successors and predessor except the first and last element.
+A Data Structure is called of all of its element are arranged in the linear order. In linear data struture the elementary stored in non hierarchical way where each element has  the successors and predessor except the first and last element.
 
 
 Types of Linear Data Struture are :-
@@ -55,7 +55,7 @@ Types of Linear Data Struture are :-
 Non Linear Data Strutures :----------------
 This data structure does not form a sequece each item is conneted with two or more items in non linear arrangement. The data element are not arranged in equential structure.
 
-types of Non Linear Data Structure are given below :---------------------
+Types of Non Linear Data Structure are given below :---------------------
 
 1) Trees
 2) Graph
@@ -72,7 +72,7 @@ Every data structure contains the set of data structure Traversing the data stru
 Insertion can be defined as the process of adding the element to the data structure at any location
 
 3) Deletion :-
-The process of removing an element fromthe data structure is called Deletion. We can delete element from the data structure at any random location
+The process of removing an element from the data structure is called Deletion. We can delete element from the data structure at any random location
 
 4) Searching :-
 The process of finding the location of an element within the data structure is called Searcning. These are two algorithm to perform searching Linear Search and Binary Search. We will disuss one of them later in this tutorial.
@@ -82,6 +82,76 @@ The process of arraning the data structure in a specified order is known as Sort
 
 6) Merging :-
 When two List A and List B of size M and N respectively if similat type of element, cludded or joined to produced the third list List C of size (M+N) then this process is called merging.
+
+
+
+An Array Vs A List :---------------------------------------
+ A List is a different kind of data structure from an array
+The Biggest difference is in the idea of direct access Vs Sequential access Array allow both direct and sequential access allow only sequential access. And this is because the way that these data structure are stored in memory.
+
+The structure of the list doesn't support numeric index like an array .
+
+Linked List  :- It is collection of nodes where each node has a value and link to the next node in the list.
+
+
+Because of the way it's build adding and removing element in much much easier than with an array.
+
+
+=> Singly and Doubly Linked List
+the doubly linked list required more space per because it maintains a pointer to the next and previous nodes.
+
+Adding operation is clearly less work in a singly linked list because doubly linked list required changing more links than a singly links a singly linked list.
+
+
+Stacks :----------------------------------------
+Just like the array and list stack and queue are also collections of items They are just different ways we can hold multiple items. It's last in first out data structure with no care about numeric indexes.
+
+It is a collection of item where we ass and remove item to and from the top of the stack.
+
+
+
+Stack Implementation :--------------------------
+A Stack can be easily implementated wither using an array or a linked list:-
+
+Usage of Stacks :-
+Stack is not limited to only model the real world situation (same for queue). One of the best uses fro the stack in programming is when parsing code or expressions where you need to do something like validation the correct amount of opening and closing braces square brackets or paranthesis.
+
+The Basic Operations of Stacks :-----------------------------
+They are push() pop() and peek(). push is for pusing a new element onthe top of the stack and pop will return (and remove) the element at the top while peek will get element at the top without removing it.
+
+
+
+Queue :-
+It is a collection of item where we add item to the end and remove item from the front of the queue.
+As with stack a queue can be implemented either using an array or a linked list.
+
+Usange of Queues :-
+Queue are very commonly used in concurrency situations to keep track of what tasks are waiting to performed and making sure we take them in that order.
+
+Basic Operation of Queue:-----------------------
+Just like a stack add(), remove() and peek().
+
+
+
+Hashing :-----------------------------------------------
+Hashing is a valuable concept in programming. It is used not jsut in data structure but in security crytography grahics audio.
+
+It is way to take our data and run it though a function which will return a small simplifies reference generated from that origial data.
+
+
+
+
+Tree Data Structure :------------------------------------------------
+A tree is a hierarchical data structure consisting of vertices (nodes) and edges that connect them. Trees are similar to graph but the key point that differenciates a tree from the graph is that a cycle cannot exit in a tree.
+
+The idea of a tree data structure is that we have a collection of nodes and the nodes have connections they have links between each other. This sounds similar to linked list, But in linked list we always go from one node to a single specified next node. while in tree each node might link ot one or two or more nodes.
+
+Binary Tree :------------------------------
+A Binary tree is just a tree with maximum of two child node for nay parent node. Binary tree are often used for implementing a wonderfully searched structure called a Binary Search Tree.
+
+
+
+
 
 
  => Linked List Implementation Using Java :-
@@ -98,6 +168,25 @@ class Node{
 }
 
 
+
+ => Code of Insertion of the Element in Linked List :-
+
+private void insert(int data){
+	if(head == null){
+	   head = new Node(data);
+	}
+	else{
+	   Node current = head;
+	   while(current.next!=null){
+	        current = current.next;
+	   }
+	   current.next = new Node(data);
+	}
+}
+
+
+
+
 Binary Search Tree :------------------------------------------
 
 Binary Searh Tree is a node-based tree data structure which has the following properties:
@@ -106,10 +195,10 @@ Binary Searh Tree is a node-based tree data structure which has the following pr
 => The left and right subtree eah must also be a binary search tree.
 There must be no duplicate element.
 
-The main operation ini binary tree are :- search ,  insert and delete. We will see the worst case time complexity of these operations in binary trees.
+The main operation in the binary tree are :- search ,  insert and delete. We will see the worst case time complexity of these operations in binary trees.
 
 Binary Tree :-
-In a binary tree a node can have maximum teo children.
+In a binary tree a node can have maximum two children.
 
 Searching :- For searching element we have to traverse all element (assuming we do breadth first traversal) Therefore searching in binary tree worst case complexity of O(n).
 

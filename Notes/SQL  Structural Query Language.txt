@@ -1,6 +1,6 @@
-				           --------------: Database Management System :----------------
-
 				        ----------------: Database Mangement System :--------------
+Database management system is software that is used to manage the database.
+
 
 	Database :----------
 
@@ -9,6 +9,8 @@ Database is an organised collection of data generally stored and accessed electr
 
 
 Database is a collection of related data and and data is a collection of fact and figure that can be processed to produce.
+
+The database is a collection of inter-related data which is used to reterived , insert  and delete the data efficiently. it is also used to organised the data in the form of a table, schema , viewes and reports etc.
 
 => Characteristic of DBMS
 1) Less Redundency

@@ -31,7 +31,7 @@ Computer language innovation  and development occurs for two fundamental reasons
 => To adapt to changing enviroment and uses
 => To implement refinements and improvements in the art of programming
 
-Java's Lineage :-
+Java's Linkeage :-
 java is realated to C++ which is a direct descendant of C. Much of the character of  java inherited from these two language.
 From C java derived its syntex Many of java object-oriented feature were influenced by C++.
 
@@ -44,8 +44,6 @@ From C java derived its syntex Many of java object-oriented feature were influen
 Somewhere surprisingly the original impetus for java was not the Internet! Instead the primary motivation was the need for a platform-independent (that is architecture-neutral) language that could be used to create software to be embedded in various consumer electronic  devices, such as microwave ovens and remote controls.
 
 The second force was ofcourse the World Wide Web (WWW).
-
-
 
 
 Platform :- Any Hardware or Software enviroment in which a program runs, is known as a platform.
@@ -333,7 +331,7 @@ Java generally satisfies almost all the conditions except condition #5 as Java s
 
 
 > Inheritance
-   * it is the process by which one object  acquire the properties of another object.this is important because it supports the concept of                      hierarchical classification
+   * it is the process by which one object  acquire the properties of another object.this is important because it supports the concept of                         hierarchical classification
 
 
 > Polymorphism
@@ -552,7 +550,7 @@ In java all variable must be delared before they can be used. the basic form of 
 
 the type is one of java's atomic types or the name of a class or interface
 
-example=>
+Example=>
 int a,b,c;
 int d=3,e,f=5;
 
@@ -630,8 +628,8 @@ An array is a group of same ( Homogeneous ) types variable that are refered to b
 
    Declaration of an Array in Java
 
-   int a[]=new int[<size>]
-   int[] a=new int[<size>]     //like that
+   int a[] = new int[<size>]
+   int[] a = new int[<size>]     //like that
 
    Example:-
   
@@ -824,14 +822,14 @@ false
 
 
 
-=> Difference Between String , StringBuilder and StringBuffer Classes  
+=> Difference Between String , StringBuffer , StringBuilderClasses  
 
 1) String 
 String is immutable ( once created  can  not be changed ) object . The object created as a String is stored in the Constant String Pool.
 Every immutable object in java is thread safe that implies String is also thread safe . String  can not be used by two thread simultaneously. String once assigned can not be changed.
 
 2) StringBuffer
-StringBuffer is mutable means one can change the value  of the object. The object created through StringBUffer is stored in the heap. StringBuffer
+StringBuffer is mutable means one can change the value  of the object. The object created through StringBuffer is stored in the heap. StringBuffer
 has the same methods  as the StringBuilder . but each method is StringBuffer is synchronized that is StringBuffer is thread safe.
 
 	Due to this it does not allow two threads to simultaneously access the same method. Each method can be accessed by one thread at a time.
@@ -841,7 +839,7 @@ But being thread safe has disadvantage too as the performance of the String  hit
 StringBuffer can be converted to string by using toString() method.
 
 StringBuffer demo1=new StringBuffer("Hello");
-//The above object stored in heap and its value can be changed  demo1=new StringBuffer("Bye");
+//The above object stored in heap and its value can be changed  demo1 = new StringBuffer("Bye");
 
 
 3) StringBuilder
@@ -850,7 +848,7 @@ StringBuilder is same as the StringBuffer that is it stores the object in heap a
  
 
 
-=> Thread-safe code is code that will work even if many Thread are executing it simultaneously. A piece of code is thread-safe it it only manipulates shared data structure in a manner that guarantee safe execution by multiple thread at the same time.
+=> Thread-safe code is code that will work even if many Thread are executing it simultaneously. A piece of code is thread-safe if it only manipulates shared data structure in a manner that guarantee safe execution by multiple thread at the same time.
 
 
 
@@ -966,9 +964,9 @@ class demo
 {
 	public static void main(String [] args)
 	{
-		int a=20;
-		Integer i=new Integer(a);	// Now this method hash been deprecated
-		Integer i=Integer.valueOf(i)	// Now this is used
+		int a = 20;
+		Integer i = new Integer(a);	// Now this method hash been deprecated
+		Integer i = Integer.valueOf(i);	// Now this is used
 		System.out.println(i);
 	}
 }
@@ -1109,7 +1107,7 @@ What is the difference between the Relational and Logical Operator?
 Relational operator are used to compare the value of two expressions, Relational operators are binary operator because they requires two operands
 
 < 	less than
-<=	lenn than or equal to
+<=	less than or equal to
 >	greater than
 >=	greater than or equal to
 
@@ -1164,7 +1162,7 @@ the operator of the arithmetic operators must be of a numeric type.
 
 The ternary operator is also known as the conditional operator. This operator consists of three operands and is used to evaluate Boolean expression The goal of the operator is to decide which values should be assigned to the variables.
 
-	variable x= (expression) ? value if true : value if false
+	variable x = (expression) ? value if true : value if false
 
 
 Example =>
@@ -1219,7 +1217,7 @@ Java's program control statements can be put into following categories
 
 
 
-Selection => selection statements allow your program to choose different paths of execution based upon the outcome of an expression of or the state of a variable.
+Selection => Selection statements allow your program to choose different paths of execution based upon the outcome of an expression of or the state of a variable.
 
 
 Java supports two selection statements if and switch. These statements allow you to control the flow of your program's execution based upon conditions known only during run time
@@ -1316,12 +1314,13 @@ If there is not final else and all other conditions are false then no action wil
 
 
 	switch :----------------------------------------------------
-The switch statement is Java's multiway branc statement. It provides an easy way to dispatch execution to different parts of your code based on the value of an expression.
+
+The switch statement is Java's multiway branch statement. It provides an easy way to dispatch execution to different parts of your code based on the value of an expression.
 As such it often provides a better alternative than large series of if-else-if statements.
 
 General form of switch statement:
 
-switch(exxpression){
+switch(expression){
 case value 1:
 //statement sequence
 break;
@@ -1358,10 +1357,10 @@ Iteration =>
 Iteration statements enable program execution to repeat one or more statements (that is iteration statements form loops)
 java's iteration statement are for , while and do-while. 
 
-These statement create what we commonly call loops. As you know a loop repeatedlly the same set of instrcutions until a termination condition is met.
+These statement create what we commonly call loops. As you know a loop repeatedly the same set of instrcutions until a termination condition is met.
 
 while :----------------------
-The while loop is Java's most fundamental loop statement. IT repeats a statement or block while its controlling expression is true. Here is tis general form 
+The while loop is Java's most fundamental loop statement. IT repeats a statement or block while its controlling expression is true. Here is the general form 
 
 while(condition)
 {
@@ -1407,6 +1406,7 @@ In java the break statement has uses First as you have seen, It terminates a sta
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                                                                                        OOPs (Object Oriented Programming Structure)
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+It is also said that OOPS  (Object Oriented Programming System)
 
 Why java is not a pure Object-Oriented Language
 Pure object oriented language or complete object oriented language are fully object oriented language which supports or have features which
@@ -1433,10 +1433,10 @@ It simplifies the software development and maintenane by providing some concepts
 
 
 1) Object
- Any entity that has state(instance variable) and behavior( instance method) is known as an object. For example a chair, pen, table, keyboard, bike,  etc. It can be   physical or logical.
+ Any entity that has state(instance variable) and behavior( instance method) is known as an object. For example a chair, pen, table, keyboard, bike,  etc. It can be physical or logical.
 
 
-  it has unique identity.
+It has unique identity.
 
 Example=>
 
@@ -1496,7 +1496,7 @@ It is important to remember that a class declaration only creates a template it 
 
 Box mybox  = new Box()  //Creating a Box object called mybox
 After this statement executes mybox will be an instance of Box. This it will have physical reality.
-As mentioned earlier each time you create aninstance of a class you are creating an obejct that contains its own copy of each instance variable defied by the class.
+As mentioned earlier each time you create an instance of a class you are creating an obejct that contains its own copy of each instance variable defied by the class.
 
 
 
@@ -1554,8 +1554,8 @@ An object is an entity that has properties for identifying its state, methods or
 >Anything which is having state and behaviour is object
 >Object is created to call non-static methods which are not present inside the main method but present inside the class
 
-
 > The class is at the core of java .It is the logical construct upon which the entire java language is built because it define the shape and nature of an      object
+
 > Class is template for an object and an object is the instance of an class
 > A class is declared by the class keyword
 > The data , or variable define within a class but outside the method are called instance variable.
@@ -1580,8 +1580,9 @@ Important =>
  
    > Box mybox=new Box()
    > After this statement execution mybox will be an instance of Box.
-     Thus it will have physical reality.As mention earlier ,each time you create an instance of a class,you are creating an object that contains its own        copy of each instance variable defined by the class
-  > Every Box object will contain its own copies of the instance variable width,height and length.
+      Thus it will have physical reality.As mention earlier ,each time you create an instance of a class,you are creating an object that contains its own         copy of each instance variable defined by the class
+  
+   > Every Box object will contain its own copies of the instance variable width,height and length.
 
   =>     Box mybox=new Box
             >Box mybox;                //declare references to object
@@ -1600,12 +1601,12 @@ Important =>
                                                                                ---------------------:: CONSTRUCTOR ::----------------------
 
 
-=> In Java , a constructor is a block of codes similar to the method.It is called when an instance of the class is created. At  the time of calling constructor memory ofr the object is allocated in the memory.
+=> In Java , a constructor is a block of codes similar to the method. It is called when an instance of the class is created. At  the time of calling      constructor memory of the object is allocated in the memory.
 
 It is special type of method which is used to initialize the object.
 Every time an object is created using the new() Keyword, at least one constructor is called.
 
-=> It calles a deafult constructor if there is no constructor available in the class. In such case Java compiler provides deafult  constructor.
+=> It called a deafult constructor if there is no constructor available in the class. In such case Java compiler provides deafult  constructor.
 
 
 => A constructor initializes an object immediatly upon creation
@@ -1617,7 +1618,7 @@ Every time an object is created using the new() Keyword, at least one constructo
 =>Two type of the constructor
 
   > Parametrized constructor
-  > Non parametriaed constructor
+  > Non parametrized constructor
 
 
 
@@ -1672,7 +1673,7 @@ Two types of polymorphism
 
 1) Method Overloading (static / Compile time polymorphism)
      
-    ( When we have more than one method with same name and different signature that process is known as method Overloading  )
+    ( When we have more than one method with same name and different signature that process is known as method Overloading ).
 
 
 Example=>
@@ -1692,8 +1693,8 @@ class demo
     }
     public static void main(String [] args)
     {
-        demo d=new demo();
-        Scanner sc=new Scanner(System.in);
+        demo d = new demo();
+        Scanner sc = new Scanner(System.in);
         int a,b,c;
         System.out.println("Enter the number : ");
         a=sc.nextInt();
@@ -1791,6 +1792,8 @@ It is utility which is provided to java developer by the java compiler to define
     
     ( when we have the same method in the parent class as well as in the child class that process in known as method overriding )
     ( Method overriding is a feature which we will get when we implement inheritance in program ) 
+
+    This is also mentioned as Run - Time Polymorphism , Dynamic binding , Run-Time binding , Late Binding and Method overriding 
 
     IS-A Relationship
 
@@ -1961,7 +1964,7 @@ class demo
 
  Abstraction Class =>
  abstraction class contains the partial implemention of the method
- abstraction method does not  have  body   they always followed  by semicolon.
+ abstraction method does not  have  body   they always followed  by semicolon ( ; )
  
  If any abstract method in the class then class must be abstract otherwise it would give a compile time error              //important
 
@@ -2020,10 +2023,10 @@ interface is a collection of implicit public abstract method and public static f
 
 
 There are three main reason to use abstraction  :--
-1) it is used to achieve abstraction
-2) by interface we can support the functionality of multiple inheritance
-3) it can be used to achieve loose coupling
-4) Interface are used to implement abstraction so the question arises why use interface when we have abstract classes the reason is abstract classes may contain non-final variable whereas variable in interface are final, public and static.
+1) It is used to achieve abstraction
+2) By interface we can support the functionality of multiple inheritance
+3) It can be used to achieve loose coupling
+4) Interface are used to implement abstraction so the question arises why use interface when we have abstract classes the reason is abstract      classes may contain non-final variable whereas variable in interface are final, public and static.
 
 
 
@@ -2035,14 +2038,11 @@ interface printable
     public static final int FEES=300;
     public abstract void print();
 }
-class demo implements printable
-{
-    public void print()
-    {
+class demo implements printable{
+    public void print(){
         System.out.println("Main : ");
     }
-    public static void main(String [] args)
-    {
+    public static void main(String [] args{
         demo d=new demo();
         System.out.println(FEES);
         d.print();
@@ -2058,7 +2058,7 @@ Main :
 
 
 why we use interface
-1) it is used to achieve full abstraction
+1) It is used to achieve full abstraction
 2) by interface we can support multiple inheritence
 
 
@@ -2216,7 +2216,7 @@ public interface Serializable
 
 => The static keyword is used in java mainly for the memory management 
 => The static keyword belongs to the class and not to any particular instance ( object ) of the class.
-=> Java static keyword is used to create a Class level variable in java. static variables and ethods are part of the class, not the instance of the class.
+=> Java static keyword is used to create a Class level variable in java. static variables and methods are part of the class, not the instance of the class.
 
 
 => static keyword can be used in five cases as show
@@ -3036,7 +3036,7 @@ output           =>  Child
                                                                                                               Encapsulation
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 > Encapsulation
-   * it is the mechanism that  binds together code and the data it manipulate and keep both  safe  from outside interface and misuse
+   * It is the mechanism that  binds together code and the data it manipulate and keep both safe from outside interface and misuse
 
     Encapsulation is the act of wrapping up of attributes (represented by data members) and operations (represented by functions) under one                single unit (represented by class)   
 
@@ -3110,7 +3110,7 @@ Encapsulation also improve the re-usability and easy to change with new requirem
 => In java methods and method variable (Local variable/stack variable) are always gets executed in the stack memory. Whereas instance(object) and instance variable(object variable) is always created in Heap.
 
 
-Java has a automatically memory management, a nice and quiet garbage collector that works in the background to clean up the unused objects and free up some memory.
+Java has a automatically memory management, a nice and quite garbage collector that works in the background to clean up the unused objects and free up some memory.
 			so knowing how memory actually works in java is important as it gives you the advantage of writing high-performance and optimized applications that will never ever crash with an  [ OutOfMemoryError ].
 
 Generally memory is divided into two big parts the stack and the heap. The heap is a huge amount of memory compared to the stack.
@@ -3352,7 +3352,7 @@ This is the general form of an exception handling block:
 
 try
 {
-//bloack of code to monitor for error
+//block of code to monitor for error
 }
 catch(ExceptionType exob)
 {
@@ -3413,14 +3413,14 @@ class demo
 {
     public static void main(String [] args)
     {
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter the two number ; ");
-        int a=sc.nextInt();
-        int b=sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
 
         try
         {
-            int c=a/b;
+            int c = a/b;
             System.out.println("Operation performded Successfully : ");
         }
         catch(ArithmeticException e)
@@ -3526,20 +3526,18 @@ This program will cause a division by zero exception if it is started with no co
 
 
 => Throw
-     throw is used to explicit exception throwing. it means the throw statement  causes termination of the normal flow of control of the java code and       stop the execution of the subsequent statement if an exception is thrown when throw statement is executed.
-
+     throw is used to explicit exception throwing. it means the throw statement  causes termination of the normal flow of control of the java code and         stop the execution of the subsequent statement if an exception is thrown when throw statement is executed.
 
 Example=>
-
 
 import java.util.Scanner;
 class demo
 {
     public static void main(String [] args)
     {
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter your Age : ");
-        int age=sc.nextInt();
+        int age = sc.nextInt();
         try
         {
             if(age<18)
@@ -3617,10 +3615,10 @@ class demo
 {
     public static void main(String [] args)throws IOException
     {
-        BufferedReader b=new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter The Number : ");
-        int a=Integer.parseInt(b.readLine());
-        int c=Integer.parseInt(b.readLine());
+        int a = Integer.parseInt(b.readLine());
+        int c = Integer.parseInt(b.readLine());
         System.out.println("Sum = "+(a+c));
     }
 }
@@ -3636,7 +3634,7 @@ class demo
                                                                                                           PACKAGES IN JAVA
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
-Packages are container for classes that are allow you to create a class names List , which you can store in your own package without concern that it will collide with some other class named List stored elsewhere. Packages are stored in hierarchical manner and are sxplicitily imported into new class definitions.
+Packages are container for classes that are allow you to create a class names List , which you can store in your own package without concern that it will collide with some other class named List stored elsewhere. Packages are stored in hierarchical manner and are explicitily imported into new class definitions.
 
 The packages in both a naming and a visibility control meshanism you can define classes inside a package that are not accessible by code outside that packages. you can also define class members that are only expose to other members of the same packages.
 
@@ -5366,9 +5364,9 @@ class GenDemo//Demonstrate the generic class
 
         //create a Gen object for string
 
-        Gen<String> strob=new Gen<String>("Generics Test");
+        Gen<String> strob = new Gen<String>("Generics Test");
 
-        //show the type of data sed by strob
+        //show the type of data send by strob
         strob.showType();
 
         String str=strob.getob();
@@ -5404,7 +5402,7 @@ As explained T is placeholder for the actual type that will be specified when Ge
 	Now consider Gen's constructor
 	
 	Gen(T o){
-	ob=o
+	     ob=o
 	}
 	
 Notice that its parameter o is of type T. This means that the actual type of o is determined by the type passed to T when a Gen object is created. Also because both the parameter o and the member variable ob are of type T they will both be of the same actual type when a Gen object is created
@@ -5871,7 +5869,7 @@ The Collections Framework define several interfaces. This section provides an ov
 
 	Collection declaration :-------------
 
-	interface Collection <E>
+	Interface Collection <E>
 Here E specifies the type of object that the collection will hold.
 Collection extends the Iterable interface.
 
@@ -5994,11 +5992,11 @@ Example 2 =>
 	{
     		public static void main(String [] args)
     		{
-    		    	Scanner sc=new Scanner(System.in);
-    		    	ArrayList<Integer> list=new ArrayList<Integer>();
-    		    	ArrayList<Integer> list1=new ArrayList<Integer>();
+    		    	Scanner sc = new Scanner(System.in);
+    		    	ArrayList<Integer> list = new ArrayList<Integer>();
+    		    	ArrayList<Integer> list1 = new ArrayList<Integer>();
     		    	System.out.println("Enter Size : ");
-    		    	int list_size=sc.nextInt();
+    		    	int list_size = sc.nextInt();
     		    	System.out.println("Enter Element in the list : ");
     		    	for(int i=0;i<list_size;i++)
     		    	{
@@ -6514,7 +6512,7 @@ Constructor:-
 
 Methods:---
 
-1) void clear()	 mthods clears the hashtable so that it contains no keys	
+1) void clear()	 methods clears the hashtable so that it contains no keys	
 	
 	syntax:  public void clear()
 	return:	NA

@@ -117,7 +117,7 @@ Widget build(BuildContext context) {
     }
 }
 
-wenotice that nothing is really changing inside the Widget object and if we try to defined variable inside the class 
+we notice that nothing is really changing inside the Widget object and if we try to defined variable inside the class 
 
 String _name  = "Adnan" ;
 
@@ -224,6 +224,7 @@ color: Color(int.parse('#000000'.replaceAll('#', '0xff')))
 
 
 Working with futures : async and await :----------------------------------
+
 The async and wait keywords provides a declarative wat to define asynchronous and use their results.
 => To define an async function add async before the function body.
 => The await keyboard works only in async functions.

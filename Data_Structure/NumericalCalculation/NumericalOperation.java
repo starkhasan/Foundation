@@ -1,5 +1,6 @@
 import java.math.BigInteger;
 class NumericalOperation {
+    
     public boolean isEven(int _number){
         return _number%2==0 ? true :false;
     }

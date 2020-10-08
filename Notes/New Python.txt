@@ -1,0 +1,779 @@
+This works, but only once per session (really, process—a program run) by default. After the first import, later imports do nothing, even if you change and save the module’s source file again in another window:
+
+... Change script1.py in a text edit window to print 2 ** 16...
+>>> import script1
+>>> import script1
+This is by design; imports are too expensive an operation to repeat more than once per file, per program run. As you’ll learn in Chapter 22, imports must find files, compile them to byte code, and run the code. If you really want to force Python to run the file again in the same session without stopping and restarting the session, you need to instead call the reload function available in the imp standard library module (this function is also a simple built-in in Python 2.X, but not in 3.X):
+
+>>> from imp import reload # Must load from module in 3.X (only)
+>>> reload(script1)
+win32
+65536
+Spam!Spam!Spam!Spam!Spam!Spam!Spam!Spam!
+<module 'script1' from '.\\script1.py'>
+>>>
+The from statement here simply copies a name out of a module (more on this soon). The reload function itself loads and runs the current version of your file’s code, picking up changes if you’ve modified and saved it in another window.
+
+
+
+We can access this module's title attribute in other components in two different ways. First you can load the module as a whole with an import statement  and them qualify the module name with the attribute name to fetch it ( note that we're letting the interpreter print automatically here).
+
+>>>import myfile
+>>>myfile.title
+"The Meaning of Life"
+
+In general the dot expression syntex object.attribute lets you fetch any attribute attached to any object and is one of the most common operations in Python code.
+	Here we've used it to access the string variable title inside the module myfile in other words myfile.title
+
+
+>>>from myfile import title
+>>>title
+"The Meaning of Life"
+
+
+Example=>
+	
+a = 'dead' 		# Define three attributes
+b = 'parrot' 	# Exported to other files
+c = 'sketch'
+print(a, b, c)	 # Also used in this file (in 2.X: print a, b, c)
+
+save this file with name threename.py
+
+
+>>> import threenames 			# Grab the whole module: it runs here
+dead parrot sketch
+>>>
+>>> threenames.b, threenames.c 		# Access its attributes
+('parrot', 'sketch')
+>>>
+>>> from threenames import a, b, c 		# Copy multiple names out
+>>> b, c
+('parrot', 'sketch')
+
+
+
+
+IDLE User Interface:------------
+
+IDLE provides a graphical user interface for doing python development  and it is a standard and free part of the python system. IDLE is usually referred to as an integrated development  environment (IDE) because it binds together various development task into a single view.
+
+
+
+
+Python program can be decomposed into modules, statements, expression and object as follows:-
+1) programm are composed of module
+2) Modules contain statements
+3) Statement contain expression
+4) Expression create and process object
+
+
+
+	Why use Built-in Types?
+
+In typical Python programs, most of this grunt work goes away. Because Python provides powerful object types as an intrinsic part of the language, there’s usually no need to code object implementations before you start solving problems. In fact, unless you have a need for special processing that built-in types don’t provide, you’re almost always better off using a built-in object instead of implementing your own.
+			Here are some reason why:
+
+1) Built-in object make programs easy to write
+
+For simple tasks, built-in types are often all you need to represent the structure of problem domains. Because you get powerful tools such as collections (lists) and search tables (dictionaries) for free, you can use them immediately. You can get a lot of work done with Python’s builtin object types alone.
+
+2) Built-in objects are components of extensions.
+3) Build-in object are often more efficient than custom data structure
+4) Built-in object are a standard part of the language
+
+
+Built-in Object preview:-
+
+Number
+string
+List
+Dictonaries
+Tuples
+Files
+Sets
+Other core types
+Program unit types
+implementation-related types
+
+
+Program unit such as functions, modules, and classes --which we'll meet in later parts of this book -- are objects in Python too; they are created with statement and expression such as def, class, import and lambda and may be passed around script freely, stored within other objects and so on .
+
+
+Note=>
+You  can for instance compute 2 to power 1000000 as an integer in Python but you probably shouln't try  to print the result ---which more than 300000 digit you may be waiting a while!.
+
+
+
+
+	Clicking File Icon:-------------
+
+However icon click allow you to run the file without any typing at all. to doso you have to find this file's icon on your computer.On windows you can select computer in your start button's menu there are additional ways to open a file explorer once you do work your way done on the C drive to your working directory.
+
+
+	Unfortunately, on Windows, the result of clicking on a file icon may not be incrediblysatisfying. In fact, as it is, this example script might generate a perplexing “flash” when clicked—not exactly the sort of feedback that budding Python programmers usually
+hope for! This is not a bug, but has to do with the way the Windows version of Python handles printed output. By default, Python generates a pop-up black DOS console window (Command Prompt) to serve as a clicked file’s input and output. If a script just prints and exits, well, it just prints and exits—the console window appears, and text is printed there, but the console window closes and disappears on program exit. Unless you are very fast, or your machine is very slow, you won’t get to see your output at all. Although this is normal behavior, it’s probably not what you had in mind. Luckily, it’s easy to work around this. If you need your script’s output to stick around when you launch it with an icon click, simply put a call to the built-in input function (  input()   )at the very bottom of the script in 3.X (in 2.X use the name raw_input instead: see the note ahead).
+
+Example=>
+# A first Python script
+
+import sys 	# Load a library module
+print(sys.platform)
+print(2 ** 100)	 # Raise 2 to a power
+x = 'Spam!'
+print(x * 8)	 # String repetition
+input() 		# <== ADDED
+
+
+	Other icon clicking Limitation:---------------
+
+Even with the prior section’s input trick, clicking file icons is not without its perils. You also may not get to see Python error messages. If your script generates an error, the error message text is written to the pop-up console window—which then immediately disappears!
+
+
+
+
+	Import and Reload Basic :-------------------
+
+In simple terms, every file of Python source code whose name ends in a .py extension is a module. No special code or syntax is required to make a file a module: any such file will do. Other files can access the items a module defines by importing that module
+—import operations essentially load another file and grant access to that file’s contents. The contents of a module are made available to the outside world through its attributes
+
+
+
+	Dynamic  Typing :----------------
+
+Python uses dynamic typing which means that an object reference can be rebound to refer to a different object (which may be of a different data type) at any time.
+
+Example=>
+
+route=866
+print(route,type(route))		#prints: 866 <class 'int'>
+
+route = 'North'
+print(route,type(route))		#prints: North <class'str'>
+
+
+
+
+String Slicing :------------------------------------------------------
+Python slice() function returns slice object that can use used to slice lists tuple etx.
+
+The slice object is used to slice a given sequence (string,bytes,tuple,list or range) or any object which support protocol (implementation __getitem__() and  __len()__ method).
+
+The syntax of slice() is :-----------------
+slice(start,stop,step)
+
+=> start(optional)  Starting integer where the slicing of the  object starts. Default to None if not provided.
+=> stop 	Integer until which the slicing takes place. The slicing index stop -1 (last element)
+=> step (optional)	Integer value which determines the increment between each index for slicing. Default to None if not provided.
+
+
+Python String format() :-------------------------
+The string format() method formats the given string into a nicer output in Python
+The syntax of format() method is:
+
+template.format(p0,p1,...k=0=v0,k1=v1,....)
+
+Here p0,p1... are position argument and k0,k1 are keywork arguments with values v0,v1,......... respectively And template is a mixture of format codes with placeholders for the arguments.
+
+
+String format() parameters :-----------------------
+format() method takes any number of parameters. But isdivided into two types of paramaters:
+
+=> Positional parameter list of parameters that canbe accessed with index of paramter inside curly braces {index}
+=> Keyword parameter list of paramters of type key = value that can be accessed with key of  parameter inside curly braces {key}
+
+# default arguments
+
+print("Hello {}, your balance is {}.".format("Adam", 230.2346))
+
+
+
+# positional arguments
+
+print("Hello {0}, your balance is {1}.".format("Adam", 230.2346))
+
+
+
+# keyword arguments
+
+print("Hello {name}, your balance is {blc}.".format(name="Adam", blc=230.2346))
+
+
+
+# mixed arguments
+
+print("Hello {0}, your balance is {blc}.".format("Adam", blc=230.2346))
+
+
+
+
+Python String Comparison :--------------------------------------------------------
+=> Python String comparison can be performed using equality (==) and comparison (<,>,!=,<=,>=) operators. It is performed using the characters in both strings.
+
+=> The characters in both string are compared one by one
+=> when different character are found then their unicode value is compared.
+=> The character with lower unicode value is considered to be smaller.
+
+
+
+
+=> Filter Function
+
+The filter() method filters the given sequence with the help of a function that tests each element in the sequence to be true or not syntax:
+filter(function,sequence) paramers function: function that tests if each element of a sequence true or not.
+
+suntax:
+filter(function,sequence)
+
+Paramters:
+function: function that test if each element of a sequence true or not.
+sequenc : sequence which needs to be filtered it can be sets lists tuples ir containers of any iterators.
+
+returns: returns an iterator that is already filtered.
+
+
+
+map() function :----------------------------------------
+map() function return a map object (which is iterator) of the result after applying the given function to each item of a given iterables (list, tuple etc)
+
+map(fun,iter)
+
+fun :- it is a function to which map passes each element of given iterable.
+iter :- it is iterable which is to be mapped
+
+
+Returns :
+Returns a list of the results after applying the given function  to each item of a given iterable (list, tuple etc.) 
+
+
+# Python program to demonstrate working 
+# of map. 
+
+# Return double of n 
+def addition(n): 
+	return n + n 
+
+# We double all numbers using map() 
+numbers = (1, 2, 3, 4) 
+result = map(addition, numbers) 
+print(list(result)) 
+
+
+What is the difference between the filter() and map() :------------------------------------------------
+Map takes all objects in a list and allows you to apply a function to it Filter takes all objects in a list and runs that through a function to create a new list with all objects that return True in that function.
+
+
+Filter() 
+As the name suggest it is used to filter the iterables as per the conditions. Filter filters the original iterable and passes the item that returns  True for the function provided to filter. Therefore only the  item in the iterables can be expected to be seen in the output. In the above example the condition is given in the form of lambda function and the elements which statisfy the condition are given in the list.
+
+
+reduce()
+The reduce(fun,seq) function is used to apply a particular function passes in its argument to all of the list elements mentioned in the sequence passed along. This function is defined in functools module.
+
+the process continues till no more elements are left in the container.
+the final returned reult is returned and printed on console.
+
+import functools
+old_list = [1,3,4,2,5,6]
+def fun(a,b):
+    return a+b
+ordinary_number = functools.reduce(fun,old_list)
+print(ordinary_number)
+
+
+
+reduce() vs accumulate() :--------------------------------------------------------
+Both reduce() and accumulate() can be used to calculate the summation of a sequence elements but there are difference in the implementation aspect in both of these.
+
+=> reduce() is defined in function module accumulate() in iteratolls module 
+=> reduce() store the intermediate result and only returns the final summation value. Whereas accumulate returns a iterator containing the intermediate results. The last number of the iterator is summation value of the list.
+=> reduce(fun,seq) takes function as 1st and sequence as 2nd argument. It contrast accumulate(seq,fun) takes sequence as 1st function as 2nd argument.
+
+
+
+import functools
+import itertools
+
+old_list = [1,3,4,2,5,6]
+
+def fun(a,b):
+    return a+b
+ordinary_number = functools.reduce(fun,old_list)
+print(ordinary_number)
+
+
+def fun(a,b):
+    return a+b
+
+new_accumulate = list(itertools.accumulate(old_list,fun))
+print(new_accumulate)
+
+
+
+
+
+
+
+
+
+
+
+
+Class and Object Python :---------------------------------
+Python is an object oriented programming language. Unlike procedure oriented programming. where the main emphasis is on functions object programming stress on objects.
+
+Object is simply a collection ofdata (variables) and methods (functions) that act on those data. And class is a blue print for the object.
+
+As many houses can be made from a description we can create many objects from a class . An object is also called an instance of a class and the process of creating this object is called instantiation.
+
+
+
+Defining a Class in Python :------------------------------
+In Python we define a class using the keyword class.
+
+a class creates a new local namespace where all its attributes are defined. Attributes may be data or functions.
+There are alsospecial attributes in itthat begins with double underscore (__)
+
+
+Creating an Object in Python :---------------------------
+Class object can be used to access different attributes
+It can also be used to create new object instance of that class. The procedure to create is similar to a function call.
+
+ob = MyClass()
+
+This will create a new instance object named ob we can access attributes of object using the object name prefix.
+
+Attributes may be data or method.
+
+
+
+
+Constructor in Python :------------------------------------------
+Class functions that begins with double underscore(__) are called special functions as they have special meaning.
+
+Of one particular interest is the __init__() function. this special function gets called whenever a new object of that class is instantiated.
+This type of funtion is called constructor in Object Orinted Programming (OOP). We normally use it to initialize all the variables.
+
+All classes have a function called __init__() which s alwaysexecuted whenthe class is being initiated. Use the __init__() function to assign values to object properties or ther operation that are necessary to do when the object is being created.
+
+
+<bound method MyClass.fun of <__main__.MyClass object at 0x0000007AD2384DA0>>
+When you just print an object it shows the object id 
+
+
+
+
+The Self Paramter :-----------------------------------------------
+The self paramater is a reference to the current instance of the class, and is used to access variable that belongs to the class.
+
+It does not have to be named self you can call it whatever you like but it has to be the first parameter of any function in the class.
+
+
+whenever an object calls its method the object itself is passed as the first argument. (first argument of the function in class must be the object itself. this conventionally called self).
+
+
+Modifing Object Properties :-----------------------------------------
+You can modify properties on object like this
+
+p1.age = 40
+
+Delete Object Properties :----------------------------------------------------
+you can delete properties on object by using the del keyword:
+
+Delete the object properties from the p1 object:
+
+del p1.age 
+
+Delete Object :-----------------------------
+ you can delete objects by using the del keyword:
+
+Delete the p1 object:
+
+del p1
+
+
+
+What is Inheritance in Python :-----------------------------------
+Inheritance is a powerful feature in obect oriented programming:-
+It refers to defining  a new class with little or no modification to an existing class
+The new class is called derived (or child) class and the one from which it inherits is called the base (or parent) class.
+
+
+Python inheritance Syntac :
+class BaseClass:
+	Body of base class
+class DerivedClass(BaseClass):
+	Body of derived class
+
+Derived class inherits feature from the base class adding new features to it. This result into re-usability of code.
+
+Example :-----------------------------------------------
+
+
+
+The pass Statement :--------------------------------
+class definitions cannot be emoty but if you for some reason have aclass definition with no content put in the pass statement o avoid getting an error.
+
+
+Create Child Class :-------------------------------------------------------------------------------
+To create a class that inherites the functionality from another class, send the parent class as a parameter when creating the child class:
+
+
+class Student(Person):
+	pass
+=> Here using  pass keyword when we do not want to add any other properties or methods ot the class.
+
+Now the student class have the same perpertie and method as the Person class.
+
+
+
+Add __init__() functions :------------------------------------------------------------------
+So far we have created a child class that inherites the properties and method from its parent.
+
+we want to add the __init__() function to the child class (instead of the pass keyword)
+
+Note :- The __init__() function is called automatically every time the class is being used to create a new object.
+
+
+When we add the __init__() function the child class will no longer inherites the parent's __init__() function.
+
+To keep the inherits of the parent's __init__() function add a call to the parent's __init__() function:
+
+class Student(Person):
+	def __init_(self,fname,lname):
+		Person.__init__(self,fname,lname)
+
+
+
+Use the super() function :------------------------------------------
+Python also has a super() function that will make the child class inherites all the method and properties from its parent:
+
+class Student(Person):
+	def __init__(self,name,lname):
+		super().__init__(fname,lname)
+
+By using the super() function we don't have to use the name of the parent element it will autoatically inherits the methods and prpperties from its parent.
+
+
+
+Multiple Inheritance in python :-----------------------
+Like C++ a class can be derived from more than one base classes in python this is called multiple inheritance:
+
+In  multiple inheritance the feature of all the base classes are inherited into the derived class. The syntan for multiple inheritance is similar to single inheritance.
+
+
+class Base1:
+	pass
+class Base2:
+	pass
+
+class MultiDerived(Base1,Base2):
+	pass
+
+
+
+Example :-
+class X: pass
+class Y: pass
+class Z: pass
+
+class A(X,Y): pass
+class B(Y,Z): pass
+
+class M(B,A,Z): pass
+
+# Output:
+# [<class '__main__.M'>, <class '__main__.B'>,
+# <class '__main__.A'>, <class '__main__.X'>,
+# <class '__main__.Y'>, <class '__main__.Z'>,
+# <class 'object'>]
+
+print(M.mro())
+
+
+
+What is operator overloading in Python :---------------------------
+python operator work for build-in classes.but some operator behaves differently with different types. For example the + operator arithmetic addition on two numbers merge teo lists and concattinate teo string.
+
+this feature in python that allow some operator to have different meaning according to the context is called operator overloading.
+
+
+
+:- Reading PDf file in Python using the Python library
+
+PyPDF2
+
+first install the PyPDF2 library using pip install
+ 
+> pip install PyPDF
+
+import PyPDF2
+
+file_opne = open('demo_pdf.pdf','rb')
+file_reader = PyPDF2.PdfFileReader(file_opne)
+print(file_reader.getDocumentInfo().producer)
+print(file_reader.numPages)
+pageObj = file_reader.getPage(0)
+print(pageObj.extractText())
+
+
+import PyPDF2
+
+def PDFmerge(pdfs,output):
+    pdfMerger = PyPDF2.PdfFileMerger()
+
+    for pdf in pdfs:
+        with open(pdf,'rb') as f:
+            pdfMerger.append(f)
+
+    with open(output,'wb') as f:
+        pdfMerger.write(f)
+
+def main():
+    pdfs = ['demo_pdf.pdf','demo1_pdf.pdf']
+
+    output = 'merge.pdf'
+
+    PDFmerge(pdfs = pdfs,output = output)
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+Example: Rotation of a PDF File
+
+from PyPDF2 import PdfFileReader, PdfFileWriter
+
+def rotate_pages(pdf_path):
+    pdf_writer = PdfFileWriter()
+    pdf_reader = PdfFileReader(pdf_path)
+    # Rotate page 90 degrees to the right
+    page_1 = pdf_reader.getPage(0).rotateClockwise(90)
+    pdf_writer.addPage(page_1)
+    # Rotate page 90 degrees to the left
+    page_2 = pdf_reader.getPage(1).rotateCounterClockwise(90)
+    pdf_writer.addPage(page_2)
+    # Add a page in normal orientation
+    pdf_writer.addPage(pdf_reader.getPage(2))
+
+    with open('merge.pdf', 'wb') as fh:
+        pdf_writer.write(fh)
+
+if __name__ == '__main__':
+    path = 'demo_pdf.pdf'
+    rotate_pages(path)
+
+
+
+
+
+OS Modul In Python :------------------------------------------------------------
+In this we will learn how to determine whether a file (or directory) exits using Python. To check this, we use Built-in library functions.
+
+There are different ways to verify a file or directory exits functions as listed below :--
+
+os.path.exists()
+os.path.isfile()
+os.path.isdir()
+pathlibPath.exists()
+
+
+
+Steps 1) Before you run the code, it is important that you import the os.path module.
+
+import os.path
+from os import path
+Steps 2) Now, use the path.exists() function to check whether a File Exists.
+
+path.exists("guru99.txt")
+Steps 3) Here is the complete code
+
+import os.path
+from os import path
+
+def main():
+
+   print ("File exists:"+str(path.exists('guru99.txt')))
+   print ("File exists:" + str(path.exists('career.guru99.txt')))
+   print ("directory exists:" + str(path.exists('myDirectory')))
+
+if __name__== "__main__":
+   main()
+In our case only file guru99.txt is created in the working directory
+
+Output:
+
+File exists: True
+File exists: False
+directory exists: False
+
+os.path.isfile()
+We can use the isfile command to check whether a given input is a file or directory.
+
+import os.path
+from os import path
+
+def main():
+
+	print ("Is it File?" + str(path.isfile('guru99.txt')))
+	print ("Is it File?" + str(path.isfile('myDirectory')))
+if __name__== "__main__":
+	main()
+Output:
+
+Is it File? True
+Is it File? False
+
+os.path.isdir()
+If we want to confirm that a given path points to a directory, we can use the os.path.dir() function
+
+import os.path
+from os import path
+
+def main():
+
+   print ("Is it Directory?" + str(path.isdir('guru99.txt')))
+   print ("Is it Directory?" + str(path.isdir('myDirectory')))
+
+if __name__== "__main__":
+   main()
+Output:
+
+Is it Directory? False
+Is it Directory? True
+
+pathlibPath.exists() For Python 3.4
+Python 3.4 and above versions have pathlib Module for handling with file system path. It used object-oriented approach to check if file exist or not.
+
+import pathlib
+file = pathlib.Path("guru99.txt")
+if file.exists ():
+    print ("File exist")
+else:
+    print ("File not exist")
+
+Output:
+
+File exist
+
+Complete Code
+
+Here is the complete code
+
+import os
+from os import path
+
+def main():
+    # Print the name of the OS
+    print(os.name)
+#Check for item existence and type
+print("Item exists:" + str(path.exists("guru99.txt")))
+print("Item is a file: " + str(path.isfile("guru99.txt")))
+print("Item is a directory: " + str(path.isdir("guru99.txt")))
+
+if __name__ == "__main__":
+    main()
+Output:
+
+Item exists: True
+Item is a file: True
+Item is a directory: False
+
+How to check If File Exists
+os.path.exists() – Returns True if path or directory does exists.
+os.path.isfile() – Returns True if path is File.
+os.path.isdir() - Returns True if path is Directory.
+pathlib.Path.exists() - Returns True if path or directory does exists. (In Python 3.4 and above versions)
+
+
+
+
+
+
+
+
+
+
+Python Dates and Times :-------------------------------------------------------
+A date in Python is not a data type if its but we can import a module named datetime to work with dates as date objects.
+
+import datetime
+
+x = datetime.datetime.now()
+print(x)
+
+
+Date Output :--------------------------------------
+When we execute the code from the example above the result will be
+2020-05-23 11:53:10.597393
+
+the date contains year month day hour minute second and microsecond.
+
+The datetime module has many method to return information about the date object.
+
+
+The strftime() method :------------------------------------------------------------
+The datetime object has a method for formatting date objects into readable strings.
+
+The method is called strftime() and takes one parameter format to specify the format of the returned string:
+
+
+
+Directive	Description	Example	Try it
+
+%a	Weekday, short version	Wed	
+%A	Weekday, full version	Wednesday	
+%w	Weekday as a number 0-6, 0 is Sunday	3	
+%d	Day of month 01-31	31	
+%b	Month name, short version	Dec	
+%B	Month name, full version	December	
+%m	Month as a number 01-12	12	
+%y	Year, short version, without century	18	
+%Y	Year, full version	2018	
+%H	Hour 00-23	17	
+%I	Hour 00-12	05	
+%p	AM/PM	PM	
+%M	Minute 00-59	41	
+%S	Second 00-59	08	
+%f	Microsecond 000000-999999	548513	
+%z	UTC offset	+0100	
+%Z	Timezone	CST	
+%j	Day number of year 001-366	365	
+%U	Week number of year, Sunday as the first day of week, 00-53	52	
+%W	Week number of year, Monday as the first day of week, 00-53	52	
+%c	Local version of date and time	Mon Dec 31 17:41:00 2018	
+%x	Local version of date	12/31/18	
+%X	Local version of time	17:41:00	
+%%	A % character	%
+
+
+Example :--------------------------
+
+import datetime as date
+
+dateobject = date.datetime.now()
+
+print(dateobject)
+print(dateobject.day)
+print(dateobject.year)
+print(dateobject.strftime('%x'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+Built-in Math Function :------------------------------------------------
+Python has a set of built-in function including an extensive math module that allows you to perform mathematical task on numbers.
+
+
+
