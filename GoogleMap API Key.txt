@@ -1,2 +1,0 @@
-key = "AIzaSyBp7D1ltNA_ko5YToxljvblz_Ffg0v0OZU"
-key = "AIzaSyBcFpWT7vu4mLXbEPmkr5GJDG5jWBI67x0"
