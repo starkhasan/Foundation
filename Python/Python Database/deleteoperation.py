@@ -1,0 +1,15 @@
+import sqlite3
+conn=sqlite3.connect('test.db')
+print("Opened Database Successfully")
+conn.execute("DELETE FROM COMPANY WHERE ID=2")
+conn.commit()
+print("Total Number of Row Deleted: ",conn.total_changes)
+corsor=conn.execute("SELECT ID,NAME,AGE,ADDRESS,SALARY FROM COMPANY")
+for row in corsor:
+    print("ID = ", row[0])
+    print("NAME = ", row[1])
+    print("AGE = ", row[2])
+    print("ADDRESS = ", row[3])
+    print("SALARY = ", row[4])
+print("Operation Done Successfully")
+conn.close()
