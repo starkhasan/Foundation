@@ -4,7 +4,7 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 import helper.Helper;
-class Demo{
+public class ElectronicShop {
     static int getMoneySpent(int[] keyboard, int[] drives, int b) {
         int maxPrice = 0;
         for(int i=0;i<keyboard.length;i++){

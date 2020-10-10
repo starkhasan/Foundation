@@ -2,10 +2,12 @@ package com.ali.mapapps.activity
 
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.LocationManager
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -13,20 +15,20 @@ import androidx.core.app.ActivityCompat
 import com.ali.mapapps.R
 import com.ali.mapapps.Util.Cv
 import com.ali.mapapps.Util.Helper
-import com.ali.mapapps.network.Api
 import com.ali.mapapps.network.RetrofitClient
-import com.ali.mapapps.network.response.Weather
 import com.ali.mapapps.network.response.WeatherResponse
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
 import kotlinx.android.synthetic.main.activity_weather.*
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import java.text.SimpleDateFormat
 import java.util.*
-import javax.security.auth.callback.Callback
 
-class WeatherActivity : AppCompatActivity(){
+class WeatherActivity : AppCompatActivity(),OnMapReadyCallback{
 
+    private lateinit var mMap: GoogleMap
     var locationManager:LocationManager?=null
     var lati = 0.0
     var longt = 0.0
@@ -37,6 +39,8 @@ class WeatherActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.cardmap) as SupportMapFragment
+        mapFragment.getMapAsync(this)
     }
 
     override fun onResume() {
@@ -56,17 +60,20 @@ class WeatherActivity : AppCompatActivity(){
                 }
                 override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
                     if(response.isSuccessful){
+                        tvDate.visibility = View.VISIBLE
                         val body = response.body()
                         tvTemperature.setText(String.format("%.0f",Helper.kelvintoCelcius(body!!.main.temp_max).toDouble())+getString(R.string.degree_celcius))
-                        tvHumidity.setText(body!!.main.humidity.toString()+" %")
+                        tvHumidity.setText(body!!.main.humidity.toString()+"%")
                         tvPressure.setText(body!!.main.pressure.toString()+" mBar")
                         tvWindSpeed.setText(body!!.wind.speed.toString()+" km/h")
-                        tvVisibility.setText("13 Km")
+                        val visible = body!!.visibility / 1000.0
+                        tvVisibility.setText(visible.toString()+" Km")
+                        tvLocation.setText(Helper.getLocation(applicationContext,body.coord.lat,body.coord.lon))
+                        tvDescription.setText(body.weather[0].main)
                     }else{
                         Toast.makeText(applicationContext,"no",Toast.LENGTH_SHORT).show()
                     }
                 }
-
             })
         }else{
             AlertDialog.Builder(this)
@@ -88,7 +95,7 @@ class WeatherActivity : AppCompatActivity(){
                     lati = locationGPS.latitude
                     longt = locationGPS.longitude
                     getGeoLocation()
-                    Toast.makeText(applicationContext,lati.toString()+" "+longt.toString(),Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(applicationContext,lati.toString()+" "+longt.toString(),Toast.LENGTH_SHORT).show()
                 }else{
                     AlertDialog.Builder(this)
                         .setTitle("Couldn't get the your location.Want to get the report of Arrah?")
@@ -132,7 +139,7 @@ class WeatherActivity : AppCompatActivity(){
                         lati = locationGPS!!.latitude
                         longt = locationGPS!!.longitude
                         getGeoLocation()
-                        Toast.makeText(applicationContext,lati.toString()+" "+longt.toString(),Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(applicationContext,lati.toString()+" "+longt.toString(),Toast.LENGTH_SHORT).show()
                     }else{
                         Toast.makeText(applicationContext,"Please Enbled the GPS",Toast.LENGTH_SHORT).show()
                     }
@@ -154,8 +161,16 @@ class WeatherActivity : AppCompatActivity(){
         val geocoder = Geocoder(this, Locale.getDefault())
         val addresses = geocoder.getFromLocation(lati,longt,1)
         val locality_name = addresses[0].locality
-        Toast.makeText(applicationContext,locality_name,Toast.LENGTH_SHORT).show()
+        //Toast.makeText(applicationContext,locality_name,Toast.LENGTH_SHORT).show()
         getWeatherDetails(locality_name)
+    }
+
+    override fun onMapReady(p0: GoogleMap?) {
+        mMap = p0!!
+        mMap?.uiSettings.isScrollGesturesEnabled = false
+        mMap.setOnMapClickListener {
+            startActivity(Intent(WeatherActivity@this,MapsActivity::class.java))
+        }
     }
 }
 

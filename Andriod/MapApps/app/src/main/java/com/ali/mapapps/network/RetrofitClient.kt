@@ -1,8 +1,14 @@
 package com.ali.mapapps.network
 
 import com.ali.mapapps.Util.Cv
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 
 
 class RetrofitClient private constructor() {
@@ -18,9 +24,13 @@ class RetrofitClient private constructor() {
     }
 
     init {
-        val retrofit: Retrofit = Retrofit.Builder()
+        val httpClient = OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+
+        val retrofit = Retrofit.Builder()
             .baseUrl(Cv.BASR_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .client(httpClient.build())
             .build()
         myApi = retrofit.create(Api::class.java)
     }
