@@ -1,5 +1,11 @@
 {
     "gitlens.currentLine.format": "${Ali Hasan}, ${agoOrDate} • ${message}${author}",
     "gitlens.hovers.currentLine.over": "line",
-    "python.pythonPath": "C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
+    "python.pythonPath": "C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python38\\python.exe",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
 }
