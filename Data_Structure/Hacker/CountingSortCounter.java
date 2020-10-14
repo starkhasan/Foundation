@@ -1,8 +1,5 @@
+package Hacker;
 import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 public class CountingSortCounter {
     static int partition(int[] a,int p,int r){
         int key = a[r];
@@ -52,6 +49,7 @@ public class CountingSortCounter {
 		int[] newArr = countingSort(ar);
 		for(int i=0;i<newArr.length;i++){
 			System.out.print(newArr[i]+" ");
-		}
+        }
+        buffer.close();
 	}
 }

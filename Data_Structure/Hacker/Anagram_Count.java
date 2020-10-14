@@ -1,5 +1,6 @@
+package Hacker;
 import java.util.Scanner;
-class demo
+class Anagram_Count
 {
 	public int anagram_count(String word,String text)
 	{
@@ -58,7 +59,7 @@ class demo
 		System.out.println("Enter Text : ");
 		String text=sc.nextLine();
 		
-		demo d=new demo();
+		Anagram_Count d = new Anagram_Count();
 		
 		int count=d.anagram_count(word,text);
 		System.out.println("Anagram of "+text+" present "+count+"times in the "+word);

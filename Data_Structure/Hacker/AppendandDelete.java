@@ -1,3 +1,4 @@
+package Hacker;
 import java.io.*;
 public class AppendandDelete {
     static String appendAndDelete(String s, String t, int k) {

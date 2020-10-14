@@ -1,9 +1,5 @@
+package Hacker;
 import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-import helper.Helper;
 
 public class Drawing_Book {
     static int pageCount(int total_pages, int pageNumber) {

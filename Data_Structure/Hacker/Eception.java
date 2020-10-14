@@ -20,8 +20,9 @@ class demo
 	}
 }
 */
+package Hacker;
 import java.util.Scanner;
-class demo
+class Eception
 {
 	public static void main(String [] args)
 	{
@@ -36,6 +37,7 @@ class demo
 		{
 			System.out.println("Bad String");
 		}
+		sc.close();
 	}
 }
 

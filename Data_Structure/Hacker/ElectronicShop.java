@@ -1,9 +1,5 @@
+package Hacker;
 import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-import helper.Helper;
 public class ElectronicShop {
     static int getMoneySpent(int[] keyboard, int[] drives, int b) {
         int maxPrice = 0;
@@ -24,6 +20,12 @@ public class ElectronicShop {
         else
             return -1;
     }
+    public static int[] assignArray(String[] str){
+        int[] ar = new int[str.length];
+        for(int i=0;i<str.length;i++)
+            ar[i] = Integer.parseInt(str[i]);
+        return ar;
+    }
     public static void main(String[] args) throws IOException{
         BufferedReader buffer = new BufferedReader(new FileReader("InputDemo.txt"));
         int b = 0;
@@ -40,8 +42,8 @@ public class ElectronicShop {
                 drives = buffer.readLine();
             }
         }
-        int[] keyboardAr = Helper.assignArray(keyboad.split(" "));
-        int[] drivesAr = Helper.assignArray(drives.split(" "));
+        int[] keyboardAr = assignArray(keyboad.split(" "));
+        int[] drivesAr = assignArray(drives.split(" "));
         System.out.println(getMoneySpent(keyboardAr,drivesAr,b));
         buffer.close();
     }

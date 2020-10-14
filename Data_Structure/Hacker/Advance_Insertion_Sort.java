@@ -1,3 +1,4 @@
+/*
 In Insertion Sort Part 1, you inserted one element into an array at its correct sorted position. Using the same approach repeatedly, can you sort an entire array?
 Guideline: You already can place an element into a sorted array. How can you use that code to build up a sorted array, one element at a time?
 Note that in the first step, when you consider an array with just the first element, it is already sorted since there's nothing to compare it to.
@@ -23,23 +24,16 @@ Sample Output:-
 1 3 4 5 6 2 
 1 3 4 5 6 2 
 1 2 3 4 5 6 
-
-
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
+*/
+package Hacker;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
-
-public class Solution {
+public class Advance_Insertion_Sort {
 
     // Complete the insertionSort2 function below.
     static void insertionSort2(int n, int[] arr)
     {
         int ar_size=arr.length;
-        int key=0,temp=0,k=0;
+        int key=0,k=0;
         for(int j=1;j<ar_size;j++)
         {
             key=arr[j];
@@ -76,7 +70,6 @@ public class Solution {
         }
 
         insertionSort2(n, arr);
-
         scanner.close();
     }
 }

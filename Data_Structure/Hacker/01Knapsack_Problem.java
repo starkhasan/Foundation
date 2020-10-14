@@ -1,4 +1,4 @@
-
+package Hacker;
 //implementation of Greedy Algorithm Knapsack
 import java.util.Scanner;
 class demo

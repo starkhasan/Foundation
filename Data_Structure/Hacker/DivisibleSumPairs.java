@@ -1,3 +1,4 @@
+package Hacker;
 import java.io.*;
 public class DivisibleSumPairs {
     static int divisibleSumPairs(int n, int k, int[] ar) {

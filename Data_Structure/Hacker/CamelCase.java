@@ -1,3 +1,4 @@
+package Hacker;
 import java.io.*;
 public class CamelCase {
     static int camelcase(String s) {

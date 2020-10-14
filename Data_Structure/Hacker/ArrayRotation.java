@@ -1,6 +1,7 @@
 //java program for Array rotation of the array
+package Hacker;
 import java.util.Scanner;
-class demo
+/*class ArrayRotation
 {
     public static void main(String [] args)
     {
@@ -36,8 +37,7 @@ class demo
 */
 
 
-import java.util.Scanner;
-class demo
+public class ArrayRotation
 {
     public static void main(String [] args)
     {
@@ -54,7 +54,7 @@ class demo
 
         System.out.println("Enter Number of Rotation : ");
         int rotation=sc.nextInt();
-        int key=0,temp=0;
+        int key=0;
 
         for(int i=0;i<rotation;i++)
         {
@@ -68,6 +68,6 @@ class demo
 
         for(int i=0;i<size;i++)
         System.out.print(a[i]+" ");
-
+        sc.close();
     }
 }

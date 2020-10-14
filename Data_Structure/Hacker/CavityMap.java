@@ -1,8 +1,5 @@
+package Hacker;
 import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 public class CavityMap {
     static String[] cavityMap(String[] grid) {
         String pos = "";
@@ -52,5 +49,6 @@ public class CavityMap {
 		for(int i=0;i<newStr.length;i++){
 			System.out.println(newStr[i]);
 		}
+		br.close();
 	}
 }

@@ -1,3 +1,4 @@
+package Hacker;
 import java.util.*;
 import java.io.*;
 public class DemoHacker {
@@ -25,10 +26,8 @@ public class DemoHacker {
         }
     }
     public static void main(String[] args) throws IOException{
-        List<Integer> list = new ArrayList<>();
         BufferedReader buffer = new BufferedReader(new FileReader("InputHacker.txt"));
-        String first = "",second = "";
-        boolean isFirst = true;
+        String second = "";
         while((buffer.readLine())!=null){
             second = buffer.readLine();
         }

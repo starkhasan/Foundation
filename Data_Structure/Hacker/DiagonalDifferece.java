@@ -1,9 +1,5 @@
-import java.io.*;
+package Hacker;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-import helper.Helper;
 public class DiagonalDifferece {
     public static int diagonalDifference(List<List<Integer>> arr) {
         int diag1 = 0,diag2 = 0;

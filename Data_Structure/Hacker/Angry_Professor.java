@@ -50,16 +50,11 @@ For the second test case, k=2. The professor wants at least  2 students in atten
 
 
 */
-
+package Hacker;
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
 
-public class Solution {
+public class Angry_Professor {
 
     // Complete the angryProfessor function below.
     static String angryProfessor(int k, int[] a)

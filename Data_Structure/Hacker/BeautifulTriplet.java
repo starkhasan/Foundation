@@ -1,8 +1,5 @@
+package Hacker;
 import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 public class BeautifulTriplet {
     static int beautifulTriplets(int d, int[] arr) {
         int count = 0,result=0,temp=0;
@@ -32,6 +29,7 @@ public class BeautifulTriplet {
 		int[] arr = new int[strAr.length];
 		for(int i=0;i<strAr.length;i++)
 			arr[i] = Integer.parseInt(strAr[i]);
-		System.out.println(beautifulTriplets(d,arr))
+        System.out.println(beautifulTriplets(d,arr));
+        buffer.close();
 	}
 }

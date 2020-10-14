@@ -1,4 +1,5 @@
 //Bomb Decoding
+package Hacker;
 import java.util.*;
 class BombDecoding{
     public static void main(String [] args){

@@ -1,8 +1,5 @@
+package Hacker;
 import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 public class BeautifulBinaryString {
     static int beautifulBinaryString(String s) {
         int count = 0,counter= 0;
@@ -27,6 +24,7 @@ public class BeautifulBinaryString {
     }
 	public static void main(String [] args)throws IOException{
 		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println(beautifulBinaryString(buffer.readLine()));
+        System.out.println(beautifulBinaryString(buffer.readLine()));
+        buffer.close();
 	}
 }

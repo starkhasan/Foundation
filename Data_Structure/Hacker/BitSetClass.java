@@ -3,8 +3,9 @@
 //two constructor
 //1 BitSet()
 //2 BitSet(int size)
+package Hacker;
 import java.util.*;
-class demo
+class BitSetClass
 {
     public static void main(String [] args)
     {

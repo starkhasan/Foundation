@@ -1,6 +1,7 @@
 //calender program
+package Hacker;
 import java.util.Scanner;
-class demo
+public class Calender_Program
 {
     public static void main(String [] args)
     {
@@ -42,6 +43,7 @@ class demo
             }
             System.out.println();
         }
+        sc.close();
     }
 }
 

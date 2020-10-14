@@ -1,3 +1,4 @@
+/*
 Sorting 
 One common task for computers is to sort data. For example, people might want to see all their files on a computer sorted by size. 
 Since sorting is a simple problem with many different possible solutions, it is often used to introduce the study of algorithms.
@@ -14,9 +15,10 @@ Sample Output
 2 4 4 6 8 
 2 3 4 6 8 
 
-
+*/
+package Hacker;
 import java.util.Scanner;
-class demo
+class Advance_Insertion_Sort1
 {
 	public void insertion(int arr[])
 	{
@@ -55,7 +57,8 @@ class demo
 		{
 			a[i]=sc.nextInt();
 		}
-		demo d=new demo();
+		Advance_Insertion_Sort1 d=new Advance_Insertion_Sort1();
 		d.insertion(a);
+		sc.close();
 	}
 }

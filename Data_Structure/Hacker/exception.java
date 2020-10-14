@@ -1,4 +1,5 @@
-class demo
+package Hacker;
+class exception
 {
 	public int setdata(int num1,int num2)
 		{
@@ -12,7 +13,7 @@ class demo
 		}
 	public static void main(String [] args)
 	{
-		demo d=new demo();
+		exception d=new exception();
 		int a=10,b=20;
 		int c=d.setdata(a,b);
 		System.out.println(c);

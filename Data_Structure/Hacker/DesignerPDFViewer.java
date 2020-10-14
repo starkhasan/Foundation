@@ -1,10 +1,6 @@
+package Hacker;
 import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-import helper.Helper;
-
 public class DesignerPDFViewer {
     static void assignLatter(HashMap<Character,Integer> c){
         char ch = 'a';
@@ -27,8 +23,8 @@ public class DesignerPDFViewer {
 
         return max*word.length();
     }
-    public static void main(String[] args) {
-        BufferedReader buffer = new BufferedREader(new FileReader("InputHacker.txt"));
+    public static void main(String[] args) throws IOException{
+        BufferedReader buffer = new BufferedReader(new FileReader("InputHacker.txt"));
         String height = "",word = "";
         boolean isFirst = true;
         while((buffer.readLine())!=null){
@@ -38,7 +34,11 @@ public class DesignerPDFViewer {
             }else
                 word = buffer.readLine();
         }
-        int[] heightAr = Helper.assignArray(height.split(" "));
+        String[] strAr = height.split(" ");
+        int[] heightAr = new int[strAr.length];
+        for(int i=0;i<strAr.length;i++){
+            heightAr[i] = Integer.parseInt(strAr[i]);
+        }   
         System.out.println(designerPdfViewer(heightAr,word));
         buffer.close();
     }

@@ -1,3 +1,4 @@
+package Hacker;
 import java.io.*;
 public class BreakingTheRecords {
     static int[] breakingRecords(int[] scores) {

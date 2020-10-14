@@ -1,9 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-import helper.Helper;
 class Demo{
     static int calculation(int[][] ar){
         int ar_size = ar.length;

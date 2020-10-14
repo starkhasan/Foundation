@@ -1,8 +1,6 @@
+package Hacker;
 import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+
 public class BeautifulDaysAtMovies {
     static String reverse(String number){
         String temp = "";
@@ -24,6 +22,7 @@ public class BeautifulDaysAtMovies {
     }
 	public static void main(String [] args)throws IOException{
 		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("\nOutput = "+beautifulDays(13,45,3));	
+        System.out.println("\nOutput = "+beautifulDays(13,45,3));	
+        buffer.close();
 	}
 }
