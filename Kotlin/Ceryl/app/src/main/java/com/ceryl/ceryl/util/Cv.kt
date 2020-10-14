@@ -5,7 +5,7 @@ interface Cv {
     companion object{
         const val PREF="com.ceryl.ceryl.app_user"
         const val SERVICE_NAME="NetworkingService"
-        const val BaseUrl = "http://192.168.43.15:80/api/"
+        const val BaseUrl = "http://192.168.43.16:80/api/"
         const val TIMEOUT="Something went wrong!"
         const val ACTION_LOGIN="login"
         const val ACTION_SIGNUP = "sign_up"

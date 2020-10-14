@@ -25,7 +25,7 @@ public class Helper {
             quickSort(ar,q+1,r);
         }
     }
-    /*------------------------------Class Method Don't Call that method in other class -------------------------*/
+    /*------------------------------Above this are the Class Method Don't Call this method in other class -------------------------*/
 
     public static int[] assignArray(String[] strArray){
         int[] ar = new int[strArray.length];

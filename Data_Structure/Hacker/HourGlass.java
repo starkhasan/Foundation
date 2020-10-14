@@ -1,10 +1,7 @@
+package Hacker;
 import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-import helper.Helper;
-class Demo{
+public class HourGlass {
     static int calculation(int[][] ar){
         int ar_size = ar.length;
         int count = 0;

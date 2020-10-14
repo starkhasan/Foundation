@@ -1,0 +1,21 @@
+package Hacker;
+import java.io.*;
+public class HackerProduct {
+        BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+        int ar_size = Integer.parseInt(buffer.readLine());
+        String[] string_array = buffer.readLine().split(" ");
+        
+        int ar[] = new int[string_array.length];
+        for(int i=0;i<string_array.length;i++){
+            ar[i] = Integer.parseInt(string_array[i]);
+        }
+
+		System.out.println();
+        long sum = 1L;
+        for(int i=0;i<string_array.length;i++){
+        	sum = sum * ar[i];
+        }
+
+        System.out.println("Summation = "+sum);
+        buffer.close();
+}
