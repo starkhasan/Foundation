@@ -23,6 +23,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import kotlinx.android.synthetic.main.activity_weather.*
 import retrofit2.Call
 import retrofit2.Response
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -63,13 +64,19 @@ class WeatherActivity : AppCompatActivity(),OnMapReadyCallback{
                         tvDate.visibility = View.VISIBLE
                         val body = response.body()
                         tvTemperature.setText(String.format("%.0f",Helper.kelvintoCelcius(body!!.main.temp_max).toDouble())+getString(R.string.degree_celcius))
+                        tvFeelslike.setText("Feels like "+String.format("%.0f",Helper.kelvintoCelcius(body!!.main.feels_like).toDouble())+getString(R.string.degree_celcius))
                         tvHumidity.setText(body!!.main.humidity.toString()+"%")
                         tvPressure.setText(body!!.main.pressure.toString()+" mBar")
-                        tvWindSpeed.setText(body!!.wind.speed.toString()+" km/h")
+                        tvWindSpeed.setText((body!!.wind.speed*3.6).toString()+" km/h")
                         val visible = body!!.visibility / 1000.0
                         tvVisibility.setText(visible.toString()+" Km")
-                        tvLocation.setText(Helper.getLocation(applicationContext,body.coord.lat,body.coord.lon))
+                        tvLocation.setText(Helper.getLocation(applicationContext,body.coord.lat,body.coord.lon,body.sys.country))
                         tvDescription.setText(body.weather[0].main)
+
+                        val date = Date(body.sys.sunrise.toLong())
+                        val format: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                        format.setTimeZone(TimeZone.getTimeZone("PST"))
+                        Toast.makeText(applicationContext,format.format(date),Toast.LENGTH_SHORT).show()
                     }else{
                         Toast.makeText(applicationContext,"no",Toast.LENGTH_SHORT).show()
                     }

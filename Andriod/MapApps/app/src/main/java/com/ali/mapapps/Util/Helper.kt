@@ -40,7 +40,7 @@ class Helper {
             return celcius.toString()
         }
 
-        fun getCountry(countryCode:String):String?{
+        fun getCountry(countryCode:String):String{
             val mapCountry = HashMap<String,String>()
             mapCountry.put("af", "Afghanistan")
             mapCountry.put("al", "Albania")
@@ -284,10 +284,10 @@ class Helper {
             mapCountry.put("zm", "Zambia")
             mapCountry.put("zw", "Zimbabwe")
             mapCountry.put("ax", "Åland Islands")
-            return mapCountry.get(countryCode.toLowerCase())
+            return mapCountry.get(countryCode.toLowerCase()).toString()
         }
 
-        fun getLocation(context:Context,latitude:Double,longitude:Double):String{
+        fun getLocation(context:Context,latitude:Double,longitude:Double,countryCode:String):String{
             try{
                 val geocoder = Geocoder(context, Locale.getDefault())
                 val addresses = geocoder.getFromLocation(latitude,longitude,3)
@@ -299,8 +299,10 @@ class Helper {
                 val countryName = addresses[0].countryName
                 return city+", "+state
             }catch(e: IOException) {
-                return "Couldn't get your Location"
+                return getCountry(countryCode)
             }
         }
+
+
     }
 }

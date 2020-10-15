@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_cusotm_toolbar"
+    <include layout="@layout/layout_custom_toolbar"
         android:id="@+id/toolbar"/>
 
     <LinearLayout
@@ -45,6 +45,14 @@
                             android:text=""
                             android:textColor="@color/black"
                             android:textSize="38sp"/>
+
+                        <TextView
+                            android:id="@+id/tvFeelslike"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="16sp"/>
 
                     </LinearLayout>
 
@@ -214,13 +222,38 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:layout_weight="0.4"
-                        >
-                    </LinearLayout>
+                        android:layout_weight="0.4">
+
+                        <LinearLayout
+                            android:id="@+id/llMore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentEnd="true">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Next 4 days"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/linkColor"
+                                android:layout_gravity="center_vertical"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/icon_more"
+                                android:layout_marginStart="10dp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
                 </LinearLayout>
 
             </LinearLayout>
