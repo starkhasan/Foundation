@@ -53,7 +53,9 @@ class HomeActivity : RegisterAbstractActivity() {
                     Preferences.email = ""
                     Preferences.full_name = ""
                     Preferences.isLogin = false
-                    startActivity(Intent(HomeActivity@this,LoginActivity::class.java))
+                    val intent = Intent(HomeActivity@this,LoginActivity::class.java)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
                     finish()
                 }
                 .setNegativeButton("No") { dialog: DialogInterface?, which: Int ->

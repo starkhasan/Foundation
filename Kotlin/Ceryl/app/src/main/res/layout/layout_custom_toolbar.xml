@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?android:actionBarSize"
     android:background="@color/black">
@@ -11,13 +12,14 @@
         android:layout_height="wrap_content"
         android:src="@drawable/icon_back"
         android:layout_centerVertical="true"
-        android:layout_marginStart="10dp"/>
+        android:layout_marginStart="10dp"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tvHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Java"
+        android:text=""
         android:textStyle="bold"
         android:textSize="18sp"
         android:textColor="@color/white"

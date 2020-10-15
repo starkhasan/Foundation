@@ -38,7 +38,7 @@ class ForgotPasswordActivity : RegisterAbstractActivity() {
             if(validation()){
                 if(ConnectivityReceiver().isConnected()){
                     rotateloading.start()
-                    appUser.isExist.put("email",etEmail.text.toString())
+                    appUser.email = etEmail.text.toString()
                     LocalRepositories.saveAppUser(this,appUser)
                     ApiCallService.action(applicationContext,Cv.ACTION_IS_EXIST)
                 }else{

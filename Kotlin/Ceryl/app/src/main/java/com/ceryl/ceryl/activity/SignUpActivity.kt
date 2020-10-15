@@ -22,7 +22,9 @@ class SignUpActivity : RegisterAbstractActivity() {
         LocalRepositories.saveAppUser(this,appUser)
 
         tvLogin.setOnClickListener{
-            startActivity(Intent(SignUpActivity@this,LoginActivity::class.java))
+            val intent = Intent(SignUpActivity@this,LoginActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }
 
         rlSignUp.setOnClickListener {
@@ -31,10 +33,10 @@ class SignUpActivity : RegisterAbstractActivity() {
                 if(ConnectivityReceiver().isConnected()){
                     rotateloading.start()
                     appUser.signup.clear()
-                    appUser?.signup.put("first_name",etFirstName.text.toString())
-                    appUser?.signup.put("last_name",etLastName.text.toString())
-                    appUser?.signup.put("email",etEmail.text.toString())
-                    appUser?.signup.put("password",etPassword.text.toString())
+                    appUser.signup.put("first_name",etFirstName.text.toString())
+                    appUser.signup.put("last_name",etLastName.text.toString())
+                    appUser.signup.put("email",etEmail.text.toString())
+                    appUser.signup.put("password",etPassword.text.toString())
                     LocalRepositories.saveAppUser(this,appUser)
                     ApiCallService.action(this,Cv.ACTION_SIGNUP)
                 }else{
@@ -54,8 +56,9 @@ class SignUpActivity : RegisterAbstractActivity() {
             Preferences.full_name = etFirstName.text.toString()+" "+etLastName.text.toString()
             Preferences.email = etEmail.text.toString()
             Preferences.isLogin = true
-            startActivity(Intent(SignUpActivity@this,HomeActivity::class.java))
-            finish()
+            val intent = Intent(SignUpActivity@this,HomeActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }
         Helper.snackbar_info(SignUpActivity@this,response.message,rlSignupParent)
     }

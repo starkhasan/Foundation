@@ -56,11 +56,12 @@ class LoginActivity : RegisterAbstractActivity(){
             Toast.makeText(applicationContext,response.message,Toast.LENGTH_SHORT).show()
             Preferences.isLogin = true
             Preferences.email = response.User.email
-            Preferences.full_name = response.User.first_name +" "+response.User.last_name
-            startActivity(Intent(LoginActivity@this,HomeActivity::class.java))
+            Preferences.full_name = response.User.name
+            val intent = Intent(LoginActivity@this,HomeActivity::class.java)
+            startActivity(intent)
             finish()
         }else{
-            Helper.snackbar_info(LoginActivity@this,response.message,rlLoginParent)
+            Helper.snackbar_alert(LoginActivity@this,response.message,rlLoginParent)
         }
     }
 

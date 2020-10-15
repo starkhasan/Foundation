@@ -1,6 +1,7 @@
 package com.ceryl.ceryl.activity
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.TextUtils
@@ -81,6 +82,10 @@ class NewPasswordActivity : RegisterAbstractActivity() {
         if(response.status == 200){
             etConfirmPassword.setText("")
             etNewPassword.setText("")
+            val intent = Intent(NewPasswordActivity@this,HomeActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+
         }
         Helper.snackbar_info(NewPasswordActivity@this,response.message,rlNewPasswordParent)
     }

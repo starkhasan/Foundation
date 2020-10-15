@@ -53,10 +53,8 @@ class ProfileActivity : RegisterAbstractActivity() {
             if(validation()){
                 if(ConnectivityReceiver().isConnected()){
                     rotateloading.start()
-                    val fullName = etFullName.text.toString().split(" ")
                     appUser!!.profileUpdate.put("email",etEmail.text.toString())
-                    appUser!!.profileUpdate.put("first_name",fullName[0])
-                    appUser!!.profileUpdate.put("last_name",fullName[1])
+                    appUser!!.profileUpdate.put("name",etFullName.text.toString())
                     appUser!!.profileUpdate.put("phone",etPhone.text.toString())
                     appUser!!.profileUpdate.put("image",base64Image)
                     appUser!!.profileUpdate.put("birthday",etBirthday.text.toString())
@@ -171,16 +169,17 @@ class ProfileActivity : RegisterAbstractActivity() {
         }
         if(response.status == 200){
             Toast.makeText(applicationContext,response.message,Toast.LENGTH_SHORT).show()
-            etFirstName.setText(response.Profile.first_name)
-            etLastName.setText(response.Profile.last_name)
-            val fullName = response.Profile.first_name+" "+response.Profile.last_name
+            val userName = response.Profile.name.split(" ");
+            etFirstName.setText(userName[0])
+            etLastName.setText(userName[1])
+            val fullName = response.Profile.name
             etFullName.setText(fullName)
             etEmail.setText(response.Profile.email)
             etBirthday.setText(response.Profile.birthday)
             etAddress1.setText(response.Profile.address1)
             etAddress2.setText(response.Profile.address2)
-            if(response.Profile.phone.toString() != "0")
-                etPhone.setText(response.Profile.phone.toString())
+            if(response.Profile.phone != "0")
+                etPhone.setText(response.Profile.phone)
             if(response.Profile.pincode != "0")
                 etPin.setText(response.Profile.pincode)
             var position = 0

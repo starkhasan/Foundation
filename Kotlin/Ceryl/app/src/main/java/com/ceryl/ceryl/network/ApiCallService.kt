@@ -35,7 +35,7 @@ class ApiCallService : IntentService(Cv.SERVICE_NAME) {
         }else if(Cv.ACTION_SIGNUP == action){
             api?.signup(appUser!!.signup)!!.enqueue(ApiCallBack<UserResponse?>())
         }else if(Cv.ACTION_IS_EXIST == action){
-            api?.is_exist(appUser!!.isExist)!!.enqueue(ApiCallBack<UserResponse?>())
+            api?.is_exist(appUser!!.email)!!.enqueue(ApiCallBack<UserResponse?>())
         }else if(Cv.ACTION_NEW_PASSWORD == action){
             api?.new_password(appUser!!.new_password)!!.enqueue(ApiCallBack<UserResponse?>())
         }else if(Cv.ACTION_PROFILE == action){
