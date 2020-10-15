@@ -29,7 +29,6 @@ class HomeActivity : RegisterAbstractActivity() {
         val gridLayoutManager = GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false)
         rvHome.layoutManager = gridLayoutManager
 
-
         nav.setOnClickListener {
             if (drawerlayout.isDrawerOpen(GravityCompat.START)) {
                 drawerlayout.closeDrawer(GravityCompat.START)
@@ -92,7 +91,7 @@ class HomeActivity : RegisterAbstractActivity() {
                 }else{
                     AlertDialog.Builder(this)
                         .setTitle(COURSE)
-                        .setMessage("This is paid course")
+                        .setMessage("Please paid for this course")
                         .setPositiveButton("Ok"){dialog: DialogInterface?, which: Int ->
                             dialog!!.dismiss()
                         }
