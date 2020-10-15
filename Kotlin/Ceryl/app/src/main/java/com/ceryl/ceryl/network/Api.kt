@@ -25,6 +25,6 @@ interface Api {
     fun delete_user(@Query("email") email:String):Call<UserResponse>?
     @POST("Users/profileUpdate.php")
     fun update_profile(@Body map:HashMap<String,Any>):Call<GeneralResponse>?
-    @GET("course/all_course.php")
+    @GET("Courses/all_course.php")
     fun get_all_course(): Call<AllCourseResponse>?
 }

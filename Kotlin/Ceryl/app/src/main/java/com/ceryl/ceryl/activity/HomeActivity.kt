@@ -20,8 +20,6 @@ import java.util.ArrayList
 class HomeActivity : RegisterAbstractActivity() {
 
     var appUser = AppUser()
-    var listCourse = ArrayList<String>()
-    var listColor = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,21 +73,31 @@ class HomeActivity : RegisterAbstractActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        apiAllCourse()
+    }
+
     @Subscribe
     fun get_course(response: AllCourseResponse){
         if(rotateloading.isStart)
             rotateloading.stop()
         if(response.status == 200){
-            listColor.clear()
-            listCourse.clear()
-            for(i in 0..response.courses.size-1){
-                listCourse.add(response.courses.get(i).course_name)
-                listColor.add(response.courses.get(i).color)
-            }
-            rvHome.adapter = HomeAdapter(this,listCourse,listColor){COURSE:String,position:Int ->
-                val intent = Intent(HomeActivity@this,CourseSummaryActivity::class.java)
-                intent.putExtra("Course",COURSE)
-                startActivity(intent)
+            val course_response = response.courses
+            rvHome.adapter = HomeAdapter(this,course_response){COURSE:String,position:Int ->
+                if(response.courses[position].course_type == "free"){
+                    val intent = Intent(HomeActivity@this,CourseSummaryActivity::class.java)
+                    intent.putExtra("Course",COURSE)
+                    startActivity(intent)
+                }else{
+                    AlertDialog.Builder(this)
+                        .setTitle(COURSE)
+                        .setMessage("This is paid course")
+                        .setPositiveButton("Ok"){dialog: DialogInterface?, which: Int ->
+                            dialog!!.dismiss()
+                        }
+                        .show()
+                }
             }
         }else{
             Helper.snackbar_alert(HomeActivity@this,response.message,rlHomePage)

@@ -7,7 +7,8 @@
     <color name="black">#000000</color>
     <color name="grey">#E2E2E2</color>
     <color name="yellow">#FFEA00</color>
-    <color name="red">#F34567</color>
+    <color name="red">#F89AAC</color>
     <color name="green">#6CF4D3</color>
-    <color name="dart">#8FEFEF</color>
+    <color name="dart">#FBA8A2</color>
+    <color name="sql">#9CD2EA</color>
 </resources>
