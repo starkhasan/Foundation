@@ -39,8 +39,8 @@ class WeatherActivity : AppCompatActivity(),OnMapReadyCallback{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.cardmap) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+        /*val mapFragment = supportFragmentManager.findFragmentById(R.id.cardmap) as SupportMapFragment
+        mapFragment.getMapAsync(this)*/
     }
 
     override fun onResume() {
@@ -109,13 +109,8 @@ class WeatherActivity : AppCompatActivity(),OnMapReadyCallback{
                         .show()
                 }
             }else{
-                AlertDialog.Builder(this)
-                    .setTitle("Warning")
-                    .setMessage("Please Enabled GPS Location")
-                    .setPositiveButton("Ok"){dialog: DialogInterface?, which: Int ->
-                        dialog!!.dismiss()
-                    }
-                    .show()
+                Toast.makeText(applicationContext,"Please enable GPS for better result",Toast.LENGTH_SHORT).show()
+                getWeatherDetails("arrah");
             }
         }else{
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION,android.Manifest.permission.ACCESS_COARSE_LOCATION),

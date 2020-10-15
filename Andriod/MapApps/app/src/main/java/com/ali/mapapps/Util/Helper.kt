@@ -3,6 +3,7 @@ package com.ali.mapapps.Util
 import android.content.Context
 import android.location.Geocoder
 import android.net.ConnectivityManager
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.HashMap
@@ -287,15 +288,19 @@ class Helper {
         }
 
         fun getLocation(context:Context,latitude:Double,longitude:Double):String{
-            val geocoder = Geocoder(context, Locale.getDefault())
-            val addresses = geocoder.getFromLocation(latitude,longitude,1)
-            val city = addresses[0].locality
-            val state = addresses[0].adminArea
-            val postalCode = addresses[0].postalCode
-            val district = addresses[0].subAdminArea
-            val countryCode = addresses[0].countryCode
-            val countryName = addresses[0].countryName
-            return city+", "+state
+            try{
+                val geocoder = Geocoder(context, Locale.getDefault())
+                val addresses = geocoder.getFromLocation(latitude,longitude,3)
+                val city = addresses[0].locality
+                val state = addresses[0].adminArea
+                val postalCode = addresses[0].postalCode
+                val district = addresses[0].subAdminArea
+                val countryCode = addresses[0].countryCode
+                val countryName = addresses[0].countryName
+                return city+", "+state
+            }catch(e: IOException) {
+                return "Couldn't get your Location"
+            }
         }
     }
 }
