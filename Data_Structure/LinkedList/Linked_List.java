@@ -1,4 +1,5 @@
 //program for the linked list using all operation of linked list
+package LinkedList;
 import java.util.*;
 import java.io.*;
 class Node{

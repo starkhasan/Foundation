@@ -1,12 +1,6 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
+package Hacker;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
-
-public class Solution {
+class Solution {
 
     // Complete the countSwaps function below.
     static void countSwaps(int[] a)

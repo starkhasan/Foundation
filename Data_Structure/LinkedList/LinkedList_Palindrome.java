@@ -1,4 +1,5 @@
 //Linked list Implementation for Palindrome of a number
+package LinkedList;
 import java.util.*;
 class demo
 {

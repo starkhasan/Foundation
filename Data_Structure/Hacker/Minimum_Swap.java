@@ -1,10 +1,11 @@
+package Hacker;
 import java.util.Scanner;
 class demo
 {
 	public void sorting(int arr[])
 	{
 		int new_length=arr.length;
-		int key=0,loc=0,temp=0,count=0;
+		int key=0,loc=0,count=0;
 		for(int i=0;i<new_length;i++)
 		{
 			key=arr[i];
@@ -41,6 +42,6 @@ class demo
 
 		demo d=new demo();
 		d.sorting(a);
-
+		sc.close();
 	}
 }

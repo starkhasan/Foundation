@@ -1,3 +1,4 @@
+package Hacker;
 import java.util.*;
 import java.io.*;
 public class MissingNumber {
@@ -47,14 +48,14 @@ public class MissingNumber {
             }
         }
 
-        int[] keys = mapTwo.keySet().toArray();
+        Object[] keys = mapTwo.keySet().toArray();
         for(int i=0;i<keys.length;i++){
             if(!listMissing.contains(keys[i])){
                 if(!mapOne.containsKey(keys[i])){
-                    listMissing.add(keys[i]);
+                    listMissing.add((int)keys[i]);
                 }else{
                     if((int)mapOne.get(keys[i]) != (int)mapTwo.get(keys[i])){
-                        listMissing.add(keys[i]);
+                        listMissing.add((int)keys[i]);
                     }
                 }
             }

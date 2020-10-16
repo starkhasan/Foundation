@@ -1,4 +1,4 @@
-
+package LinkedList;
 //Checking the Loop in Doubly Linked List
 import java.util.Scanner;
 class demo

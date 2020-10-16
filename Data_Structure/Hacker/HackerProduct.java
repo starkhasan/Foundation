@@ -1,8 +1,8 @@
 package Hacker;
 import java.io.*;
 public class HackerProduct {
+    public static void main(String[] args) throws IOException{
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-        int ar_size = Integer.parseInt(buffer.readLine());
         String[] string_array = buffer.readLine().split(" ");
         
         int ar[] = new int[string_array.length];
@@ -18,4 +18,6 @@ public class HackerProduct {
 
         System.out.println("Summation = "+sum);
         buffer.close();
+    }
+        
 }

@@ -1,3 +1,4 @@
+package Tree;
 import java.io.*;
 import java.util.*;
 class Node{
@@ -170,9 +171,9 @@ public class BinaryTree{
         int depth_tree=d.tree_height(root);
         System.out.println("\nHeight of Binary Tree : "+depth_tree);
         System.out.println("Depth First Search of Binary Search Tree : ");
-        d.Preorder(d.root);
+        d.Preorder(root);
         System.out.println("\nBreadth First Search of Binary Search Tree : ");
-        d.BFS(d.root);
+        d.BFS(root);
         
 
         System.out.println("\n\nMirror of Binary Tree : ");
@@ -202,7 +203,7 @@ public class BinaryTree{
         System.out.println("Enter the Nodes to Check the common Ansestor : ");
         int node1 = Integer.parseInt(buffer.readLine());
         int node2 = Integer.parseInt(buffer.readLine());
-        Node lcavalues = demo.lca(root,node1,node2);
+        Node lcavalues = d.lca(root,node1,node2);
         System.out.print("Lowest Common Ansestor = "+lcavalues.data);
         buffer.close();
     }

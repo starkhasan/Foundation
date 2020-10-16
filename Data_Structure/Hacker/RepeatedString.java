@@ -1,8 +1,5 @@
+package Hacker;
 import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 public class RepeatedString {
     static long repeationOrder(String str){
 		long count = 0;
@@ -38,5 +35,6 @@ public class RepeatedString {
 			}
 		}
 		System.out.println(repeatedString(str,n));
+		br.close();
 	}
 }

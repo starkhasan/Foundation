@@ -1,3 +1,4 @@
+package Hacker;
 import java.io.*;
 public class TwoStrings{
     static String twoStrings(String s1, String s2) {

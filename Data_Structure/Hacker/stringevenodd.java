@@ -1,3 +1,4 @@
+package Hacker;
 /*import java.util.*;
 class demo
 {
@@ -51,6 +52,7 @@ class demo
 				{
 					System.out.println(x[i]);
 				}
+				sc.close();
 			}
 		}
 		

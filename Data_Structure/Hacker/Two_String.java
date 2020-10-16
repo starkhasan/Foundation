@@ -1,3 +1,4 @@
+/*
 Given two strings of equal length, you have to tell whether they both strings are identical.
 Two strings S1 and S2 are said to be identical, if any of the permutation of string S1 is equal to the string S2. See Sample explanation for more details.
 
@@ -21,8 +22,8 @@ Input																						Output
 sumit mitsu				                                                           yes
 ambuj jumba							 yes
 abhi hibb                                                                                                                                           no
-
-
+*/
+package Hacker;
 import java.util.Scanner;
 class demo
 {
@@ -38,7 +39,6 @@ class demo
  		    
  			String s1 = s.nextLine();
  			String str[]=s1.split(" ");
- 			int str_len=str.length;
 
  			String name_first=str[0];
  			String name_second=str[1];
@@ -105,6 +105,7 @@ class demo
  			else
  				System.out.println("NO");
 
- 		}
+		 }
+		s.close();
 	}
 }

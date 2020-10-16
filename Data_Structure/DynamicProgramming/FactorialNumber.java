@@ -1,3 +1,5 @@
+package DynamicProgramming;
+import java.util.*;
 public class FactorialNumber {
     final int MAX = 100; 
     final int NIL = 1;
@@ -27,5 +29,6 @@ public class FactorialNumber {
         int number = sc.nextInt();
         int result = d.fact(number);
         System.out.println("Result =  "+result);
+        sc.close();
     }
 }

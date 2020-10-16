@@ -1,7 +1,8 @@
+package Hacker;
 import java.util.Scanner;
 import java.util.LinkedList;
 
-public class Solution {
+class Solution {
     public static void main(String[] args) {
         /* Create and fill Linked List of Integers */
         Scanner scan = new Scanner(System.in);

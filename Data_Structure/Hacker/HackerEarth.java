@@ -38,6 +38,6 @@ public class HackerEarth {
 		}else{
 			System.out.println("invalid");
         }
-        buffer.close();
+        br.close();
     }
 }

@@ -1,3 +1,4 @@
+package Hacker;
 import java.util.*;
 class Demo
 {
@@ -12,6 +13,7 @@ class Demo
 				System.out.println("Good Job");
 			else
 				System.out.println("Wrong Answer");
+			sc.close();
 		}
 		catch(Exception e)
 		{

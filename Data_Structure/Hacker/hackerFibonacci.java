@@ -1,5 +1,6 @@
+package Hacker;
 import java.util.*;
-public class Solution
+class Solution
 {
     public static int fibonacci(int n)
     {

@@ -1,4 +1,4 @@
-
+package Hacker;
 import java.util.Scanner;
 class demo
 {

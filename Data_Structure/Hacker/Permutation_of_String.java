@@ -1,5 +1,5 @@
-
 //program for finding  all the permutaion of the latter
+package Hacker;
 import java.util.Scanner;
 class demo
 {
@@ -62,6 +62,7 @@ class demo
         }
 
         System.out.println("Permutation = "+(m/temp1));
+        sc.close();
     }
 }
 

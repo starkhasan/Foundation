@@ -1,3 +1,4 @@
+package Hashing;
 import java.io.*;
 public class IndexMapping {
     final static int MAX = 1000;

@@ -1,3 +1,4 @@
+package Hacker;
 import java.util.*;
 import java.io.*;
 public class MigratoryBirds {
@@ -45,11 +46,10 @@ public class MigratoryBirds {
     public static void main(String[] args) throws IOException{
         List<Integer> list = new ArrayList<>();
         BufferedReader buffer = new BufferedReader(new FileReader("InputHacker.txt"));
-        String first = "";
+        String second = "";
         while((buffer.readLine())!=null){
             second = buffer.readLine();
         }
-        int[] ar = new int[second.split(" ").length];
         for(int i=0;i<second.split(" ").length;i++){
             list.add(Integer.parseInt(second.split(" ")[i]));
         }

@@ -1,3 +1,4 @@
+package Hacker;
 import java.io.*;
 public class NumberLineJumps {
     static String kangaroo(int x1, int v1, int x2, int v2) {

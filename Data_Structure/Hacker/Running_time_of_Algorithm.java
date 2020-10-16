@@ -1,4 +1,4 @@
-In a previous challenge you implemented the Insertion Sort algorithm. It is a simple sorting algorithm that works well with small
+/*In a previous challenge you implemented the Insertion Sort algorithm. It is a simple sorting algorithm that works well with small
 or mostly sorted data. However, it takes a long time to sort large unsorted data. To see why, we will analyze its running time.
 
 Running Time of Algorithms
@@ -50,16 +50,12 @@ Total                     4
 
 
 
-
+*/
+package Hacker;
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
 
-public class Solution {
+class Solution {
 
     // Complete the runningTime function below.
     static int runningTime(int[] arr)

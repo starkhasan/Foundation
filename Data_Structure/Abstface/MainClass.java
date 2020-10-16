@@ -1,3 +1,4 @@
+package Abstface;
 import java.util.Scanner;
 public class MainClass implements Calulation{
 

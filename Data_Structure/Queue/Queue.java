@@ -1,4 +1,5 @@
 //implementation of Queue
+package Queue;
 import java.util.Scanner;
 class demo
 {

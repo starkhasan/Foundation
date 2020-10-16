@@ -1,3 +1,6 @@
+package Hacker;
+import java.util.*;
+import java.io.*;
 public class SortedSubSegment {
     static int partition(int[] ar,int p,int r){
         int key = ar[r];

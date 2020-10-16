@@ -1,0 +1,123 @@
+1) What is appicationId in Android ?
+Every Android app has a unique application ID that looks like a package name such as com.example.com. This ID uniquely identifies your app on 
+the device and in Google Play Store. If you want to upload a new version of your app, the appliaction ID must be the same as the original APK
+If you change the appclaition ID Google Play store treats that APK as c completley different app.
+
+
+2) Change the application ID for build variants
+When you build an APK for your app the build tools tag the APK with the application ID defines in the defaultConfig block from the build.gradle
+file. However if you wan to create different version of your app to appears as separate listening on Google pla Store such as "free" and 'pro' version
+you nedd to create separate variants that each have a different application ID.
+
+android {
+    defaultConfig {
+        applicationId "com.example.myapp"
+    }
+    productFlavors {
+        free {
+            applicationIdSuffix ".free"
+        }
+        pro {
+            applicationIdSuffix ".pro"
+        }
+    }
+}
+
+
+Build Dependencies :------------
+Project builds java source code. Some of the java source files import classes from Google Guava a open source library providing a wealthy of utility functionality. In addition to Guava the 
+project needs the JUnit libraries for compilling and executing test code
+
+Guava and JUnit represent the dependencies of the project. A build script developer can declare dependencies for different scopes just for compilation of source code or for executing tests.
+In Gradles the scope of a dependency is called configuration.
+
+You'll need to tell Gradle where to fing those modules so they can be consumed by the build. The location for storing modules is called repository. By declaring deposiroy for a build, Gradle will
+know how to find and reterice modules. Repository can come in different form as local directoy or remote repository. The reference on repository types provides a broads coverage on this topic
+
+The dependencies might need to be download froma remote repository , reterive from a local directory or require another project to be build in multi-project setting. This process is called
+dependecy resolution.
+
+once resolved the resolution mechnasim stores the underlying files of dependency in a local cache also referred to as the dependency cache Future builds reuse the files stored in hte cache to
+avoid unnecessary network calls.
+
+
+4) Optimize your build speed.
+Long build times slow down your development process.
+	The general process of improving your build speed is as follow :
+1) Optimize your build configuration by taking a few stpe that immediately benefit most Android Studio projects.
+2) Profile your build to identify and diagnose some of the trickier bottlenecks that may be specific to your project or workstation.
+
+
+When developing your app you should deploy to a device running Android 7.0 (API LEVEL 24) or higher whenever possible . Newer version of the Android platform implement better for
+pushing updates to your app such as the Android Runtime (ART) and native support for multiple DEX files.
+
+
+Follow these tipe to improve the build speed of your Android Studio Project
+1) Keep your tools up-to-date to take advantage of the latest optimizations.
+	=> Android Studio and SDK tools
+	=> Android plugin for Gradle
+
+
+=> Convert images to WebP
+WebP is an image file format that provides lossy compression (like JPEG) as well as transparency  (like PNG) but can provides better compression than either JPEG or PNG . Reducing image files
+sizes without having to perform build-time compression can speed up your build especially if your app uses a lot of images resources.
+
+=> Disable PNG crunching
+if you can 't  convert your PNG image to WebP, you can still speed up your build by disabling automatic image compression every time you build your app. If you're using Android plugin 3.0.0
+or higher PNG crunching is disabled by default for only the "debug" build type. To disable this optimization for other build types add the following to your build.gradles.
+
+android {
+    buildTypes {
+        release {
+            // Disables PNG crunching for the release build type.
+            crunchPngs false
+        }
+    }
+
+// If you're using an older version of the plugin, use the
+// following:
+//  aaptOptions {
+//      cruncherEnabled false
+//  }
+}
+
+
+=> Enable the build cache
+Bild cache stores certain outputs that the Android plugin for Grable generate when building your project (such as unpackaged AARs and pre-dexed remote dependencies). Your clean builds
+are much faster while using the cache because the build system can simply reuse those cached files during subsequent builds instead of recreting them.
+
+Android plugin 2.3.0 and higher enable the build cache by default (unless you explicitly disabled the build cache).
+
+
+=> User incremental annotaiton processors
+Android Gradle plugin 3.3.0 and higher improved support for incremental annotaion processing. So to improve incremental build sppeds you should update your Android Gradle plugin and use 
+only incremental annotation processors whenever possible.
+
+
+
+5) What is Android SDK in Android?
+The Android SDK is a collection of software development tools and libraries required to develop Android applciations for specific platform. Every time Google release a new version of
+Android or an update a corrsponding SDK.
+
+6) Min SDK
+The min SDK version is the minimum version of the Android operating system required to run your applciation.
+
+7) target SDK
+The target SDK version is the version of your app is target to run on.
+
+8) Compiled SDK
+The compiled SDK version is the version of Android that the build tools uses to compile and build the application in order to release tun or debug.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

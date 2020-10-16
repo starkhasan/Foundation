@@ -1,4 +1,5 @@
 //implementation of Doubly Linked List
+package LinkedList;
 import java.util.Scanner;
 class demo
 {

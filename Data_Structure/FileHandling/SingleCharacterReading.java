@@ -1,3 +1,4 @@
+package FileHandling;
 import java.io.*;
 public class SingleCharacterReading {
     public static void main(String [] args)
@@ -13,11 +14,13 @@ public class SingleCharacterReading {
                     break;
                 System.out.print((char)ch);
             }
+            file.close();
         }
         catch(Exception e)
         {
             System.out.println(e);
         }
+        
         
     }
 }

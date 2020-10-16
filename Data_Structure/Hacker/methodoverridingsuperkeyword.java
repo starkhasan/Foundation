@@ -1,6 +1,4 @@
-import java.util.*;
-import java.io.*;
-
+package Hacker;
 class BiCycle{
 	String define_me(){
 		return "a vehicle with pedals.";

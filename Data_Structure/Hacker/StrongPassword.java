@@ -1,11 +1,8 @@
+package Hacker;
 import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+
 public class StrongPassword {
     static boolean isStrong(int order,String password){
-        String regex = "";
         boolean strong = false;
         switch(order){
             case 1:
@@ -99,6 +96,7 @@ public class StrongPassword {
             password = buffer.readLine();
         }
 		int number = minimumNumber(password.length(),password);
-		System.out.println("Minimum Requirement = "+number);
+        System.out.println("Minimum Requirement = "+number);
+        buffer.close();
 	}
 }

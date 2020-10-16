@@ -1,3 +1,4 @@
+package Hacker;
 import java.io.*;
 public class IceCreamParlor {
     static int[] icecreamParlor(int m, int[] arr) {

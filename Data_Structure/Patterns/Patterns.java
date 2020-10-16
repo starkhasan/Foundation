@@ -1,3 +1,4 @@
+package Patterns;
 import java.io.*;
 public class Patterns{
     public static void pyramidPattern(int n) {
