@@ -1,7 +1,6 @@
 package Hacker;
 import java.util.Scanner;
-class demo
-{
+class Number_Indexing{
 
     public void number_indexing(int number)
     {
@@ -39,7 +38,7 @@ class demo
     public static void main(String [] args)
     {
 
-        demo d=new demo();
+        Number_Indexing d = new Number_Indexing();
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter Number : ");
         int number=sc.nextInt();

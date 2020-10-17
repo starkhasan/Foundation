@@ -1,6 +1,6 @@
 package Hacker;
 import java.util.Scanner;
-class demo
+class Minimum_Swap
 {
 	public void sorting(int arr[])
 	{
@@ -40,7 +40,7 @@ class demo
 			a[i]=sc.nextInt();
 		}
 
-		demo d=new demo();
+		Minimum_Swap d = new Minimum_Swap();
 		d.sorting(a);
 		sc.close();
 	}

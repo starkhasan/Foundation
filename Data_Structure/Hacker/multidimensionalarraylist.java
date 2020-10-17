@@ -1,7 +1,7 @@
 package Hacker;
 import java.util.*;
 
-class Solution {
+class MultidimensionalArraylist {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();

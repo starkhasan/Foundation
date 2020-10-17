@@ -1,0 +1,12 @@
+Error 1 :- deprecated conversion from string constant to 'char*'
+
+this is an erro message you see whenever you have a situation like the following:
+char *pointer_to _connect = "string literal";
+
+C and C++ differ in the type of the string literal. In C type is array of char and in C++ it is constant array of char.
+In any case you are not allowed to change the character of the string literal so the const in C++ is not really a restriction but more of a type  safety thing.
+
+
+=> to solve this kind of problem just pass the char name to the function call.
+
+

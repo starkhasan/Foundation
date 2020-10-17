@@ -8,7 +8,7 @@ abstract class Shape
 	abstract double area(); 
 	public abstract String toString(); 
 	
-	// abstract class can have constructor 
+	// abstract class can have constructor
 	public Shape(String color) { 
 		System.out.println("Shape constructor called"); 
 		this.color = color; 
@@ -16,7 +16,7 @@ abstract class Shape
 	
 	// this is a concrete method 
 	public String getColor() { 
-		return color; 
+		return color;
 	} 
 } 
 class Circle extends Shape 
@@ -68,7 +68,7 @@ class Rectangle extends Shape{
 	} 
 
 } 
-public class AbstractionDemo1 
+class AbstractionDemo1 
 { 
 	public static void main(String[] args) 
 	{ 
