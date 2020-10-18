@@ -1,0 +1,296 @@
+=#=#=#=#=#=#=#=  Broadcast Overview  =#=#=#=#=#=#=#=#=
+Generally speaking , broadcast can be used as messaging system across apps and outside of the normal user flow.
+
+Android apps can send or receive broadcast message from the Android system and other Android apps. These broadcast are sent when an event of interest occurs.
+The Android system send broadcast when various system events occurs such as when the system boots up or the device starts charging.
+App can also send custom broadcasr for example to notify other apps of something that they might be interested in (for example some new data has been downloaded)
+
+(Broadcast receiver is an android component which allow you to send or receive Android system or application event occured. All registetred application are notified by the Andoid runtime
+ once event happens.)
+
+
+System Boradcast :-
+The system broadcast automatically sends-broadcasts when various systems events occur, such as when system switched in and out of airplane mode.
+
+The boradcast message itseld is wrapped in an Intent object whose action string identifies the event that occured (for example android.intent.action.AIRPLANE_MODE). The intent may also 
+include additional information bundled into its extra field. For example the airplane mode intent includes a boolean extra that indicates whether or not Airplane Mode is ON.
+
+
+Changes to system broadcasts :-----------------
+Beginning with Android 8.0 (API level 26), the system impose additional restriction on manifest-declared receivers. If your app targets Adnroid 8.0 or higher you cannot use the manifest to 
+declare a receiver for most implicit broadcasts. you can still use a content-registered reciver when the user is actively using your app.
+
+
+Registered broadcasts :----------------------------
+Apsp can recive broadcast in two ways : through manifest-declared receivers and context-registered receivers.
+
+1) Manifest-deslared receivers (Statically)
+If you declare a broadcast receiver in your manifest the system launches your app (if the app is not already running when the broadcast is sent)
+NOTE :- If your app targets API level 26 or higher you cannot use the manifest to declare a receiver for implicit broadcasts.
+
+=> To declare a broadcast receiver in the manifest perform the following steps:
+<receiver android:name=".MyBroadcastReceiver"  android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="android.intent.action.INPUT_METHOD_CHANGED" />
+    </intent-filter>
+</receiver>
+
+
+=> Subclass BroadcasrReceiver and implementation onReceive(Context,Intent). The broadcast receiver in the following example logs and diaply the content of broadcast:
+private const val TAG = "MyBroadcastReceiver"
+
+class MyBroadcastReceiver : BroadcastReceiver() {
+
+    override fun onReceive(context: Context, intent: Intent) {
+        StringBuilder().apply {
+            append("Action: ${intent.action}\n")
+            append("URI: ${intent.toUri(Intent.URI_INTENT_SCHEME)}\n")
+            toString().also { log ->
+                Log.d(TAG, log)
+                Toast.makeText(context, log, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+}
+
+The system package manager register the receiver when the app is installed. The receiver then become a separate entry point in your app which means that the system can start the app and deliver 
+the broadcast if the app is not currently running.
+
+
+2) Context-registered recevier (Dynamically)
+To register a receiver with a content perform the following steps:
+
+1) Create an instance of BroadcastReceiver
+val br : BroadcastReceiver = MyBroadcastReceiver()
+
+2) Create an IntentFilter and register the receiver by calling registerReceiver(BroadcastReceiver,IntentFilter)
+val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
+    addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+}
+registerReceiver(br, filter)
+
+
+or
+
+IntentFilter filter = new IntentFilter();
+intentFilter.addAction(getPackageName() + "android.net.conn.CONNECTIVITY_CHANGE");
+ 
+MyReceiver myReceiver = new MyReceiver();
+registerReceiver(myReceiver, filter);
+
+
+
+Context-registered receiver receive broadcast as logn as their registering content is valid. (If you register with an activity content you receive brodcast as long as the activity is not detroyed. 
+If you register with the applciationContext you receive broadcast as long as the app is running)
+
+=> To stop receiving broadcast call unregisteredReceiver(android.content.BroadcasatReceiver) Be sure to unregister the receiver when you no longer need it or the content is no longer valid.
+
+
+NOTE =>
+If you register a receiver in onCreate(Bundle) using the activity's context. you should unregistered it in onDestroy() to prevent leaking the receiver out of the activity's context
+If you register a receiver in onResume(), you should unregistere it in onPause() to prevent registering it multiple times.
+
+(Don't unregisterd in onSaveInstanceState(Bundle), because this isn't called if the user moves back in the history stack).
+
+
+Pending Intent =>
+A Pending intent is a token that you give to another application . For example the nootification manager, alarm manager or other 3rd party application) This allows the other application to restore
+the permission of your application to execute a predefined piece of code.
+
+
+=> If the communication is limited to your application then it is not good to use the global broadcast (In this case use localbroadcast manager)
+	(LocalBroadcast Manager is performed efficinetly )
+
+
+
+
+
+
+
+
+ =#=#=#=#=#=#=#=  Intent and Intent Filter  =#=#=#=#=#=#=#=#=
+
+An Intent is a messaging object you can use to request an action from one app component to another app component. 
+Intent established communication between components in several ways
+
+* Starting an activity
+An Activity represents a single screen in an app. You can start a new instance of an Activity by passing an Intent to startActivity(). The Intent describes the activity to start and carries any necessary
+data.
+
+If you want to receive a result from an activity when it finishes call startActivityForResult(). Your Activity receive the result as a separate Intent object in your activity's onActivityResult()
+callback.
+
+
+* Starting a service
+A service is component that perform operation in the background without a user interface. With Android 5.0 and later , you can start a service with JobScheduler.
+
+For version earlier than Android 5.0 (API level 21), you can start a service by using method of the service class. You can start a service to perform  a one-time operation (such as downloading a file)
+by passing an Intent to startService(). The Intent describes the service to start and carries any necessary data.
+
+If the service is designed with a client-server interface, you can bind to the service from another component by passing an Intent to bindService().
+
+
+* Delivering a broadcast
+A broadcast is a message that any app can receive. The system deliver various broadcast for system events, such as when the system boots up or the device charging. you can deliver a 
+broadcast to other apps by passing an Intent or sendBroadcast() or sendOrderedBroadcast().
+
+
+
+=> Two Types of intent
+1) Explicit Intent 2) Implicit Intent
+
+Explicit Intent =>
+specify which application will satisfy the  intent , by supplying ther target app's package name or fully-qualified component class name. You will typically use an expiclity intent to start a 
+component in your own app because you know the class name of the activity or service you want to start 
+
+Implicit Intent =>
+do not name a specific component but instead declare a general action to perform which allows a component from another app to handle it.
+
+(When  you use an implicit intent the Android system finds the appropriate component to start be comparing the content of the intent to the intent filters declared in the manifest file of the
+other app on the device, If the intent matches an intent filter the system start that component and delivers it the Intent object. If multiple intent filters are compatiable the system display a 
+dialog from which the user can pick which app to use.)
+
+Building an intent =>
+An Intent object carries information that the Android system uses to determine which component to start (such as the exact component name or component category that should receive the 
+intent) plus information that the recipient component uses in order to properly perform the action (such as the action to take and the data to act upon).
+
+The parimary information contained in an Intent is the following
+=> Component name
+The name of the component to start , This is optional but it is critical piece of information that makes an intent explicit meaning that the intent should be delivered only to the app component 
+defined by the component name. (With out the component name the intent is implicit and the system decides which component should receive the intent based on the other intent information
+ such as the action , data, and category)
+
+you can set component name with setComponent(), setClass(), setClassName() or with Intent constructor.
+
+Action => 
+A string that specifies the generic action to perform (such as  view or pick)
+We can specify our own actions for use by intents within our app.
+Common actions for starting an activity:
+
+ACTION_VIEW
+Use this action in an intent with startActivity() when you have some information that an activity can show to the user such as photo to view in gallery or an address to view in a map app.
+ACTION_SEND
+Also known as the share intent you should use this intent with startActivity() when you have some data the user share through another app, such as an email app or social sharing app.
+
+You can specify the action for an intent with setAction() or with in Intent constructor.
+
+Data =>
+The URI (a Uri object) that references the data to be acted on and/or the MIME type of the data. The type of the data supplies is generally dictated by the intent's action. For example if the
+action is ACTION_EDIT the data should contain the URI of the document to edit.
+A content URI indicates the data is located on the device and controlled by a ContentProvider which makes the data MIME type visible to the system.
+To set only the data URI call setData() to set only the MIME type call setType(). If neccessary you can set both explicity with setDataAndType().
+
+
+
+Extras :-
+Key-value pair that carry additional information required to accomplish the request action. Just as some actions use particular kind of the data URIs some actions also use particular extras.
+You can add extra data various putExtra() method each accepting two parameter: the key name and the value. you can also create Bundle object with all the extra data then insert the Bundle in 
+the Intent with purExtras() .
+
+
+Flags :-
+Flags are defined in the Intent class that function as metadata for the intent. The flag may instruct the Android system how to launch an activity (for example which task the activity should 
+belong to ) how to treat it after it's launched.
+
+
+Example of Implicit Intent =>
+
+// Create the text message with a string
+val sendIntent = Intent().apply {
+    action = Intent.ACTION_SEND
+    putExtra(Intent.EXTRA_TEXT, textMessage)
+    type = "text/plain"
+}
+
+// Verify that the intent will resolve to an activity
+if (sendIntent.resolveActivity(packageManager) != null) {
+    startActivity(sendIntent)
+}
+
+
+
+
+Forcing an app chooser =>
+When there is more than one app that responds to your implicit intent the user can select which app to use and make that app the default choice for the action.
+To show the chooser create an Intent using createChhoser() and pass it to startActivity()
+
+Example =>
+val sendIntent = Intent(Intent.ACTION_SEND)
+// Always use string resources for UI text.
+// This says something like "Share this photo with"
+val title: String = resources.getString(R.string.chooser_title)
+// Create intent to show the chooser dialog
+val chooser: Intent = Intent.createChooser(sendIntent, title)
+
+// Verify the original intent will resolve to at least one activity
+if (sendIntent.resolveActivity(packageManager) != null) {
+    startActivity(chooser)
+} 
+
+
+Intent-Filter =>
+An Intent-Filter is an expression in an app's manifest file that specifies the type of intent that the component would like to receive. For instance by declaring an intent filter for an activity
+you make it possible for other apps to directly start your activity with a certain kind of intent.
+When you create an implicit intent. the Android system finds the appropriate components to start by comparing the contents of the intent to the filters declared in the manifest file of other
+apps on the device. If the intent matches an intent-filter the system start that component and delivers it the intent object.
+
+Inside the <intent-filter> you can specify the type of intent to accept using one or more of these three elements:
+
+<action>
+Declares the intent action accepted in the name attributes. The value must be the literal string value of an action not the class constant.
+
+<data> 
+Declares the type of data accepted using one or more attributes that specify various aspect of the data URI (schema, host, port, path) and MIME type.
+
+<category.
+Declares the intent category accepted in the name attributes. The value must be the string value of an action not the constant.
+
+
+For example here's an activity declaration with an intent filter to receive an ACTION_sEND intent when the data type is text:
+<activity android:name="ShareActivity">
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="text/plain"/>
+    </intent-filter>
+</activity>
+
+
+
+
+
+=#=#=#=#=#=#=#=  Services  =#=#=#=#=#=#=#=#= 
+A Services is an application component that can perform logn-running operation in the background. It does not provide a user interface. Once started a service might continue running for some 
+time even after the user switches to another application.
+
+Additonally a component can bind to a service to interact with it and even perform interprocess communication.
+
+Types of Services :-
+1) Foreground Service
+2) Background Service
+3) Bound Service
+
+
+Forground Service :-
+A forground service perform some operation that is noticeable to ther user
+Forgroundservice must diaply Notification
+Forground service continue running even the user isn't interacting with the app.
+( When you use a forground service you must display a notification so that user are actively aware that the service is running. This notification cannot be dismissed unless the service is either 
+stopped or removed from the foreground. )
+
+
+
+Background :-
+A background service perform an operation that isn't directly noticed by the user. For example if an app used a service to compact its storage that would usually be a background service.
+
+
+Bound :-
+A Service is bound when an application component binds to it by calling bindService(). A bound service offers a client-server interface that allow component to interact with the service, send 
+request , receive result and even do so across process with interprocess communication.
+
+
+
+
+
+

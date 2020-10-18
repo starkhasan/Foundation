@@ -1,0 +1,257 @@
+What is the difference between the Alert Dialog and Dialog in Android ?
+Dialogs in Android are used to show alerts for making decisions to edit a single value.But there are some difference between an AlertDialog and a Dialog you always want to show message and
+atleast one Button for user interaction. In a Dialog you have custom view to  TextView or something more complex.
+
+AlertDialog is a lightweight version of a Dialog. This is supposed to deal with INFORMATIVE matters only. That's the reason why complex interaction with the user are limited. 
+Dialog on the other hand is able to do even more complex things.
+
+=============================================================
+
+
+Hiding the SoftKeyboard Programatically :-----------------------------------------------------------
+public void hideSoftKeyboard(View v) {
+        InputMethodManager inputManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(v.getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
+}
+
+
+
+Adding GIF image in an ImageView in Android :----------------------------------
+Adding GIF in adndroid easily using the library
+
+implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19
+
+The Simplest way is to use GifImageView  (or GifImageButton) like a normal ImageView
+
+<pl.droidsonroids.gif.GifImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/src_anim"
+    android:background="@drawable/bg_anim"
+    />
+
+if drawable declared by android:src and /or android:background are GIF files then they will be automatically recognized as GifTextView allows you to use GIFs as Compund drawables and background.
+
+
+
+
+
+
+Shared Prefrences :---------------------------------------------------------
+Android provides many ways of stroing data of an application.One if this way is called Preferences. Shared Preferences allow you to save reterive data in the form of key value pair.
+In order to use shared preferencces you have to call a method getSharedPrefereces() that returns a SharedPreferencs instance pointing to the file that values of preferencs.
+
+	SharedPreferencs shredpereferencs = getSharedPreferencs("MyPreferencs",Context.MODE_PRIVATE)
+the first parameter is the key and the second parameter is the MODE. Apsrt from private there are other modes available that are listed below-
+
+
+You can save something in the sharedpreferencs by using SharedPreferencs.Editor class. You will call the edit method of SharedPreferencs instance and wil receive it in an editor object.Its syntax is
+
+Editor editor = sharedpreferencs.edit();
+editor.putString("key","value");
+editor.commit();
+
+
+to clear preferences call editor.clear()  followed by commit()
+
+
+
+
+
+
+
+
+
+Android Activity Launched Mode :------------------------------------------------
+Launched mode is an instruction for Android OS which specifies how the activity should be launched. It instruct how any new activity should be associated with current task. 
+
+
+1) Task 
+2) Back Stack
+
+Task :-----------------------------
+Task is a collection of activities that users interact with when performing a certain job. Ingeneral an application contains number of activities. Normally when user launched an application a new task will be created and the first activity instance is called of the task.
+
+When user launches an app from home icon it navigate through different screen so different activities placed on the top of one another. This collection of activities is known as tasks.
+
+
+Back Stack :--------------------------------------
+Activities are arranged with the order in which each activity is opened. This maintined stack called back stack. When you start a new activity using startActivity() it pushes a new activity onto your task and put the previous Activity in the back stack.
+
+Once you press back button pops the tops activity and remove it from the back stack and taking you back to the previous activity.
+When the user presses the Back button the current activity is destroyed and the previous activity resumes.
+
+
+There are four launched mode of the activity :-----------------------------------
+1) Standard
+2) single Top
+3) single Task
+4) single Insance
+
+1) Standard
+This is the default launched mode of an activity (if not specified) it creates a new instance of an activity in the task which it was started. Multiple instance of the activity in the task from multiple instance can be added to the same or different tasks. In other words you can create the same activity multiple times in hte same task as well as in different tasks.
+
+
+
+In the AndroidManifest you can use launchedMode attribute inside the <activity> element to declare the activity launched mode like-
+<activity android:launchedMode="singleTop"/"standard"/singleTask"/"singleInstance"
+
+
+2) singleTop
+In this launched mode if an instance of activity already existed at the top of the current task a new instance will not be created and Android system will route the intent information through onNewIntent(). if an instance is not present on top of task then new instance will be created.
+Using this launched mode you can create multipleinstance of the same activity in the same task or in different tasks only if the same instance does not already exits at the top of stack.
+
+<activity  android:launchedMode="singleTop"/>
+
+
+
+ => Saving ArrayList / HashMap<> / ArrayList<HashMap<>> / in Preferences  in Kotlin
+
+
+fun saveArrayList(jsonMap: ArrayList<String>, Key: String?) {
+        val jsonString = Gson().toJson(jsonMap)
+        val editor = preferences.edit()
+        editor.putString(Key, jsonString)
+        editor.apply()
+    }
+
+    fun getArrayList(Key: String?): ArrayList<String?> {
+        val defValue = Gson().toJson(ArrayList<String?>())
+        val json = preferences.getString(Key, defValue)
+        val token: TypeToken<ArrayList<String?>?> = object : TypeToken<ArrayList<String?>?>() {}
+        return Gson().fromJson<ArrayList<String?>>(json, token.type)
+    }
+
+    fun savePetArray(jsonMap: ArrayList<HashMap<String,Any>>, Key: String?) {
+        val jsonString = Gson().toJson(jsonMap)
+        val editor = preferences.edit()
+        editor.putString(Key, jsonString)
+        editor.apply()
+    }
+
+    fun getPetArray(Key: String?): ArrayList<HashMap<String,Any>> {
+        val defValue = Gson().toJson(ArrayList<HashMap<String,Any>>())
+        val json = preferences.getString(Key, defValue)
+        val token: TypeToken<ArrayList<HashMap<String,Any>>?> = object : TypeToken<ArrayList<HashMap<String,Any>>?>() {}
+        return Gson().fromJson<ArrayList<HashMap<String,Any>>>(json, token.type)
+    }
+
+
+
+
+
+
+
+ => Android layout background alpha
+
+Drawable.setAlpha();
+
+View backgroundImage = findViewById(R.id.background);
+Drawable background = backgroundImage.getBackground();
+background.setAlpha(80);
+
+
+For Setting  alpha in XML we can try this :
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/background"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="#CC000000" >
+
+first 2 digit are used to set here alpha is 80% next 6 digit for color code
+
+3606
+
+Here's a correct table of percentages to hex values. E.g. for 50% white you'd use #80FFFFFF.
+
+100% — FF
+95% — F2
+90% — E6
+85% — D9
+80% — CC
+75% — BF
+70% — B3
+65% — A6
+60% — 99
+55% — 8C
+50% — 80
+45% — 73
+40% — 66
+35% — 59
+30% — 4D
+25% — 40
+20% — 33
+15% — 26
+10% — 1A
+5% — 0D
+0% — 00
+
+
+Retrofit Log Request and response :-------------------------
+
+Retrofit integrated alog feature for basic request and response debugging. The logging functionality was removed in retrofit 2 since the required HTTP layer is now completelt based on OkHttup. Sine many developers asked for logging capabilities in Retrofit the developer of the OkHttp added logging interceptor in released 2.6.0. This post will show you how to add and use logging interceptor in android app in combination with Retrofit 2.
+
+
+
+
+Logging in Retrofit 2 :------------------
+ Retrofit 2 completely relies on OnHttp for any networ operations-.  The developer of OKHttp have released separate logging interceptor project which implements logging for OkHttp. You can add it to your project with a quick edit og your build.gradle.
+
+while developing your app and for debugging purpose it's nice to have a log feature integrated to show request and response information. Since logging isn't integrated by default anymore in Retrofit we need to add logging interceptor for OkHttp . Lucily OkHttp already ships 
+
+HttpLoggingInterceptor logging = new HttpLoggingInterceptor();  
+// set your desired log level
+logging.setLevel(Level.BODY);
+
+OkHttpClient.Builder httpClient = new OkHttpClient.Builder();  
+// add your other interceptors …
+
+// add logging as last interceptor
+httpClient.addInterceptor(logging);  // <-- this is the important line!
+
+Retrofit retrofit = new Retrofit.Builder()  
+   .baseUrl(API_BASE_URL)
+   .addConverterFactory(GsonConverterFactory.create())
+   .client(httpClient.build())
+   .build();
+
+
+
+Log Levels :----------------
+Logging too much information will blow up your Android monitor, that's why OkHttp logging interceptor hash four log levels NONE, BASIC HEADERS, BODY 
+
+
+
+Body :-
+Log request and response headers and body
+This is the most complete log level and will print out every related information for your request and response.
+
+
+this is the only log level where you'll get the response body data . If you are in an argument with your backed developer use this log level to show the received  response data. However the BODY log level will clutter your android monitor if you are receiving large sets Use this level only if necessary.
+
+
+
+
+
+LocalBroadcast Manager in Android :------------------------------------------------------------------------------------
+In Android we use a Broadcast Receiver to send a particular message to every application that is associate with that specific Broadcast.
+
+
+If the communication is not between different application on the Android device then is it suggested not to use the Global Broadcast Manager because there can be some security holes while using Global Broadcastmanager and you don't have to register  and send a broadcast ofintents to local objects in your process. It has lots of advantages:
+
+1) you broadcast data will not leave your app. So if there is leakage in your app then you need not worry about that.
+2) Another thing that can be noted here is that other applications can't send kind of broadcast to your app. So you need not worry about security holes.
+
+
+
+
+
+
+
+
+
+
+
