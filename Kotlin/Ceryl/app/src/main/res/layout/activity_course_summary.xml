@@ -13,19 +13,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_below="@id/toolBar">
+        android:layout_below="@id/toolBar"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCourseContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 
     </LinearLayout>
 
-    <com.victor.loading.rotate.RotateLoading
-        android:id="@+id/rotateloading"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
+    <RelativeLayout
+        android:id="@+id/rlStart"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        app:loading_speed="11"
-        app:loading_width="5dp" />
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start"
+            android:textAllCaps="false"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:textSize="15sp"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -20,6 +20,9 @@ import java.util.ArrayList
 class HomeActivity : RegisterAbstractActivity() {
 
     var appUser = AppUser()
+    companion object{
+        var courseContent = ""
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,9 +89,20 @@ class HomeActivity : RegisterAbstractActivity() {
             val course_response = response.courses
             rvHome.adapter = HomeAdapter(this,course_response){COURSE:String,position:Int ->
                 if(response.courses[position].course_type == "free"){
-                    val intent = Intent(HomeActivity@this,CourseSummaryActivity::class.java)
-                    intent.putExtra("Course",COURSE)
-                    startActivity(intent)
+                    if(response.courses[position].course_content!=""){
+                        courseContent = response.courses[position].course_content
+                        val intent = Intent(HomeActivity@this,CourseSummaryActivity::class.java)
+                        intent.putExtra("Course",COURSE)
+                        startActivity(intent)
+                    }else{
+                        AlertDialog.Builder(this)
+                            .setTitle(COURSE)
+                            .setMessage("Currently Content of this Course is not available")
+                            .setPositiveButton("Ok"){dialog: DialogInterface?, which: Int ->
+                                dialog!!.dismiss()
+                            }
+                            .show()
+                    }
                 }else{
                     AlertDialog.Builder(this)
                         .setTitle(COURSE)
@@ -127,5 +141,3 @@ class HomeActivity : RegisterAbstractActivity() {
         Helper.snackbar_alert(LoginActivity@this, Cv.TIMEOUT,rlHomePage)
     }
 }
-//4591150280551144 0723 561
-//6074310295999743 0825 690
