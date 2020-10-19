@@ -81,6 +81,8 @@ class HomeActivity : RegisterAbstractActivity() {
         if(rotateloading.isStart)
             rotateloading.stop()
         if(response.status == 200){
+            Preferences.full_name = response.profile.name
+            tvNavUser.setText("Hi, "+response.profile.name)
             val course_response = response.courses
             rvHome.adapter = HomeAdapter(this,course_response){COURSE:String,position:Int ->
                 if(response.courses[position].course_type == "free"){
@@ -125,3 +127,5 @@ class HomeActivity : RegisterAbstractActivity() {
         Helper.snackbar_alert(LoginActivity@this, Cv.TIMEOUT,rlHomePage)
     }
 }
+//4591150280551144 0723 561
+//6074310295999743 0825 690

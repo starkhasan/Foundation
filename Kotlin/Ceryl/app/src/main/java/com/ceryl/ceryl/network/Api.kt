@@ -26,5 +26,5 @@ interface Api {
     @POST("Users/profileUpdate.php")
     fun update_profile(@Body map:HashMap<String,Any>):Call<GeneralResponse>?
     @GET("Courses/all_course.php")
-    fun get_all_course(): Call<AllCourseResponse>?
+    fun get_all_course(@Query("email") email:String): Call<AllCourseResponse>?
 }

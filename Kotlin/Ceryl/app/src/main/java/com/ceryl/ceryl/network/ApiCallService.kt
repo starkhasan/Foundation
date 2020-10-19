@@ -45,7 +45,7 @@ class ApiCallService : IntentService(Cv.SERVICE_NAME) {
         }else if(Cv.ACTION_UPDATE_PROFILE == action){
             api?.update_profile(appUser!!.profileUpdate)!!.enqueue(ApiCallBack<GeneralResponse?>())
         }else if(Cv.ACTION_GET_ALL_COURSE == action){
-            api?.get_all_course()!!.enqueue(ApiCallBack<AllCourseResponse?>())
+            api?.get_all_course(Preferences.email.toString())!!.enqueue(ApiCallBack<AllCourseResponse?>())
         }
     }
 }
