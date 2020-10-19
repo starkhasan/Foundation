@@ -18,7 +18,7 @@ import com.ceryl.ceryl.util.Preferences
 import java.util.*
 
 class SplashActivity : AppCompatActivity() {
-    private var delay : Long = 2000
+    private var delay : Long = 1500
     var appUser: AppUser? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

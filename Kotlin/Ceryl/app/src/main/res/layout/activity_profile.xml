@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp">
+    android:background="@color/white"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_marginTop="20dp">
 
         <androidx.cardview.widget.CardView
@@ -29,6 +30,7 @@
                     android:id="@+id/ivProfile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:src="@drawable/icon_user"
                     android:scaleType="centerCrop"/>
 
                 <RelativeLayout
@@ -56,7 +58,7 @@
             android:id="@+id/etFullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:backgroundTint="@color/white"
             android:maxLength="30"
             android:singleLine="true"
@@ -78,7 +80,7 @@
                 android:layout_weight="0.1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:background="@color/black"/>
+                android:background="@color/white"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -92,18 +94,18 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.45"
                     android:hint="@string/first_name"
-                    android:textColor="@color/white"
+                    android:textColor="@color/colorPrimary"
                     android:maxLines="1"
                     android:imeOptions="actionNext"
-                    android:textColorHint="@color/white"
-                    android:textCursorDrawable="@color/white"
-                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textCursorDrawable="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
                     android:inputType="text"
                     tools:ignore="TextFields" />
                 <View
                     android:layout_width="10dp"
                     android:layout_height="match_parent"
-                    android:background="@color/black"/>
+                    android:background="@color/white"/>
 
                 <EditText
                     android:id="@+id/etLastName"
@@ -111,12 +113,12 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.45"
                     android:hint="@string/last_name"
-                    android:textColor="@color/white"
+                    android:textColor="@color/colorPrimary"
                     android:maxLines="1"
-                    android:textCursorDrawable="@color/white"
+                    android:textCursorDrawable="@color/colorPrimary"
                     android:imeOptions="actionNext"
-                    android:textColorHint="@color/white"
-                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/colorPrimary"
+                    android:backgroundTint="@color/colorPrimary"
                     android:inputType="text"
                     tools:ignore="TextFields" />
 
@@ -162,11 +164,11 @@
                         android:layout_height="45dp"
                         android:layout_weight="0.9"
                         android:hint="@string/email"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimary"
                         android:maxLines="1"
                         android:imeOptions="actionDone"
-                        android:textColorHint="@color/white"
-                        android:backgroundTint="@color/white"
+                        android:textColorHint="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
                         android:inputType="text"
                         android:clickable="false"
                         android:focusableInTouchMode="false"
@@ -203,12 +205,12 @@
                         android:maxLength="10"
                         android:maxLines="1"
                         android:hint="@string/phone"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimary"
                         android:imeOptions="actionDone"
-                        android:textColorHint="@color/white"
-                        android:backgroundTint="@color/white"
+                        android:textColorHint="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
                         android:inputType="number"
-                        android:textCursorDrawable="@color/white"
+                        android:textCursorDrawable="@color/colorPrimary"
                         tools:ignore="TextFields" />
 
                 </LinearLayout>
@@ -243,10 +245,10 @@
                         android:maxLines="1"
                         android:clickable="false"
                         android:focusableInTouchMode="false"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimary"
                         android:imeOptions="actionDone"
-                        android:textColorHint="@color/white"
-                        android:backgroundTint="@color/white"
+                        android:textColorHint="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
                         android:inputType="text"/>
 
                 </LinearLayout>
@@ -278,12 +280,12 @@
                         android:layout_height="45dp"
                         android:layout_weight="0.9"
                         android:hint="@string/address1"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimary"
                         android:imeOptions="actionDone"
                         android:maxLines="1"
-                        android:textColorHint="@color/white"
-                        android:backgroundTint="@color/white"
-                        android:textCursorDrawable="@color/white"
+                        android:textColorHint="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:textCursorDrawable="@color/colorPrimary"
                         android:inputType="text"/>
 
                 </LinearLayout>
@@ -317,11 +319,11 @@
                         android:layout_weight="0.9"
                         android:hint="@string/address2"
                         android:maxLines="1"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimary"
                         android:imeOptions="actionDone"
-                        android:textColorHint="@color/white"
-                        android:backgroundTint="@color/white"
-                        android:textCursorDrawable="@color/white"
+                        android:textColorHint="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:textCursorDrawable="@color/colorPrimary"
                         android:inputType="text"/>
 
                 </LinearLayout>
@@ -353,14 +355,14 @@
                         android:layout_height="45dp"
                         android:layout_weight="0.9"
                         android:hint="@string/pincode"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimary"
                         android:imeOptions="actionDone"
                         android:maxLines="1"
                         android:maxLength="6"
-                        android:textColorHint="@color/white"
-                        android:backgroundTint="@color/white"
+                        android:textColorHint="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
                         android:inputType="number"
-                        android:textCursorDrawable="@color/white"
+                        android:textCursorDrawable="@color/colorPrimary"
                         tools:ignore="TextFields" />
 
                 </LinearLayout>
@@ -427,7 +429,7 @@
                             android:text="@string/delete"
                             android:textAllCaps="false"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textStyle="bold"
                             android:layout_marginStart="40dp"
                             android:layout_marginEnd="40dp"
@@ -437,7 +439,7 @@
                     <View
                         android:layout_width="10dp"
                         android:layout_height="match_parent"
-                        android:background="@color/black"/>
+                        android:background="@color/white"/>
 
                     <RelativeLayout
 
@@ -454,7 +456,7 @@
                             android:text="@string/update"
                             android:textAllCaps="false"
                             android:layout_centerInParent="true"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textStyle="bold"
                             android:layout_marginStart="40dp"
                             android:layout_marginEnd="40dp"
@@ -469,10 +471,16 @@
 
     </LinearLayout>
 
+    <include layout="@layout/layout_bottom_line"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"/>
+
     <com.victor.loading.rotate.RotateLoading
         android:id="@+id/rotateloading"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        app:loading_color="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"

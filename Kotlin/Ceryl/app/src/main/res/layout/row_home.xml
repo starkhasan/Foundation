@@ -30,7 +30,7 @@
                 android:id="@+id/ivCourseType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_lock"
+                android:src="@drawable/icon_course_lock"
                 android:visibility="gone"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"

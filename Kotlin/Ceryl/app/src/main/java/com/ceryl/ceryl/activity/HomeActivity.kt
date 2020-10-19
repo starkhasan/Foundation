@@ -24,7 +24,7 @@ class HomeActivity : RegisterAbstractActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         LocalRepositories.saveAppUser(this,appUser)
-        tvNavUser.setText(Preferences.full_name)
+        tvNavUser.setText("Hi "+Preferences.full_name)
 
         val gridLayoutManager = GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false)
         rvHome.layoutManager = gridLayoutManager
@@ -74,7 +74,6 @@ class HomeActivity : RegisterAbstractActivity() {
 
     override fun onResume() {
         super.onResume()
-        apiAllCourse()
     }
 
     @Subscribe

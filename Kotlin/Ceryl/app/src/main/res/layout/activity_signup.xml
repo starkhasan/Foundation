@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black"
-    android:paddingLeft="50dp"
-    android:paddingRight="50dp">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         android:layout_marginTop="70dp">
 
         <TextView
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Get on Board"
             android:textStyle="bold"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textSize="30sp"/>
 
 
@@ -28,10 +28,13 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="First Name"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:inputType="text"
-            android:textColorHint="@color/white"
-            android:backgroundTint="@color/white"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:maxLength="30"
+            android:textColorHint="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
             android:layout_marginTop="30dp"/>
 
         <EditText
@@ -39,10 +42,13 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="Last Name"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:inputType="text"
-            android:textColorHint="@color/white"
-            android:backgroundTint="@color/white"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:maxLength="30"
+            android:textColorHint="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
             android:layout_marginTop="10dp"/>
 
         <EditText
@@ -50,10 +56,13 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="@string/email"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:inputType="textEmailAddress"
-            android:textColorHint="@color/white"
-            android:backgroundTint="@color/white"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:maxLength="30"
+            android:textColorHint="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
             android:layout_marginTop="10dp"/>
 
         <EditText
@@ -61,11 +70,13 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="@string/password"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:layout_marginTop="10dp"
             android:imeOptions="actionDone"
-            android:textColorHint="@color/white"
-            android:backgroundTint="@color/white"
+            android:maxLines="1"
+            android:maxLength="30"
+            android:textColorHint="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
             android:inputType="textPassword"/>
 
         <RelativeLayout
@@ -82,7 +93,7 @@
                 android:text="Sign Up"
                 android:textAllCaps="true"
                 android:layout_centerInParent="true"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
@@ -101,13 +112,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Already have an account ?"
-                android:textColor="@color/white"/>
+                android:textColor="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/tvLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimary"
                 android:text="Login"
                 android:textStyle="bold"/>
 
@@ -115,10 +126,16 @@
 
     </LinearLayout>
 
+    <include layout="@layout/layout_bottom_line"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"/>
+
     <com.victor.loading.rotate.RotateLoading
         android:id="@+id/rotateloading"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        app:loading_color="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
