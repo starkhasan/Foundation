@@ -224,6 +224,7 @@ class ProfileActivity : RegisterAbstractActivity() {
         if(rotateloading.isStart)
             rotateloading.stop()
         if(respose.status == 200) {
+            Preferences.full_name = etFirstName.text.toString()+" "+etLastName.text.toString()
             etFullName.setText(etFirstName.text.toString()+" "+etLastName.text.toString())
             etFullName.visibility = View.VISIBLE
             llName.visibility = View.GONE
