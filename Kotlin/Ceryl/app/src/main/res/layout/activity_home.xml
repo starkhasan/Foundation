@@ -143,6 +143,7 @@
                     tools:ignore="RtlSymmetry">
 
                     <LinearLayout
+                        android:id="@+id/llProfile"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:background="@color/colorStrip"
@@ -156,7 +157,6 @@
                             android:layout_gravity="center_vertical"/>
 
                         <TextView
-                            android:id="@+id/navProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/profile"

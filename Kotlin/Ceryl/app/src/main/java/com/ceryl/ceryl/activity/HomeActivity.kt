@@ -37,7 +37,7 @@ class HomeActivity : RegisterAbstractActivity() {
             }
         }
 
-        navProfile.setOnClickListener {
+        llProfile.setOnClickListener {
             startActivity(Intent(HomeActivity@this, ProfileActivity::class.java))
             drawerlayout.closeDrawers()
         }

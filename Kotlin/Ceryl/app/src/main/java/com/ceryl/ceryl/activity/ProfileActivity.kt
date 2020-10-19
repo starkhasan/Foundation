@@ -38,6 +38,7 @@ class ProfileActivity : RegisterAbstractActivity() {
     var appUser = AppUser()
     var base64Image = ""
     var stateList = arrayOf<String>()
+    var isDateSelected = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         LocalRepositories.saveAppUser(this,appUser)
@@ -76,6 +77,7 @@ class ProfileActivity : RegisterAbstractActivity() {
         }
 
         rlDelete.setOnClickListener {
+            Helper.hideKeyboard(ProfileActivity@this)
             AlertDialog.Builder(ProfileActivity@this)
                 .setTitle("Delete User")
                 .setMessage("Are you sure want to delete?")
@@ -90,6 +92,7 @@ class ProfileActivity : RegisterAbstractActivity() {
         }
 
         rlEditImage.setOnClickListener {
+            Helper.hideKeyboard(ProfileActivity@this)
             AlertDialog.Builder(this)
                 .setTitle("Upload Image")
                 .setPositiveButton("Camera") { dialogInterface: DialogInterface, i: Int ->
@@ -178,6 +181,7 @@ class ProfileActivity : RegisterAbstractActivity() {
             etBirthday.setText(response.Profile.birthday)
             etAddress1.setText(response.Profile.address1)
             etAddress2.setText(response.Profile.address2)
+            isDateSelected = if (response.Profile.birthday=="") false else true
             if(response.Profile.phone != "0")
                 etPhone.setText(response.Profile.phone)
             if(response.Profile.pincode != "0")
@@ -206,7 +210,9 @@ class ProfileActivity : RegisterAbstractActivity() {
         if(response.status == 200){
             Toast.makeText(applicationContext,response.message,Toast.LENGTH_SHORT).show()
             Preferences.isLogin = false
-            startActivity(Intent(ProfileActivity@this,SignUpActivity::class.java))
+            val intent = Intent(ProfileActivity@this,SignUpActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
             finish()
         }else{
             Helper.snackbar_alert(ProfileActivity@this,response.message,rlProfileParent)
@@ -232,9 +238,17 @@ class ProfileActivity : RegisterAbstractActivity() {
         val month= mcurrentDate.get(Calendar.MONTH)
         val day= mcurrentDate.get(Calendar.DAY_OF_MONTH)
         val mDatePicker = DatePickerDialog(ProfileActivity@this, DatePickerDialog.OnDateSetListener { _, years: Int, monthOfYear, dayOfMonth ->
+            isDateSelected = true
             etBirthday.setText(""+dayOfMonth+"/"+(monthOfYear+1)+"/"+ years)
         }, year, month, day)
         mDatePicker.datePicker.maxDate = mcurrentDate.timeInMillis
+        if(isDateSelected){
+            val temp = etBirthday.text.split("/")
+            val _year = temp[2].toInt()
+            val _month = temp[1].toInt()
+            val _day = temp[0].toInt()
+            mDatePicker.updateDate(_year, (_month-1), _day)
+        }
         mDatePicker.show()
     }
 
