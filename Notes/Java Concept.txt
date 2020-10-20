@@ -327,6 +327,14 @@ strictfp class demo{
 
 
 
+Generic in Java :-
 
-Inheritance in Java :------------------------
-Member Access and Inheritance:-  Although a subclass all of the member of its superclass it cannot access those members of the superclass that have been declared as private.
+=> Bunded types with generics in Java
+There may be times when you want  to restrict the type that can be used as type argument in a parametrized type. For example a method that operates on numbers might only want to accept
+instance of Number or its subclasses.
+
+* Suppose we want to restrict the type of object that can be used in the parametrixed type. For example in a method that compares two object and we want to make sure that the accepted
+objects are Comparables.
+
+
+Example =>

@@ -3298,9 +3298,9 @@ class Main
 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                     EXCEPTION  HANDLING
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                     			EXCEPTION  HANDLING
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 => What is Exception in Java ?
@@ -3315,7 +3315,7 @@ class Main
 
 
 
-                                                                         ----------------: Hierarchy of Java Exception classes :------------
+                                                                         		--------------: Hierarchy of Java Exception classes :------------
 
 The java.lang.Throwable class is the root class of Java Exception hierarchy which is inherited by two subclasses: Exception and Error. 
 
@@ -3337,7 +3337,7 @@ it is highly supported language. It is portable across many Operating systems. J
 
 
 
-                                                                              ------------------: Java Exception Keywords :-----------------
+                                                                              		------------------: Java Exception Keywords :-----------------
 
 Java exception handling is managed via five keywords:
 There are 5 keywords which are used in handling exceptions in Java.
@@ -3468,8 +3468,9 @@ class demo
 
 	Multiple catch :--------------
 
-In some case more than one exception could be raised by a single piece of code. To handle this type of exception you can specify two or more catch claused each catching a different type of exception.
-						After one catch statement executes the other are bypassed and execution continues after the try/catch block. the following example traps two different exception types:
+In some case more than one exception could be raised by a single piece of code. To handle this type of exception you can specify two or more catch claused each catching a different type of 
+exception.
+After one catch statement executes the other are bypassed and execution continues after the try/catch block. the following example traps two different exception types:
 
 
 
@@ -3519,14 +3520,16 @@ After try/catch Exception  :
 
 
 
-This program will cause a division by zero exception if it is started with no command line argument since a will equal zero. It will survive the division if you provide a command line argument setting a to something larger than zero. But it will cause an ArrayIndexOutOfBoundException since the int array c has a lebgth of 1 yet the program attempts to assign a value to c[42]
+This program will cause a division by zero exception if it is started with no command line argument since a will equal zero. It will survive the division if you provide a command line argument 
+setting a to something larger than zero. But it will cause an ArrayIndexOutOfBoundException since the int array c has a lebgth of 1 yet the program attempts to assign a value to c[42]
 
 
-                                                                                           -------------: Throwing an Exception  :--------------
+                                                                                           		-------------: Throwing an Exception  :--------------
 
 
 => Throw
-     throw is used to explicit exception throwing. it means the throw statement  causes termination of the normal flow of control of the java code and         stop the execution of the subsequent statement if an exception is thrown when throw statement is executed.
+     throw is used to explicit exception throwing. it means the throw statement  causes termination of the normal flow of control of the java code and stop the execution of the subsequent 
+statement if an exception is thrown when throw statement is executed.
 
 Example=>
 
@@ -3558,7 +3561,8 @@ class demo
 
 
 
-So far you have only been catching exception that are thrown by the java run-time system. However it is possible for your program to throw an exception explicitly using the throw statement. The general form of throw is shown here:
+So far you have only been catching exception that are thrown by the java run-time system. However it is possible for your program to throw an exception explicitly using the throw statement.
+The general form of throw is shown here:
 
 	throw ThrowableInstance
 
@@ -3630,13 +3634,15 @@ class demo
 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                          PACKAGES IN JAVA
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                          			PACKAGES IN JAVA
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
-Packages are container for classes that are allow you to create a class names List , which you can store in your own package without concern that it will collide with some other class named List stored elsewhere. Packages are stored in hierarchical manner and are explicitily imported into new class definitions.
+Packages are container for classes that are allow you to create a class names List , which you can store in your own package without concern that it will collide with some other class named 
+List stored elsewhere. Packages are stored in hierarchical manner and are explicitily imported into new class definitions.
 
-The packages in both a naming and a visibility control meshanism you can define classes inside a package that are not accessible by code outside that packages. you can also define class members that are only expose to other members of the same packages.
+The packages in both a naming and a visibility control mechanism you can define classes inside a package that are not accessible by code outside that packages. you can also define class 
+members that are only expose to other members of the same packages.
 
 
 
@@ -3705,7 +3711,7 @@ The Math class
 
 
 
-                                                                                              ---------: var Args :---------
+                                                                                              		---------: var Args (Variable Length Argument):---------
 
 
 This concept was introduced from the jdk 1.5 . The var args allows the method to accept zero or multiple argument.
@@ -3815,7 +3821,7 @@ class demo{
 
 
            					
-                                                                                   --------:User Define Package / Custom Package :--------
+                                                                                   		--------: User Define Package / Custom Package :--------
 
 
 
@@ -3833,7 +3839,7 @@ public class demo
         result=num1+num2;
        System.out.println("sum = "+result);
     }
-}					//javac -d . demo.java for comiplation of the package
+}					// javac -d . demo.java  ( for comiplation of the package )
 
 
 import calculator.demo;
@@ -3852,7 +3858,8 @@ This is general form of the package statement
 	package pkg;
 Here pkg is the name of the package 
 
-you can create a hierarchy of package . to do so simply separate each package name from the one above it by use of period . the general form of a multileveled package statement is shown here:
+you can create a hierarchy of package . to do so simply separate each package name from the one above it by use of period . the general form of a multileveled package statement is shown 
+here:
 
 	package pkg1[.pkg2[.pkg3]]
 
@@ -3861,7 +3868,7 @@ you can create a hierarchy of package . to do so simply separate each package na
 How does the java run-time system know where to look for package that you create?
 
 The Answer has three parts:
-1) by default the java rrun-time system used the surrent working directory as its starting point if your package is in a subdirectory of the current 
+1) by default the java run-time system used the current working directory as its starting point if your package is in a subdirectory of the current 
 directory ot will be found
 2) you can specify a directory path or path by setting the CLASSPATH environment variable
 3) you can use the -classpath option with java and javac to specify the path to your classes.
@@ -3871,14 +3878,15 @@ directory ot will be found
 	Importing Package :---------------------
 
 Java includes the import statement to bring certain classes, or entire packages, into visibility. Once imported, a class
-can be referred to directly, using only its name. The import statement is a convenience to the programmer and is not technically needed to write a complete Java program. If you are going to refer to a few dozen classes in your application, however, the import statement will
-save a lot of typing.
+can be referred to directly, using only its name. The import statement is a convenience to the programmer and is not technically needed to write a complete Java program. If you are going to 
+refer to a few dozen classes in your application, however, the import statement will save a lot of typing.
 
 the general form of the import statement:
 
 	import pkg1[.pgk2].(classname|*);
 
-Here pkg1 is the name of a top level package and pkg2 is the name of a subordinate package inside the outer package separated by dot(.) There is no practical limit on the depth of a package hierarchy except that imposed by the file system.
+Here pkg1 is the name of a top level package and pkg2 is the name of a subordinate package inside the outer package separated by dot(.) There is no practical limit on the depth of a package
+hierarchy except that imposed by the file system.
 
 
 
@@ -3941,7 +3949,7 @@ Zero Balance :
 
 
                                                    
-                                                                                   ----------: Access Specifier / Access Modifier :-----------
+                                                                                   		----------: Access Specifier / Access Modifier :-----------
 
 
 Access Specifier defines the scope of type (class and interface) and type member (variable and method)
@@ -3978,13 +3986,34 @@ class Tester
 
 
 2) Default Access Specifier
-
 when we don't use any access specifier that time defult access specifier is automatically used.
 Default thing can be accessible anywhere only in the same package.
+
+Example =>
+package p1;
+class First{
+	void display(){
+		System.out.println("Package First");
+	}
+}
+
+package p2;
+import p1.*;
+class MainClass{
+	public static void main(String[] args){
+		First obj = new First(); 
+		obj.display(); 
+	}
+} 
+
+//Will get Compile Time Error Because Default Access Specifier can only be accessed in same package.
+
 
 
 3)Protected Access Specifier
 protected thing is accessible in the same package and outside the package also but outside the package it is accessible only through inheritence
+
+
 
 4)public
 public thing can be accessible anywhere (except final)
@@ -3993,9 +4022,9 @@ public thing can be accessible anywhere (except final)
 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                                      FILE HANDING
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                                      		FILE HANDING
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 In java input and output is stream based.
 
@@ -4009,9 +4038,14 @@ Stream is categorized in to two categories
 Input Stream is used to read data
 output stream is used to write the data.
 
-in java we have two types of the input and output stream
-1) Byte Oriented
-2) Character Oriented
+In java we have two types of the input and output stream
+1) Byte Oriented   (Streams are Byte Oriented)
+Byte stream process data byte by byte (8 bits)
+A byte stream is suitable for processing raw data like binary files.
+
+2) Character Oriented (Readers are Character Oriented)
+In java character are stored using Unicode conventions. Character stream automatically allow us to read/write data character by character. When we want to process text files. These text files 
+canbe processed character by character. A character size is typically 16 bit
 
 
 Commonly used Byte Oriented Stream are:-
@@ -4168,9 +4202,9 @@ class demo
 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                               toString Method
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                               		toString Method
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Every println() method always call the toString() method whether we call it or not
 
@@ -4217,9 +4251,9 @@ class demo
 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                        ASSERTION IN JAVA
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                        			ASSERTION IN JAVA
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 => Assertion are statement in java that enable you to test the assumptions made in a program during program execution
 => Assertion are used during testing of a program to ensure that the specified condition is ture
@@ -4256,17 +4290,15 @@ class demo
 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                             THREAD IN JAVA
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-
-
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                             		THREAD IN JAVA
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
 => What is a thread?
 
      It's a flow of execution.
      for every flow of execution a separate job is there.
-     Thread consumes CPU in best possible manner, hence enables multi processing . Multi threading reduces idle time of CPU which improves         		performance of application
+     Thread consumes CPU in best possible manner, hence enables multi processing . Multi threading reduces idle time of CPU which improves performance of application
      
      A mutithreaded program contains two or more parts that can run concurrently.
      Each part of such a program is called a thread and each thread defines a separate path of execution.
@@ -4277,7 +4309,7 @@ class demo
      Thread have their own stack.
 
 
-	Multitasking thread require less overhead than multitasking process. process are heavyweight task that require their own separate 	address spaces.
+	Multitasking thread require less overhead than multitasking process. process are heavyweight task that require their own separate address spaces.
 	Interprocess communication is expensive and limited.
 	Context switching from one process to another is also costly.
 	Thread on the other hand , are lightweight.
@@ -4299,7 +4331,7 @@ class demo
 
 
 Q=>  How to implement Thread in java?
-         Thread can be created in two ways by implementing java.lang.Runnable interface or extending java.lang.Thread class and then          extending run method
+         Thread can be created in two ways by implementing java.lang.Runnable interface or extending java.lang.Thread class and then extending run method
 
 Q=> Does thread implmenting their own stack,if yes how?
          yes, Thread have their own stack, thread internally maintains their own stack
@@ -4359,7 +4391,7 @@ Executing several task simultaneously where each task is a separeate independent
 Thread based multitasking is best suitable at programatic level.
 
 
-What is the different between the process based and thread based threading.
+Ques :- What is the different between the process based and thread based threading?
 
 whether it is process based and thread based the main objective of multitasking is to reduce the response time of the system and to improve performance
 
@@ -4399,16 +4431,18 @@ class ThreadDemo
 Explanation:-
 
 First creating class which extends the thread class and we are overriding the run method( because run method already available in thread class)
-this total process is called defining  thread every java program contain one thread default main thread but internally contain more than one  demon thread. main thread creates child thread object main thread start child thread
+this total process is called defining  thread every java program contain one thread default main thread but internally contain more than one  demon thread. main thread creates child thread 
+object main thread start child thread
 
 Thread Schedular:-
 if multiple thread are there in which order they are going to execute that is decided by the thread schedular
 
-but in which order the thread are going to execute we can't say because what is the algorithm followed by schedular we can't say some schedular follow FCFS some follow SJF and some follow Round Robin  it vary from jvm to jvm .
+but in which order the thread are going to execute we can't say because what is the algorithm followed by schedular we can't say some schedular follow FCFS some follow SJF and some 
+follow Round Robin  it vary from jvm to jvm .
 
 it is the part of jvm it is responsible to schedule threads if multiple threads are waiting to get the chance of execution than in which order thread will be executed is decided by thread shedular
 
-we can't except thread execution order and exact output hence whenever situation come to multithreading there is no garntee for exact output but we can provide several possible outputs.
+we can't except thread execution order and exact output hence whenever situation come to multithreading there is no guarntee for exact output but we can provide several possible outputs.
 
 case 2
 difference between t.start() and t.run()
@@ -4418,7 +4452,8 @@ if i call t.run() the run method will be executed just like a general method cal
 
 case 3
 importance of  thread  class start method 
-thread class start method is responsible for register the thread with thread schedular and other mandatory activity hence without executing thread class start method there is no chance of starting a new thread  in java due to this thread class start method is consider as heart of multithreading
+thread class start method is responsible for register the thread with thread schedular and other mandatory activity hence without executing thread class start method there is no chance of 
+starting a new thread  in java due to this thread class start method is consider as heart of multithreading
 
 start()
 {
@@ -4576,7 +4611,7 @@ class caller
 
 
 
-                                                         ------------------:  Defining a Thread by implementing Runnable Interface :------------------
+                                                         	------------------:  Defining a Thread by implementing Runnable Interface :------------------
 
 
  We can define a thread by implementing runnable interface 
@@ -4738,7 +4773,7 @@ class MultipleThreadDemo
 
 
 Among two ways to defining a thread implements runnable approache is recommanded
-in the first approache our class always extends Thread class ,there is no chance of extending any other class hence we are missing inheritence benifite
+in the first approache our class always extends Thread class ,there is no chance of extending any other class hence we are missing inheritence benefits
 
 but in the second approache while implementing runnable interface we can extends any other class hence we will not miss any inheritence benefit.
 because of above reason implementing runnable interface approache recommanding then extending thread class
@@ -4781,7 +4816,7 @@ class ThreadDemo
 
 
 
-                                                                          -----------: Getting and Setting Name of Thread :------------
+                                                                          		-----------: Getting and Setting Name of Thread :------------
 
 
 Every Thread in java has some name it may be explicitly provided by programmer or default name generated by JVM
@@ -4850,7 +4885,7 @@ the isAlive() method return true if the thread upon which it is called is still 
 Second you can call join() on thread this method is defined by Thread and its general form is shown here:
 
 	final void join() throws InterruptedException
-this methos waits until the thread on which it is called terminates.
+this methods waits until the thread on which it is called terminates.
 
 
 
@@ -5057,7 +5092,8 @@ the method that return the instance of a class is known as factory method.
 
 					---------: Synchronization :--------
 
-Synchronization is the capability of control the access of multiple thread  and make sure that only one thread can access the resource at a given point in time. this is implemented using concept of monitor.
+Synchronization is the capability of control the access of multiple thread  and make sure that only one thread can access the resource at a given point in time. this is implemented using 
+concept of monitor.
 
 synchronization is better in case we want only one thread can access the shared reasources at a time.
 
@@ -5105,7 +5141,6 @@ class Table{
       Thread.sleep(400);  
      }catch(Exception e){System.out.println(e);}  
    }  
-  
  }  
 }  
   
@@ -7396,906 +7431,6 @@ these can be the observation about why java not support operator overloading :-
 2) Avoid Programming Error
 3) JVM Complexity
 4) Easy Development of tools 
-
-
-
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                 JDBC ( Java DataBase Connectivity )
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-
-Database is an organised collection of data generally stored and accessed  electronically from a computer system.
-		Now a days , we use Relational Database management system (RDBMS) to store and manage huge volume of data this is called Relational Database because all the data is stored into the different table and relation are established using primary key or other keys  as foreign key.
-
-
-
-JDBC is a java api which facilitate connectivity of java application to database.
-
-User of a RDBMS Package can be divided in two category.
-1) Human User (Human insterface control, windows or web based) 
-2) Applications
-
-Application interface is called drivers usually a driver is a set of functions or classes which perform database operation. initially native driver were provided by database verders to application programmers to perform database operations.
-
-limitation is that application programmer need to learn different drivers for each RDBMS Package
-
-both the problem of native drivers were solved by odbc
-=> ODBC is a standard api for application to intereact with RDBMS package
-=> ODBC is a set of C functions prototype to perform database operations.(it is written in c)
-
-JDBC is created by Sun ( Oracle )
-
-Four Different type of JDBC Drivers
-1) Type 1 or JDBC- ODBC Bridge Driver
-2) Type 2 or JDBC-Native Driver
-3) Type 3 or JBDC-Network Driver
-4) Type 4 or Pure Java Native Driver (JDBC calls directly into the vendor specific database protocol that is why it is known as thin driver it is fully written in java language)
-
-Using JDBC API
--> The JDBC API classes and interfaces are available in the java.sql or javaax.sql package
-Commonly used classes and interfaces are follows:-
-1) DriversManager
-2) SQLExeception		classes
-3) Types
-
-4) Connection
-5) Statement
-6) PreparedStatement	interfaces
-7) CallableStatement
-
-
-1) DriverManager
-  it is utility class/helper class provided by sun microsytem that is responsible for mangaing jdbc drivers and act as a factory of connection.
-
-2) Types
-it is helper class which defines static final integer data members to represents JDBC types
-
-3) SQLException
-it is super class of all database related exception
-
-4) Connection
-this interface provides methods for managing database connectivity act as a factory of statement
-
-5) Statement
-this interface provides methods for execution SQL query and act as a factory ResultSet
-
-6) PreparedStatement
-this interface is sub interface of a statement and provides the facility of executing parameterized queries.
-
-7) CallableStatement
-this interface extends PreparedStatement and provides methods for executing stored procedures and functions.
-
-8)ResultSet
-this interface provides methods of managing the result of a select query it means it.
-
-Steps to connect to the Database
-1) Register the driver class
-2) Creating connection
-3) Creating statement
-4) Executing queries
-5) Closing Connection
-
-
-1) Register the drive class / Load the drive class
-
-	Class.forName() method is available in the java.lang.Class to dynamically load the driver's class file into memory which automatically register it. This method is preferable because it allow you to make the driver registration configuration and portable.
-
-	Syntex=>
-		public static class forName(String className)throws ClassNotFoundException
-
-	Ex=>
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-	
-
-	using the registerDrive() method
-    
-	=> this method belongs to the DriveManagerclass You need to call the registerDrive() method to register the Drive class object with the 
-	      DriveManager
-
-
-2) Create the Connection object
-
-=> getConnection() method of DriveManager class is used to establish connection with database
-=> Syntex of getConnection() method
-
-syntex of getConnection() method
-
-	=> public static Connection getConnection(String url)throws SQLException
-
-
-
-=> After you've loaded the driver you can eatablished a connection using the DriverManager.getConnection() method . For easy reference let me list the three overloaded DriverManager.getConnection() methods:---
-
-1)		getConnection(String url)
-2)		getConnection(String url, Properties prop)
-3)		getConnection(String url, String user, String password)
-
-
-=> Following table lists down the popular JDBC driver names and database URL
-
-
-	RDBMS			JDBC driver name				URL Format
-
-	MySQL			com.mysql.jdbc.Driver			jdbc:mysql://hostname/databaseName
-	ORACLE			oracle.jdbc.driver.OracleDriver			jdbc:oracle:thin:@hostname:portNumber:database
-	DB2			COM.ibm.db2.jdbc.net.DB2Driver		jdbc:db2:hostname:portNumber/databaseName
-	Sybase			com.sybase.jdbc.SybDriver			jdbc:sybase:Tds:hostname:portNumber/database
-
-
-
-
-3) Create the Statement object
-=> the createStatement() method of connection interface is used to create statement. The object of statement is responsible to execute queries with database
-
-		public Statement createStatement()throws SQLException
-
-Example=>	Statement stmt=con.createStatement();
-
-
-
-
-=> Before you can use a Statement object to execute a SQL statement you need to create one using the Connection object's createStatement() methods
-
-Once you've created a Statement object you can then  use it to execute an SQL statement with one ot its three execute methods.
-
-1) boolean execute(String SQL)
-Return a boolean value of true if a ResultSet  obejct can be reterived otherwise it returns false. Use this methods to execute SQL DDL stateement
-2) int executeQuery(String SQL)
-3)ResultSet executeQuery(String SQL)
-
-
-
-
-	PreparedStatement Object :-------------
-The PreparedStatement interface extends the Statement interface which gives you added functionality with a couple of advantages over a generic Statement object
-		This statement gievs you the flexibility of supplying arguments dynamically
-
-
-
-
-4) Execute the query
-=> the Statement interface contains the following methods to execute static SQL statements to a database
-
-
-		ResultSetexecuteQuery(String selectQuery)
-		intexecuteUpdate(String DMLStatement)
-		boolean execute(String  DDLStatement)
-
-=> DQL/DRL(Data Query Langugae / Data Retrival Language )  Select Command
-=> DML ( Data Manipulation Langugage) insert, delete, updata command
-=> DDL ( Data Defination Language ) create, alter, drop, truncate command
-
-5) Close Connection 
-=> by closing connection object statement and ResultSet will be closed automatically. the close() method of connection interface is used to close the connection
-
-		public void close()throws SQLException
-
-		con.close();
-
-
-
-
-//program for select query		DRL/DQL Operation
-
-import java.sql.*;
-class selectquery
-{
-	public static void main(String [] args)
-	{
-	    try
-	    {
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
-		Statement stmt=con.createStatement();
-		ResultSet rs=stmt.executeQuery("SELECT * FROM BOYS");
-		System.out.println("Details of the Student : ");
-		while(re.next())
-		{
-			System.out.println(rs.getString(1)+"\t+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getInt(4)+"\t"+rs.getInt(5));
-		}
-		con.close();
-	    }
-	    catch(Exception e)
-	    {
-		System.out.println(e);
-	    }
-	}
-}
-
-
-Example (Executing the SELECT Query More than Once)
-
-import java.sql.*;
-class demo
-{
-    public static void main(String [] args)
-    {
-        try
-        {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
-            Statement stmt=conn.createStatement();
-            System.out.println("Details of the Employes");
-            ResultSet res=stmt.executeQuery("Select * from boys");
-            while(res.next())
-            {
-                System.out.println(res.getInt(1)+"\t"+res.getString(2)+"\t"+res.getString(3)+"\t"+res.getString(4)+"\t"+res.getInt(5)+"\t"+res.getLong(6));
-            }
-
-            System.out.println("\nPhone Number of Employes : ");
-            ResultSet rs=stmt.executeQuery("SELECT  PHONE FROM BOYS WHERE SALARY>10000");
-            while(rs.next())
-            {
-                /*System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));*/
-                System.out.println(rs.getLong(1));
-            }
-    
-            System.out.println("\nName of the Employ whose salary is more then 10000");
-            ResultSet re=stmt.executeQuery("SELECT FNAME,LNAME FROM BOYS WHERE SALARY>10000");
-            while(re.next())
-            {
-                System.out.println(re.getString(1)+"\t"+re.getString(2));
-            }
-            conn.close();
-    
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-       
-    }
-}
-
-
-
-
-Output=>
-
-Details of the Employes
-101     ALI     	HASAN   	E001    10000   9760656467
-105     SHIVAM  	VIRU    	E002    40000   9760654562
-110     SHOAB   	KHAN    	E080    68000   9765154562
-102     DHERAJ  	PANDEY  	E005    48000   9765794562
-116     RAJAT   	GUPTA   	E091    48550   7765794512
-111     MAYANK  	JADAV   	E081    75550   7710794512
-115     SACHIN  	GUPTA   	E007    48750   7755441362
-
-Phone Number of Employes :
-9760654562
-9765154562
-9765794562
-7765794512
-7710794512
-7755441362
-
-Name of the Employ whose salary is more then 10000
-SHIVAM  	VIRU
-SHOAB   	KHAN
-DHERAJ  	PANDEY
-RAJAT   	GUPTA
-MAYANK  JADAV
-SACHIN  	GUPTA
-
-
-
-
-
-	Using PreparedStatement DRL operation performed :------------
-
-
-import java.sql.*;
-import java.util.Scanner;
-class demo
-{
-    public static void main(String [] args)
-    {
-        try
-        {
-            Scanner sc=new Scanner(System.in);
-            System.out.println("Enter the Details of the Employes : ");
-            System.out.println("\nEnter Id Number : ");
-            int id=sc.nextInt();
-            sc.nextLine();
-            System.out.println("\nEnter First Name : ");
-            String fname=sc.nextLine();
-            System.out.println("\nEnter Last Name : ");
-            String lname=sc.nextLine();
-            System.out.println("\nEnter Job Code : ");
-            String job_code=sc.nextLine();
-            System.out.println("\nEnter Salary : ");
-            int salary=sc.nextInt();
-            System.out.println("\nEnter Phone Number : ");
-            long phone=sc.nextLong();
-
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
-            PreparedStatement stmt=conn.prepareStatement("INSERT INTO BOYS (IDNUM,FNAME,LNAME,JOBCODE,SALARY,PHONE) VALUES (?,?,?,?,?,?)");
-            stmt.setInt(1,id);
-            stmt.setString(2,fname);
-            stmt.setString(3,lname);
-            stmt.setString(4,job_code);
-            stmt.setInt(5,salary);
-            stmt.setLong(6,phone);
-
-            stmt.executeUpdate();
-
-
-            System.out.println("Operation Performed Successfully : ");
-
-            Statement stmt1=conn.createStatement();
-            ResultSet rs=stmt1.executeQuery("SELECT * FROM BOYS");
-            while(rs.next())
-            {
-                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));
-            }
-
-            conn.close();
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-    }
-}
-
-
-Output=>
-D:\VS>javac caller.java
-
-D:\VS>java demo
-Enter the Details of the Employes :
-
-Enter Id Number :
-115
-
-Enter First Name :
-TIM
-
-Enter Last Name :
-BURNER
-
-Enter Job Code :
-E000
-
-Enter Salary :
-20000
-
-Enter Phone Number :
-9955541981
-
-Operation Performed Successfully :
-101     ALI     	HASAN   	E001    10000   9760656467
-105     SHIVAM  	VIRU    	E002    40000   9760654562
-110     SHOAB   	KHAN    	E080    68000   9765154562
-102     DHERAJ  	PANDEY  	E005    48000   9765794562
-109     PATRIC  	NAUGHT  	E112    60000   9955541871
-116     RAJAT   	GUPTA   	E091    48550   7765794512
-111     MAYANK  	JADAV   	E081    75550   7710794512
-115     SACHIN  	GUPTA   	E007    48750   7755441362
-107     RATAN   	DEEP    	E012    45000   7500512583
-108     ED      	FRANK   	E111    50000   9955541781
-115     TIM     	BURNER  	E000    20000   9955541981
-
-
-
-
-
-
-
-//program for Insert query		DML Operation
-import java.sql.*;
-class selectquery
-{
-	public static void main(String [] args)
-	{
-	    try
-	    {
-		class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
-		Statement stmt=con.createStatement();
-		stmt.executeUpdate("INSERT INTO BOYS (IDNUM,FNAME,LNAME,JOBCODE,SALARY,PHONE) VALUES("E004","ALI","HASAN",48000,9760656467)");
-		System.out.println("Record Updated Successfully");
-		con.close();
-	    }
-	    catch(Exception e)
-	    {
-		System.out.println(e);
-	    }
-	}
-}
-
-
-
-
-
-Example=>
-
-import java.sql.*;
-class demo
-{
-    public static void main(String [] args)
-    {
-       try
-       {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
-            Statement stmt=conn.createStatement();
-            stmt.executeUpdate("INSERT INTO BOYS (IDNUM,FNAME,LNAME,JOBCODE,SALARY,PHONE) VALUES(109,'Patric','Naught','E112',60000,9955541871)");
-            System.out.println("New Record Added Successfully : ");
-
-            System.out.println("\nNew Records Added in the Boys Table : ");
-            ResultSet rs=stmt.executeQuery("SELECT * FROM BOYS");
-            while(rs.next())
-            {
-                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));
-            }
-       }
-       catch(Exception e)
-       {
-           System.out.println(e);
-       }
-
-    }
-}
-
-
-Output=>
-New Record Added Successfully :New Records Added in the Boys Table :
-
-
-101     ALI     	HASAN   	E001    10000   9760656467
-105     SHIVAM  	VIRU    	E002    40000   9760654562
-110     SHOAB   	KHAN  	E080    68000   9765154562
-102     DHERAJ  	PANDEY  	E005    48000   9765794562
-109     Patric  	Naught  	E112    60000   9955541871
-116     RAJAT   	GUPTA   	E091    48550   7765794512
-111     MAYANK  	JADAV   	E081    75550   7710794512
-115     SACHIN  	GUPTA   	E007    48750   7755441362
-108     Ed      	Frank   	E111    50000   995554171
-
-
-
-
-
-
-
-Example=> Inersting Date  in the table :---
-import java.util.Scanner;
-import java.sql.*;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-class demo
-{
-    public static void main(String [] args)
-    {
-        try
-        {
-
-            Scanner sc=new Scanner(System.in);
-            
-            String driver="oracle.jdbc.driver.OracleDriver";
-            String host="jdbc:oracle:thin:@localhost:1521:xe";
-            String username="system";
-            String password="tonystark";
-
-            Class.forName(driver);
-            Connection conn=DriverManager.getConnection(host,username,password);
-            
-            PreparedStatement prep=conn.prepareStatement("INSERT INTO ORDERS (ORDERID,CUSTOMERID,ORDERDATE) VALUES(?,?,?)");
-            System.out.println("Enter Order_ID : ");
-            int order_id=sc.nextInt();
-            System.out.println("Enter Customer_ID : ");
-            int customer_id=sc.nextInt();
-            System.out.println("Enter Order_Date : (YYYY-MM-DD)");
-            String order_date=sc.next();
-
-            /*
-            //CONVERTING DATE
-            SimpleDateFormat sdf=new SimpleDateFormat("DD-MM-YYYY");
-            java.util.Date order_date1=sdf.parse(order_date);
-            java.sql.Date order_date2=new java.util.Date(order_date1.getTime());
-            */
-
-            java.sql.Date order_date1=java.sql.Date.valueOf(order_date);	// for date (YYYY-MM-DD)
-
-            prep.setInt(1,order_id);
-            prep.setInt(2,customer_id);
-            prep.setDate(3, order_date1);
-
-            prep.executeUpdate();
-            System.out.println("\nDate has been Inserted into Table Successfully\n");
-
-
-            Statement stmt=conn.createStatement();
-            ResultSet res=stmt.executeQuery("SELECT * FROM ORDERS");
-            while(res.next())
-            {
-                System.out.println(res.getInt(1)+"\t"+res.getInt(2)+"\t"+res.getDate(3));
-            }
-
-            sc.close();
-
-        }
-        catch(Exception e)
-        {
-
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-//program for create query		DDL Operation
-
-import java.sql.*;
-class selectquery
-{
-	public static void main(String [] args)
-	{
-	    try
-	    {
-		class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
-		Statement stmt=con.createStatement();
-		String str="CREATE TABLE BOYS (STUID VARCHAR(20),FNAME VARCHAR(10),LNAME VARCHAR(10),SALARY INT,PHONE INT)"
-		stmt.execute(str);
-		System.out.println("Record Updated Successfully");
-		con.commit();
-		con.close();
-	    }
-	    catch(Exception e)
-	    {
-		System.out.println(e);
-	    }
-	}
-}
-
-
-
-
-Example=> Create Table with Date
-
-import java.util.Scanner;
-import java.sql.*;
-class demo
-{
-    public static void main(String [] args)
-    {
-        try
-        {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
-            Statement stmt=conn.createStatement();
-            stmt.execute("CREATE TABLE ORDERS (ORDERID INT,CUSTOMERID INT,ORDERDATE DATE)");
-            System.out.println("Table Created Successfully : ");
-
-            
-
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-    }
-}
-
-
-
-
-
-
-
-
-Example => (Update Query)
-
-import java.sql.*;
-class demo
-{
-    public static void main(String [] args)
-    {
-       try
-       {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
-            Statement stmt=conn.createStatement();
-            stmt.executeUpdate("UPDATE BOYS SET PHONE=9955541781 WHERE IDNUM=108");
-            System.out.println("New Record Updated SuccessfullY : ");
-
-            System.out.println("\nNew Records Added in the Boys Table : ");
-            ResultSet rs=stmt.executeQuery("SELECT * FROM BOYS");
-            while(rs.next())
-            {
-                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getInt(5)+"\t"+rs.getLong(6));
-            }
-       }
-       catch(Exception e)
-       {
-           System.out.println(e);
-       }
-
-    }
-}
-
-Output=>
-
-New Record Updated SuccessfullY :
-
-
-New Records Added in the Boys Table :
-101     ALI     	HASAN   	E001    10000   9760656467
-105     SHIVAM  	VIRU    	E002    40000   9760654562
-110     SHOAB   	KHAN    	E080    68000   9765154562
-102     DHERAJ  	PANDEY  	E005    48000   9765794562
-109     Patric  	Naught  	E112    60000   9955541871
-116     RAJAT   	GUPTA   	E091    48550   7765794512
-111     MAYANK  	JADAV   	E081    75550   7710794512
-115     SACHIN  	GUPTA   	E007    48750   7755441362
-108     Ed      	Frank   	E111    50000   9955541781
-
-
-
-
-
-
-
-	SQL Function (MAX(), MIN(), SUM(), AVG() ) Implementation in Java :-----------------
-
-
-import java.sql.*;
-class demo
-{
-    public static void main(String [] args)
-    {
-        try
-        {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
-            Statement stmt=conn.createStatement();
-            System.out.println("\nSummation Function : ");
-            ResultSet rs=stmt.executeQuery("SELECT SUM(SALARY) FROM BOYS");
-            while(rs.next())
-            {
-                System.out.println(rs.getLong(1));
-            }
-
-            System.out.println("\nMaximum Function : ");
-            rs=stmt.executeQuery("SELECT MAX(SALARY) FROM BOYS");
-            while(rs.next())
-            {
-                System.out.println(rs.getInt(1));
-            }
-
-            System.out.println("\nMinimum Function : ");
-            rs=stmt.executeQuery("SELECT MIN(SALARY) FROM BOYS");
-            while(rs.next())
-            {s
-                System.out.println(rs.getInt(1));
-            }
-
-            System.out.println("\nAverage Function : ");
-            rs=stmt.executeQuery("SELECT AVG(SALARY) FROM BOYS");
-            while(rs.next())
-            {
-                System.out.println(rs.getInt(1));
-            }
-
-            conn.close();
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-    }
-}
-
-
-
-Output=>
-
-D:\VS>javac caller.java
-
-D:\VS>java demo
-
-Summation Function :
-513850
-
-Maximum Function :
-75550
-
-Minimum Function :
-10000
-
-Average Function :
-46713
-
-
-
-
-	
-
-	ORDER BY  Clause :---------------------
-
-=> Select returns records in no particular order
-=> To ensure a specific order use the ORDER BY caluse
-=> ORDER BY allows sorting by one or more columns.
-=> Records can be returned in Ascending or Descending Order.
-
-
-Example=>
-import java.sql.*;
-public class demo
-{
-	public static void main(String [] args)
-	{
-		try
-		{
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
-			Statement stmt=conn.createStatement();
-			ResultSet rs=stmt.executeQuery("SELECT JOBCODE,SALARY FROM BOYS ORDER BY JOBCODE");
-			System.out.println("Details of the Student : ");
-			while(rs.next())
-			{
-				System.out.println(rs.getString(1)+"\t"+rs.getInt(2));
-			}
-			conn.close();
-		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
-	}
-}  
-
-
-
-Output=>
-
-Details of the Student : 
-E000	20000
-E001	10000
-E002	40000
-E005	48000
-E007	48750
-E012	45000
-E080	68000
-E081	75550
-E091	48550
-E111	50000
-E112	60000
-
-
-=> The default sort order is ascending that is low-high or a-z.
-
-
-
-
-=> Records in Descending Order
-
-Example=>
-import java.sql.*;
-public class demo
-{
-	public static void main(String [] args)
-	{
-		try
-		{
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
-			Statement stmt=conn.createStatement();
-			ResultSet rs=stmt.executeQuery("SELECT JOBCODE,SALARY FROM BOYS ORDER BY JOBCODE DESC");
-			System.out.println("Details of the Student : ");
-			while(rs.next())
-			{
-				System.out.println(rs.getString(1)+"\t"+rs.getInt(2));
-			}
-			conn.close();
-		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
-	}
-}
-
-
-
-Output=>
-
-Details of the Student : 
-E112	60000
-E111	50000
-E091	48550
-E081	75550
-E080	68000
-E012	45000
-E007	48750
-E005	48000
-E002	40000
-E001	10000
-E000	20000
-
-
-
-
-
-
-
-
-
-	=> SQL SELECT DISTINCT Statement
-
-=> SELECT DISTINCT returns only distinct (different) values
-=> SELECT DISTINCT eliminates duplicate records from the results.
-=> DISTINCT can be used with aggregate COUNT, AVG, MAX, MIN.
-=> DISTINCT operates on a single column DISTINCT for multiple column is not supported.
-
-
-	General Syntax:-
-1) The General syntex is:
-
-	SELECT DISTINCT column-name from table-name;
-
-2) Can be used with COUNT and other aggregates
-	SELECT COUNT(DISTINCT column-name) FROM table-name;
-
-
-
-
-
-
-	=>SQL SELECT TOP  Statement
-
-=> The SELECT TOP statement returns a specified number of records
-=> SELECT TOP is useful when working with very large datasets.
-=> NON SQL Server database use keywords like LIMIT, OFFSET and ROWNUM.
-
-
-
-
-	General Syntex :
-
-	SELECT TOP n column-names FROM table-name;
-
-	
-Example=>
-SELECT TOP 10 Id,ProductName,UnitPrice, Package FROM Product ORDER BY UnitPrice DESC;
-
-this sql query return the top 10 data of(Id,ProductName, UnitPrice, Package) from table  Product
- 
-
-
-
-
-	=> SQL HAVING Clause :-----------
-
-1) HAVING filters records that work on summarized GROUP BY results
-2) HAVING applies to summerized group records whereas WHERE applies to individual records.
-3) Only the group that meet  the HAVING criteira will be returned
-4) HAVING requies that a GROUP BY clause is present.
-5) WHERE and HAVING can be in the same query
-
-	
-	Syntex :-
-	
-	SELECT COUNT(Id), Country FROM Customer GROUP BY Country HAVING COUNT(Id) > 10;
-
-
-
-
-
-
-
-
-	
-
-
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
