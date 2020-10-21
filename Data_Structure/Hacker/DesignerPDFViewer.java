@@ -2,6 +2,7 @@ package Hacker;
 import java.io.*;
 import java.util.*;
 public class DesignerPDFViewer {
+    
     static void assignLatter(HashMap<Character,Integer> c){
         char ch = 'a';
         for(int i=0;i<26;i++){
@@ -20,7 +21,6 @@ public class DesignerPDFViewer {
             else if(max < h[mapCharacter.get(word.charAt(i))])
                 max = h[mapCharacter.get(word.charAt(i))];
         }
-
         return max*word.length();
     }
     public static void main(String[] args) throws IOException{

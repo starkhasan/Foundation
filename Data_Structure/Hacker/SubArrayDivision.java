@@ -15,7 +15,6 @@ public class SubArrayDivision {
             if(day == d)
                 resultCount+=1;
         }
-
         return resultCount;
     }
     static void printArray(int[] ar){

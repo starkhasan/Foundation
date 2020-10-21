@@ -67,7 +67,7 @@ public class AppendandDelete {
         return result;
     }
     public static void main(String[] args) throws IOException{
-        BufferedReader buffer = new BufferedReader(new FileReader("InputDemo.txt"));
+        BufferedReader buffer = new BufferedReader(new FileReader("InputHacker.txt"));
         String line = "";
         String s = "",t="";
         int k=0;

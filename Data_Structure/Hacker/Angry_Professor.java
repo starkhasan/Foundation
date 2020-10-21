@@ -57,26 +57,16 @@ import java.util.*;
 public class Angry_Professor {
 
     // Complete the angryProfessor function below.
-    static String angryProfessor(int k, int[] a)
-    {
-        int size=a.length;
-        int count=0;
-        String data=new String();
-
-        for(int i=0;i<size;i++)
-        {
+    static String angryProfessor(int k, int[] a) {
+        int presentStudent = 0;
+        for(int i=0;i<a.length;i++){
             if(a[i]<=0)
-            {
-                count++;
-            }
+                presentStudent+=1;
         }
-
-        if(count>=k)
-        data="NO";
+        if(presentStudent >= k)
+            return "NO";
         else
-        data="YES";
-        
-        return data;
+            return "YES";
     }
 
     private static final Scanner scanner = new Scanner(System.in);
