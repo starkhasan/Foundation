@@ -27,7 +27,6 @@ class MusicService : Service() {
             val uri = intent!!.extras?.get("Uri")
             mediaPlayer = MediaPlayer.create(this, Uri.parse(uri.toString()))
             mediaPlayer?.start()
-
             mediaPlayer!!.setOnCompletionListener(MediaPlayer.OnCompletionListener {
                 val localBroadcastManager = LocalBroadcastManager.getInstance(this)
                 val localIntent = Intent("FINISHED")
