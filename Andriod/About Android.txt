@@ -294,3 +294,31 @@ request , receive result and even do so across process with interprocess communi
 
 
 
+
+Creating a started service :-
+A started service is one that another component start by calling startService(). which result in  a call to the service's onStartCommand() method.
+When a service is started it has a lifecycle that's independent of the component that started it. The service can run in the background indefinitely even if the component that started it is destroyed.
+As such the service should stopitself when its job is complete by calling stopSelf(), or another component can stop it by calling stopService().
+
+
+Th service class is the base class for all services. When you extends this class it's important to create a new thread in  which the service can complete all of its work; the service uses your application
+main thread by default which can slow the performance of any activity that your applciation is running.
+
+(Android framework also provides the IntentService subclass of Service that uses a worker thread to handle all of the start requests one at a time. Using this class is not recommended for new
+apps as it will not work well starting with Android 8.0   you can use JobIntentService as replacement for intentService)
+
+
+ 
+onStartComment() handles all incoming calls
+onStartCommend() method must return an integer, The integer is a value that describes how the system should continue the service in the event that the system kills it.
+
+
+Starting a service :-
+you can start a service from an activity or other applciation component by passing an Intent to startService() or startForegroundService().The Android system calls the service onStartCommand()
+methods and passes it the Intent which specifies which service to start.
+
+If the service isnot already running the system first calls onCreate() and then it calls onStartCommend().
+
+=> If the service doesn't also providing binding, the intent that is delivered with startService() is the only mode of the communication between the application component and the service.
+if you want the service to send a result back the client that starts the service can create a Pendingitent for broadcast (with getBroadcast()) and deliver itto the service in the intent start the
+service.
