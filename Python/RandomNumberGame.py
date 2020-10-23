@@ -8,29 +8,34 @@ class ValueTooSmallError(Error):
 def Game():
     number=random.randint(0,10)
     i=0
-    num=2
-    while i<num:
+    chance = 2
+    first = 0
+    last = 10
+    while i<chance:
+        
         try:
             i=i+1
-            print("You have ",num-i+1," Chance ")
-            i_num = int(input("Guess a Number Between 0 -10 = "))
-            if i_num < number:
+            print("You have ",chance-i+1," Chance ")
+            user_choice = int(input("Guess a Number Between {0} - {1} = ".format(first,last)))
+            if user_choice < number:
                 raise ValueTooSmallError
-            elif i_num > number:
+            elif user_choice > number:
                 raise ValueTooLargeError
             break
         except ValueTooSmallError:
-            print("This value is too small, try again!")
+            print("This value was too small, try again!")
+            first = user_choice + 1
             print()
         except ValueTooLargeError:
-            print("This value is too large, try again!")
+            print("This value was too large, try again!")
+            last = user_choice - 1
             print()
         except ValueError:
             print("Wrong Input Please Enter Number")
             i=i-1
             print()
         
-    if i_num==number:
+    if user_choice==number:
         print("Congratulations! You guessed it correctly.")
         choose_game()
     else:
