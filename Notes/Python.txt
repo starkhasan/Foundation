@@ -2,7 +2,8 @@
 
 Q=>What is Python really?You can make comparison with other technologies in your answer?
 
-=>Python is an interpreted language. that means that ,unlike languages like C and its variants , python does not need to be compiled before it is         run.other interpreted language include PHP and Ruby.
+=>Python is an interpreted language. that means that ,unlike languages like C and its variants , python does not need to be compiled before it is         run.other interpreted language include
+ PHP and Ruby.
 
 Q=> What do these mean to you: @classmethod , @staticmethod , @property?
 
@@ -206,9 +207,9 @@ A6 = [[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25], [6, 36], [7, 49], [8, 64
 
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-						Basic Python
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+								Basic Python
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 Python is a high level language
 Python is an interpreted language. that means that ,unlike languages like C and its variants , python does not need to be compiled before it is run.other interpreted language include PHP and Ruby.
@@ -365,7 +366,7 @@ Comments in Python
 
 
 
- 				                            ---------------: Keyword :--------------
+ 				                            		---------------: Keyword :--------------
 
    Keyword are special words which are reserved and have a specific meaning python has a set of 33 keyword that can't be used as a variable in          programs 
 
@@ -386,7 +387,7 @@ break	except	in	raise
 
 
 
-      					               --------: Identifier :--------
+      					               			--------: Identifier :--------
  
  Python identifer it is a user define name to repersent a variable (it is a name used to identify a variable , function , class , module or other   objects)  , function , class , module or any other object
  if u assign some name to programable entity in python than it is nothing but technically called an       identifier...
@@ -423,9 +424,9 @@ help(object)  object is optional--->we can put the value at that place
 
 
                                                                                               
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- 					         OPERATOR IN PYTHON
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 					         			OPERATOR IN PYTHON
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 
 
@@ -442,12 +443,12 @@ Example=>
 
 a=int(input("Enter Number : "))
 b=int(input("Enter Number : "))
-print(a+b)			#addition operator
+print(a+b)		#addition operator
 print(a-b)			#subtraction operator
 print(a*b)			#multiplication operator
 print(a/b)			#division operator
 print(a**b)		#exponent operator
-print(a//b)			#flow division operator(it only show quotient)
+print(a//b)		#flow division operator(it only show quotient)
 
 
 2) Assignment operator
@@ -457,7 +458,7 @@ print(a//b)			#flow division operator(it only show quotient)
 > Flow control and assign
 > Exponential and assign
 
-3) Comparison operator  // can we say it as Relational Operator
+3) Comparison operator  // can we say it as Relational Operator ?
 
 > Greater than(>)
 > Less than(<)
@@ -569,9 +570,9 @@ Ex=>
                                                                             
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- 					   DATATYPES IN PYTHON
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 					   			DATATYPES IN PYTHON
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
 
 Python is loosely typed language(that means as we declare a variable, but it doesn't require you to classify the type of variable)
@@ -696,7 +697,7 @@ When used in numerical expression True evaluates to 1 and false to 0. This means
 
 
 
-       				---------------::  Multiple Assignment in a single line  ::-----------------
+       						---------------:  Multiple Assignment in a single line  :-----------------
 
        
        Python allows you to assign a multiple value to several variables simultaneously in a single line. 
@@ -707,13 +708,13 @@ When used in numerical expression True evaluates to 1 and false to 0. This means
 
    B) String      =>  String are sequence of two and more character string
    
-       >String declaration
+      => String declaration
           sample='ali hasan'
                        or
           sample="ali hasan"
 
 
-     >String is Immutable
+    => String is Immutable
        
         name=input("Enter the name")  #taking the input from user
         print(name)
@@ -721,7 +722,7 @@ When used in numerical expression True evaluates to 1 and false to 0. This means
         print(name)
 
 
-      > String operation
+     => String operation
         a) String concatination                     (+ symbol used)
         b) String Repetition                           (* symbol used)
         c) String Slicing                                  (ex-> string1='Alihasan'   string1[2:7]   ==> 'ihasan')
@@ -813,7 +814,8 @@ for i in range(0,new_size):
 
 	String Formatting :--------------
 
-The str.format() method provides a very flexible and powerful way of creating string. using str.format() is easy for simple cases but for complex formatting we need to learn the formatting syntax the method requies.
+The str.format() method provides a very flexible and powerful way of creating string. using str.format() is easy for simple cases but for complex formatting we need to learn the formatting 
+syntax the method requies.
 
 The str.format() method returns a new string with the replacement fields in its string replaced with its arguments suitably formatted.
 
@@ -873,7 +875,7 @@ The str.format() method returns a new string with the replacement fields in its 
                     d)Tuple Indexing
                         ex->tup=('a','l','i')   ->  tup[0]                            -> a
 
-                => Elements of a tuple cannot be changed once it has been assigned. But, if the element is itself a mutable datatype like list, its nested                             items can be changed.
+                => Elements of a tuple cannot be changed once it has been assigned. But, if the element is itself a mutable datatype like list, its nested items can be changed.
 
                   We can also assign a tuple to different values (reassignment).
 
@@ -903,17 +905,17 @@ The str.format() method returns a new string with the replacement fields in its 
                       tup
                       NameError: name 'tup' is not defined  
 
-            >Python Tuple Methods
-            > Methods that add items or remove items are not available with tuple.
-            > Only the following two methods are available.
+            => Python Tuple Methods
+            => Methods that add items or remove items are not available with tuple.
+            => Only the following two methods are available.
            1) count(x)  =>Return the number of items that is equal to x
            2) index(x)  =>Return index of first item that is equal to x
 
-           >>> tup=('a','p','p','l','e')
-           >>> print(tup.count('p'))
+           => tup=('a','p','p','l','e')
+           => print(tup.count('p'))
                   2
 
-           >>> print(tup.index('l'))
+           => print(tup.index('l'))
                   3
 
           >Tuple Membership Test

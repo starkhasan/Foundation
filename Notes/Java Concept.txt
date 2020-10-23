@@ -338,3 +338,142 @@ objects are Comparables.
 
 
 Example =>
+
+
+
+
+
+
+
+
+
+
+
+
+Reflection in Java :---------------------
+Java Reflection is a process of examing or modifying the run time behaviour of a class at run time.
+The java.lang.Class provides many method that can be used to get metadata, examine and change the run time behavour of class
+The java.lang and java.lang.reflect pakkage provides classes for java reflection.
+
+
+Where it is used ?
+The resflection API is  mainly used in 
+=> IDE 
+=>Debugger
+=> Test tool
+
+The java.lang.Class performs mainly two tasks:
+=>provides methods to get the metadata of a class at runtime
+=> provides methods to examine and chaange the run time behaviour of a class.
+
+
+How to get he object of Class class?
+There are 3 ways to get the instance of Class class. They are as follow:
+=>forName() method of Class class
+=> getClass() method of Object class
+=> .class syntax
+
+1) forName() method
+it is used to load the class dynamically
+returns the instance of class 
+it should be used if you know the fully qualified name of class . This cannot be used for primitive type
+
+example =>
+class Simple{}
+class Test{
+	public static void main(String []args){
+		Class c = Class.forName("Simple");
+		System.out.println(c.getName());
+	}
+}
+
+
+2) getClass() 
+It return the instance of the class 
+It should be used if you know the  type .
+it can be used with primitive
+
+class Simple{}
+class Test{
+	void printName(Object obj){
+		Class c = obj.getClass();
+		System.out.println(c.getName());
+	}
+	public static void main(String args[]){
+		Simple s = new Simple();
+		Test t = new Test();
+		t.printName(s);
+	}
+}
+
+
+3) The .class
+If a type available but there is no instance then it is possible to obtain a class by appending .class to the name of the type. It can be used for pritmitive data type also.
+
+class Test{  
+  public static void main(String args[]){  
+   Class c = boolean.class;   
+   System.out.println(c.getName());  
+  
+   Class c2 = Test.class;   
+   System.out.println(c2.getName());  
+ }  
+}
+
+
+
+Call private method from another class in Java :------------------------
+We can call the private method from outside the class by changing the runtime behaviour of the class.
+By the help of java.lang.class and java.lang.reflect.Method class we can call private method from any other class.
+
+
+=> Require method of class :-
+1) public void setAccessible(booelan status) throws SecurityException sets the accessibility of the method.
+2) public Object invoke (Object method,Object..args) throws IllegalAccessException is used for invoke the method.
+
+=> Required method of Class 
+1) public Method getDeclaredMethod(String name,class[] parameterTypes)throws NoSuchException
+return a Method object that reflect declared method of the class or interface represented by this class object.
+
+
+Example =>
+
+class Check{
+	private void private_method(){
+		System.out.println("Private method called from outside");
+	}
+	public void printData(){
+		System.out.println("Public Method");
+	}
+}
+class Main{
+	public static void main(String [] args) thorws Exception{
+		Check c= new Check();
+		Method m = Check.class.getDeclaredMethod("private_method");
+		m.setAccessible(true);
+		m.invoke(c);
+	}
+}
+
+
+Example 	2 = To call parametrized private method from another class >
+
+class Check{
+	private void cube(int n){
+		System.out.println((n*n*n));
+	}
+	public void printData(){
+		System.out.println("Public Method");
+	}
+}
+class Main{
+	public static void main(String [] args) thorws Exception{
+		Check c= new Check();
+		Method m = Check.class.getDeclaredMethod("cube",new Class[]{int.class});
+		m.setAccessible(true);
+		m.invoke(c,4);
+	}
+}
+
+
+		

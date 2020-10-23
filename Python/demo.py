@@ -186,8 +186,15 @@ print()
 print(numpyarray[1,...])
 '''
 
-# Reading input using stdin in python
-tuple_first = [1,2,3,4,5,6,7,8,9]
-tuple_second = [10,1,2,3,11,21,55,6,8]
-tuple_first.sort()
-print(tuple_first)
+if __name__ == '__main__':
+    s = input()
+    temp = any(i.isalnum() for i in s)
+    print(temp)
+    temp = any(i.isalpha() for i in s)
+    print(temp)
+    temp = any(i.isdigit() for i in s)
+    print(temp)
+    temp = any(i.islower() for i in s)
+    print(temp)
+    temp = any(i.isupper() for i in s)
+    print(temp)
