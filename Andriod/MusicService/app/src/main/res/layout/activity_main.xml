@@ -115,6 +115,16 @@
                         android:layout_centerInParent="true"
                         android:scaleType="fitXY"/>
 
+                    <ImageView
+                        android:id="@+id/ivRepeat"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/icon_no_repeat"
+                        android:layout_marginEnd="15dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"/>
+
                 </RelativeLayout>
 
             </LinearLayout>

@@ -6,9 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.IBinder
 import android.provider.MediaStore
-import android.util.DisplayMetrics
 import android.view.MenuItem
-import android.view.ViewTreeObserver
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
@@ -21,7 +19,6 @@ import com.example.musicservice.adapter.MusicAdapter
 import com.example.musicservice.response.AudioModel
 import com.example.musicservice.util.MusicService
 import kotlinx.android.synthetic.main.activity_main.*
-import java.security.AccessController.getContext
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +27,11 @@ class MainActivity : AppCompatActivity() {
     var isStart = false
     val PERMISSION_CODE = 1
     var musicPosition = 0
+    var musicAdapter: MusicAdapter?=null
     val mediaList = ArrayList<AudioModel>()
+    var isLoop = false
+    var isDirect = false
+    var isMusicRunning = false
     private val listener = MyBroadcastReceiver()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,6 +103,34 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
+        ivRepeat.setOnClickListener{
+            if(mBound){
+                musicRepeation()
+            }else{
+                if(isDirect){
+                    isDirect = false
+                    isLoop = false
+                    ivRepeat.setImageResource(R.drawable.icon_no_repeat)
+                }else {
+                    isDirect = true
+                    isLoop = true
+                    ivRepeat.setImageResource(R.drawable.icon_repeat)
+                }
+            }
+        }
+    }
+
+    fun musicRepeation(){
+        if(isLoop){
+            isLoop = false
+            ivRepeat.setImageResource(R.drawable.icon_no_repeat)
+            mService!!.mediaPlayer!!.isLooping = false
+        }else{
+            isLoop = true
+            ivRepeat.setImageResource(R.drawable.icon_repeat)
+            mService!!.mediaPlayer!!.isLooping = true
+        }
     }
 
 
@@ -149,11 +178,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when(requestCode){
             PERMISSION_CODE -> {
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -179,18 +204,18 @@ class MainActivity : AppCompatActivity() {
             val artist: String = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST))
             val duration: String = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION))
             val url: String = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA))
-            val modelAudio = AudioModel(title, url, duration, artist)
+            val modelAudio = AudioModel(title, url, duration, artist,false)
             mediaList.add(modelAudio)
         }
 
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        rvMusic.layoutManager = linearLayoutManager;
-        rvMusic.adapter = MusicAdapter(this, mediaList){ position: Int, uri: String, flag: String ->
+        rvMusic.layoutManager = linearLayoutManager
+        musicAdapter = MusicAdapter(this, mediaList){ position: Int, uri: String, flag: String ->
             if(flag == "Start"){
                 musicPosition = position
-                if(!isStart)
+                if(!isStart) {
                     musicIntent(position)
-                else{
+                }else{
                     if(mService!!.mediaPlayer!=null){
                         mService!!.mediaPlayer!!.release()
                         musicIntent(position)
@@ -198,6 +223,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        rvMusic.adapter = musicAdapter
     }
 
     val mConnection = object : ServiceConnection{
@@ -205,6 +231,10 @@ class MainActivity : AppCompatActivity() {
             val binder: MusicService.MusicBinder = service as MusicService.MusicBinder
             mService = binder.getService()
             mBound = true
+            if(isDirect){
+                isDirect = false
+                mService!!.mediaPlayer!!.isLooping = true
+            }
             val thread = Thread{
                 var currentPosition = mService!!.mediaPlayer!!.currentPosition
                 val total = mService!!.mediaPlayer!!.duration
@@ -268,11 +298,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun musicIntent(position: Int){
+        if(isLoop){
+            isLoop = false
+            ivRepeat.setImageResource(R.drawable.icon_no_repeat)
+        }
         val intent = Intent(this, MusicService::class.java)
         intent.putExtra("Uri", mediaList[position].uri)
         bindService(intent, mConnection, Context.BIND_AUTO_CREATE)
         startService(intent)
         ivPlay.setImageResource(R.drawable.icon_pausee)
         isStart = true
+        for(i in 0..mediaList.size-1){
+            if(i==position)
+                mediaList[i].isPlaying = true
+            else
+                mediaList[i].isPlaying = false
+        }
+        musicAdapter!!.notifyDataSetChanged()
     }
 }
