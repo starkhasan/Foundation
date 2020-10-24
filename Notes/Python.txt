@@ -963,7 +963,7 @@ The str.format() method returns a new string with the replacement fields in its 
                     ex->list=['a','b','c']  -->  list[0]  -->  'a'
 
            => type specific method
-                 >append(value)
+                 > append(value)
                     ex->list=[1,'a',2.5]   --> list.append('d')         -->[1,'a',2.5,'d']
 
 	append() takes only one parameter
@@ -1102,10 +1102,11 @@ D:\Repo\Python>python demo.py
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-					             List Comprehension
+					             			List Comprehension
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-List comprehensions were added with Python 2.0. Essentially it is Python way of implementation a well-known notations for sets as used by mathematicians. In mathematics the square numbers of the natural numbers are for example created by { x^2 | x E N } or the set of complex integers.
+List comprehensions were added with Python 2.0. Essentially it is Python way of implementation a well-known notations for sets as used by mathematicians. In mathematics the square 
+numbers of the natural numbers are for example created by { x^2 | x E N } or the set of complex integers.
 
 
     => List comprehension is an elegant way to define and create list.create list like mathematical statement and in one line only.
@@ -1136,7 +1137,7 @@ List comprehensions were added with Python 2.0. Essentially it is Python way of 
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-					             Dictonaries
+					             			Dictonaries
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 => Dictonaries are perhaps the most flexible build-in data type in python
@@ -1718,7 +1719,7 @@ for i in range(n):
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- 					                     Function
+ 					                     		Function
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
 A function in python is a block of organized, reusable sets of instruction is used to perform some related actions.
@@ -1755,13 +1756,13 @@ It's also completely legal to nest a function def inside an if statement to sele
 
 
 
-	Ploymorphism in Python :----------
+	Polymorphism in Python :----------
 
-As we just saw, the very meaning of the expression x * y in our simple times function depends completely upon the kinds of objects that  x and y are—thus, the same function can perform multiplication in one instance and repetition in another. Python leaves it up to the  objects to do  something reasonable for the syntax. Really, * is just a dispatch mechanism that routes control to the objects being  processed.
+As we just saw, the very meaning of the expression x * y in our simple times function depends completely upon the kinds of objects that  x and y are—thus, the same function can perform 
+multiplication in one instance and repetition in another. Python leaves it up to the  objects to do  something reasonable for the syntax. Really, * is just a dispatch mechanism that routes
+control to the objects being  processed.
 		 
 	This sort of type-dependent behavior is known as polymorphism
-
-
 
 
 => Once the basic structure of a function is finalized , you can execute it by calling it from another function or directly from the python  prompt.
@@ -1860,9 +1861,9 @@ Keyword arguments are related to the function calls. When you use keyword argume
 		      function(age=23,name="ali hasan")
 
 
-                    Output=>       Enter your Name : ali hasan
-		     Enter Your Age : 23
-		     ali hasan   23
+                    Output=>    Enter your Name : ali hasan
+		      Enter Your Age : 23
+		      ali hasan   23
 
 
 
@@ -1907,11 +1908,19 @@ You may need to process a function for more arguments than you specified while d
                                              60
                                              50
 
+	Example =>
+		def myFun(*argv): 
+    		for arg in argv: 
+        			print (arg)
+   
+		myFun('Hello', 'Welcome', 'to', 'GeeksforGeeks') 
+
 
 
 
 **kwargs() :------------------------------------------------------------------
-The special syntax **kwargs in function definitions in Python is used to pass a keyworded variable length argument list. We use the name kwargs with the double star. The reson is because the double start allows us to pass through arguments (and any number of them).
+The special syntax **kwargs in function definitions in Python is used to pass a keyworded variable length argument list. We use the name kwargs with the double star. The reson is because 
+the double start allows us to pass through arguments (and any number of them).
 
 
 => A keyword argument is where you provide a name to the variable as you pass it into the function.
@@ -1919,6 +1928,14 @@ The special syntax **kwargs in function definitions in Python is used to pass a 
 
 
 
+	Example =>
+	
+	def myFun(**kwargs): 
+    		for key, value in kwargs.items():
+        			print ("%s == %s" %(key, value))
+ 
+	# Driver code
+	myFun(first ='Geeks', mid ='for', last='Geeks')
 
 
 
@@ -1982,11 +1999,12 @@ The ** feature is similar, but it only works for keyword arguments—it collects t
 
 
 
-	                                                             ------------:The Anonymous Functions:-------------
+	                                                             		------------:The Anonymous Functions:-------------
 Anonymous function also known as Lambda function.
 
 
-=> These functions are called anonymous because they are not declared in the standard manner by using the def keyword. You can  use the lambda keyword to create small anonymous functions.
+=> These functions are called anonymous because they are not declared in the standard manner by using the def keyword. You can  use the lambda keyword to create small anonymous 
+functions.
  
 => Lambda forms can take any number of arguments but return just one value in the form of an expression. They cannot contain  commands or multiple expressions.
 
@@ -2022,7 +2040,8 @@ Ex =>
 
 Use of lambda Function in Python :----------------------------------------
 We use lambda functions when we required a nameless function for a short period of time.
-In Python we genereally use it as an argument to higher order function (a function that takes in other functions as arguments) Lambda functions are used along with built-in function like filter() , map() etc.
+In Python we genereally use it as an argument to higher order function (a function that takes in other functions as arguments) Lambda functions are used along with built-in function 
+like filter() , map() etc.
 
 
 
@@ -2238,7 +2257,7 @@ Simply, a module is a file consisting of Python code. A module can define functi
 
 
  
-                                                                      -----------------------: NUMPY OPERATION :------------------------
+                                                                      			-----------------------: NUMPY OPERATION :------------------------
 
 
 >  In python matrix can be implemented as 2D list or 2D Array. Forming matrix from latter, gives the additional functionalities for performing     various   operations in matrix. These operations and array are defines in module “numpy“.

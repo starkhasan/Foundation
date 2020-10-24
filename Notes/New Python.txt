@@ -268,10 +268,11 @@ As the name suggest it is used to filter the iterables as per the conditions. Fi
 
 
 reduce()
-The reduce(fun,seq) function is used to apply a particular function passes in its argument to all of the list elements mentioned in the sequence passed along. This function is defined in functools module.
+The reduce(fun,seq) function is used to apply a particular function passes in its argument to all of the list elements mentioned in the sequence passed along. This function is defined in 
+functools module.
 
 the process continues till no more elements are left in the container.
-the final returned reult is returned and printed on console.
+the final returned result is returned and printed on console.
 
 import functools
 old_list = [1,3,4,2,5,6]

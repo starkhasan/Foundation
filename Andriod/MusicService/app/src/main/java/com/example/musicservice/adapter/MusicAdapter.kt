@@ -18,7 +18,7 @@ class MusicAdapter(val context: MainActivity, val mediaList: ArrayList<AudioMode
 
     override fun onBindViewHolder(holder: MusicAdapter.ViewHolder, position: Int) {
         holder.itemView.tvAlbumName.text = mediaList[position].title
-        holder.itemView.setOnClickListener {
+        holder.itemView.llSong.setOnClickListener {
             listener(position,mediaList[position].uri,"Start")
         }
     }

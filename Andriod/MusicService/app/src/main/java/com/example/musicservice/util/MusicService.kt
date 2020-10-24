@@ -30,7 +30,6 @@ class MusicService : Service() {
             mediaPlayer!!.setOnCompletionListener(MediaPlayer.OnCompletionListener {
                 val localBroadcastManager = LocalBroadcastManager.getInstance(this)
                 val localIntent = Intent("FINISHED")
-                    .putExtra("MUSIC", "finished")
                 localBroadcastManager.sendBroadcast(localIntent)
             })
 
