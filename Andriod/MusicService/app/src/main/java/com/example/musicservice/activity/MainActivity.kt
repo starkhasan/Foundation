@@ -106,7 +106,15 @@ class MainActivity : AppCompatActivity() {
 
         ivRepeat.setOnClickListener{
             if(mBound){
-                musicRepeation()
+                if(isLoop){
+                    isLoop = false
+                    ivRepeat.setImageResource(R.drawable.icon_no_repeat)
+                    mService!!.mediaPlayer!!.isLooping = false
+                }else{
+                    isLoop = true
+                    ivRepeat.setImageResource(R.drawable.icon_repeat)
+                    mService!!.mediaPlayer!!.isLooping = true
+                }
             }else{
                 if(isDirect){
                     isDirect = false
@@ -120,20 +128,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    fun musicRepeation(){
-        if(isLoop){
-            isLoop = false
-            ivRepeat.setImageResource(R.drawable.icon_no_repeat)
-            mService!!.mediaPlayer!!.isLooping = false
-        }else{
-            isLoop = true
-            ivRepeat.setImageResource(R.drawable.icon_repeat)
-            mService!!.mediaPlayer!!.isLooping = true
-        }
-    }
-
-
 
     override fun onDestroy() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(listener)
@@ -298,7 +292,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun musicIntent(position: Int){
-        if(isLoop){
+        if(isLoop && !isDirect){
             isLoop = false
             ivRepeat.setImageResource(R.drawable.icon_no_repeat)
         }
