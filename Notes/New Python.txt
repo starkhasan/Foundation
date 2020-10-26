@@ -232,6 +232,23 @@ sequenc : sequence which needs to be filtered it can be sets lists tuples ir con
 returns: returns an iterator that is already filtered.
 
 
+Example of Function :-
+1) Using lambda Expression
+mylist = [1,2,3,4,5,6]
+templist = filter(lambda x:x%2==0,mylist)
+for i in templist:
+    print(i)
+
+2) Without using lambda expression
+def addition(n):
+    if n%2 == 0:
+        return n
+
+mylist = [1,2,3,4,5,6]
+templist = filter(addition,mylist)
+for i in templist:
+    print(i)
+
 
 map() function :----------------------------------------
 map() function return a map object (which is iterator) of the result after applying the given function to each item of a given iterables (list, tuple etc)
@@ -259,8 +276,26 @@ result = map(addition, numbers)
 print(list(result)) 
 
 
+
+1) Using lambda Expression
+mylist = [1,2,3,4,5,6]
+templist = list(map(lambda x:x*2,mylist))
+for i in templist:
+    print(i)
+
+2) Without using lambda expression
+def addition(n):
+    return n*2
+
+mylist = [1,2,3,4,5,6]
+templist = list(map(addition,mylist))
+for i in templist:
+    print(i)
+
+
 What is the difference between the filter() and map() :------------------------------------------------
-Map takes all objects in a list and allows you to apply a function to it Filter takes all objects in a list and runs that through a function to create a new list with all objects that return True in that function.
+Map takes all objects in a list and allows you to apply a function to it  / Filter takes all objects in a list and runs that through a function to create a new list with all objects that return True in 
+that function.
 
 
 Filter() 

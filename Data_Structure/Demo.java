@@ -1,37 +1,34 @@
 import java.io.*;
 public class Demo{
-    static boolean isPrime(int number){
-        boolean result = true;
-        for(int i=2;i<=number/2;i++){
-            if(number%i == 0){
-                result  = false;
-                break;
-            }
-        }
-        return result;
-    }
+    
     public static void main(String[] args) throws IOException{
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter Number : ");
-        int number = Integer.parseInt(buffer.readLine());
-        String result = isPrime(number)?"Prime NUmber":"Not Prime";
-        System.out.println(result);
-        /*System.out.println("Enter Day : ");
-        String day = buffer.readLine();
-        String result = switch (day) {
-            case "M", "W", "F" -> {
-                yield "monday";
+        System.out.print("Enter Bucket Capacity : ");
+        int bucketCapacity = Integer.parseInt(buffer.readLine());
+        System.out.print("\nEnter Mug Capacity : ");
+        int mugCapavity = Integer.parseInt(buffer.readLine());
+        boolean isFull = true;
+        int count = 1;
+        int perCapcity = (bucketCapacity - ((100 * 20)/100));
+        System.out.println();
+        if(mugCapavity > bucketCapacity){
+            System.out.println("INVALID INPUT");
+        }else{
+            int tempMug  = 0;
+            while(isFull){
+                int water = Integer.parseInt(buffer.readLine());
+                if(water > mugCapavity || water < 0){
+                    System.out.println("INVALID INPUT");
+                    break;
+                }
+                tempMug+=water;
+                if(perCapcity <= tempMug){
+                    System.out.println("BUCKET FULL!");
+                    System.out.println("NUMBER OF MUGS:"+count);
+                    break;
+                }
+                count++;
             }
-            case "T", "TH", "S" -> "TTS";
-            default -> {
-                if(day.isEmpty())
-                    yield "Please insert a valid day.";
-                else
-                    yield "Looks like a Sunday.";
-            }
- 
-        };
-        System.out.println(result);*/
-        buffer.close();
+        }
     }
 }

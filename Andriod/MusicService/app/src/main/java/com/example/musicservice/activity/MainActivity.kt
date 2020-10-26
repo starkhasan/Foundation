@@ -310,4 +310,10 @@ class MainActivity : AppCompatActivity() {
         }
         musicAdapter!!.notifyDataSetChanged()
     }
+
+    /*
+    For Stoping the Service but the onDestroy() method will be called from the Service Class
+    Intent myService = new Intent(MainActivity.this, BackgroundSoundService.class);
+    startService(myService);
+    */
 }
