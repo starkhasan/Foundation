@@ -17,9 +17,10 @@ public class HourGlass {
         return count;
     }
     static int hourglassSum(int[][] arr) {
-        List<Integer> maxSum = new ArrayList<Integer>();
         int outer_count = 0;
         int inner_count = 0;
+        int result = 0;
+        boolean isFirst = true;
         for(int i=0;i<=arr.length-3;i++){
             for(int j=0;j<=arr.length-3;j++){
                 int k=i;
@@ -37,33 +38,37 @@ public class HourGlass {
                     k++;
                     outer_count++;
                 }
-                maxSum.add(calculation(temp));
+                if(isFirst){
+                    isFirst = false;
+                    result = arrSum(temp);
+                }else if(result < arrSum(temp)){
+                    result = arrSum(temp);
+                }
             }
         }
-
-        int max = 0;
-        for(int i=0;i<maxSum.size();i++){
-        	if(i==0){
-        		max = maxSum.get(i);
-        	}else if(max < maxSum.get(i)){
-            	max = maxSum.get(i);
-        	}
+        return result;
+    }
+    static int[] assignArray(String str){
+        String[] strAr = str.split(" ");
+        int[] a = new int[strAr.length];
+        for(int i=0;i<strAr.length;i++){
+            a[i] = Integer.parseInt(strAr[i]);
         }
-        return max;
+        return a;
     }
     public static void main(String[] args) throws IOException{
-        BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Enter Size of Array : ");
-		int ar_size = Integer.parseInt(buffer.readLine());
-		int[][] ar = new int[ar_size][ar_size];
-		System.out.println("Enter Element in Array : ");
-		for(int i=0;i<ar_size;i++){
-			for(int j=0;j<ar_size;j++){
-				ar[i][j] = Integer.parseInt(buffer.readLine());;
-			}
-		}
-		int result = hourglassSum(ar);
-        System.out.println("\nMaximum Sum = "+result);
+        BufferedReader buffer = new BufferedReader(new FileReader("InputHacker.txt"));
+        List<String> listString = new ArrayList<>();
+        while((buffer.readLine())!=null){
+            listString.add(buffer.readLine());
+        } 
+        int ar_size = listString.size();
+        int[][] arr = new int[ar_size][ar_size];
+        for(int i=0;i<ar_size;i++){
+            arr[i] = assignArray(listString.get(i));
+        }
+        int n = hourglassSum(arr);
+        System.out.println(n);
         buffer.close();
     }
 }
