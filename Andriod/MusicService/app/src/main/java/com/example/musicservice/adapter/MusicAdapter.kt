@@ -22,9 +22,9 @@ class MusicAdapter(val context: MainActivity, val mediaList: ArrayList<AudioMode
         holder.itemView.llSong.setOnClickListener {
             listener(position, mediaList[position].uri, "Start")
         }
-        if(mediaList[position].isPlaying)
+        if (mediaList[position].isPlaying){
             holder.itemView.tvAlbumName.setTextColor(Color.parseColor("#6200EE"))
-        else
+        }else
             holder.itemView.tvAlbumName.setTextColor(Color.parseColor("#000000"))
     }
 

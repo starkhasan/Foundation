@@ -196,18 +196,26 @@ for i in range(len(myList)):
     print(myiter.__next__())
 '''
 
-n,m = list(map(int,input().strip().split()))
-design = ".|."
-mesage = "WELCOME"
-pos = n//2
+
+'''
+--------e--------
+------e-d-e------
+----e-d-c-d-e----
+--e-d-c-b-c-d-e--
+e-d-c-b-a-b-c-d-e
+--e-d-c-b-c-d-e--
+----e-d-c-d-e----
+------e-d-e------
+--------e--------
+
+'''
+
+n = int(input("Enter Size : "))
+n = (n*2)-1
+word = 'a'
 for i in range(n):
-    if i == pos:
-        print(mesage.center(m,"-"))
-    elif i<pos:
-        print(design.center(m,"-"))
-        design = design+".|..|."
-    elif i>pos:
-        design = design[:5:-1]
-        print(design.center(m,"-"))
+    print(word)
+    temp = ord(word) + 1
+    word = chr(temp)
         
     

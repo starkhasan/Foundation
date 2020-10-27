@@ -1,19 +1,27 @@
-import java.io.*;
 import java.util.*;
-public class Demo{
+import java.io.*;
+public class LeftRotation {
     static List<Integer> rotateLeft(int d, List<Integer> arr) {
-        int k = 0;
-        while(k<d){
-            int key = arr.get(0);
+        int[] ar = new int[arr.size()];
+        for(int i=0;i<arr.size();i++){
+            ar[i] = arr.get(i);
+        }
+        for(int j=0;j<d;j++){
+            int key = ar[0];
             for(int i=0;i<arr.size()-1;i++){
-                arr.set(i,arr.get(i+1));
+                int temp = ar[i];
+                ar[i] = ar[i+1];
+                ar[i+1] = temp;
             }
-            arr.set(arr.size()-1,key);
-            k++;
+            ar[arr.size()-1] = key;
+        }
+        arr.clear();
+        for(int i=0;i<ar.length;i++){
+            arr.add(ar[i]);
         }
         return arr;
     }
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOexception{
         BufferedReader buffer = new BufferedReader(new FileReader("InputDemo.txt"));
         List<Integer> listString = new ArrayList<>();
         String input = "";
@@ -30,11 +38,10 @@ public class Demo{
         for(int i=0;i<input.split(" ").length;i++){
             listString.add(Integer.parseInt(input.split(" ")[i]));
         }
-        
         List<Integer> newList = rotateLeft(d,listString);
         for(int i=0;i<newList.size();i++){
             System.out.print(newList.get(i)+" ");
         }
-        buffer.close();   
+        buffer.close(); 
     }
 }
