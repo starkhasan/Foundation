@@ -150,6 +150,16 @@ public class BinaryTree{
             return focusNode;
         }
     }
+
+    private boolean isBinaryTree(Node root,int min,int max){
+        if(root == null){
+            return true;
+        }
+        if(root.data < min || root.data > max){
+            return false;
+        }
+        return isBinaryTree(root.left, min,root.data-1) && isBinaryTree(root.right, root.data+1, max);
+    }
     
     public static void main(String [] args) throws IOException{
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
@@ -205,6 +215,12 @@ public class BinaryTree{
         int node2 = Integer.parseInt(buffer.readLine());
         Node lcavalues = d.lca(root,node1,node2);
         System.out.print("Lowest Common Ansestor = "+lcavalues.data);
+        System.out.println("Check for the Binary Search Tree : ");
+        if(d.isBinaryTree(root,Integer.MIN_VALUE,Integer.MAX_VALUE)){
+            System.out.println("It's BST");
+        }else{
+            System.out.println("No BST");
+        }
         buffer.close();
     }
 }

@@ -207,7 +207,8 @@ Sometimes a methods will need to refer to the object that invoked it. To allow t
 
 
 Instance Variable Hiding :-
-As we know it is illigal in java to declare two local variable with the same name inside the same or enclosing scopes.  However when a local variable has the same name as an instance variable the local variable hides the instance variable. 
+As we know it is illigal in java to declare two local variable with the same name inside the same or enclosing scopes.  However when a local variable has the same name as an instance variable 
+the local variable hides the instance variable. 
 
 	this can be use it to resolve any namespace collision that might occur between instance variable and local variable.
 
