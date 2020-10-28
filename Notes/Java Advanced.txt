@@ -1,14 +1,21 @@
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                 	Lambda Expression
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-A Lambda expression is essentially an anonymous (this is unnamed) method. However this method is not executed on its own. Instead it is used to implement a method  defined by a functional interface.
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                 			Lambda Expression								JDK 8
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+A Lambda expression is essentially an anonymous (this is unnamed) method. However this method is not executed on its own. Instead it is used to implement a method  defined by a 
+functional interface.
 
-A functional interface is an interface that contain one and only one abstract method. Normally this method specifies the intended purpose of the interface. Thus a functional interface typically represents a single action. 
-
+A functional interface is an interface that contain one and only one abstract method. Normally this method specifies the intended purpose of the interface. Thus a functional interface 
+typically represents a single action. 
 	For example the standard interface Runnable is a functional interface because it defines only one method run(). Therefore run() defines the action of Runnable.
-
 A lambda expression can be used only in a context in which its target type is specified One other thing a functional interface is sometimes referred  to as SAM type where SAM stands for Single Abstract Method.
 
+
+A Lambda Expression in Java has these main parts :-
+Lambda expression has only body and paramter list
+1) No name - function is anonymous so we don't care about the name.
+2) Parameter List
+3) Body -This is the main part of the method
+4) No Return Type.
 
 => Lambda Expression Fundamentals
 The Lambda expression introduced a new syntax element and operator into the Java language.
@@ -20,7 +27,7 @@ Right hand side is the lambda body which specifies the action of the lambda expr
 Java defined two types of lambda bodies. One consists of a single expression and the other type consist of block of code 
 
 () -> 123.45;
-this lambda expression takes no parameter thus the parameter list is empty. It returs the constant value 123.45. Therefore it is similar to the following method
+this lambda expression takes no parameter thus the parameter list is empty. It returns the constant value 123.45. Therefore it is similar to the following method
 
 double myMeth()  { return 123.45;  }
 
@@ -55,11 +62,12 @@ MyNumber myNum;
 Next a lambda expression is assigned to the interface reference:
 
 //Use a lambda in an assignment context.
-myNum = () -> 123.45;
+myNum = () -> 123.45;		//Here myNum is the Reference of the MyNumber
 
 
 Fuctional Interfaces :-----------------------
-As stated a functional interface is an interface that specifies(declare) only one abstract method. All interface methods are implicitly abstract.Today an interface method is abstract only if it does not specify a default implementation. Because nondefault interface method are implicitly abstract there is no need to use abstract modifier ( although you can specify it if you like ).
+As stated a functional interface is an interface that specifies(declare) only one abstract method. All interface methods are implicitly abstract.Today an interface method is abstract only 
+if it does not specify a default implementation. Because nondefault interface method are implicitly abstract there is no need to use abstract modifier ( although you can specify it if you like ).
 
 
 interface MyNumber{
@@ -92,7 +100,8 @@ class demo{
 => lambda expresson that performs the rest for evenness. It is shown again here:
 (n) -> (n % 2)==0
 
-Notice that the type of n is not specified.  Rather  its type is inferred from the context. In this case its type is inferred from the parameter type of test() as defined by the NumericTest interface, which is int. It is also possible to explicitly specify the type of a parameter in a lambda expression.
+Notice that the type of n is not specified.  Rather  its type is inferred from the context. In this case its type is inferred from the parameter type of test() as defined by the NumericTest 
+interface, which is int. It is also possible to explicitly specify the type of a parameter in a lambda expression.
 
 
 
@@ -223,6 +232,12 @@ Here T specifies both the return type and the parameter type func(). This means 
 
 
 
+
+Important Point About Lambda Expression :-----------
+1) The body of a lamba expression can contain zero one or more statements.
+2) When there is a single statement curly brackets are not mandatory and the return type of the anonymous function is the same as that of the body expression.
+3) When there are more than one statement then these must be enclosed in curly bracket and the return type of the anonymous function is the same as the type of the value returned within
+the code block or void if nothing is returned.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                                                                                                  JDBC ( Java DataBase Connectivity )

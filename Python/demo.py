@@ -210,12 +210,7 @@ e-d-c-b-a-b-c-d-e
 
 '''
 
-n = int(input("Enter Size : "))
-n = (n*2)-1
-word = 'a'
-for i in range(n):
-    print(word)
-    temp = ord(word) + 1
-    word = chr(temp)
-        
-    
+newdict = {}
+newdict["ali hasan"] = [9,7,6,0,6,5,6,4,6,7]
+print(newdict)
+print(newdict["ali hasan"])
