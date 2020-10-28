@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
     val mediaList = ArrayList<AudioModel>()
     var isLoop = false
     var isDirect = false
-    var isMusicRunning = false
     private val listener = MyBroadcastReceiver()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -314,6 +313,6 @@ class MainActivity : AppCompatActivity() {
     /*
     For Stoping the Service but the onDestroy() method will be called from the Service Class
     Intent myService = new Intent(MainActivity.this, BackgroundSoundService.class);
-    startService(myService);
+    stopService(myService);
     */
 }
