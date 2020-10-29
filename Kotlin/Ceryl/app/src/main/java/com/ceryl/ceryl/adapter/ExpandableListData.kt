@@ -4,7 +4,6 @@ import com.ceryl.ceryl.activity.HomeActivity
 
 class ExpandableListData {
     companion object{
-
         fun getData() : HashMap<String, List<String>>{
             val expandableListDetail = HashMap<String, List<String>>()
             val course = HomeActivity.courseContent.split("/")
@@ -17,7 +16,6 @@ class ExpandableListData {
                     courseContentList.add(_courses[j])
                 expandableListDetail.put(courseHeader, courseContentList)
             }
-
             return expandableListDetail
         }
     }

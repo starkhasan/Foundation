@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat
 import com.ceryl.ceryl.R
 import com.ceryl.ceryl.adapter.CourseExpandableListAdapter
 import com.ceryl.ceryl.adapter.ExpandableListData
+import com.ceryl.ceryl.app.ConnectivityReceiver
 import com.ceryl.ceryl.app.RegisterAbstractActivity
 import com.ceryl.ceryl.util.AppUser
 import com.ceryl.ceryl.util.Cv
@@ -38,8 +39,9 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
         expandableListDetail = ExpandableListData.getData()
         val expandableListTitle = ArrayList(expandableListDetail!!.keys)
         courseExpandableListAdapter = CourseExpandableListAdapter(this,expandableListTitle,expandableListDetail!!)
-
         evContent!!.setAdapter(courseExpandableListAdapter)
+        for(i in 0..courseExpandableListAdapter!!.groupCount-1)
+            evContent.expandGroup(i)
 
         evContent!!.setOnGroupExpandListener { groupPosition ->
             Toast.makeText(applicationContext, "Group", Toast.LENGTH_SHORT).show()
@@ -54,6 +56,16 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
             false
         }
 
+        apiGetCourseContent()
+
+    }
+
+    fun apiGetCourseContent(){
+        if(ConnectivityReceiver().isConnected()){
+            appUser!!.course_content["course"] = intent.extras!!.get("CourseName").toString()
+        }else{
+            Helper.snackbar_alert(CourseSummaryActivity@ this,getString(R.string.no_internet_connection), rlCourseSummary)
+        }
     }
 
     override fun layoutId(): Int {

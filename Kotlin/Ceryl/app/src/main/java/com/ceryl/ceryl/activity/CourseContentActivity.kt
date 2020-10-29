@@ -61,7 +61,7 @@ class CourseContentActivity : RegisterAbstractActivity(), View.OnClickListener{
     }
     @Subscribe
     fun timeout(msg: String) {
-        Helper.snackbar_alert(LoginActivity@this, Cv.TIMEOUT,rlCourseSummary)
+        Helper.snackbar_alert(LoginActivity@this, Cv.TIMEOUT,rlCourseContent)
     }
 
     override fun onClick(view: View?) {

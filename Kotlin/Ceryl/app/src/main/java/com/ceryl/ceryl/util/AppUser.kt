@@ -6,5 +6,6 @@ class AppUser {
     val isExist = HashMap<String,Any>()
     val new_password = HashMap<String,Any>()
     val profileUpdate = HashMap<String,Any>()
+    val course_content = HashMap<String,Any>()
     var email = ""
 }

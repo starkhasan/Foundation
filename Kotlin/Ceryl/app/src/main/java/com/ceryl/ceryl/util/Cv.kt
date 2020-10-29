@@ -16,5 +16,6 @@ interface Cv {
         const val ACTION_UPDATE_PROFILE = "update_profile"
         const val ACTION_GET_ALL_COURSE = "all_course"
         const val PERMISSIONS_BUZZ_REQUEST = 0xABC
+        const val ACTION_COURSE_CONTENT = "course_content"
     }
 }

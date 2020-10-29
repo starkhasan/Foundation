@@ -36,12 +36,18 @@ java is realated to C++ which is a direct descendant of C. Much of the character
 From C java derived its syntex Many of java object-oriented feature were influenced by C++.
 
 
+What is Java ?
+Java is high-level, class-based, object oriented programming lanaguage.\nJava was developed by Sun Microsystems (which is not subsidiary of Oracle) in 1995 by the Father of java James Gosling.
+\nBefore its name was Oak.
+
+
 
 
 
 	The History and Evolution of Java :---------------------
 
-Somewhere surprisingly the original impetus for java was not the Internet! Instead the primary motivation was the need for a platform-independent (that is architecture-neutral) language that could be used to create software to be embedded in various consumer electronic  devices, such as microwave ovens and remote controls.
+Somewhere surprisingly the original impetus for java was not the Internet! Instead the primary motivation was the need for a platform-independent (that is architecture-neutral) language 
+that could be used to create software to be embedded in various consumer electronic  devices, such as microwave ovens and remote controls.
 
 The second force was ofcourse the World Wide Web (WWW).
 
@@ -126,7 +132,7 @@ JVM(Java Virtual Machine) is an abstract machine.It is called virtual machine be
 > This language was initially called "Oak" but was renamed "Java" in 1995.
 > The internet helped catapult Java to forefront of programming by using Applet.
 > JVM was designed as an interpreter for bytecode
-
+h
 > Java Buzzword
   1)  Simple
   2)  Secure

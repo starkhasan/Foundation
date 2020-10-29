@@ -3,6 +3,7 @@ package com.ceryl.ceryl.network
 import com.ceryl.ceryl.network.response.GeneralResponse
 import com.ceryl.ceryl.network.response.User.UserResponse
 import com.ceryl.ceryl.network.response.course.AllCourseResponse
+import com.ceryl.ceryl.network.response.course_content.CourseContentResponse
 import com.ceryl.ceryl.network.response.profile.ProfileResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -27,4 +28,6 @@ interface Api {
     fun update_profile(@Body map:HashMap<String,Any>):Call<GeneralResponse>?
     @GET("Courses/all_course.php")
     fun get_all_course(@Query("email") email:String): Call<AllCourseResponse>?
+    @POST("Courses/course_content.php")
+    fun course_content(@Body map:HashMap<String,Any>):Call<CourseContentResponse>?
 }
