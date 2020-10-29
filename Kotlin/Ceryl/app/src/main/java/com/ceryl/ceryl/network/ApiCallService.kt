@@ -7,6 +7,7 @@ import com.ceryl.ceryl.app.ThisApp
 import com.ceryl.ceryl.network.response.GeneralResponse
 import com.ceryl.ceryl.network.response.User.UserResponse
 import com.ceryl.ceryl.network.response.course.AllCourseResponse
+import com.ceryl.ceryl.network.response.course_content.CourseContentResponse
 import com.ceryl.ceryl.network.response.profile.ProfileResponse
 import com.ceryl.ceryl.util.AppUser
 import com.ceryl.ceryl.util.Cv
@@ -46,6 +47,8 @@ class ApiCallService : IntentService(Cv.SERVICE_NAME) {
             api?.update_profile(appUser!!.profileUpdate)!!.enqueue(ApiCallBack<GeneralResponse?>())
         }else if(Cv.ACTION_GET_ALL_COURSE == action){
             api?.get_all_course(Preferences.email.toString())!!.enqueue(ApiCallBack<AllCourseResponse?>())
+        }else if(Cv.ACTION_COURSE_CONTENT == action){
+            api?.course_content(appUser!!.course_content)!!.enqueue(ApiCallBack<CourseContentResponse?>())
         }
     }
 }
