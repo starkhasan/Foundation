@@ -60,6 +60,11 @@
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar"/>
 
+        <activity android:name=".activity.CourseContentActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity android:name=".activity.CourseSummaryActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"

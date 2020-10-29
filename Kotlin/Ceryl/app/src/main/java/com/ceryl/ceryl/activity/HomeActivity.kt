@@ -15,7 +15,6 @@ import com.ceryl.ceryl.network.response.course.AllCourseResponse
 import com.ceryl.ceryl.util.*
 import kotlinx.android.synthetic.main.activity_home.*
 import org.greenrobot.eventbus.Subscribe
-import java.util.ArrayList
 
 class HomeActivity : RegisterAbstractActivity() {
 
@@ -91,7 +90,7 @@ class HomeActivity : RegisterAbstractActivity() {
                 if(response.courses[position].course_type == "free"){
                     if(response.courses[position].course_content!=""){
                         courseContent = response.courses[position].course_content
-                        val intent = Intent(HomeActivity@this,CourseSummaryActivity::class.java)
+                        val intent = Intent(HomeActivity@this,CourseContentActivity::class.java)
                         intent.putExtra("Course",COURSE)
                         startActivity(intent)
                     }else{

@@ -1,61 +1,67 @@
 package com.ceryl.ceryl.activity
 
 import android.os.Bundle
-import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.widget.ExpandableListAdapter
+import android.widget.Toast
+import androidx.core.view.GravityCompat
 import com.ceryl.ceryl.R
-import com.ceryl.ceryl.adapter.CourseContentAdapter
+import com.ceryl.ceryl.adapter.CourseExpandableListAdapter
+import com.ceryl.ceryl.adapter.ExpandableListData
 import com.ceryl.ceryl.app.RegisterAbstractActivity
 import com.ceryl.ceryl.util.AppUser
 import com.ceryl.ceryl.util.Cv
 import com.ceryl.ceryl.util.Helper
 import com.ceryl.ceryl.util.LocalRepositories
+import kotlinx.android.synthetic.main.activity_course_content.*
 import kotlinx.android.synthetic.main.activity_course_summary.*
-import kotlinx.android.synthetic.main.layout_custom_toolbar.*
-import kotlinx.android.synthetic.main.layout_custom_toolbar.view.*
 import org.greenrobot.eventbus.Subscribe
+import java.util.ArrayList
 
-class CourseSummaryActivity : RegisterAbstractActivity(), View.OnClickListener{
+class CourseSummaryActivity : RegisterAbstractActivity(){
 
     var appUser = AppUser()
-    var courseList = ArrayList<String>()
-    var courseContentList = ArrayList<String>()
+    var expandableListDetail: HashMap<String, List<String>>? = null
+    var courseExpandableListAdapter : ExpandableListAdapter?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LocalRepositories.saveAppUser(this,appUser)
-        setToolBar()
-        getCourseDetails()
-        val linearLayoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        rvCourseContent.layoutManager = linearLayoutManager
-        rvCourseContent.adapter = CourseContentAdapter(this,courseList,courseContentList)
-    }
+        LocalRepositories.saveAppUser(this, appUser)
+        tvCourseName.text = intent.extras!!.get("CourseName").toString()
 
-    fun getCourseDetails(){
-        val course = HomeActivity.courseContent.split("/")
-        for(i in 0..course.size-1){
-            val temp = course[i].split("(")
-            courseList.add(temp[0])
-            courseContentList.add(temp[1].substring(0,temp[1].length-1))
+        nav.setOnClickListener {
+            if (drawerlayout.isDrawerOpen(GravityCompat.START))
+                drawerlayout.closeDrawer(GravityCompat.START)
+            else
+                drawerlayout.openDrawer(GravityCompat.START)
         }
+
+        expandableListDetail = ExpandableListData.getData()
+        val expandableListTitle = ArrayList(expandableListDetail!!.keys)
+        courseExpandableListAdapter = CourseExpandableListAdapter(this,expandableListTitle,expandableListDetail!!)
+
+        evContent!!.setAdapter(courseExpandableListAdapter)
+
+        evContent!!.setOnGroupExpandListener { groupPosition ->
+            Toast.makeText(applicationContext, "Group", Toast.LENGTH_SHORT).show()
+        }
+
+        evContent!!.setOnGroupCollapseListener { groupPosition ->
+            Toast.makeText(applicationContext, " List Collapsed", Toast.LENGTH_SHORT).show()
+        }
+
+        evContent!!.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
+            Toast.makeText(applicationContext, "Clicked: ", Toast.LENGTH_SHORT).show()
+            false
+        }
+
     }
 
-    fun setToolBar(){
-        val name = intent.extras!!.get("Course")
-        toolBar.tvHeading.setText(name.toString())
-        toolBar.ivBack.setOnClickListener(this)
-
-    }
     override fun layoutId(): Int {
         return R.layout.activity_course_summary
     }
+
     @Subscribe
     fun timeout(msg: String) {
-        Helper.snackbar_alert(LoginActivity@this, Cv.TIMEOUT,rlCourseSummary)
-    }
-
-    override fun onClick(view: View?) {
-        when(view!!.id) {
-            ivBack.id -> finish()
-        }
+        Helper.snackbar_alert(CourseSummaryActivity@ this, Cv.TIMEOUT, rlCourseSummary)
     }
 }

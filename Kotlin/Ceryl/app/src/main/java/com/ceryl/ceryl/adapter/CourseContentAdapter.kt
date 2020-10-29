@@ -3,15 +3,14 @@ package com.ceryl.ceryl.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.ceryl.ceryl.R
-import com.ceryl.ceryl.activity.CourseSummaryActivity
+import com.ceryl.ceryl.activity.CourseContentActivity
 import kotlinx.android.synthetic.main.row_course.view.*
 
-class CourseContentAdapter(val context: CourseSummaryActivity,val courseList: ArrayList<String>,val courseContentList: ArrayList<String>) :RecyclerView.Adapter<CourseContentAdapter.ViewHolder>() {
+class CourseContentAdapter(val context: CourseContentActivity, val courseList: ArrayList<String>, val courseContentList: ArrayList<String>) :RecyclerView.Adapter<CourseContentAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseContentAdapter.ViewHolder {
-        var layoutInflater = LayoutInflater.from(context)
+        val layoutInflater = LayoutInflater.from(context)
         val view = layoutInflater.inflate(R.layout.row_course,parent,false)
         return ViewHolder(view)
     }
