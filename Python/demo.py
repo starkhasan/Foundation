@@ -210,7 +210,11 @@ e-d-c-b-a-b-c-d-e
 
 '''
 
-newdict = {}
-newdict["ali hasan"] = [9,7,6,0,6,5,6,4,6,7]
-print(newdict)
-print(newdict["ali hasan"])
+newList = list(map(int,input().split()))
+print(newList)
+if len(newList)>0:
+    newList.pop()
+    print(newList)
+else:
+    print("No Element is Found : ")
+print(newList[-1])
