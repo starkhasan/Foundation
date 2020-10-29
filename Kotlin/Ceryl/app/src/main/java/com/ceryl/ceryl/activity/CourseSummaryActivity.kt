@@ -2,7 +2,6 @@ package com.ceryl.ceryl.activity
 
 import android.os.Bundle
 import android.widget.ExpandableListAdapter
-import android.widget.ExpandableListView
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import com.ceryl.ceryl.R
@@ -33,6 +32,7 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
         LocalRepositories.saveAppUser(this, appUser)
         tvCourseName.text = intent.extras!!.get("CourseName").toString()
         title = "About Java"
+
         nav.setOnClickListener {
             if (drawerlayout.isDrawerOpen(GravityCompat.START))
                 drawerlayout.closeDrawer(GravityCompat.START)
@@ -42,11 +42,7 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
 
         expandableListDetail = ExpandableListData.getData()
         val expandableListTitle = ArrayList(expandableListDetail!!.keys)
-        courseExpandableListAdapter = CourseExpandableListAdapter(
-            this,
-            expandableListTitle,
-            expandableListDetail!!
-        )
+        courseExpandableListAdapter = CourseExpandableListAdapter(this, expandableListTitle, expandableListDetail!!)
         evContent!!.setAdapter(courseExpandableListAdapter)
         for(i in 0..courseExpandableListAdapter!!.groupCount-1)
             evContent.expandGroup(i)
@@ -71,16 +67,13 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
 
     fun apiGetCourseContent(){
         if(ConnectivityReceiver().isConnected()){
+            rotateloading.start()
             appUser!!.course_content["course"] = intent.extras!!.get("CourseName").toString()
             appUser!!.course_content["title"] = title
             LocalRepositories.saveAppUser(this, appUser)
             ApiCallService.action(CourseSummaryActivity@ this, Cv.ACTION_COURSE_CONTENT)
         }else{
-            Helper.snackbar_alert(
-                CourseSummaryActivity@ this,
-                getString(R.string.no_internet_connection),
-                rlCourseSummary
-            )
+            Helper.snackbar_alert(CourseSummaryActivity@ this, getString(R.string.no_internet_connection), rlCourseSummary)
         }
     }
 
@@ -91,7 +84,7 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
             rotateloading.stop()
         }
         if(response.status == 200){
-            Toast.makeText(this, response.message, Toast.LENGTH_SHORT).show()
+
         }else{
             Helper.snackbar_alert(CourseSummaryActivity@ this, response.message, rlCourseSummary)
         }
