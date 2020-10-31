@@ -68,6 +68,7 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
 
         evContent!!.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
             title = parent.expandableListAdapter.getChild(groupPosition, childPosition).toString()
+            apiGetCourseContent()
             Toast.makeText(applicationContext, title, Toast.LENGTH_SHORT).show()
             false
         }
