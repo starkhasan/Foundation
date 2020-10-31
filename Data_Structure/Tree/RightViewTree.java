@@ -79,7 +79,7 @@ public class RightViewTree {
         }
         System.out.println("\nInorder Traversal");
         d.inorder(root);
-        System.out.println("\nLeft View Tree");
+        System.out.println("\nRight View Tree");
         d.RightView(root);
         buffer.close();
     }

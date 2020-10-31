@@ -125,11 +125,9 @@ class NumericalOperation {
     }
 
     public String reverseString(String _input){
-        String temp="";
-        for(int i=_input.length()-1;i>=0;i--){
-            temp = temp + String.valueOf(_input.charAt(i));
-        }
-        return temp;
+        StringBuffer strBuffer = new StringBuffer(_input);
+        strBuffer.reverse();
+        return strBuffer.toString();
     }
 
     public String sortString(String _input){
