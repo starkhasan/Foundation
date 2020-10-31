@@ -2,6 +2,7 @@ package com.ceryl.ceryl.activity
 
 import android.os.Bundle
 import android.widget.ExpandableListAdapter
+import android.widget.ExpandableListView
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,7 +49,11 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
 
         expandableListDetail = ExpandableListData.getData()
         val expandableListTitle = ArrayList(expandableListDetail!!.keys)
-        courseExpandableListAdapter = CourseExpandableListAdapter(this, expandableListTitle, expandableListDetail!!)
+        courseExpandableListAdapter = CourseExpandableListAdapter(
+            this,
+            expandableListTitle,
+            expandableListDetail!!
+        )
         evContent!!.setAdapter(courseExpandableListAdapter)
         for(i in 0..courseExpandableListAdapter!!.groupCount-1)
             evContent.expandGroup(i)
@@ -66,9 +71,7 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
             Toast.makeText(applicationContext, title, Toast.LENGTH_SHORT).show()
             false
         }
-
         apiGetCourseContent()
-
     }
 
     fun apiGetCourseContent(){
@@ -90,7 +93,7 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
             rotateloading.stop()
         }
         if(response.status == 200){
-            Toast.makeText(CourseSummaryActivity@this,response.message,Toast.LENGTH_SHORT).show()
+            Toast.makeText(CourseSummaryActivity@ this, response.message, Toast.LENGTH_SHORT).show()
             toolbar.tvHeading.text = response.title
             listContent.clear()
             for(i in 0..response.content.size-1){
@@ -98,9 +101,9 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
                     listContent.add(response.content[i])
                 }
             }
-            val linearLayoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+            val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
             rvContent.layoutManager = linearLayoutManager
-            courseSummaryAdapter = CourseSummaryAdapter(this,listContent){COURSE:String,position:Int ->
+            courseSummaryAdapter = CourseSummaryAdapter(this, listContent){ COURSE: String, position: Int ->
 
             }
             rvContent.adapter = courseSummaryAdapter
