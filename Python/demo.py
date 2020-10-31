@@ -204,17 +204,15 @@ for i in range(len(myList)):
 --e-d-c-b-c-d-e--
 e-d-c-b-a-b-c-d-e
 --e-d-c-b-c-d-e--
-----e-d-c-d-e----git 
+----e-d-c-d-e----
 ------e-d-e------
 --------e--------
-
 '''
 
-newList = list(map(int,input().split()))
-print(newList)
-if len(newList)>0:
-    newList.pop()
-    print(newList)
-else:
-    print("No Element is Found : ")
-print(newList[-1])
+
+
+
+
+        
+
+
