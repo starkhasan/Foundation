@@ -80,6 +80,7 @@ class NewPasswordActivity : RegisterAbstractActivity() {
             etConfirmPassword.setText("")
             etNewPassword.setText("")
             Preferences.email = tvUserEmail.text.toString()
+            Preferences.isLogin = true
             val intent = Intent(NewPasswordActivity@this,HomeActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

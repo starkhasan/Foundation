@@ -4,18 +4,22 @@ import android.os.Bundle
 import android.widget.ExpandableListAdapter
 import android.widget.Toast
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ceryl.ceryl.R
 import com.ceryl.ceryl.adapter.CourseExpandableListAdapter
+import com.ceryl.ceryl.adapter.CourseSummaryAdapter
 import com.ceryl.ceryl.adapter.ExpandableListData
 import com.ceryl.ceryl.app.ConnectivityReceiver
 import com.ceryl.ceryl.app.RegisterAbstractActivity
 import com.ceryl.ceryl.network.ApiCallService
+import com.ceryl.ceryl.network.response.course_content.Content
 import com.ceryl.ceryl.network.response.course_content.CourseContentResponse
 import com.ceryl.ceryl.util.AppUser
 import com.ceryl.ceryl.util.Cv
 import com.ceryl.ceryl.util.Helper
 import com.ceryl.ceryl.util.LocalRepositories
 import kotlinx.android.synthetic.main.activity_course_summary.*
+import kotlinx.android.synthetic.main.activity_course_summary.view.*
 import org.greenrobot.eventbus.Subscribe
 import java.util.*
 
@@ -26,6 +30,8 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
     var expandableListDetail: HashMap<String, List<String>>? = null
     var courseExpandableListAdapter : ExpandableListAdapter?=null
     var title = ""
+    var listContent = ArrayList<Content>()
+    var courseSummaryAdapter : CourseSummaryAdapter ?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,7 +90,20 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
             rotateloading.stop()
         }
         if(response.status == 200){
+            Toast.makeText(CourseSummaryActivity@this,response.message,Toast.LENGTH_SHORT).show()
+            toolbar.tvHeading.text = response.title
+            listContent.clear()
+            for(i in 0..response.content.size-1){
+                if(response.content[i].content !=""){
+                    listContent.add(response.content[i])
+                }
+            }
+            val linearLayoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+            rvContent.layoutManager = linearLayoutManager
+            courseSummaryAdapter = CourseSummaryAdapter(this,listContent){COURSE:String,position:Int ->
 
+            }
+            rvContent.adapter = courseSummaryAdapter
         }else{
             Helper.snackbar_alert(CourseSummaryActivity@ this, response.message, rlCourseSummary)
         }

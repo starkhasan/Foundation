@@ -210,7 +210,7 @@
                         android:hint="@string/phone"
                         android:textColor="@color/colorPrimary"
                         android:imeOptions="actionNext"
-                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHint="@android:color/darker_gray"
                         android:backgroundTint="@color/colorPrimary"
                         android:inputType="number"
                         android:textCursorDrawable="@color/colorPrimary"
@@ -250,7 +250,7 @@
                         android:focusableInTouchMode="false"
                         android:textColor="@color/colorPrimary"
                         android:imeOptions="actionDone"
-                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHint="@android:color/darker_gray"
                         android:backgroundTint="@color/colorPrimary"
                         android:inputType="text"/>
 
@@ -287,7 +287,7 @@
                         android:textColor="@color/colorPrimary"
                         android:imeOptions="actionNext"
                         android:maxLines="1"
-                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHint="@android:color/darker_gray"
                         android:backgroundTint="@color/colorPrimary"
                         android:textCursorDrawable="@color/colorPrimary"
                         android:inputType="text"/>
@@ -326,7 +326,7 @@
                         android:maxLength="50"
                         android:textColor="@color/colorPrimary"
                         android:imeOptions="actionNext"
-                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHint="@android:color/darker_gray"
                         android:backgroundTint="@color/colorPrimary"
                         android:textCursorDrawable="@color/colorPrimary"
                         android:inputType="text"/>
@@ -364,7 +364,7 @@
                         android:imeOptions="actionDone"
                         android:maxLines="1"
                         android:maxLength="6"
-                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHint="@android:color/darker_gray"
                         android:backgroundTint="@color/colorPrimary"
                         android:inputType="number"
                         android:textCursorDrawable="@color/colorPrimary"
