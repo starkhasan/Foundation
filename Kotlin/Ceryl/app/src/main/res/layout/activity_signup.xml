@@ -33,7 +33,7 @@
             android:imeOptions="actionNext"
             android:maxLines="1"
             android:maxLength="30"
-            android:textColorHint="@color/colorPrimary"
+            android:textColorHint="@android:color/darker_gray"
             android:backgroundTint="@color/colorPrimary"
             android:layout_marginTop="30dp"/>
 
@@ -47,7 +47,7 @@
             android:imeOptions="actionNext"
             android:maxLines="1"
             android:maxLength="30"
-            android:textColorHint="@color/colorPrimary"
+            android:textColorHint="@android:color/darker_gray"
             android:backgroundTint="@color/colorPrimary"
             android:layout_marginTop="10dp"/>
 
@@ -61,7 +61,7 @@
             android:imeOptions="actionNext"
             android:maxLines="1"
             android:maxLength="30"
-            android:textColorHint="@color/colorPrimary"
+            android:textColorHint="@android:color/darker_gray"
             android:backgroundTint="@color/colorPrimary"
             android:layout_marginTop="10dp"/>
 
@@ -75,7 +75,7 @@
             android:imeOptions="actionDone"
             android:maxLines="1"
             android:maxLength="30"
-            android:textColorHint="@color/colorPrimary"
+            android:textColorHint="@android:color/darker_gray"
             android:backgroundTint="@color/colorPrimary"
             android:inputType="textPassword"/>
 

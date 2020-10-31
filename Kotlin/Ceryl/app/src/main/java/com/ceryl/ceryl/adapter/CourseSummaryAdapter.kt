@@ -8,13 +8,11 @@ import com.ceryl.ceryl.R
 
 class CourseSummaryAdapter : RecyclerView.Adapter<CourseSummaryAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseSummaryAdapter.ViewHolder {
-        val layoutInflater = LayoutInflater.from(context)
-        val view = layoutInflater.inflate(R.layout.row_course_summary,parent,false)
-        return ViewHolder(view)
+        TODO()
     }
 
     override fun getItemCount(): Int {
-
+        TODO()
     }
 
     override fun onBindViewHolder(holder: CourseSummaryAdapter.ViewHolder, position: Int) {

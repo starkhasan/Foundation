@@ -14,10 +14,7 @@ import com.ceryl.ceryl.app.ConnectivityReceiver
 import com.ceryl.ceryl.app.RegisterAbstractActivity
 import com.ceryl.ceryl.network.ApiCallService
 import com.ceryl.ceryl.network.response.User.UserResponse
-import com.ceryl.ceryl.util.AppUser
-import com.ceryl.ceryl.util.Cv
-import com.ceryl.ceryl.util.Helper
-import com.ceryl.ceryl.util.LocalRepositories
+import com.ceryl.ceryl.util.*
 import kotlinx.android.synthetic.main.activity_newpassword.*
 import kotlinx.android.synthetic.main.activity_newpassword.rotateloading
 import org.greenrobot.eventbus.Subscribe
@@ -82,6 +79,7 @@ class NewPasswordActivity : RegisterAbstractActivity() {
         if(response.status == 200){
             etConfirmPassword.setText("")
             etNewPassword.setText("")
+            Preferences.email = tvUserEmail.text.toString()
             val intent = Intent(NewPasswordActivity@this,HomeActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
