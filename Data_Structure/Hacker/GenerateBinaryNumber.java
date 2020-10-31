@@ -1,7 +1,6 @@
-//Find th Element which appears once in the Array : 
 import java.util.*;
 import java.io.*;
-class Demo{
+public class GenerateBinaryNumber {
     static String binaryNumber(int n){
         StringBuffer str = new StringBuffer();
         while(n>0){
@@ -24,4 +23,3 @@ class Demo{
         buffer.close();
     }
 }
-
