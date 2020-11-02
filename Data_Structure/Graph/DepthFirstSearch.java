@@ -24,12 +24,9 @@ class Graph{
         } 
     }
 
-    void DFSUtil(int v,boolean visited[]) 
-    { 
-        // Mark the current node as visited and print it 
+    void DFSUtil(int v,boolean visited[]){
         visited[v] = true; 
         System.out.print(v+" "); 
-        // Recur for all the vertices adjacent to this vertex 
         Iterator<Integer> i = adj[v].listIterator(); 
         while (i.hasNext()){
             int n = i.next(); 
@@ -37,7 +34,6 @@ class Graph{
                 DFSUtil(n, visited); 
         } 
     } 
-    // The function to do DFS traversal. It uses recursive DFSUtil() 
     void DFS(int v){
         boolean visited[] = new boolean[V]; 
         DFSUtil(v, visited); 

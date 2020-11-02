@@ -1,4 +1,3 @@
-package Graph;
 import java.util.*;
 import java.io.*;
 public class AdjacencyList {
@@ -31,6 +30,5 @@ public class AdjacencyList {
         addEdge(adj, 3, 4); 
         printGraph(adj);
         buffer.close();
-        
     }
 }

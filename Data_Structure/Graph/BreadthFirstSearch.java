@@ -1,4 +1,3 @@
-package Graph;
 import java.util.*;
 import java.io.*;
 class Graph{
@@ -64,6 +63,6 @@ public class BreadthFirstSearch {
         }
         graph.printGraph();
         System.out.println("\nEnter Starting Node for BFS: ");
-        graph.BFS(Integer.parseInt(buffer.readLine()));
+        //graph.BFS(Integer.parseInt(buffer.readLine()));
     }
 }
