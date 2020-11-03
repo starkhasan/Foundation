@@ -34,7 +34,7 @@ class Graph{
             }
         }
     }
-    void MotherVertex(){
+    void MotherVertexFind(){
         boolean[] visited = new boolean[V];
         int count = 0;
         boolean isVisited = true;
@@ -58,7 +58,7 @@ class Graph{
     }
 
 }
-class Demo{
+public class MotherVertex {
     public static void main(String[] args) throws IOException{
         BufferedReader buffer = new BufferedReader(new FileReader("InputDemo.txt"));
         int vertices = 0;
@@ -76,7 +76,7 @@ class Demo{
         graph.addEdge(6, 0);
         graph.printGraph();
         System.out.println("\nMother Vertex Search  : ");
-        graph.MotherVertex();
+        graph.MotherVertexFind();
         buffer.close();
     }
 }

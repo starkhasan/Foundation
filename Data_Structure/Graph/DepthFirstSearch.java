@@ -34,9 +34,10 @@ class Graph{
                 DFSUtil(n, visited); 
         } 
     } 
-    void DFS(int v){
+    
+    void DFS(int start){
         boolean visited[] = new boolean[V]; 
-        DFSUtil(v, visited); 
+        DFSUtil(start, visited); 
     }
 
 }
