@@ -212,16 +212,11 @@ e-d-c-b-a-b-c-d-e
 
 
 
-n = 2016
-if n%400 == 0:
-    print("Leap")
-elif n%100 == 0:
-    print("Not Leap Year")
-elif n%4 == 0:
-    print("Leap Year")
-else:
-    print("Not Leap Year")
+s = set()
+for i in range(5):
+    s.add(input())
 
+print(s)
         
 
 
