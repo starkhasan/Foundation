@@ -1,90 +1,99 @@
-import java.util.*;
 import java.io.*;
-class Graph{
-    private int V;
-    private ArrayList<ArrayList<Integer>> adjList;
-    Graph(int vertex){
-        V = vertex;
-        adjList = new ArrayList<ArrayList<Integer>>();
-        for(int i=0;i<V;i++)
-            adjList.add(new ArrayList<Integer>());
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data = data;
+        next = null;
     }
-    public void addEdge(int u,int v){
-        adjList.get(u).add(v);
-        adjList.get(v).add(u);
-    }
-    public void printGraph(){
-        for(int i=0;i<adjList.size();i++){
-            System.out.print(i+" -> ");
-            for(int j=0;j<adjList.get(i).size();j++){
-                System.out.print(adjList.get(i).get(j)+" -> ");
-            }
-            System.out.print("NULL");
-            System.out.println();
-        }
-    }
-    public void BFS(int start){
-        boolean[] visited = new boolean[V];
-        visited[start] = true;
-        LinkedList<Integer> queue = new LinkedList<Integer>();
-        queue.add(start);
-        while(queue.size()!=0){
-            int temp = queue.poll();
-            System.out.print(temp+" ");
-            Iterator iterator = adjList.get(temp).iterator();
-            while(iterator.hasNext()){
-                int temp1 = (int)iterator.next();
-                //System.out.print("Node = "+temp1);
-                if(!visited[temp1]){
-                    visited[temp1] = true;
-                    queue.add(temp1);
-                }
-            }
-        }
-    }
-
-
-    public void DepthFirstSearch(int start,boolean[] visited){
-        visited[start] = true;
-        System.out.print(start+" ");
-        Iterator iterator = adjList.get(start).iterator();
-        while(iterator.hasNext()){
-            int temp = (int)iterator.next();
-            if(!visited[temp]){
-                DepthFirstSearch(temp, visited);
-            }
-        }
-    }
-    public void DFS(int start){
-        boolean[] visited = new boolean[V];
-        DepthFirstSearch(start,visited);
-    }
-
-    
 }
 class Demo{
-    public static void main(String[] args){
-        try {
-            BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Enter Size of Vertex : ");
-            int vertex = Integer.parseInt(buffer.readLine());
-            Graph graph = new Graph(vertex);
-            System.out.println("Enter Vertices : ");
-            graph.addEdge(0, 1); 
-            graph.addEdge(0, 4); 
-            graph.addEdge(1, 2); 
-            graph.addEdge(1, 3); 
-            graph.addEdge(1, 4); 
-            graph.addEdge(2, 3); 
-            graph.addEdge(3, 4); 
-            graph.printGraph();
-
-            //System.out.println("BFS");
-            //graph.BFS(2);
-            System.out.println("DFS");
-            graph.DFS(2);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+    static Node insert(Node head,int data){
+        if(head == null){
+            head = new Node(data);
+        }else{
+            Node current = head;
+            while(current.next!=null){
+                current = current.next;
+            }
+            current.next = new Node(data);
         }
+        return head;
+    }
+    static void printLinkedList(Node head){
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp = temp.next;
+        }
+    }
+
+    static Node LeftRotation(Node head,int rotation){
+        int count = 0;
+        Node temp = head;
+        while(count<rotation){
+            Node newNode = temp;
+            Node newHead = temp.next;
+            while(temp.next!=null){
+                temp = temp.next;
+            }
+            temp.next = newNode;
+            newNode.next = null;
+            temp = newHead;
+            count++;
+        }
+        head = temp;
+        return head;
+    }
+
+    static Node RightRotation(Node head,int rotation){
+        int count = 0;
+        Node temp = head;
+        while(count<rotation){
+            Node newHead = temp;
+            Node last = null;
+            while(temp!=null){
+                if(temp.next.next==null){
+                    last = temp.next;
+                    temp.next= null;
+                    break;
+                }
+                temp = temp.next;
+            }
+            last.next = newHead;
+            temp = last;
+            count++;
+        }
+        head = temp;
+        return head;
+    }
+    public static void main(String[] args) throws IOException{
+        BufferedReader buffer = new BufferedReader(new FileReader("InputDemo.txt"));
+        Node head = null;
+        String input = "";
+        int rotation  = 0;
+        boolean isFirst = true;
+        while((buffer.readLine())!=null){
+            if(isFirst){
+                isFirst = false;
+                input = buffer.readLine();
+            }else{
+                rotation = Integer.parseInt(buffer.readLine());
+            }
+        }
+        String[] strAr = input.split(" ");
+        for(int i=0;i<strAr.length;i++){
+            head = insert(head,Integer.parseInt(strAr[i]));
+        }
+        printLinkedList(head);
+        System.out.println("\nPerforming Left Rotation : ");
+        head = LeftRotation(head,rotation);
+        printLinkedList(head);
+        System.out.println("\nHead = "+head.data);
+        System.out.println("Performing Right Rotation : ");
+        head = RightRotation(head,rotation);
+        printLinkedList(head);
+        buffer.close();
     }
 }

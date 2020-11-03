@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import javax.swing.border.EtchedBorder;
+
 class Graph{
     private int V;
     private ArrayList<ArrayList<Integer>> adj;
@@ -17,8 +19,18 @@ class Graph{
         adj.get(u).add(v);
     }
 
-    void isCycle (int src) {
+    void printEdge(){
+        for(int i=0;i<adj.size();i++){
+            System.out.print(i+" -> ");
+            for(int j=0;j<adj.get(i).size();j++){
+                System.out.print(adj.get(i).get(j)+" -> ");
+            }
+            System.out.print("NULL");
+            System.out.println();
+        }
+    }
 
+    void isCycle (int src) {
         visitors[src] = true;
         inpath[src] = true;
         Iterator iterator = adj.get(src).iterator();
@@ -51,15 +63,19 @@ class Graph{
 }
 public class CycleInDirected {
     public static void main(String[] args) {
-        int vertices = 5;
+        int vertices = 7;
         Graph graph = new Graph(vertices);
         graph.AddEdge(0, 1);
         graph.AddEdge(0, 2);
+        graph.AddEdge(1, 4);
         graph.AddEdge(2, 3);
-        graph.AddEdge(4, 1);
-        graph.AddEdge(3, 4);
+        graph.AddEdge(3, 1);
+        graph.AddEdge(3, 5);
+        graph.AddEdge(4, 6);
+        graph.AddEdge(5, 4);
+        graph.AddEdge(6, 5);
         
-
+        graph.printEdge();
         if(graph.isCycleDirect(0))
             System.out.println("Cycle Present in Graph");
         else
