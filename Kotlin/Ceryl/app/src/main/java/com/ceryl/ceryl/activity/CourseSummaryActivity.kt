@@ -94,7 +94,7 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
             rotateloading.stop()
         }
         if(response.status == 200){
-            Toast.makeText(CourseSummaryActivity@ this, response.message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(CourseSummaryActivity@ this, response.title, Toast.LENGTH_SHORT).show()
             toolbar.tvHeading.text = response.title
             listContent.clear()
             for(i in 0..response.content.size-1){
