@@ -1,6 +1,5 @@
-import java.io.*;
 import java.util.*;
-
+import java.io.*;
 class Graph{
     private int V;
     private ArrayList<ArrayList<Integer>> adj;
@@ -24,41 +23,6 @@ class Graph{
             }
             System.out.print(" NULL");
             System.out.println();
-        }
-    }
-
-    void DFSUntil(int start,boolean[] visited){
-        visited[start] = true;
-        System.out.print(start+" -> ");
-        Iterator iterator = adj.get(start).iterator();
-        while(iterator.hasNext()){
-            int temp = (int)iterator.next();
-            if(!visited[temp])
-                DFSUntil(temp, visited);
-        }
-    }
-
-    void DFS(int start){
-        boolean[] visited = new boolean[V];
-        DFSUntil(start,visited);
-    }
-
-    void BFS(int start){
-        boolean[] visited = new boolean[V];
-        visited[start] = true;
-        LinkedList<Integer> queue = new LinkedList<>();
-        queue.add(start);
-        while(queue.size()!=0){
-            int temp = queue.poll();
-            System.out.print(temp+" -> ");
-            Iterator iterator = adj.get(temp).iterator();
-            while(iterator.hasNext()){
-                int temp1 = (int)iterator.next();
-                if(!visited[temp1]){
-                    visited[temp1] = true;
-                    queue.add(temp1);
-                }
-            }
         }
     }
 
@@ -115,7 +79,7 @@ class Graph{
         return cyclePresent;
     }
 }
-class Demo{
+public class TopologicalSort {
     public static void main(String[] args) throws IOException{
         BufferedReader buffer = new BufferedReader(new FileReader("InputDemo.txt"));
         boolean isFirst = true;
@@ -132,10 +96,6 @@ class Demo{
             }
         }
         graph.printGraph();
-        System.out.println("\nDepth First Search : ");
-        graph.DFS(2);
-        System.out.println("\nBreadth First Search : ");
-        graph.BFS(2);
         System.out.println();
         if(graph.isCycle())
             System.out.println("Cycle Present");
@@ -146,38 +106,3 @@ class Demo{
         buffer.close();
     }
 }
-
-/**
- * input one
- 
- 6
-
-5 2
-
-5 0
-
-4 0
-
-4 1
-
-2 3
-
-3 1
-
-
-*input second
-4
-
-0 1
-
-0 2
-
-1 2
-
-2 0
-
-2 3
-
-3 3
- */
- 

@@ -30,12 +30,8 @@ class Graph{
         queue.add(s); 
   
         while (queue.size() != 0){
-            // Dequeue a vertex from queue and print it 
             s = queue.remove(queue.size()-1); 
             System.out.print(s+" "); 
-            // Get all adjacent vertices of the dequeued vertex s 
-            // If a adjacent has not been visited, then mark it 
-            // visited and enqueue it 
             Iterator<Integer> i = adj[s].listIterator(); 
             while (i.hasNext()){
                 int n = i.next(); 

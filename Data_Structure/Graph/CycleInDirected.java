@@ -8,7 +8,6 @@ class Graph{
     private ArrayList<ArrayList<Integer>> adj;
     private boolean[] visitors;
     private boolean[] inpath;
-    private boolean cyclePresent = false;
     Graph(int vertices){
         V = vertices;
         adj = new ArrayList<ArrayList<Integer>>();
@@ -30,33 +29,27 @@ class Graph{
         }
     }
 
-    void isCycle (int src) {
-        visitors[src] = true;
-        inpath[src] = true;
-        Iterator iterator = adj.get(src).iterator();
-        while(iterator.hasNext()){
-            int temp = (int)iterator.next();
-            if(inpath[temp]){
-                cyclePresent = true;
-                return;
-            }else if(!visitors[temp]){
-                isCycle(temp);
-            }
-        }
-        inpath[src] = false;
+    boolean isCyclicUntil (int start,boolean[] visited,boolean[] recStack) {
+        visited[start] = true; 
+        recStack[start] = true; 
+        List<Integer> children = adj.get(start); 
+        for (Integer c: children){
+            if(inpath[c])
+                return true;
+            else if(visited[c])
+                isCyclicUntil(c, visited, recStack);
+        }       
+        recStack[i] = false; 
+        return false; 
+ 
     }
 
     boolean isCycleDirect(int start){
         visitors = new boolean[V];
         inpath = new boolean[V];
-        for(int i=0;i<V;i++){
-            visitors[i] =  false;
-            inpath[i] = false;
-        }
-        isCycle(start);
-        if(cyclePresent)
-            return true;
-        return false;
+        Arrays.fill(visitors,false);
+        Arrays.fill(inpath,false);
+        return isCyclicUntil(start,visitors,inpath);
     }
 
 
