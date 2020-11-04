@@ -96,7 +96,7 @@ class HomeActivity : RegisterAbstractActivity() {
                     }else{
                         AlertDialog.Builder(this)
                             .setTitle(COURSE)
-                            .setMessage("Currently Content of this Course is not available")
+                            .setMessage("Sorry! this Course is not available now.")
                             .setPositiveButton("Ok"){dialog: DialogInterface?, which: Int ->
                                 dialog!!.dismiss()
                             }

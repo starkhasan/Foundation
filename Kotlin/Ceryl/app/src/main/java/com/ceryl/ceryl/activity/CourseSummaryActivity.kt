@@ -70,7 +70,6 @@ class CourseSummaryActivity : RegisterAbstractActivity(){
             title = parent.expandableListAdapter.getChild(groupPosition, childPosition).toString()
             apiGetCourseContent()
             drawerlayout.closeDrawers()
-            Toast.makeText(applicationContext, title, Toast.LENGTH_SHORT).show()
             false
         }
         apiGetCourseContent()
