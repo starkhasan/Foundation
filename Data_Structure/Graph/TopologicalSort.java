@@ -12,7 +12,8 @@ class Graph{
     }
 
     void addEdge(int u,int v){
-        adj.get(u).add(v);
+        //Use only directed graph for topological sorting
+        adj.get(u).add(v);//this is directed edge
     }
 
     void printGraph(){
