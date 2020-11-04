@@ -17,9 +17,9 @@ class Graph{
 
     boolean isCyclicUntil(int v,boolean[] visitor,int parent){
         visitor[v] = true;
-        Iterator it = adj.get(v).iterator();
+        Iterator<Integer> it = adj.get(v).iterator();
         while(it.hasNext()){
-            int temp = (int)it.next();
+            int temp = it.next();
             if(!visitor[temp]){
                 if(isCyclicUntil(temp, visitor, v)) 
                     return  true;
