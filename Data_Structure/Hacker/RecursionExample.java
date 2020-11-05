@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Demo{
+public class RecursionExample {
     //Without Recursion
     static void fib(int num){
         if(num == 0)
