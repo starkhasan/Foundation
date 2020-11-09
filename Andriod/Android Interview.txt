@@ -1,4 +1,4 @@
-1) What is appicationId in Android ?
+1) What is applicationId in Android ?
 Every Android app has a unique application ID that looks like a package name such as com.example.com. This ID uniquely identifies your app on 
 the device and in Google Play Store. If you want to upload a new version of your app, the appliaction ID must be the same as the original APK
 If you change the appclaition ID Google Play store treats that APK as c completley different app.
@@ -31,10 +31,10 @@ project needs the JUnit libraries for compilling and executing test code
 Guava and JUnit represent the dependencies of the project. A build script developer can declare dependencies for different scopes just for compilation of source code or for executing tests.
 In Gradles the scope of a dependency is called configuration.
 
-You'll need to tell Gradle where to fing those modules so they can be consumed by the build. The location for storing modules is called repository. By declaring deposiroy for a build, Gradle will
+You'll need to tell Gradle where to find those modules so they can be consumed by the build. The location for storing modules is called repository. By declaring deposiroy for a build, Gradle will
 know how to find and reterice modules. Repository can come in different form as local directoy or remote repository. The reference on repository types provides a broads coverage on this topic
 
-The dependencies might need to be download froma remote repository , reterive from a local directory or require another project to be build in multi-project setting. This process is called
+The dependencies might need to be download from a remote repository , reterive from a local directory or require another project to be build in multi-project setting. This process is called
 dependecy resolution.
 
 once resolved the resolution mechnasim stores the underlying files of dependency in a local cache also referred to as the dependency cache Future builds reuse the files stored in hte cache to
@@ -100,7 +100,7 @@ The Android SDK is a collection of software development tools and libraries requ
 Android or an update a corrsponding SDK.
 
 6) Min SDK
-The min SDK version is the minimum version of the Android operating system required to run your applciation.
+The min SDK version is the minimum version of the Android operating system required to run your application.
 
 7) target SDK
 The target SDK version is the version of your app is target to run on.

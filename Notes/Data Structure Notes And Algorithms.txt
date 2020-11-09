@@ -1,3 +1,33 @@
+What is Recursion :----------------------
+in general a function call ieself is called the recursion.
+All recursion aogorithm must obey three important laws:
+1. A recursive algorithm must have a base case.
+2. A recursive algorithm must change it state and move toward the base case
+3. A recursive algorithm must call itself recursively.
+
+
+What is Stack Overflow error occurs in recursion?
+If the base case is not reached or not defined then the stack overflow problem may arise.
+
+
+What is the difference between direct and indirect recursion?
+A function fun is called direct recursion if it calls the same function fun.
+A function fun is called indirect recursive if it calls another function say fun_new and fun_new calls fun directly or indirectly.
+
+
+How memory is allocated to different function calls in recursion?
+When any function is called from main(), the memory is allocated to it on the stack. A recursion function calls itself the memory for a called function is allocated on top of memory allocated to
+calling function and different copy of local variables is created for each function call. when the base case is reached the funtions return its value to the funtion by whom it is called and memory
+is de-allocated and the process continue.
+
+What are the disadvatage of recursive programming over iterative programming?
+Both recursive and iterative program have the same problem solving power. Every recursive program can be written iteratively and vice versa is also ture. The recursive program has greater space requirement than iterative program as all function will remain
+in the stack until the base case is reached. It also has greater time requirements because of function calls and returns overhead.
+
+
+
+
+
 Introduction :------------------------------
 Data Structure can be  defined as the group of data element which provides an efficient way of storing and organizing data in the computer so that it can be  used efficiently. SOme examples of data struture are array LinkedList, Stack , Queue etc. Data Structure are widely used in almost every aspet of Computer Science. operating System, Compiler Design Artificial Intelligence Graphics and many more.
 
@@ -292,10 +322,16 @@ Space Compleity => O(1)
 
 Binary Search :-------------------------------------------
 
-In Computer Science Binary search also known as half interval search logarithmic search orbinary chop is a search algorithm that finds the position of target value within a sorted array. Binary search compares the target value to the middle element of the array. If they are not equal the half in which the target cannot lie is estimated and the searh continues on the remaining half asin taking middle element to compare to the target value and repeating this until the target value is found. if the search ends the remaining half beign empty the target is not in the array.
+In Computer Science Binary search also known as half interval search logarithmic search orbinary chop is a search algorithm that finds the position of target value within a sorted array. 
+Binary search compares the target value to the middle element of the array. If they are not equal the half in which the target cannot lie is estimated and the searh continues on the remaining 
+half asin taking middle element to compare to the target value and repeating this until the target value is found. if the search ends the remaining half beign empty the target is not in the 
+array.
 
 
-Binary search runs in logarithmic time in the worst case, making O(log n) comparisons, where n is the number of elements in the array, the O is Big O notation, and log  is the logarithm. Binary search is faster than linear search except for small arrays. However, the array must be sorted first to be able to apply binary search. There are specialized data structures designed for fast searching, such as hash tables, that can be searched more efficiently than binary search. However, binary search can be used to solve a wider range of problems, such as finding the next-smallest or next-largest element in the array relative to the target even if it is absent from the array.
+Binary search runs in logarithmic time in the worst case, making O(log n) comparisons, where n is the number of elements in the array, the O is Big O notation, and log  is the logarithm. 
+Binary search is faster than linear search except for small arrays. However, the array must be sorted first to be able to apply binary search. There are specialized data structures designed for 
+fast searching, such as hash tables, that can be searched more efficiently than binary search. However, binary search can be used to solve a wider range of problems, such as finding the 
+next-smallest or next-largest element in the array relative to the target even if it is absent from the array.
 
 
 Queation :- Find next-smallest or next-largest element 
@@ -307,9 +343,13 @@ Queation :- Find next-smallest or next-largest element
 
 
 Dynamic Programming :-----------------------------------------------------------------------
-Dynamic Programming is mainly an optimizationover plainrecursion. Wherever we see a recursion solution that has repeated calls for same inputs , we can optimize it using Dynamic Progamming. The idea is to simply store the result of subproblems so that we do not have to recomputer them when needed later. This simple optimization reduces time complexities from exponential to polynomial. For example if we write simple recursion solution for Fibanacci numbers, we get exponential time complexity and if we optimize it by storing solutions of subproblems, time complexities reduces to linear.
+Dynamic Programming is mainly an optimizationover plainrecursion. Wherever we see a recursion solution that has repeated calls for same inputs , we can optimize it using Dynamic 
+Progamming. The idea is to simply store the result of subproblems so that we do not have to recomputer them when needed later. This simple optimization reduces time complexities 
+from exponential to polynomial. For example if we write simple recursion solution for Fibanacci numbers, we get exponential time complexity and if we optimize it by storing solutions of 
+subproblems, time complexities reduces to linear.
 
-If sub-problem can be nested recursively inside larger problem, so that dynamic programming method are applicable then there is a relation between the value of the larger problem and the value of the sub-problem. In the Optimization literature this relatioship is called the Bellman equation.
+If sub-problem can be nested recursively inside larger problem, so that dynamic programming method are applicable then there is a relation between the value of the larger problem and the 
+value of the sub-problem. In the Optimization literature this relatioship is called the Bellman equation.
 
 
 Dynamic programming How to solve Dynamic Programming problems :-
@@ -323,9 +363,11 @@ There are following two different ways to store the values so that the values of
 Tabulation Method - Bottom Up Dynamic Programming:-------------
 As thename itself suggestes starting from the bottom and cumulating answer to the top. Let's discuss in term of state transition.
 Let's desribe a state for our DP problem to be dp[x]  with dp[0] as base state and dp[n] as our destination state, we need to find the value of destination state dp[n].
-If we start our transition from our base state dp[0] and follow our state transition relation to reach our destination state dp[n] we call it Bottom up Approach as it is quite clear that we started our transition from the bottom base state and reached the top most desired state.
+If we start our transition from our base state dp[0] and follow our state transition relation to reach our destination state dp[n] we call it Bottom up Approach as it is quite clear that we 
+started our transition from the bottom base state and reached the top most desired state.
 
-To know this let’s first write some code to calculate the factorial of a number using bottom up approach. Once, again as our general procedure to solve a DP we first define a state. In this case, we define a state as dp[x], where dp[x] is to find the factorial of x.
+To know this let’s first write some code to calculate the factorial of a number using bottom up approach. Once, again as our general procedure to solve a DP we first define a state. In this 
+case, we define a state as dp[x], where dp[x] is to find the factorial of x.
 
 Now, it is quite obvious that dp[x+1] = dp[x] * (x+1)
 
@@ -343,7 +385,8 @@ for (int i = 1; i< =n; i++)
 
 
 Memoization Method  Top Down Dynamic Programming :-----------------
-Once again let's describe it in term of state transition. If we need to find the value for some state say dp[n] and instead of starting from the base state that dp[0] we ask our answer from the states that we can reach the destination state dp[n] following the state transition relation then it is topdown fashion of DP.
+Once again let's describe it in term of state transition. If we need to find the value for some state say dp[n] and instead of starting from the base state that dp[0] we ask our answer from the 
+states that we can reach the destination state dp[n] following the state transition relation then it is topdown fashion of DP.
 
 
 Once again, let’s write the code for the factorial problem in the top-down fashion
@@ -367,9 +410,12 @@ int solve(int x)
 
 
 Overlapping subproblem :--
-In computer science  a problem is said to have overlapping subproblem can be broken down into subproblem which are reused several times or a recursive algorithm for the problem solves the same subproblem over and over rather than always generating new subproblems.
+In computer science  a problem is said to have overlapping subproblem can be broken down into subproblem which are reused several times or a recursive algorithm for the problem solves 
+the same subproblem over and over rather than always generating new subproblems.
 
-Dynamic Programming combines solutions to sub problem. Dynamic Programming is mainly used when solutions of same subproblem are needed again and again. In dynamic programming computed solutions to subproblem are stored in a table so that these don't have to be recomputed. Sp Dynamic Programming is not useful when there are no common subproblem because there is no point storing the solutions if they are not needed again.
+Dynamic Programming combines solutions to sub problem. Dynamic Programming is mainly used when solutions of same subproblem are needed again and again. In dynamic programming 
+computed solutions to subproblem are stored in a table so that these don't have to be recomputed. Sp Dynamic Programming is not useful when there are no common subproblem because 
+there is no point storing the solutions if they are not needed again.
 
 
 
@@ -378,7 +424,17 @@ Dynamic Programming combines solutions to sub problem. Dynamic Programming is ma
 
 
 Optimal Substructure :-------------------------
-In computer science a problem is said to have optimal substructure if an optimal solution can be constructed from optimal solution of its subproblems. This property is used to determine the usefulness of dynamic programming and greedy algorithm for a problem.
+In computer science a problem is said to have optimal substructure if an optimal solution can be constructed from optimal solution of its subproblems. This property is used to determine the 
+usefulness of dynamic programming and greedy algorithm for a problem.
+
+
+The following computer problems can be solved using dynamic programming approach -
+1) Fibonacci number series
+2) Knapsack problem
+3) Tower of Hanoi
+4) All pair sortest path by Floyd-Warshall
+5) Shortest path by Dijkstra
+6) Project scheduling
 
 
 

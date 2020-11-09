@@ -1,19 +1,19 @@
 import java.io.*;
 import java.util.*;
-
-import javax.swing.border.EtchedBorder;
-
 class Graph{
+
     private int V;
     private ArrayList<ArrayList<Integer>> adj;
     private boolean[] visitors;
     private boolean[] inpath;
+
     Graph(int vertices){
         V = vertices;
         adj = new ArrayList<ArrayList<Integer>>();
         for(int i=0;i<vertices;i++)
             adj.add(new ArrayList<Integer>());
     }
+
     void AddEdge(int u,int v){
         adj.get(u).add(v);
     }
@@ -39,9 +39,8 @@ class Graph{
             else if(visited[c])
                 isCyclicUntil(c, visited, recStack);
         }       
-        recStack[i] = false; 
+        recStack[start] = false; 
         return false; 
- 
     }
 
     boolean isCycleDirect(int start){
@@ -52,8 +51,8 @@ class Graph{
         return isCyclicUntil(start,visitors,inpath);
     }
 
-
 }
+
 public class CycleInDirected {
     public static void main(String[] args) {
         int vertices = 7;
@@ -66,13 +65,11 @@ public class CycleInDirected {
         graph.AddEdge(3, 5);
         graph.AddEdge(4, 6);
         graph.AddEdge(5, 4);
-        graph.AddEdge(6, 5);
-        
+        graph.AddEdge(6, 5);   
         graph.printEdge();
         if(graph.isCycleDirect(0))
             System.out.println("Cycle Present in Graph");
         else
             System.out.println("Cycle not present in Graph");
-
     }
 }

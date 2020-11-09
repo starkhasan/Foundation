@@ -35,6 +35,27 @@ public class RecursionExample {
             fibonacci(num-1);
         }
     }
+
+    //Sum of Digit using Recursion
+    static int sumDigit(int num){
+        if(num>0){
+            int temp = num%10;
+            return temp+sumDigit(num/10);
+        }else{
+            return 0;
+        }
+    }
+
+    //Multiplication of two number without using loop and multiplication operator use Recursion
+    static int productNumber(int x,int y){
+        if(x>0){
+            return  y + productNumber(x-1, y);
+        }else{
+            return 0;
+        }
+    }
+
+
     public static void main(String[] args) throws IOException{
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter Any Number : ");

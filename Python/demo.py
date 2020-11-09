@@ -212,11 +212,4 @@ e-d-c-b-a-b-c-d-e
 
 
 
-s = set()
-for i in range(5):
-    s.add(input())
-
-print(s)
-        
-
 

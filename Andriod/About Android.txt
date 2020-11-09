@@ -1,9 +1,139 @@
+						=#=#=#=#=#=#=#=  Android  =#=#=#=#=#=#=#=#=
+Android is a mobile operating system based on a modified version of the Linux kernal software designed primarily for touchscreen mobile devices such as smartphones and tablets.
+
+Android operating system written in Java,C++,C,XML,Assembly language, Python, Shell script, Go was developed by Linus Trovalds
+
+=> The first beta version of the Android Software Development Kit (SDK) was released by Google in 2007 where as the first commercial version Android 1.0 was released in September 2008.
+
+=> Buzzword of Android
+Open Source
+Larger Developer and Cummunity Reach
+Increase Marketing
+Higher Success Ratio
+Rich Developement Environment
+
+
+Android application can be sold out wither through a store such as Google Play Store, SlideME, Opera Mobile Store, Mobango, F-driod and Amzon Appstore.
+
+
+=> API Level
+API level is an integer value that uniquely identifies the framework API revision offered by a verion of the Android platform.
+
+
+
+=> Android SDK
+The Android SDK is a set of development tools used to develop applications for the Android platform.
+A software development kit that enables developers to create application for the Android platform.
+
+
+
+=> Android Layout
+A layout defines the structure for a user interface in your app, such as in an activity.
+All elements in the layout are build using a hierarchy of View and ViewGroup object.
+
+A View usually draws something the user can see and interact with.
+Whereas a ViewGroup is an invisible container that defines the layout structure for View and other ViewGroup objects.
+
+=> The View object are usually called "widgets" and can be one of many subclasses such as Button or TextView.
+=> The ViewGroup objects are usually called "layout" can be one of many types that provides a different layout structure such as LinearLayout or ConstraintLayout
+
+
+=> Declare a Layout in two ways
+1. Declare UI element in XML . Android provides a straightforword XML vocabulary that corresponds to the View classes and subclasses such as those for widget and layouts.
+2. Instantiate layout elements at runtime. Your app can create View and ViewGroup object  programatically.
+
+
+=> What is the benefit for declaring xml based layout.
+Declaring your UI in XML allows you to separate the presentation of your app from the code that controls its behavior.
+Using XML files also makes it easy to provides different layouts for different screen sizes and orientation.
+
+=> How we load the XML resource
+we can load the View resource by calling setContentView() in our Activity.onCreate() method.
+
+	android:id="@+id/my_button"
+The at-symbol (@) at the begining of the string indicates that the XML parser should parse and expand the rest of the ID string and identify it as an ID resource.
+The plus-symbol (+) means that this is a new resource name that must be created and added to our resource (in the R.java file)
+
+
+
+Constraintlayout => It allows you to create large complex layouts with a flat view hierarchy . It is similar to RelativeLayout in that all views are laid out accordingly to relationship between 
+sibling views and the parent layout, but it's more flexible than RelativeLayout and easier to use with Android Studio's Layout Editor.
+
+
+=> Building Layouts with an Adapter
+When the content for your layout is dynamic or not pre-determined, you can use a layout that subclasses AdapterView to populate the layout with views at runtime.
+A subclasses of the AdaterView classes used an Adater to bind data to its layout.
+Adapter behaves as a middleman between the data source and the AdaterView layout.
+The Adapter reterives the data (from a source such as an array or a database query) and convert each entry into a view can be added into the AdapterView layout.
+
+
+
+
+
+					``=#=#=#=#=#=#=#= Android Emulator  =#=#=#=#=#=#=#=#=
+The Android Emulator simulates Android devices on  your computer so that you can test your application on a variety of device and Android API levels without needing to have each 
+physical device.
+The emulator provides almost all of the capabilities of a real Android device. You can simulate incoming phone calls and test messages specify the location of the device simulate different
+network speeds, simulate rotation and other hardware sensors, access the Google Play Store and much more.
+Testing your app on the emulator is in some ways faster and easier than doing so on physical device.
+
+
+
+
+					=#=#=#=#=#=#=#=  Android Architecture  =#=#=#=#=#=#=#=#=
+Android operating system is a stack of software components which is roughly divided into five sections and four main layers.
+
+1. Linux Kernal
+2. Libraries => Runtime
+3. Application Framework
+4. Applications
+
+1. Linux Kernal
+This provides a level of abstraction between the device hardware and it contain all the essential hardware drivers like camera, keypad, display etc.
+
+2. Libraries
+On top of Linus Kernal there is a set of libraries including , SQLite database which is a useful repository for storage and sharing of application data, libraries to play and records audio and video
+, SSL libraries reponsible for Internet security.
+
+
+=> Android Runtime 
+Dalvik Virtual Machine which is a kind of Java Virtual Machine specially designed and optimized for Android.
+
+
+3. Application Framework
+The Application Framework layer provides many higher-level services to applications in the form of Java classes.
+Some services are , Activity Manager/Content Provides / Resource Manager /  Notifications Manager /  View System
+
+4. Application 
+All Android application found at the top layer. The application to be installed on this layer only.
+
+
+
+					=#=#=#=#=#=#=#=  AAPT (Android Asset Packaging Tools)  =#=#=#=#=#=#=#=#=
+
+AAPT stands for Android Asset packaging tools.
+The AAPT takes your application resoruce files, such as the AndroidManifest.xml file and the XML files for your Activities and compiler them.
+It compile resources into binary assests.
+AAPT2 parses indexs and compiles the resource into binary format that optimized for the Android platform.
+
+
+
+
+							=#=#=#=#=#=#=#= ANRs  =#=#=#=#=#=#=#=#=
+
+When the UI thread of an application app isblocked for too long, an "Application Not Responding" (ANR) error is triggered.
+If the app is in the foreground the system display a dialog to the user.
+The ANR dialog gives the user the opportunity to force quite the App.
+
+ANRs are problem because the app's main thread,which is responsible for updating the UI, can't process user input events or draw, causing frustration to the user.
+
+
 =#=#=#=#=#=#=#=  Broadcast Overview  =#=#=#=#=#=#=#=#=
 Generally speaking , broadcast can be used as messaging system across apps and outside of the normal user flow.
 
 Android apps can send or receive broadcast message from the Android system and other Android apps. These broadcast are sent when an event of interest occurs.
 The Android system send broadcast when various system events occurs such as when the system boots up or the device starts charging.
-App can also send custom broadcasr for example to notify other apps of something that they might be interested in (for example some new data has been downloaded)
+App can also send custom broadcast for example to notify other apps of something that they might be interested in (for example some new data has been downloaded)
 
 (Broadcast receiver is an android component which allow you to send or receive Android system or application event occured. All registetred application are notified by the Andoid runtime
  once event happens.)
@@ -17,12 +147,12 @@ include additional information bundled into its extra field. For example the air
 
 
 Changes to system broadcasts :-----------------
-Beginning with Android 8.0 (API level 26), the system impose additional restriction on manifest-declared receivers. If your app targets Adnroid 8.0 or higher you cannot use the manifest to 
-declare a receiver for most implicit broadcasts. you can still use a content-registered reciver when the user is actively using your app.
+Beginning with Android 8.0 (API level 26), the system impose additional restriction on manifest-declared receivers. If your app targets Android 8.0 or higher you cannot use the manifest to 
+declare a receiver for most implicit broadcasts. you can still use a content-registered receiver when the user is actively using your app.
 
 
 Registered broadcasts :----------------------------
-Apsp can recive broadcast in two ways : through manifest-declared receivers and context-registered receivers.
+Apps can receive broadcast in two ways : through manifest-declared receivers and context-registered receivers.
 
 1) Manifest-deslared receivers (Statically)
 If you declare a broadcast receiver in your manifest the system launches your app (if the app is not already running when the broadcast is sent)
@@ -95,8 +225,8 @@ If you register a receiver in onResume(), you should unregistere it in onPause()
 
 
 Pending Intent =>
-A Pending intent is a token that you give to another application . For example the nootification manager, alarm manager or other 3rd party application) This allows the other application to restore
-the permission of your application to execute a predefined piece of code.
+A Pending intent is a token that you give to another application . For example the nootification manager, alarm manager or other 3rd party application) This allows the other application to 
+restore the permission of your application to execute a predefined piece of code.
 
 
 => If the communication is limited to your application then it is not good to use the global broadcast (In this case use localbroadcast manager)
@@ -247,7 +377,7 @@ Declares the type of data accepted using one or more attributes that specify var
 Declares the intent category accepted in the name attributes. The value must be the string value of an action not the constant.
 
 
-For example here's an activity declaration with an intent filter to receive an ACTION_sEND intent when the data type is text:
+For example here's an activity declaration with an intent filter to receive an ACTION_SEND intent when the data type is text:
 <activity android:name="ShareActivity">
     <intent-filter>
         <action android:name="android.intent.action.SEND"/>
@@ -322,3 +452,30 @@ If the service isnot already running the system first calls onCreate() and then 
 => If the service doesn't also providing binding, the intent that is delivered with startService() is the only mode of the communication between the application component and the service.
 if you want the service to send a result back the client that starts the service can create a Pendingitent for broadcast (with getBroadcast()) and deliver itto the service in the intent start the
 service.
+
+
+
+
+
+
+
+						=#=#=#=#=#=#=#=  Firebase  =#=#=#=#=#=#=#=#=
+What is Firebase?
+Firebase is a Backend-as-a-Service (Baas). 
+It provides developers with a variety of tools and services to help them develop quality apps, grow their user base Application. It is built on Google's infrastructure.
+It is Google's mobile platform that helps you quickly develop high quality app.
+
+
+Key Features of Firebase =>
+1. Authentication
+2. Realtime Database
+3. Hosting
+4. Test Lab
+5. Notification
+6. ML Kit
+
+
+
+
+
+

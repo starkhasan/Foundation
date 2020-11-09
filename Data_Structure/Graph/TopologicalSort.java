@@ -62,9 +62,9 @@ class Graph{
                 isCyclicUntil(c, visited, recStack);
         }
         recStack[i] = false; 
-        return false; 
- 
+        return false;
     }
+    
     boolean isCycle(){
         boolean cyclePresent = false;
         boolean[] visited = new boolean[V];

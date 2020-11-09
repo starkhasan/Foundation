@@ -374,7 +374,7 @@ c:\>java demo.java	=>demo.java is the file name and it will effect the latest co
 
 Explanation:---
 
-> Line begins with the main() methods
+> Line begins with the main() methods (It is the entry point of any java program, JVM start the execution of program)
 > public,keyword is an access modifier,which allows the programmer to control the visiblity of class member(it can be accessed by outside the       (class in which it is declare)
 > static,keyword allows main() to be called without having to instantiate a particular instance of the class.
 > in main(), there is only one parameter    String args[]  declares a parameter named args which is an array of instance of the class String
@@ -442,11 +442,26 @@ What is the difference between print() and println()
 => Identifier
    *  identifier  are  used to name many things like classes,variables and method
    *  it may be any  descriptive sequence of uppercase and lowercase latters,numbers,or the underscore and doller sign character
+   * identifiers are used for identification purpose
+
+	Some Rules for defining Identifiers :-
+	* Identifers start with alphanumeric characters or the underscore  ( _  ) and doller ($) sign.
+	* Identifiers cannot start with the digit 
+	* Identifiers are case-sensitive
+	* Reserved word cannot be used as the identifier name. (there are about 53 reverseed word in java like int,float,while,class,break etc...)
 
 => Literals 
-   the value that is assign to variable that is called the literals
+   Any value that is assign to variable that is called the literals\r\nLiterals can be assigned to any primitive type variable.\r\nIt is the syntactic representation of boolean, character, muneric, or 
+string data.
    int a= 10 here 10 is the literals
 
+Types of Lieterals
+* Boolean Literals
+* Integer Literals
+* Floating Point Literals
+* Characters Literals
+* String Literals
+* null Literals
 
 => Comments
   1)//                            single line comments
@@ -547,7 +562,8 @@ if we write char c = 'B'+32; then c stores 'b'
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Variable
-The variable is the basic unit of storage in a java program. A variable is defined by the combination of an identifier a type and an optional initilizer. In addition all variable have a scope which defines their visibility and a lifetime.
+The variable is the basic unit of storage. A variable is defined by the combination of an identifier a type and an optional initilizer. In addition all variable have a scope which defines their
+visibility and a lifetime.
 
 	Declaring a Variable :----
 In java all variable must be delared before they can be used. the basic form of variable declaration is shown here
@@ -1551,9 +1567,9 @@ Eg - actionPerformed() , firstName , ActionEvent , ActionListener
 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                         CLASS AND OBJECTS
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+                                                                                                        	 		CLASS AND OBJECTS
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 What is Object?
 An object is an entity that has properties for identifying its state, methods or behaviour.
@@ -1595,8 +1611,7 @@ Important =>
             >mybox=new Box();   //allocating a Box object
             >new  operator dynamically allocates the memory  for an object and return a reference to it. 
          
-      > Thus,every Box object will contain its own copies of the instance variable  width , height and depth.To access these variable,you will                use         
-         the                dot(.)
+      > Thus,every Box object will contain its own copies of the instance variable  width , height and depth.To access these variable,you will use the  dot(.)
       > The dot(.) operator links the name of the object with the name of an instance variable.
  
 
@@ -1604,10 +1619,11 @@ Important =>
 
 
 
-                                                                               ---------------------:: CONSTRUCTOR ::----------------------
+                                                                               		---------------------:: CONSTRUCTOR ::----------------------
 
 
-=> In Java , a constructor is a block of codes similar to the method. It is called when an instance of the class is created. At  the time of calling      constructor memory of the object is allocated in the memory.
+=> In Java , a constructor is a block of codes similar to the method. It is called when an instance of the class is created. At  the time of calling constructor memory of the object is allocated 
+in the memory.
 
 It is special type of method which is used to initialize the object.
 Every time an object is created using the new() Keyword, at least one constructor is called.
@@ -1667,9 +1683,9 @@ Apply a final keyword to a method means you cannot override that method but by d
 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                                 POLYMORPHISM
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                                 		POLYMORPHISM
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 Polymrophism is an important feature of an object oriented programming
 Polymorphism means poly => many   and   morph =>form
@@ -1685,7 +1701,7 @@ Two types of polymorphism
 Example=>
 
 import java.util.*;
-class demo
+class Demo
 {
     public void sum1(int num1,int num2)
     {
@@ -1699,7 +1715,7 @@ class demo
     }
     public static void main(String [] args)
     {
-        demo d = new demo();
+        Demo d = new Demo();
         Scanner sc = new Scanner(System.in);
         int a,b,c;
         System.out.println("Enter the number : ");
