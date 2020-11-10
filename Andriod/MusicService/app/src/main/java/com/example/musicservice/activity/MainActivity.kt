@@ -1,12 +1,13 @@
 package com.example.musicservice.activity
-
 import android.content.*
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.IBinder
 import android.provider.MediaStore
+import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
@@ -19,9 +20,7 @@ import com.example.musicservice.adapter.MusicAdapter
 import com.example.musicservice.response.AudioModel
 import com.example.musicservice.util.MusicService
 import kotlinx.android.synthetic.main.activity_main.*
-
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),MusicService.Callbacks {
     var mService: MusicService? = null
     var mBound = false
     var isStart = false
@@ -32,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     var isLoop = false
     var isDirect = false
     private val listener = MyBroadcastReceiver()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -97,8 +97,12 @@ class MainActivity : AppCompatActivity() {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {}
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                if (mService!!.mediaPlayer != null && mService!!.mediaPlayer!!.isPlaying()) {
-                    mService!!.mediaPlayer!!.seekTo(seekBar!!.progress);
+                if(mBound) {
+                    if (mService!!.mediaPlayer != null && mService!!.mediaPlayer!!.isPlaying()) {
+                        mService!!.mediaPlayer!!.seekTo(seekBar!!.progress);
+                    }
+                }else{
+                    Toast.makeText(applicationContext,"Please Start Music",Toast.LENGTH_SHORT).show()
                 }
             }
         })
@@ -154,16 +158,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getPermission(){
-        if(ContextCompat.checkSelfPermission(
-                MainActivity@ this,
-                android.Manifest.permission.READ_EXTERNAL_STORAGE
-            ) == PackageManager.PERMISSION_GRANTED){
+        if(ContextCompat.checkSelfPermission(MainActivity@this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
             getMediaFile()
         }else{
-            requestPermissions(
-                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
-                PERMISSION_CODE
-            )
+            requestPermissions(arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSION_CODE)
         }
     }
 
@@ -177,11 +175,7 @@ class MainActivity : AppCompatActivity() {
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     getMediaFile()
                 } else {
-                    Toast.makeText(
-                        applicationContext,
-                        "Grant Permission for better Result",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(applicationContext, "Grant Permission for better Result", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -206,7 +200,7 @@ class MainActivity : AppCompatActivity() {
         musicAdapter = MusicAdapter(this, mediaList){ position: Int, uri: String, flag: String ->
             if(flag == "Start"){
                 musicPosition = position
-                if(!isStart) {
+                if(!isStart){
                     musicIntent(position)
                 }else{
                     if(mService!!.mediaPlayer!=null){
@@ -223,11 +217,52 @@ class MainActivity : AppCompatActivity() {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
             val binder: MusicService.MusicBinder = service as MusicService.MusicBinder
             mService = binder.getService()
-            mBound = true
-            if(isDirect){
+            mService!!.registerClient(this@MainActivity)
+            if(!mBound){
+                mBound = true
+                mService!!.doUpdateClient()
+            }
+            if(isDirect) {
                 isDirect = false
                 mService!!.mediaPlayer!!.isLooping = true
             }
+        }
+        override fun onServiceDisconnected(name: ComponentName?) {
+            mBound = false
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if(id == android.R.id.home){
+            Toast.makeText(applicationContext, "Clicked", Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun musicIntent(position: Int){
+        if(isLoop && !isDirect){
+            isLoop = false
+            ivRepeat.setImageResource(R.drawable.icon_no_repeat)
+        }
+        val intent = Intent(this, MusicService::class.java)
+        intent.putExtra("Uri", mediaList[position].uri)
+        intent.putExtra("position",musicPosition)
+        bindService(intent, mConnection, Context.BIND_AUTO_CREATE)
+        startService(intent)
+        ivPlay.setImageResource(R.drawable.icon_pausee)
+        isStart = true
+        for(i in 0..mediaList.size-1){
+            if(i==position)
+                mediaList[i].isPlaying = true
+            else
+                mediaList[i].isPlaying = false
+        }
+        musicAdapter!!.notifyDataSetChanged()
+    }
+
+    override fun updateClient() {
+        if(mBound){
             val thread = Thread{
                 var currentPosition = mService!!.mediaPlayer!!.currentPosition
                 val total = mService!!.mediaPlayer!!.duration
@@ -235,7 +270,7 @@ class MainActivity : AppCompatActivity() {
                     try {
                         Thread.sleep(1000)
                         currentPosition = mService!!.mediaPlayer!!.currentPosition
-                        println("$currentPosition has run.")
+                        //println("$currentPosition has run.")
                         setText(tvStartTime, currentPosition)
                     }catch (e: Exception){
                         return@Thread
@@ -244,10 +279,8 @@ class MainActivity : AppCompatActivity() {
             }
             thread.start()
         }
-        override fun onServiceDisconnected(name: ComponentName?) {
-            mBound = false
-        }
     }
+
     private fun setText(text: TextView, mills: Int) {
         val value = milliSecondsToTimer(mills.toLong())
         runOnUiThread {
@@ -277,37 +310,7 @@ class MainActivity : AppCompatActivity() {
             "" + seconds
         }
         finalTimerString = "$finalTimerString$minutes:$secondsString"
-        // return timer string
         return finalTimerString
-    }
-
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        if(id == android.R.id.home){
-            Toast.makeText(applicationContext, "Clicked", Toast.LENGTH_SHORT).show()
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    fun musicIntent(position: Int){
-        if(isLoop && !isDirect){
-            isLoop = false
-            ivRepeat.setImageResource(R.drawable.icon_no_repeat)
-        }
-        val intent = Intent(this, MusicService::class.java)
-        intent.putExtra("Uri", mediaList[position].uri)
-        bindService(intent, mConnection, Context.BIND_AUTO_CREATE)
-        startService(intent)
-        ivPlay.setImageResource(R.drawable.icon_pausee)
-        isStart = true
-        for(i in 0..mediaList.size-1){
-            if(i==position)
-                mediaList[i].isPlaying = true
-            else
-                mediaList[i].isPlaying = false
-        }
-        musicAdapter!!.notifyDataSetChanged()
     }
 
     /*

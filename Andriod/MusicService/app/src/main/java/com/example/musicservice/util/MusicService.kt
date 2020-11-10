@@ -1,19 +1,27 @@
 package com.example.musicservice.util
 
+import android.app.Activity
 import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
-import android.media.MediaPlayer.OnCompletionListener
 import android.net.Uri
 import android.os.Binder
+import android.os.Handler
 import android.os.IBinder
 import android.widget.Toast
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 
+
 class MusicService : Service() {
 
     var mediaPlayer : MediaPlayer ?= null
+    var activity: Callbacks? = null
+    var handler: Handler = Handler()
+    private var startTime: Long = 0
+    private var millis: Long = 0
     private val mBinder: IBinder = MusicBinder()
+
+
     override fun onBind(intent: Intent?): IBinder? {
         return mBinder
     }
@@ -32,7 +40,9 @@ class MusicService : Service() {
                 val localIntent = Intent("FINISHED")
                 localBroadcastManager.sendBroadcast(localIntent)
             })
-
+            if(activity!=null){
+                activity!!.updateClient()
+            }
         }catch (e: Exception){
             val toast= Toast.makeText(this, "Error", Toast.LENGTH_SHORT)
             toast.show()
@@ -42,7 +52,18 @@ class MusicService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+    }
 
+    fun registerClient(activity: Activity?) {
+        this.activity = activity as Callbacks?
+    }
+
+    fun doUpdateClient(){
+        activity!!.updateClient()
+    }
+
+    interface Callbacks {
+        fun updateClient()
     }
 
 }
