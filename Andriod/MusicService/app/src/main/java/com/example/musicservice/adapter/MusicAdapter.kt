@@ -23,9 +23,12 @@ class MusicAdapter(val context: MainActivity, val mediaList: ArrayList<AudioMode
             listener(position, mediaList[position].uri, "Start")
         }
         if (mediaList[position].isPlaying){
-            holder.itemView.tvAlbumName.setTextColor(Color.parseColor("#6200EE"))
-        }else
-            holder.itemView.tvAlbumName.setTextColor(Color.parseColor("#000000"))
+            holder.itemView.ivMusic.setImageDrawable(context.getDrawable(R.drawable.icon_music_play))
+            holder.itemView.tvAlbumName.setTextColor(Color.parseColor("#1DD05D"))
+        }else {
+            holder.itemView.ivMusic.setImageDrawable(context.getDrawable(R.drawable.icon_music))
+            holder.itemView.tvAlbumName.setTextColor(Color.parseColor("#FFFFFF"))
+        }
     }
 
     override fun getItemCount(): Int {

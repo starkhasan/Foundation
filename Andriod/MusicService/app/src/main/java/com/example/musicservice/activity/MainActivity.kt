@@ -1,6 +1,8 @@
 package com.example.musicservice.activity
 import android.content.*
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.IBinder
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity(),MusicService.Callbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        //supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         getPermission()
 
         LocalBroadcastManager.getInstance(this).registerReceiver(listener, IntentFilter("FINISHED"))

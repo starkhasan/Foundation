@@ -2,8 +2,11 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#6200EE</color>
+    <color name="colorAccent">#ffffff</color>
     <color name="grey">#E4EAEAEA</color>
     <color name="card_back">#286200EE</color>
     <color name="white">#FFFFFF</color>
+    <color name="green">#1DD05D</color>
+    <color name="bg_player">#3D3C44</color>
+    <color name="black">#000000</color>
 </resources>

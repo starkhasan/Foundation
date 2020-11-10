@@ -16,11 +16,7 @@ class MusicService : Service() {
 
     var mediaPlayer : MediaPlayer ?= null
     var activity: Callbacks? = null
-    var handler: Handler = Handler()
-    private var startTime: Long = 0
-    private var millis: Long = 0
     private val mBinder: IBinder = MusicBinder()
-
 
     override fun onBind(intent: Intent?): IBinder? {
         return mBinder
