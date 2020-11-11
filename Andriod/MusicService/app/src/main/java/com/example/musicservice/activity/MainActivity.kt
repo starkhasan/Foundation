@@ -40,9 +40,7 @@ class MainActivity : AppCompatActivity(),MusicService.Callbacks {
         setContentView(R.layout.activity_main)
         //supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         getPermission()
-
         LocalBroadcastManager.getInstance(this).registerReceiver(listener, IntentFilter("FINISHED"))
-
         ivPlay.setOnClickListener {
             if(mBound){
                 if(isStart){
@@ -150,7 +148,6 @@ class MainActivity : AppCompatActivity(),MusicService.Callbacks {
                 tvStartTime.text = "0:00"
                 tvtotalTime.text = "0:00"
             }catch (e:Exception){}
-
         }
     }
 
