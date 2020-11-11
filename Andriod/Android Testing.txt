@@ -1,6 +1,7 @@
-17:39 18-01-2020   Testing of Android Application :--------------------------------------------
+Testing of Android Application :--------------------------------------------
 
-Testing your app is an integral part of the app development process. By running test against your app consistently you can verify your app's correctness, functional behavior and usability before you release it publicly..
+Testing your app is an integral part of the app development process. By running test against your app consistently you can verify your app's correctness, functional behavior and usability 
+before you release it publicly..
 
 Testing also provides you with  the following adavantages:
 1) Rapid feedback on failures
@@ -13,7 +14,7 @@ Testing also provides you with  the following adavantages:
 Android is the largest operating system in the world. At the same time Android is fragmented there are tons of device and Android version that your app must be compatible with.
 
 Application must be campatible with variety of devices
-It doesn't mamtter how mush time you invest in design and implementation mistakes and inevitable and bugs will appear.
+It doesn't matter how much time you invest in design and implementation mistakes and inevitable and bugs will appear.
 
 
 Typical failure in Android Application
@@ -29,17 +30,19 @@ Typical failure in Android Application
 A correct android testing should include the following
 1) Unit Test
 2) Integration Test
-3) OPerational Test
+3) Operational Test
 4) System Test
 
 
 
 1) Unit Test :--------------------------------------------
 Unit Tests includes sets of one or more programs which are designed to verify an atomic unit of source code such as a method or a class.
-Android platform comes pre-integrated Junit 3.0 framework. It's open source framework for automating Unit Testing. Android Testing Framework is powerful toll for developer to write the effective unit test program.
+Android platform comes pre-integrated Junit 3.0 framework. It's open source framework for automating Unit Testing. Android Testing Framework is powerful tool for developer to write the 
+effective unit test program.
 
 
-An addition to Unnit Testing is User Interface (UI) test. These tests related to UI components of your target application. UI tests ensure that your application reurn the correct UI out out response to sequence of user actions on device.
+An addition to Unit Testing is User Interface (UI) test. These tests related to UI components of your target application. UI tests ensure that your application reurn the correct UI out out 
+response to sequence of user actions on device.
 
 One of the best tools to conduct UI testing on Android is Robotium.
 
@@ -47,9 +50,8 @@ One of the best tools to conduct UI testing on Android is Robotium.
 
 
 2) Integration tests :------------------------------------------
-
-
- In integration Testing all unit tested  modules are combined and verified. IN Android integration tests often invoked checking integration with Android component such as Service testing, Activity testing, Content Provider testing.
+ In Integration Testing all unit tested  modules are combined and verified.
+ In Android integration tests often invoked checking integration with Android component such as Service testing, Activity testing, Content Provider testing.
 
 
 => Activty testing 
@@ -57,8 +59,8 @@ Activities have complex lifecycle provided by ActivityManager
 UI interaction like key event touch event
 
 => Service Testing
-Testvarioous states of service lifecycle and interaction between application service
-User Service test case to tes service
+Test varioous states of service lifecycle and interaction between application service
+User Service test case to test service
 
 => Content provider Testing
 Store and reterive data and make it accessible across application 

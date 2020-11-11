@@ -2,7 +2,7 @@ package Hacker;
 import java.util.*;
 public class HackerRankInString {
     static String hackerrankInString(String s) {
-        String result = "";
+        /*String result = "";
         String str = "hackerrank";
         int pos = 0;
         for(int i=0;i<s.length();i++){
@@ -17,7 +17,20 @@ public class HackerRankInString {
             return "YES";
         }else{
             return "NO";
+        }*/
+        String hacker = "hackerrank";
+        String result = "YES";
+        int count = 0;
+        for(int i=0;i<hacker.length();i++){
+            if(s.contains(String.valueOf(hacker.charAt(i)))){
+                int pos = s.indexOf(String.valueOf(hacker.charAt(i)));
+                s = s.substring(pos+1);
+            }else{
+                result = "NO";
+                break;
+            }
         }
+        return result;
     }
 	public static void main(String [] args){
 		Scanner sc = new Scanner(System.in);

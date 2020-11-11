@@ -1,0 +1,9 @@
+Sandbox Keys and Configuration
+Here are the keys to your Sandbox Account. Once you're ready to start  taking payment with a production Braintree Account
+you'll have to update your code replacing these with your production Braintree Account keys
+
+Merchant ID : fjfw5rhwc4cqz8nj
+
+Public Key : 2h4w7sqzb5rndy6j
+
+Private Key : 7e83b4061e4386fa0b580b1ac71618f0

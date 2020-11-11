@@ -39,7 +39,6 @@ class VideoPlayer : AppCompatActivity() {
             videoview.seekTo(1)
         }
         videoview.start()
-
         videoview.setOnPreparedListener(object : MediaPlayer.OnPreparedListener {
             override fun onPrepared(mp: MediaPlayer?) {
                 mp!!.isLooping = false

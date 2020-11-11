@@ -20,6 +20,19 @@ public class LeftRotation {
             arr.add(ar[i]);
         }
         return arr;
+        /**
+         * Seocnd Method
+            int count = 0;
+            while(count<d){
+                int temp = arr.get(0);
+                for(int i=0;i<arr.size()-1;i++){
+                    arr.set(i,arr.get(i+1));
+                }
+                arr.set(arr.size()-1,temp);
+                count++;
+            }
+            return arr;
+         */
     }
     public static void main(String[] args) throws IOexception{
         BufferedReader buffer = new BufferedReader(new FileReader("InputDemo.txt"));

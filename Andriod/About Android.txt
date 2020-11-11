@@ -48,7 +48,7 @@ Declaring your UI in XML allows you to separate the presentation of your app fro
 Using XML files also makes it easy to provides different layouts for different screen sizes and orientation.
 
 => How we load the XML resource
-we can load the View resource by calling setContentView() in our Activity.onCreate() method.
+we can load the View resource by calling setContentView() in our Activity's .onCreate() method.
 
 	android:id="@+id/my_button"
 The at-symbol (@) at the begining of the string indicates that the XML parser should parse and expand the rest of the ID string and identify it as an ID resource.
@@ -69,11 +69,11 @@ The Adapter reterives the data (from a source such as an array or a database que
 
 
 
-
 					``=#=#=#=#=#=#=#= Android Emulator  =#=#=#=#=#=#=#=#=
+
 The Android Emulator simulates Android devices on  your computer so that you can test your application on a variety of device and Android API levels without needing to have each 
 physical device.
-The emulator provides almost all of the capabilities of a real Android device. You can simulate incoming phone calls and test messages specify the location of the device simulate different
+The emulator provides almost all of the capabilities of a real Android device. You can simulate incoming phone calls and text messages specify the location of the device simulate different
 network speeds, simulate rotation and other hardware sensors, access the Google Play Store and much more.
 Testing your app on the emulator is in some ways faster and easier than doing so on physical device.
 
@@ -121,14 +121,156 @@ AAPT2 parses indexs and compiles the resource into binary format that optimized 
 
 							=#=#=#=#=#=#=#= ANRs  =#=#=#=#=#=#=#=#=
 
-When the UI thread of an application app isblocked for too long, an "Application Not Responding" (ANR) error is triggered.
+When the UI thread of an application app is blocked for too long, an "Application Not Responding" (ANR) error is triggered.
 If the app is in the foreground the system display a dialog to the user.
 The ANR dialog gives the user the opportunity to force quite the App.
 
 ANRs are problem because the app's main thread,which is responsible for updating the UI, can't process user input events or draw, causing frustration to the user.
 
 
-=#=#=#=#=#=#=#=  Broadcast Overview  =#=#=#=#=#=#=#=#=
+
+
+
+
+						=#=#=#=#=#=#=#=  Permission on Android  =#=#=#=#=#=#=#=#=
+The purpose of permission is to protect the privacy of an Android User.
+Android apps must request premission to access sensitive user data (such as contact and SMS), as well as certain system features (such as camera and internet).
+Depending on the feature the system might grant the permission automatically or might prompt the user to approve the request.
+
+
+=> Protection levels
+Permissions are divided into several protection levels.
+The protection level affects whether runtime permission requests are required
+
+There are three protection level that affect third-party apps:
+1. Normal Permission
+2. Signature Permission
+3. Dangerous Permission
+
+=> Normal Permission cover areas where your app needs to access data or resources outside the app's sandbox, but where there's very little risk to the user's privacy of the operation of the operation
+of other apps.
+If an app declares in its manifest that it needs a normal permision, the system automatically grants the app that permission at install time. The system doesn't prompt the user to grant
+permissions and user cannot revoke these permissions.
+
+
+=> Signature Permissions
+The system grants these app permission at install time, but only when the app that attempts to use a permission is signed by the same certificate as the app that defines the permission.
+
+
+=> Dangerous Permission
+Dangerous Permission cover ares where the app-wants data or resource that involve the user's private information, or could potentially affect the user's stored data or the operation of the other apps.
+
+
+=> Viewing an app's permissions
+You can view all the permission ucrrently defined in the system using the Setting app and the shell command abd shell pm list permisson.
+To use the Setting app go to Settings > Apps.
+
+
+
+
+=> Request Permission
+If you declare any dangerous permisssions and if your app is installed on a device that run Android 6.0 (API Level 23) or higher you must request the dangerous permission at runtime.
+If you den't declare any dangerous permission or if your app is installed on a device that run Android 5.1 ( API Level 22) or lower the permission are automatically granted.
+
+
+=> Check for permissions
+If your app needs a dangerous permission, you must check whether you have that permission every time you perform an operation that require that permission. On Android 6.0 and Higher
+
+
+if (ContextCompat.checkSelfPermission(CONTEXT, Manifest.permission.REQUESTED_PERMISSION) == PackageManager.PERMISSION_GRANTED) {
+    	performAction(...);
+} else if (shouldShowRequestPermissionRationale(...)) {
+    showInContextUI(...);
+} else {
+    requestPermissions(CONTEXT,new String[] { Manifest.permission.REQUESTED_PERMISSION },REQUEST_CODE);
+}
+
+
+
+After the user responds to the system permissions dialog the system then invokes your app's implementation of onRequestPermissionResult(). The system passes in the user response to the 
+permission dialog as well as the request code that you defined as shown in the follwing code.
+
+
+
+@Override
+public void onRequestPermissionsResult(int requestCode, String[] permissions,
+        int[] grantResults) {
+    switch (requestCode) {
+        case PERMISSION_REQUEST_CODE:
+            // If request is cancelled, the result arrays are empty.
+            if (grantResults.length > 0 &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission is granted. Continue the action or workflow
+                // in your app.
+            }  else {
+                // Explain to the user that the feature is unavailable because
+                // the features requires a permission that the user has denied.
+                // At the same time, respect the user's decision. Don't link to
+                // system settings in an effort to convince the user to change
+                // their decision.
+            }
+            return;
+        }
+        // Other 'case' lines to check for other
+        // permissions this app might request.
+    }
+}
+
+
+
+
+
+=> One-time Permission
+Starting in Android 11 (API level 30 ), whenever your app request a permission related to location, microphone, or camera the user-facing permission dialog caontains an option called Only this
+time . If the user select this option in the dialog your app is granted a temporary one-time permission.
+	
+	When the user next opens your app and a feature in your app request access to  location microphone or camera the user is prompted for the permission again.
+
+
+
+=> Auto-reset permission of unused apps
+If your app targets Android 11 (API level 30) or higher and isn't used for a few month the system protects user data by automatically resetting the sensitive runtime permission that the user
+had granted your app.
+			(Request user to disable auto-reset)
+
+
+
+
+
+
+
+
+
+						=#=#=#=#=#=#=#=  Payment Gateway  =#=#=#=#=#=#=#=#=
+=> What is payment gateway and how does it work ?
+A Payment gateway is a technology for credit or debit card payment integration into mobile application and on websites. Payment gateway technology is responsible for secure customer
+data gathering on the frontend part of the app. A payment gateway sends data to ac acquiring bacnk payment processor in order to perform the transaction.
+
+How it work : Users select products that they want to buy and add them to their shopping carts. The cart is connected to the payment gateway service which allows user to enter their credit 
+card details. When users write out cards and pay for their order, the gateway sends a request to the bank that issued the card.
+
+
+
+
+=> Best online payment processors
+A payment processor is a company that a seller uses to process credit card transactions. Payment systems use anti-fraud measure to protect both the client and the seller. before intergration
+payment gateway in android app let's see what are best gateway payment services. Here is the list of best online payment processors:
+
+1. Dwolla
+2. Google Checkout
+3. Authorize.Net
+4. PayPal
+5. Amazon Payments
+6. Stripe
+7. Braintree
+
+
+
+
+		
+
+						=#=#=#=#=#=#=#=  Broadcast Overview  =#=#=#=#=#=#=#=#=
+
 Generally speaking , broadcast can be used as messaging system across apps and outside of the normal user flow.
 
 Android apps can send or receive broadcast message from the Android system and other Android apps. These broadcast are sent when an event of interest occurs.
