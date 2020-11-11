@@ -61,5 +61,4 @@ class MusicService : Service() {
     interface Callbacks {
         fun updateClient()
     }
-
 }

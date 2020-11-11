@@ -21,6 +21,7 @@ import com.example.musicservice.R
 import com.example.musicservice.adapter.MusicAdapter
 import com.example.musicservice.response.AudioModel
 import com.example.musicservice.util.MusicService
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(),MusicService.Callbacks {
     var mService: MusicService? = null
@@ -104,7 +105,9 @@ class MainActivity : AppCompatActivity(),MusicService.Callbacks {
                         mService!!.mediaPlayer!!.seekTo(seekBar!!.progress);
                     }
                 }else{
-                    Toast.makeText(applicationContext,"Please Start Music",Toast.LENGTH_SHORT).show()
+                    seekBar?.setProgress(0)
+                    val snackbar = Snackbar.make(coordinatorLayout,"Please Start Music",Snackbar.LENGTH_SHORT)
+                    snackbar.show()
                 }
             }
         })
