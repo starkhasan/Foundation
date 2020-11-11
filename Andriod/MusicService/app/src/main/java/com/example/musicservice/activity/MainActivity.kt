@@ -135,6 +135,23 @@ class MainActivity : AppCompatActivity(),MusicService.Callbacks {
                 }
             }
         }
+
+        ivVideo.setOnClickListener {
+            startActivity(Intent(this,VideoPlayerActivity::class.java))
+            val intent = Intent(this, MusicService::class.java)
+            try {
+                unbindService(mConnection)
+                stopService(intent)
+                for(i in 0..mediaList.size-1){
+                    mediaList[i].isPlaying = false
+                }
+                musicAdapter!!.notifyDataSetChanged()
+                seekBar.setProgress(0)
+                tvStartTime.text = "0:00"
+                tvtotalTime.text = "0:00"
+            }catch (e:Exception){}
+
+        }
     }
 
     override fun onDestroy() {
@@ -233,6 +250,7 @@ class MainActivity : AppCompatActivity(),MusicService.Callbacks {
             }
         }
         override fun onServiceDisconnected(name: ComponentName?) {
+            Toast.makeText(applicationContext,"Service UnRegistered",Toast.LENGTH_SHORT).show()
             mBound = false
         }
     }

@@ -48,6 +48,7 @@ class MusicService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        mediaPlayer!!.release()
     }
 
     fun registerClient(activity: Activity?) {
