@@ -7,3 +7,15 @@ Merchant ID : fjfw5rhwc4cqz8nj
 Public Key : 2h4w7sqzb5rndy6j
 
 Private Key : 7e83b4061e4386fa0b580b1ac71618f0
+
+
+2h4w7sqzb5rndy6j	7e83b4061e4386fa0b580b1ac71618f0	sandbox	fjfw5rhwc4cqz8nj
+
+
+Implementation in Java :-
+BraintreeGateway gateway = new BraintreeGateway(
+  Environment.SANDBOX,
+  "fjfw5rhwc4cqz8nj",
+  "2h4w7sqzb5rndy6j",
+  "7e83b4061e4386fa0b580b1ac71618f0"
+);

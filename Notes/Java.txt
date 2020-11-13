@@ -5847,11 +5847,11 @@ Averages of iob and fob are the same.
 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                      COLLECTION  FRAMEWORK
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                      			COLLECTION  FRAMEWORK
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
-The Collection Framework is a sophisticated hierarchy of interfaces and classes that provides state-of-the-art technology for mapping groups of objects. It merits close attention by all programmer.
+The Collection Framework is a sophisticated hierarchy of interfaces and classes that provides state-of-the-art technology for mapping groups of objects. It merits close attention by all programmer
 Collection is a group of object.
 Collection is container object it is used for storing multiple homogeneous and hetrogeneous,unique and duplicate object without size limitation.
 Collection is used for storing multiple object as a single object.
@@ -5886,7 +5886,7 @@ The Interfaces defined by java.util are shown :-
 	Collection				List			Queue
 	Comparator			ListIterator		RandomAccess
 	Dqeue				Map			Set
-	Enum eration			Map.Entry			SortedMap
+	Enum eration			Map.Entry		SortedMap
 	EventListener			NevigableMap		SortedSet
 	Formattable			NevigableSet
 	Iterator				Observer
@@ -5905,12 +5905,13 @@ Map store Key/Value pairs
 
 
 => Autoboxing Facilities the Use of Primitive Types
-Autoboxing / unboxing facilities the storing of primitive types in collections. As you will see a collection can store only references not primitive values. In the past if you wanted to store a primitive value such as an int in a collections you had to manually box it into its type wrapper.
+Autoboxing / unboxing facilities the storing of primitive types in collections. As you will see a collection can store only references not primitive values. In the past if you wanted to store a 
+primitive value such as an int in a collections you had to manually box it into its type wrapper.
 
 
 
 		
-			                                  ----------: Collection Interfaces :----------
+			                                  			----------: Collection Interfaces :----------
 
 The Collections Framework define several interfaces. This section provides an overview of each interface.
 
@@ -5951,7 +5952,7 @@ Collection that do not allow their contents to be changes are called unmodifiabl
 
 
 
-				                ---------: Some method of Collection :---------
+				                			---------: Some method of Collection :---------
 
 	add()		Objects are added to a collection
 	addAll()		add the entire contents of one collection to another 
@@ -5968,7 +5969,7 @@ Collection that do not allow their contents to be changes are called unmodifiabl
 
 
 
-				                       ------------: List Interfae :----------
+				                       		------------: List Interface :----------
 
 The List Interface extends the Collection Interface and declares the behaviour of a collection that stores a sequence of elements.
 A List may contain duplicate elements.
@@ -5994,6 +5995,7 @@ ArrayList supports dynamic arrays that can be grow as needed
 ArrayList is a variable-length array of object reference
 ArrayList can dynamically increase or decrease in size
 ArrayList size exceeded collection automatically enlarged when added and object are removed the array can be shrunk.
+ArrayList is a sequential list. So, insertion and retrieval order is the same
 
 
 ArrayList has the constructor shown here:
@@ -6137,6 +6139,13 @@ output =>
 
 
 
+=> Different method to convert the List to Array
+
+1) Using Object[] toArray() method
+2) Manual Method
+3) Using List stream() and mapToInt().toArray() method in List
+
+
 
 
 	LinkedList Classes :--------------
@@ -6158,7 +6167,7 @@ Some important methods of the LinkedList
 	addFirst()		add elements to the start of a list
 	offerFirst()	add elements to the start of a list
 	addLast()		add elements to the end of the list
-	offerLast()		add elements to the end of the list
+	offerLast()	add elements to the end of the list
 	getFirst()		to obtain the first element
 	peekFirst()	to obtain the first element
 	getLast()		to obtain the last element
