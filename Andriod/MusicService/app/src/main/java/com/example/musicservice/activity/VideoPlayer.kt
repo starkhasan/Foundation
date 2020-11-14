@@ -4,7 +4,9 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.webkit.URLUtil
 import android.widget.MediaController
+import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.musicservice.R
 import kotlinx.android.synthetic.main.layout_video_player.*
@@ -12,6 +14,7 @@ import kotlinx.android.synthetic.main.layout_video_player.*
 class VideoPlayer : AppCompatActivity() {
 
     private val VIDEO_SAMPLE = "video_test"
+    private val ONLINE_VIDEO_SAMPLE = "https://developers.google.com/training/images/tacoma_narrows.mp4";
     private var mCurrentPosition = 0
     private val PLAYBACK_TIME = "play_time"
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,23 +30,37 @@ class VideoPlayer : AppCompatActivity() {
     }
 
     private fun getMedia(mediaName: String): Uri {
-        //return Uri.parse("android.resource://" + getPackageName() + "/raw/" + mediaName)
-        return Uri.parse(intent.extras!!.get("url") as String?)
+        //UnComment this For Playing Online Video
+        /*if(URLUtil.isValidUrl(mediaName)){
+            return Uri.parse(mediaName)
+        }else{
+            return Uri.parse("android.resource://" + getPackageName() + "/raw/" + mediaName)
+        }*/
+        return Uri.parse(intent.extras!!.get("url") as String?)//For Offline Video
     }
 
     private fun initializePlayer(){
-        val videoUri = getMedia(VIDEO_SAMPLE)
+        val videoUri = getMedia(ONLINE_VIDEO_SAMPLE)
+        //buffering_textview.setVisibility(VideoView.VISIBLE)
+        newton_cradle_loading.start()
         videoview.setVideoURI(videoUri)
-        if (mCurrentPosition > 0) {
-            videoview.seekTo(mCurrentPosition)
-        } else {
-            videoview.seekTo(1)
-        }
-        videoview.start()
+
         videoview.setOnPreparedListener(object : MediaPlayer.OnPreparedListener {
             override fun onPrepared(mp: MediaPlayer?) {
-                mp!!.isLooping = false
+                newton_cradle_loading.setVisibility(VideoView.INVISIBLE)
+                if (mCurrentPosition > 0) {
+                    videoview.seekTo(mCurrentPosition);
+                } else {
+                    videoview.seekTo(1);
+                }
+                videoview.start()
+                mp!!.isLooping = true
             }
+        })
+
+        videoview.setOnErrorListener(MediaPlayer.OnErrorListener { mp, what, extra ->
+            buffering_textview.setVisibility(VideoView.GONE)
+            false
         })
     }
 
@@ -66,6 +83,6 @@ class VideoPlayer : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt(PLAYBACK_TIME,mCurrentPosition)
+        outState.putInt(PLAYBACK_TIME, mCurrentPosition)
     }
 }
