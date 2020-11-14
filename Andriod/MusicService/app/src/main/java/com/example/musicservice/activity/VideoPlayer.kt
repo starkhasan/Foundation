@@ -27,7 +27,8 @@ class VideoPlayer : AppCompatActivity() {
     }
 
     private fun getMedia(mediaName: String): Uri {
-        return Uri.parse("android.resource://" + getPackageName() + "/raw/" + mediaName)
+        //return Uri.parse("android.resource://" + getPackageName() + "/raw/" + mediaName)
+        return Uri.parse(intent.extras!!.get("url") as String?)
     }
 
     private fun initializePlayer(){
