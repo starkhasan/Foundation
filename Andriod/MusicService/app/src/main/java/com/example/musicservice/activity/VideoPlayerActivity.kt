@@ -1,8 +1,10 @@
 package com.example.musicservice.activity
 
+import android.content.ContentResolver
 import android.content.ContentUris
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -57,6 +59,7 @@ class VideoPlayerActivity : AppCompatActivity() {
     }
 
     fun getVideoFile(){
+        val cr = getContentResolver()
         val uri: Uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
         val cursor = applicationContext.contentResolver.query(uri, null, null, null, null)
         videoList.clear()
@@ -73,12 +76,12 @@ class VideoPlayerActivity : AppCompatActivity() {
             val duration = cursor.getInt(durationColumn)
             val size = cursor.getInt(sizeColumn)
             val url: Uri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id)
-            val modelAudio = VideoModel(title, url.toString(), duration.toString(), size,false)
+            val fullPath = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA))
+            val modelAudio = VideoModel(title, url.toString(), duration.toString(), size,fullPath,false)
             videoList.add(modelAudio)
         }
         val linearLayoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         rvVideo.layoutManager = linearLayoutManager
-
         videoAdapter = VideoAdapter(this,videoList){position:Int,uri:String,flag:String ->
             if(flag == "Play"){
                 val intent = Intent(this,VideoPlayer::class.java)
