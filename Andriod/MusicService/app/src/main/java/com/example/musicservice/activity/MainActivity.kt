@@ -140,6 +140,8 @@ class MainActivity : AppCompatActivity(),MusicService.Callbacks {
             try {
                 unbindService(mConnection)
                 stopService(intent)
+                mBound = false
+                ivPlay.setImageResource(R.drawable.icon_play)
                 for(i in 0..mediaList.size-1){
                     mediaList[i].isPlaying = false
                 }
