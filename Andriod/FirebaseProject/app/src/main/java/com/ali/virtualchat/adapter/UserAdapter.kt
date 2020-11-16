@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ali.virtualchat.R
 import com.ali.virtualchat.activity.UserActivity
+import com.ali.virtualchat.utils.Helper
 import kotlinx.android.synthetic.main.row_user.view.*
 
 class UserAdapter(val context: Context,val listUser: ArrayList<String>, val listener: (Int, String) -> Unit) : RecyclerView.Adapter<UserAdapter.ViewHolder>(){
@@ -19,9 +20,13 @@ class UserAdapter(val context: Context,val listUser: ArrayList<String>, val list
 
     override fun onBindViewHolder(holder: UserAdapter.ViewHolder, position: Int) {
         holder.itemView.tvUser.text = listUser[position]
-        holder.itemView.tvUser.setOnClickListener {
+        holder.itemView.rlUser.setOnClickListener {
             listener(position,"Chat")
         }
+        /*if(listImage[position]!=null){
+            val bitmap = Helper.base64toImage(listImage[position])
+            holder.itemView.ivUserImage.setImageBitmap(bitmap)
+        }*/
     }
 
     override fun getItemCount(): Int {

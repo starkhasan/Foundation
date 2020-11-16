@@ -1,25 +1,39 @@
 package com.ali.virtualchat.activity
 
+import android.app.Activity
+import android.content.ActivityNotFoundException
+import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ali.virtualchat.R
 import com.ali.virtualchat.adapter.UserAdapter
+import com.ali.virtualchat.utils.Helper
 import com.ali.virtualchat.utils.Preferences
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_user.*
+import kotlinx.android.synthetic.main.layout_heading.*
+import java.io.FileNotFoundException
+import java.io.InputStream
 
 class UserActivity : AppCompatActivity(){
 
     val database = FirebaseDatabase.getInstance()
     val myRef = database.getReference().child("users")
     val listUser = ArrayList<String>()
+    val listImage = ArrayList<String>()
     var userAdapter : UserAdapter ?= null
+    var base64Image = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +45,11 @@ class UserActivity : AppCompatActivity(){
         myRef.addValueEventListener(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 listUser.clear()
+                listImage.clear()
                 for(data in snapshot.children){
                     if(data.key.toString() != currentUser){
                         listUser.add(data.key.toString())
+                        //listImage.add(data.child("image").value.toString())
                     }
                 }
 
@@ -56,5 +72,48 @@ class UserActivity : AppCompatActivity(){
                 Toast.makeText(applicationContext,"Couldn't get the user",Toast.LENGTH_SHORT).show()
             }
         })
+
+        ivUser.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setMessage("Upload Image")
+                .setPositiveButton("Camera"){ dialog:DialogInterface,int:Int ->
+                    val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                    try{
+                        startActivityForResult(intent,2)
+                    }catch (e:ActivityNotFoundException){}
+                }
+                .setNegativeButton("Gallery"){ dialog:DialogInterface,int:Int ->
+                    val intent = Intent(Intent.ACTION_PICK)
+                    intent.type = "image/*"
+                    startActivityForResult(intent,1)
+                }
+                .show()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode !== Activity.RESULT_OK) {
+            return
+        }
+        if (requestCode === 1) {
+            try {
+                val imageUri = data?.data!!
+                val imageStream: InputStream? = contentResolver.openInputStream(imageUri)
+                val image = BitmapFactory.decodeStream(imageStream)//this is bitmap image
+                ivUser.setImageBitmap(image)
+                base64Image = Helper.imagetobase64(image)
+                myRef.child(Preferences.sender.toString()).child("image").setValue(base64Image)
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+                Toast.makeText(UserActivity@this,"Couldn't found image", Toast.LENGTH_LONG).show()
+            }
+        }
+        if(requestCode === 2){
+            val imageBitmap = data!!.extras!!.get("data") as Bitmap
+            base64Image = Helper.imagetobase64(imageBitmap)
+            ivUser.setImageBitmap(imageBitmap)
+            myRef.child(Preferences.sender.toString()).child("image").setValue(base64Image)
+        }
     }
 }
