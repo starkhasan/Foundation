@@ -2,6 +2,7 @@ package com.ali.virtualchat.activity
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -55,9 +56,9 @@ class ChatActivity : AppCompatActivity(){
                     val messageResponse = snapshot.children.map { it.getValue(MessageResponse::class.java)!! }
                     for (i in 0..messageResponse.size - 1) {
                         if (Preferences.sender == messageResponse.get(i).sender)
-                            addMessageBox("You :- \n" + messageResponse.get(i).message, 1)
+                            addMessageBox(messageResponse.get(i).message.toString(), 1)
                         else
-                            addMessageBox(Preferences.receiver + " :- \n" + messageResponse.get(i).message, 2)
+                            addMessageBox(messageResponse.get(i).message.toString(), 2)
                     }
                 }
             }
@@ -66,9 +67,9 @@ class ChatActivity : AppCompatActivity(){
                     val messageResponse = snapshot.children.map { it.getValue(MessageResponse::class.java)!! }
                     val index = messageResponse.size-1
                     if (Preferences.sender == messageResponse.get(index).sender)
-                        addMessageBox("You :- \n" + messageResponse.get(index).message, 1)
+                        addMessageBox(messageResponse.get(index).message.toString(), 1)
                     else
-                        addMessageBox(Preferences.receiver + " :- \n" + messageResponse.get(index).message, 2)
+                        addMessageBox(messageResponse.get(index).message.toString(), 2)
 
                 }
             }
@@ -85,13 +86,18 @@ class ChatActivity : AppCompatActivity(){
     fun addMessageBox(message: String, type: Int){
         val textView = TextView(this@ChatActivity)
         textView.setText(message)
-        val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         lp.setMargins(10, 10, 10, 10)
-        if(type == 1)
-            textView.setBackgroundResource(R.drawable.rounded_corner1)
-        else
-            textView.setBackgroundResource(R.drawable.rounded_corner2)
-        layout1.addView(textView);
+        if(type == 1) {
+            textView.setBackgroundResource(R.drawable.bg_sender)
+            lp.gravity = Gravity.END
+        }else {
+            textView.setBackgroundResource(R.drawable.bg_receiver)
+            lp.gravity = Gravity.START
+        }
+        textView.layoutParams = lp
+        textView.setTextColor(getColor(R.color.black))
+        layout1.addView(textView)
         scrollView.fullScroll(View.FOCUS_DOWN);
     }
 }

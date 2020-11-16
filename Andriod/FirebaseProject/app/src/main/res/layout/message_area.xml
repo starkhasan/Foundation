@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:gravity="bottom"
-    android:orientation="horizontal">
+    android:layout_height="?android:attr/actionBarSize"
+    android:background="#ECECEC">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text=""
-        android:textColorHint="#CFD8DC"
-        android:textColor="#CFD8DC"
-        android:hint="Write a message..."
+        android:background="@drawable/bg_message_send"
+        android:textColorHint="#B3B4B5"
+        android:textColor="@color/black"
+        android:hint="Type a message"
         android:id="@+id/messageArea"
         android:maxHeight="80dp"
+        android:layout_toLeftOf="@id/sendButton"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="5dp"
         />
 
-    <ImageView
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
-        android:padding="4dp"
-        android:src="@android:drawable/ic_menu_send"
-        android:id="@+id/sendButton"/>
-</LinearLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/bg_send">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_send"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
