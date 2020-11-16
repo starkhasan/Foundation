@@ -1,7 +1,6 @@
-import java.util.*;
 import java.io.*;
-class Demo{
-
+import java.util.*;
+public class AlternatingCharacters {
     static int alternatingCharacters(String s) {
         List<String> listString = new ArrayList<String>();
         String temp = "";
@@ -21,7 +20,7 @@ class Demo{
         }
     }
     public static void main(String[] args) throws IOException{
-        BufferedReader buffer = new BufferedReader(new FileReader("InputDemo.txt"));
+        BufferedReader buffer = new BufferedReader(new FileReader("InputHacker.txt"));
         String input = "";
         while((buffer.readLine())!=null){
             input = buffer.readLine();
@@ -29,5 +28,4 @@ class Demo{
         }
         buffer.close();
     }
-
 }
