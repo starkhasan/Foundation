@@ -17,8 +17,7 @@
         android:maxHeight="80dp"
         android:layout_toLeftOf="@id/sendButton"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        />
+        android:layout_marginEnd="5dp" />
 
     <RelativeLayout
         android:id="@+id/sendButton"

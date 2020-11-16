@@ -87,7 +87,7 @@ class ChatActivity : AppCompatActivity(){
         val textView = TextView(this@ChatActivity)
         textView.setText(message)
         val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        lp.setMargins(10, 10, 10, 10)
+        lp.setMargins(0,3,0,0)
         if(type == 1) {
             textView.setBackgroundResource(R.drawable.bg_sender)
             lp.gravity = Gravity.END
