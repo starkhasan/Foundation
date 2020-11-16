@@ -46,6 +46,17 @@
             android:layout_marginTop="15dp"
             android:textColor="#000000"/>
 
+
+        <CheckBox
+            android:id="@+id/cbRememberMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rememberme"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:buttonTint="@color/colorPrimary"/>
+
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"

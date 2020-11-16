@@ -24,17 +24,28 @@ class LoginActivity : AppCompatActivity(){
         setContentView(R.layout.activity_login)
         Preferences.init(this@LoginActivity)
 
+
+        if(Preferences.rememberme){
+            cbRememberMe.isChecked = true
+            etEmail.setText(Preferences.userid)
+            etPassword.setText(Preferences.password)
+        }else{
+            cbRememberMe.isChecked = false
+            etEmail.text.clear()
+            etPassword.text.clear()
+        }
         btnLogin.setOnClickListener {
             if(validation()){
+                Preferences.rememberme = if(cbRememberMe.isChecked) true else false
                 myRef.addValueEventListener(object: ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
                         for(data in snapshot.children){
                             if((etEmail.text.toString() == data.key.toString()) && (data.value as HashMap<Any,Any>)["password"].toString() == etPassword.text.toString()){
+                                Preferences.userid = etEmail.text.toString()
+                                Preferences.password = etPassword.text.toString()
                                 isLoginSuccessfull = true
-                                val intent = Intent(this@LoginActivity,UserActivity::class.java)
                                 Preferences.sender = etEmail.text.toString()
-                                intent.putExtra("User",etEmail.text.toString())
-                                startActivity(intent)
+                                startActivity(Intent(this@LoginActivity,UserActivity::class.java))
                                 Toast.makeText(applicationContext,"Login Successfull",Toast.LENGTH_SHORT).show()
                             }
                         }

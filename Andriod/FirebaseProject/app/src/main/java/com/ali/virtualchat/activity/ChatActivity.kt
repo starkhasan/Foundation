@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_chat.*
 import kotlinx.android.synthetic.main.message_area.*
 
 
-class Chat : AppCompatActivity(){
+class ChatActivity : AppCompatActivity(){
 
     val database = FirebaseDatabase.getInstance()
     var myRefSender = database.getReference().child("messages")
@@ -27,7 +27,7 @@ class Chat : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
-        Preferences.init(this@Chat)
+        Preferences.init(this@ChatActivity)
 
         val sender = intent.extras!!.get("Sender")
         val receiver = intent.extras!!.get("receiver")
@@ -48,16 +48,13 @@ class Chat : AppCompatActivity(){
 
         myRefSender.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                if(sender == snapshot.key){
-                    val messageResponse =
-                        snapshot.children.map { it.getValue(MessageResponse::class.java)!! }
-                    for (i in 0..messageResponse.size - 1) {
-                        if (Preferences.sender == messageResponse.get(i).user)
-                            addMessageBox("You :- \n" + messageResponse.get(i).message, 1)
-                        else
-                            addMessageBox(Preferences.receiver + " :- \n" + messageResponse.get(i).message, 2
-                            )
-                    }
+                val messageResponse = snapshot.children.map { it.getValue(MessageResponse::class.java)!! }
+                for (i in 0..messageResponse.size - 1) {
+                    if (Preferences.sender == messageResponse.get(i).user)
+                        addMessageBox("You :- \n" + messageResponse.get(i).message, 1)
+                    else
+                        addMessageBox(Preferences.receiver + " :- \n" + messageResponse.get(i).message, 2
+                        )
                 }
             }
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {}
@@ -69,7 +66,7 @@ class Chat : AppCompatActivity(){
     }
 
     fun addMessageBox(message: String, type: Int){
-        val textView = TextView(this@Chat)
+        val textView = TextView(this@ChatActivity)
         textView.setText(message)
         val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         lp.setMargins(10, 10, 10, 10)

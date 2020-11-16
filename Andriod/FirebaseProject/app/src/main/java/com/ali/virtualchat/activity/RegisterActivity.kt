@@ -24,10 +24,8 @@ class RegisterActivity : AppCompatActivity() {
             if(validation()){
                 val password = etPasswordRegister.text.toString()
                 myRef.child(etEmailRegister.text.toString()).child("password").setValue(password.toInt())
-                val intent = Intent(this,UserActivity::class.java)
                 Preferences.sender = etEmailRegister.text.toString()
-                intent.putExtra("User",etEmailRegister.text.toString())
-                startActivity(intent)
+                startActivity(Intent(this,UserActivity::class.java))
             }
         }
 

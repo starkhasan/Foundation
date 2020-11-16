@@ -210,6 +210,36 @@ e-d-c-b-a-b-c-d-e
 '''
 
 
+temp_set = {*()}
+name = "aabbbccde"
+print(name)
+for i in name:
+    temp_set.add(i)
+
+print(temp_set)
+listName = []
+listMarks = []
+for j in temp_set:
+    listName.append(j)
+    listMarks.append(name.count(j))
+start = len(listMarks)-1
+end = len(listMarks)-4
+newList = sorted(listMarks)
+newList = newList[start:end:-1]
+
+print(listName)
+print(listMarks)
+newDict = {}
+for i in newList:
+    print(i)
+    
 
 
 
+
+"""
+newList = [2,34]
+print(newList)
+newList.insert(1,32)
+print(newList)
+"""

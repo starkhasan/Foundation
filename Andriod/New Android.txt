@@ -1,3 +1,15 @@
+Why extend the Android Application class :--------------------
+
+You can access variables to any class without creating objects, if its extended by Application. They can be called globally and their state is maintained till application is not killed.
+
+
+
+
+
+
+
+
+
 What is the difference between the Alert Dialog and Dialog in Android ?
 Dialogs in Android are used to show alerts for making decisions to edit a single value.But there are some difference between an AlertDialog and a Dialog you always want to show message and
 atleast one Button for user interaction. In a Dialog you have custom view to  TextView or something more complex.

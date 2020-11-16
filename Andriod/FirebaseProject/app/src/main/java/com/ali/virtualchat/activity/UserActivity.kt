@@ -26,7 +26,7 @@ class UserActivity : AppCompatActivity(){
         setContentView(R.layout.activity_user)
         Preferences.init(this@UserActivity)
 
-        val currentUser = intent.extras!!.get("User")
+        val currentUser = Preferences.sender
 
         myRef.addValueEventListener(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -44,7 +44,7 @@ class UserActivity : AppCompatActivity(){
                         Preferences.receiver = listUser[position]
                         val sender = currentUser.toString()+"_"+listUser[position]
                         val receiver = listUser[position]+"_"+currentUser.toString()
-                        val intent = Intent(this@UserActivity,Chat::class.java)
+                        val intent = Intent(this@UserActivity,ChatActivity::class.java)
                         intent.putExtra("Sender",sender)
                         intent.putExtra("receiver",receiver)
                         startActivity(intent)

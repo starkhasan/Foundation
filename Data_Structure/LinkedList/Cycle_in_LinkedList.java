@@ -45,12 +45,12 @@ class Cycle_in_LinkedList{
 
     public boolean containloop(){
         Node slow=head;
-        Node fast=head;
+        Node fast=head.next;
         while(fast!=null && fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
             if(slow==fast)
                 return true;
+            slow=slow.next;
+            fast=fast.next.next;
         }
         return false;
     }

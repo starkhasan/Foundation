@@ -96,28 +96,20 @@ public class Solution {
 
         for (int testsItr = 0; testsItr < tests; testsItr++) {
             SinglyLinkedList llist = new SinglyLinkedList();
-
             int llistCount = scanner.nextInt();
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
             for (int i = 0; i < llistCount; i++) {
                 int llistItem = scanner.nextInt();
                 scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
                 llist.insertNode(llistItem);
             }
-
             int position = scanner.nextInt();
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
             int result = getNode(llist.head, position);
-
             bufferedWriter.write(String.valueOf(result));
             bufferedWriter.newLine();
         }
-
         bufferedWriter.close();
-
         scanner.close();
     }
 }
