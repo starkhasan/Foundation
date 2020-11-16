@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyFirebase</string>
+    <string name="register_user"><u>Register User</u></string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="login_user"><u>Login User</u></string>
 </resources>

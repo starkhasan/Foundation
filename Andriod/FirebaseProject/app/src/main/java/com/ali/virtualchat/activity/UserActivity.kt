@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ali.virtualchat.R
 import com.ali.virtualchat.adapter.UserAdapter
+import com.ali.virtualchat.utils.Preferences
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -23,6 +24,7 @@ class UserActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
+        Preferences.init(this@UserActivity)
 
         val currentUser = intent.extras!!.get("User")
 
@@ -39,9 +41,12 @@ class UserActivity : AppCompatActivity(){
                 rvUser.layoutManager = linearLayoutManager
                 userAdapter = UserAdapter(this@UserActivity,listUser){position:Int,OPERATION:String ->
                     if(OPERATION == "Chat"){
-                        val chatWith = currentUser.toString()+"_"+listUser[position]
+                        Preferences.receiver = listUser[position]
+                        val sender = currentUser.toString()+"_"+listUser[position]
+                        val receiver = listUser[position]+"_"+currentUser.toString()
                         val intent = Intent(this@UserActivity,Chat::class.java)
-                        intent.putExtra("Chat",chatWith)
+                        intent.putExtra("Sender",sender)
+                        intent.putExtra("receiver",receiver)
                         startActivity(intent)
                     }
                 }

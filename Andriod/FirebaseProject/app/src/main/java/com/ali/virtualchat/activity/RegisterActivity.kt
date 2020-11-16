@@ -6,11 +6,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.ali.virtualchat.R
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
+import com.ali.virtualchat.utils.Preferences
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -21,15 +18,21 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        Preferences.init(this@RegisterActivity)
 
         btnRegister.setOnClickListener {
             if(validation()){
                 val password = etPasswordRegister.text.toString()
                 myRef.child(etEmailRegister.text.toString()).child("password").setValue(password.toInt())
                 val intent = Intent(this,UserActivity::class.java)
+                Preferences.sender = etEmailRegister.text.toString()
                 intent.putExtra("User",etEmailRegister.text.toString())
                 startActivity(intent)
             }
+        }
+
+        tvLoginUser.setOnClickListener {
+            finish()
         }
     }
 
