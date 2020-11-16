@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -25,7 +24,7 @@
             android:id="@+id/etEmailRegister"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:hint="UserID"
+            android:hint="@string/userid"
             android:imeOptions="actionNext"
             android:maxLines="1"
             android:maxLength="30"
@@ -39,7 +38,7 @@
             android:id="@+id/etPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="numberPassword"
             android:textColorHint="@android:color/darker_gray"
             android:backgroundTint="#000000"

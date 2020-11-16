@@ -24,7 +24,6 @@ class LoginActivity : AppCompatActivity(){
         setContentView(R.layout.activity_login)
         Preferences.init(this@LoginActivity)
 
-
         if(Preferences.rememberme){
             cbRememberMe.isChecked = true
             etEmail.setText(Preferences.userid)
@@ -49,7 +48,6 @@ class LoginActivity : AppCompatActivity(){
                                 Toast.makeText(applicationContext,"Login Successfull",Toast.LENGTH_SHORT).show()
                             }
                         }
-
                         if(!isLoginSuccessfull)
                             Toast.makeText(applicationContext,"Invalid UserID and Password",Toast.LENGTH_SHORT).show()
                     }
@@ -59,11 +57,9 @@ class LoginActivity : AppCompatActivity(){
                 })
             }
         }
-
         tvRegisterUser.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
         }
-
     }
 
     fun validation():Boolean{

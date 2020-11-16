@@ -29,6 +29,8 @@ class ChatActivity : AppCompatActivity(){
         setContentView(R.layout.activity_chat)
         Preferences.init(this@ChatActivity)
 
+        tvReceiverName.text = Preferences.receiver
+
         val sender = intent.extras!!.get("Sender")
         val receiver = intent.extras!!.get("receiver")
 
@@ -37,9 +39,10 @@ class ChatActivity : AppCompatActivity(){
             if(!TextUtils.isEmpty(messages)){
                 val map = HashMap<Any, Any>()
                 map["message"] = messages
-                map["user"] = Preferences.sender.toString()
+                map["sender"] = Preferences.sender.toString()
                 myRefSender.child(sender.toString()).push().setValue(map)
                 myRefReceiver.child(receiver.toString()).push().setValue(map)
+                //addMessageBox("You :- \n" + messages, 1)
                 messageArea.text.clear()
             }else{
                 Toast.makeText(applicationContext, "Please type some messages", Toast.LENGTH_SHORT).show()
@@ -48,21 +51,35 @@ class ChatActivity : AppCompatActivity(){
 
         myRefSender.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                val messageResponse = snapshot.children.map { it.getValue(MessageResponse::class.java)!! }
-                for (i in 0..messageResponse.size - 1) {
-                    if (Preferences.sender == messageResponse.get(i).user)
-                        addMessageBox("You :- \n" + messageResponse.get(i).message, 1)
-                    else
-                        addMessageBox(Preferences.receiver + " :- \n" + messageResponse.get(i).message, 2
-                        )
+                if(sender == snapshot.key){
+                    val messageResponse = snapshot.children.map { it.getValue(MessageResponse::class.java)!! }
+                    for (i in 0..messageResponse.size - 1) {
+                        if (Preferences.sender == messageResponse.get(i).sender)
+                            addMessageBox("You :- \n" + messageResponse.get(i).message, 1)
+                        else
+                            addMessageBox(Preferences.receiver + " :- \n" + messageResponse.get(i).message, 2)
+                    }
                 }
             }
-            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {}
+            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+                if(sender == snapshot.key){
+                    val messageResponse = snapshot.children.map { it.getValue(MessageResponse::class.java)!! }
+                    val index = messageResponse.size-1
+                    if (Preferences.sender == messageResponse.get(index).sender)
+                        addMessageBox("You :- \n" + messageResponse.get(index).message, 1)
+                    else
+                        addMessageBox(Preferences.receiver + " :- \n" + messageResponse.get(index).message, 2)
+
+                }
+            }
             override fun onChildRemoved(snapshot: DataSnapshot) {}
             override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {}
             override fun onCancelled(error: DatabaseError) {}
         })
 
+        ivBack.setOnClickListener {
+            finish()
+        }
     }
 
     fun addMessageBox(message: String, type: Int){

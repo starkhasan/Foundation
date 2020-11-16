@@ -5,4 +5,6 @@
     <string name="register">Register</string>
     <string name="login_user"><u>Login User</u></string>
     <string name="rememberme">Remember Me</string>
+    <string name="password">Password</string>
+    <string name="userid">UserID</string>
 </resources>

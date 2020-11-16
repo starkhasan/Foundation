@@ -4,29 +4,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    android:padding="10dp"
     android:orientation="vertical">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_weight="20"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView">
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_back"
+            android:layout_marginStart="15dp"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/tvReceiverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/ivBack"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:layout_marginStart="15dp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_weight="20"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/layout1"
+                android:layout_margin="5dp">
+
+            </LinearLayout>
+        </ScrollView>
+
+        <include
+            layout="@layout/message_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/layout1"
-            android:layout_margin="5dp">
+            android:gravity="bottom"
+            android:layout_marginTop="5dp"/>
 
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
-    <include
-        layout="@layout/message_area"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:layout_marginTop="5dp"/>
 </LinearLayout>
