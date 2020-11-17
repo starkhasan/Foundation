@@ -2,12 +2,9 @@ package com.ali.virtualchat.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.HandlerCompat.postDelayed
 import com.ali.virtualchat.R
 import com.ali.virtualchat.utils.Preferences
 import kotlinx.android.synthetic.main.activity_splash.*
