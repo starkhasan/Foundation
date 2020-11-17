@@ -35,6 +35,8 @@ class LoginActivity : AppCompatActivity(){
         }
         btnLogin.setOnClickListener {
             if(validation()){
+                Helper.hideKeyboard(this@LoginActivity)
+                isLoginSuccessfull = false
                 Preferences.rememberme = if(cbRememberMe.isChecked) true else false
                 myRef.addValueEventListener(object: ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {

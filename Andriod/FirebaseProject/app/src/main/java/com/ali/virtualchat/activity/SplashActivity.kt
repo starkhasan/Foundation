@@ -13,9 +13,6 @@ import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
 
-    private val SPLASH_DISPLAY_TIMER : Long = 2000
-    val handler = Handler(Looper.getMainLooper())
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -30,7 +27,6 @@ class SplashActivity : AppCompatActivity() {
             }
             override fun onAnimationRepeat(animation: Animation?) {}
         })
-
     }
 
     fun navigate(){
