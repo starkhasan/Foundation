@@ -84,6 +84,7 @@ class UserActivity : AppCompatActivity(){
                 rvUser.adapter = userAdapter
             }
             override fun onCancelled(error: DatabaseError) {
+                progressBar.visibility = View.GONE
                 Toast.makeText(applicationContext,"Couldn't get the user",Toast.LENGTH_SHORT).show()
             }
         })

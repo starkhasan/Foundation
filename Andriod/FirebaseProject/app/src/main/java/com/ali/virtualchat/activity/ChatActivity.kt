@@ -6,6 +6,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -98,6 +99,9 @@ class ChatActivity : AppCompatActivity(){
         textView.layoutParams = lp
         textView.setTextColor(getColor(R.color.black))
         layout1.addView(textView)
-        scrollView.fullScroll(View.FOCUS_DOWN);
+        scrollView.post(Runnable {
+            scrollView.fullScroll(ScrollView.FOCUS_DOWN)
+        })
+
     }
 }
