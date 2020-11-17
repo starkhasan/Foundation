@@ -98,6 +98,6 @@ class ChatActivity : AppCompatActivity(){
         textView.layoutParams = lp
         textView.setTextColor(getColor(R.color.black))
         layout1.addView(textView)
-        scrollView.scrollTo(0, Int.MAX_VALUE)
+        scrollView.fullScroll(View.FOCUS_DOWN);
     }
 }

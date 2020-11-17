@@ -12,4 +12,5 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="exit">Exit</string>
+    <string name="no_user_found">No User Found</string>
 </resources>

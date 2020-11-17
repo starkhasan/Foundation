@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.MenuItem
+import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -26,6 +27,7 @@ import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_user.*
 import kotlinx.android.synthetic.main.layout_heading.*
+import kotlinx.android.synthetic.main.row_user.*
 import java.io.FileNotFoundException
 import java.io.InputStream
 
@@ -41,6 +43,7 @@ class UserActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
+        progressBar.visibility = View.VISIBLE
         Preferences.init(this@UserActivity)
         val popup_menu = PopupMenu(this@UserActivity,ivMore)
         popup_menu.menuInflater.inflate(R.menu.popup_menu,popup_menu.menu)
@@ -51,6 +54,7 @@ class UserActivity : AppCompatActivity(){
 
         myRef.addValueEventListener(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
+                progressBar.visibility = View.GONE
                 listUser.clear()
                 listImage.clear()
                 for(data in snapshot.children){
@@ -73,6 +77,10 @@ class UserActivity : AppCompatActivity(){
                         startActivity(intent)
                     }
                 }
+                if(listUser.size > 0)
+                    tvUserNotFound.visibility = View.GONE
+                else
+                    tvUserNotFound.visibility = View.VISIBLE
                 rvUser.adapter = userAdapter
             }
             override fun onCancelled(error: DatabaseError) {
