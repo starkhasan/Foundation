@@ -101,7 +101,7 @@ class UserActivity : AppCompatActivity(){
             popup_menu.setOnMenuItemClickListener(object:PopupMenu.OnMenuItemClickListener{
                 override fun onMenuItemClick(item: MenuItem?): Boolean {
                     if(item!!.title.toString() == "Logout"){
-                        AlertDialog.Builder(this@UserActivity)
+                        AlertDialog.Builder(this@UserActivity,R.style.AlertDialogTheme)
                             .setTitle(R.string.logout)
                             .setMessage("Are you sure you want to Logout?")
                             .setPositiveButton(R.string.yes){dialog:DialogInterface,int:Int ->
@@ -150,7 +150,7 @@ class UserActivity : AppCompatActivity(){
     }
 
     override fun onBackPressed() {
-        AlertDialog.Builder(this)
+        AlertDialog.Builder(this,R.style.AlertDialogTheme)
             .setTitle(R.string.exit)
             .setMessage("Are you sure you want to Exit?")
             .setPositiveButton(R.string.yes){dialog:DialogInterface,int:Int ->
