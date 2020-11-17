@@ -15,10 +15,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".activity.RegisterActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".activity.UserActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".activity.ChatActivity" android:windowSoftInputMode="adjustResize"/>
+
+        <activity android:name=".activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".activity.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".activity.UserActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"/>
+
+        <activity android:name=".activity.ChatActivity"
+            android:windowSoftInputMode="adjustResize"/>
+
     </application>
 
 </manifest>
