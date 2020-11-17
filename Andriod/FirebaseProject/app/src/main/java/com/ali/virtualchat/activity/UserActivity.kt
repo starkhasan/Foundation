@@ -57,11 +57,26 @@ class UserActivity : AppCompatActivity(){
                 progressBar.visibility = View.GONE
                 listUser.clear()
                 listImage.clear()
-                for(data in snapshot.children){
-                    if(data.key.toString() != currentUser){
-                        listUser.add(data.key.toString())
-                        //listImage.add(data.child("image").value.toString())
+                if(snapshot.value!=null){
+                    for(data in snapshot.children){
+                        if(data.key.toString() != currentUser){
+                            listUser.add(data.key.toString())
+                            //listImage.add(data.child("image").value.toString())
+                        }
                     }
+                }else{
+                    AlertDialog.Builder(this@UserActivity,R.style.AlertDialogTheme)
+                        .setMessage("User not Registered")
+                        .setPositiveButton(R.string.register){dialog:DialogInterface,int:Int ->
+                            Preferences.is_login = false
+                            Preferences.rememberme = false
+                            val intent = Intent(this@UserActivity,RegisterActivity::class.java)
+                            intent.putExtra("From","UserActivity")
+                            startActivity(intent)
+                            finish()
+                            dialog.dismiss()
+                        }
+                        .show()
                 }
 
                 val linearLayoutManager = LinearLayoutManager(this@UserActivity,LinearLayoutManager.VERTICAL,false)

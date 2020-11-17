@@ -28,13 +28,20 @@ class RegisterActivity : AppCompatActivity() {
                 myRef.child(etEmailRegister.text.toString()).child("password").setValue(password.toInt())
                 Preferences.sender = etEmailRegister.text.toString()
                 Preferences.is_login = true
-                startActivity(Intent(this,UserActivity::class.java))
+                val intent = Intent(this,UserActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
                 finish()
             }
         }
 
         tvLoginUser.setOnClickListener {
-            finish()
+            if(intent.extras!=null && intent.extras!!.get("From") == "UserActivity"){
+                startActivity(Intent(this@RegisterActivity,LoginActivity::class.java))
+                finish()
+            }else{
+                finish()
+            }
         }
     }
 
