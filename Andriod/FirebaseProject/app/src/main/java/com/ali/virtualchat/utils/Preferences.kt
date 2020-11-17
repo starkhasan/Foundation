@@ -12,6 +12,7 @@ object Preferences {
     private const val USERID = "user_id"
     private const val PASSWORD = "password"
     private const val REMEMBERME = "rememberme"
+    private const val IS_LOGIN = "is_login"
     private lateinit var preferences: SharedPreferences
 
 
@@ -62,6 +63,14 @@ object Preferences {
         set(value) {
             preferences.editMe {
                 it.putBoolean(REMEMBERME,value)
+            }
+        }
+
+    var is_login:Boolean
+        get() = preferences.getBoolean(IS_LOGIN,false)
+        set(value) {
+            preferences.editMe {
+                it.putBoolean(IS_LOGIN,value)
             }
         }
 }

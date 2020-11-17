@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.ali.virtualchat.R
+import com.ali.virtualchat.utils.Helper
 import com.ali.virtualchat.utils.Preferences
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register.*
@@ -21,11 +22,14 @@ class RegisterActivity : AppCompatActivity() {
         Preferences.init(this@RegisterActivity)
 
         btnRegister.setOnClickListener {
+            Helper.hideKeyboard(this@RegisterActivity)
             if(validation()){
                 val password = etPasswordRegister.text.toString()
                 myRef.child(etEmailRegister.text.toString()).child("password").setValue(password.toInt())
                 Preferences.sender = etEmailRegister.text.toString()
+                Preferences.is_login = true
                 startActivity(Intent(this,UserActivity::class.java))
+                finish()
             }
         }
 

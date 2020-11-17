@@ -8,9 +8,12 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.MenuItem
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ali.virtualchat.R
 import com.ali.virtualchat.adapter.UserAdapter
@@ -39,8 +42,12 @@ class UserActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
         Preferences.init(this@UserActivity)
+        val popup_menu = PopupMenu(this@UserActivity,ivMore)
+        popup_menu.menuInflater.inflate(R.menu.popup_menu,popup_menu.menu)
 
         val currentUser = Preferences.sender
+        val menuOptions = popup_menu.menu
+        menuOptions.getItem(0).setTitle(currentUser)
 
         myRef.addValueEventListener(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -89,13 +96,38 @@ class UserActivity : AppCompatActivity(){
                 }
                 .show()
         }
+
+        ivMore.setOnClickListener {
+            popup_menu.setOnMenuItemClickListener(object:PopupMenu.OnMenuItemClickListener{
+                override fun onMenuItemClick(item: MenuItem?): Boolean {
+                    if(item!!.title.toString() == "Logout"){
+                        AlertDialog.Builder(this@UserActivity)
+                            .setTitle(R.string.logout)
+                            .setMessage("Are you sure you want to Logout?")
+                            .setPositiveButton(R.string.yes){dialog:DialogInterface,int:Int ->
+                                Preferences.is_login = false
+                                Preferences.sender = ""
+                                Preferences.receiver = ""
+                                startActivity(Intent(this@UserActivity,LoginActivity::class.java))
+                                finish()
+                            }
+                            .setNegativeButton(R.string.no){dialog:DialogInterface,int:Int ->
+                                dialog.dismiss()
+                            }
+                            .show()
+                    }else{
+                        Toast.makeText(applicationContext,"Current user : "+item!!.title.toString(),Toast.LENGTH_SHORT).show()
+                    }
+                    return true
+                }
+            })
+            popup_menu.show()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode !== Activity.RESULT_OK) {
-            return
-        }
+        if (resultCode !== Activity.RESULT_OK)
         if (requestCode === 1) {
             try {
                 val imageUri = data?.data!!
@@ -115,5 +147,19 @@ class UserActivity : AppCompatActivity(){
             ivUser.setImageBitmap(imageBitmap)
             myRef.child(Preferences.sender.toString()).child("image").setValue(base64Image)
         }
+    }
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.exit)
+            .setMessage("Are you sure you want to Exit?")
+            .setPositiveButton(R.string.yes){dialog:DialogInterface,int:Int ->
+                dialog.dismiss()
+                super.onBackPressed()
+            }
+            .setNegativeButton(R.string.no){dialog:DialogInterface,int:Int ->
+                dialog.dismiss()
+            }
+            .show()
     }
 }

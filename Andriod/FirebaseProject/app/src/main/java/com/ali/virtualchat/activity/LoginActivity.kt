@@ -34,8 +34,8 @@ class LoginActivity : AppCompatActivity(){
             etPassword.text.clear()
         }
         btnLogin.setOnClickListener {
+            Helper.hideKeyboard(this@LoginActivity)
             if(validation()){
-                Helper.hideKeyboard(this@LoginActivity)
                 isLoginSuccessfull = false
                 Preferences.rememberme = if(cbRememberMe.isChecked) true else false
                 myRef.addValueEventListener(object: ValueEventListener{
@@ -46,8 +46,9 @@ class LoginActivity : AppCompatActivity(){
                                 Preferences.password = etPassword.text.toString()
                                 isLoginSuccessfull = true
                                 Preferences.sender = etEmail.text.toString()
+                                Preferences.is_login = true
                                 startActivity(Intent(this@LoginActivity,UserActivity::class.java))
-                                Toast.makeText(applicationContext,"Login Successfull",Toast.LENGTH_SHORT).show()
+                                finish()
                             }
                         }
                         if(!isLoginSuccessfull)

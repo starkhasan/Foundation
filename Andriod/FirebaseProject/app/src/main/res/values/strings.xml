@@ -8,5 +8,9 @@
     <string name="rememberme">Remember Me</string>
     <string name="password">Password</string>
     <string name="userid">UserID</string>
-
+    <string name="logout">Logout</string>
+    <string name="user_name">User Name</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="exit">Exit</string>
 </resources>
