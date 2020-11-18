@@ -5368,15 +5368,18 @@ Deadlock can occur in a situation when a thread is waiting for an object that is
 
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                                   Generic In Java
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-Through the use of generic it is possible to create classes,interfaces and methods that will work in a type-safe manner with various kinds of data. Many algorithm are logically the same no metter what type of data they are being applied to.
-										The mechanism that supports a stack is the same whether that stack is storing items of type Integer, String, Object or Thread. With generic you can define an algorithm once independently of any specific type of data and then apply that algorithm to a wide variety of data types without any additional efforts.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                                   			Generic In Java
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Through the use of generic it is possible to create classes,interfaces and methods that will work in a type-safe manner with various kinds of data. Many algorithm are logically the same no 
+metter what type of data they are being applied to.
+
+The mechanism that supports a stack is the same whether that stack is storing items of type Integer, String, Object or Thread. With generic you can define an algorithm once independently of 
+any specific type of data and then apply that algorithm to a wide variety of data types without any additional efforts.
 
 
-Generic means parametrized types. Parametrized types are important because they enable you to create classes, interfaces and methods in which the type of data upon which they operate is specified as a parameter.
-
+Generic means parametrized types. Parametrized types are important because they enable you to create classes, interfaces and methods in which the type of data upon which they operate is 
+specified as a parameter.
 
 
 Example=>
@@ -5462,7 +5465,8 @@ As explained T is placeholder for the actual type that will be specified when Ge
 	     ob=o
 	}
 	
-Notice that its parameter o is of type T. This means that the actual type of o is determined by the type passed to T when a Gen object is created. Also because both the parameter o and the member variable ob are of type T they will both be of the same actual type when a Gen object is created
+Notice that its parameter o is of type T. This means that the actual type of o is determined by the type passed to T when a Gen object is created. Also because both the parameter o and the 
+member variable ob are of type T they will both be of the same actual type when a Gen object is created
 
 The type parameter T can also be used to specify the return type of a method as is the case with the getob() method shown here:
 
