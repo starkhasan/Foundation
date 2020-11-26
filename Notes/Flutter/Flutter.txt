@@ -1,10 +1,12 @@
 Flutter is an open source UI software development kit created by google . It is used to developed applications for Android IOS Windows Mac Linux Google Fuchsia and the web.
 First version of Flutter was known as codename "Sky" and ran on the Android operating system.
 
-It allows you to create a native mobile application with only one codebase. This means that you can use one programming language and one codebase to create two different apps (for IOS and Android).
+It allows you to create a native mobile application with only one codebase. This means that you can use one programming language and one codebase to create two different apps 
+(for IOS and Android).
 
 Flutter consists to two important part:
-=> An SDK (Software Development Kit):  A collection of tools that are going to help you develop your applications. This includes tools to compile your code into native machine code (code for IOS and Android).
+=> An SDK (Software Development Kit):  A collection of tools that are going to help you develop your applications. 
+This includes tools to compile your code into native machine code (code for IOS and Android).
 
 => A Framework (UI Libraray based on widget): A collection of reusable UI elements (buttons, text inputs, sliders and so on) that you can personalize for your own needs.
 
@@ -16,9 +18,13 @@ Dart focuses on front-end development and you can use it to create mobile and we
 
 There are several framework have introduced support both OS along with desktop apps. These types of the framework are known as cross-platform development tools.
 
-The cross-platform development framework has the ability to write one code and code deploy on the various platform (Android,iOS, and Desktop). It saves a lot of time and development efforts of developers. There are several tools available for cross-development including web based tools, such as Ionic from DriftyCo in 2013, Phonegap from Adobe, Xamarian from Microsoft, and React Native from Facebook. Each of these framework has variying degrees of success in the mobile industry. 
+The cross-platform development framework has the ability to write one code and code deploy on the various platform (Android,iOS, and Desktop).
+ It saves a lot of time and development efforts of developers. 
+There are several tools available for cross-development including web based tools, such as Ionic from DriftyCo in 2013, Phonegap from Adobe, Xamarian from Microsoft, 
+and React Native from Facebook. Each of these framework has variying degrees of success in the mobile industry. 
 
-Flutter is UI toolkit for creating fast beautiful natively compiled application for mobile , web and desktop with one programming language and single codebase. It is free and open source. Flutter apps use Dart programming language for creating an app. 
+Flutter is UI toolkit for creating fast beautiful natively compiled application for mobile , web and desktop with one programming language and single codebase. It is free and open source. 
+Flutter apps use Dart programming language for creating an app. 
 
 
 To be specified Flutter application is itself a widget Flutter widgets also support animations and gestures. The application login is based on reactive programming. Widget may optinally have a state
@@ -78,6 +84,195 @@ Widgets =>
 The core concept of the Flutter framework is In Flutter Everthing is a widget.  Widget are basically user interface components used to create the user interface of the application.
 
 In Flutter the application is itself a widget. The application is the top level widget and its UI is build using one or more children (widget), which again build using its children widgets.
+
+
+
+
+Baisc Flutter layout concepts :----------------------------
+Flutter is different from other framework because its UI is build in code , not in an XML file or similar.
+Widgets are the basic building blocks of Flutter UI. Almost everything in Flutter is a Widget.
+
+
+=> Row and Column classes 
+Row and Column are classes that contain and lay out widgets.
+Widgets inside of Row or Column are called children , and Row and Column are referred to as parents.
+Row lays out its widgets horizontally and column lays out its widgets vertically.
+
+mainAxisSize property :-
+Row and Column occupy different main axes. A Row's main axis is horizontally and a Column's main axis is vertical.
+The mainAxisSize property determines how much space a Row and Column can occupy on their main axes.
+
+MainAxisSize.max
+Row and Column occupy all of the space on their main axes.
+if the combined width of their children is less than the total space on their main axes, their children are laid out with extra space.
+
+MainAxisSize.min
+Row and Column only occupy enough space on their aces for their children. 
+Their children are laid out without extra space and at the middle of their main axes.
+
+
+=> mainAxisSize property has two possiblw values:
+1) MainAxisSize.max
+Row and Column occupy all of the space on their axes. 
+If the combined width of their children is less than the total space on their main axes their children are laid out iwth extra space.
+
+2) MainAxisSize.min
+Row and Column only occupy enough space on their main axes for their children. Their children are laid out without extra space and at the middle of their main axes.
+
+
+=> mainAxisAlignment property
+The mainAxisAlignmentpropertydetetrmine how Row and Column can position their children in that extra mainAxisAlignment has six possible values: 
+ MainAxisAlignment.start
+POsition children near the beigining of the main axis (Left for Row top for Column)
+
+MainAxisAlignment.end
+Position children near the end of the main axis (Right forRow bottom for Column)
+
+MainAxisAligment.end
+Position children near the end of the main axis (Right  for row bottom for Column)
+
+MainAxisAlignment.center
+Position children at the middle of the main axis
+
+MainAxisAlignment.spaceBetween
+Divides the extra space evenly between children
+
+MainAxisAlignment.spaceEvenly
+Divides the extra space evenly between children and before and after the children
+
+
+
+=> crossAxisAlignment property 
+The crossAxisAlignment property determines how Row and Column can position their children on their cross azes. ARow's cross axis is vertical and a Column corss axis is horizoantal
+
+CrossAxisAlignment.start
+Position children near the start of the cross axis (Top for Row Left for Column)
+
+Cross AxisAlignment.end 
+Position children near the end of the cross axis (Bottom for Row Right for Column)
+
+CrossAxisAlignment.center
+Position children at the middle of the cross axis (Middle for Row and Center for Column)
+
+
+
+
+Flexible widget: -----------------------------------------------
+Flexible widget wraps a widget so the woidget become resizable. When  the Flexible widget wraps the widget the widget become the Flexible widget child and is considered flexible. After inflexible
+widgets are laid out the widgets are resized according to their flex and fit property 
+
+
+flex  => Compare itslef against other flex properties before determining what fraction of the total remaining space each Flexible widget receive.
+
+
+fit => Determine whether a Flexible widget fills all of ite extra space.
+
+
+FlexFit.loose => The Widget's preferred size is used  (Default)
+FlexFit.tight => Forces the widget to fill of its extra space.
+
+When flex properties are compared against one another the ratio between their flex values determines what fraction of the total remaining space each Flexible widget receive 
+
+
+remainingSpace * (flex / totalAllFlexValues)
+
+ => Expanded Widget
+Similar to Flexible the Expanded widget can wrap a widget and force the widget to fill extra space.
+
+
+
+=> SizedBox widget
+The SizedBox widget can be used in one of two ways creating exact dimensions. When SizedBox wraps a widget it resized the Widget using the height and width properties
+It uses the height and width properties to create empty space.
+
+
+=> Spacer widget
+Similar to SizedBox the Spacer widget also can create between widgets.
+The following example separates the first two BlueBox widget using Spacer widget with a flex value of 1
+=> Add another Spacer widget (also with flex value 1) etween the second and third BlueBox widgets.
+
+
+
+=> Text widget
+The text widget display text and can be configured for different fonts , sizes and colors.
+
+
+=> Icon widget
+The Icon widget display graphical symbol that represents an aspect of the UI. Flutter is preloaded with icon for Material and Cupertino
+
+=>Stack
+Instead of beign linearly oriented (either horizontally or vertically) a Stack widget let you place widget on the top of each otherin paint order. 
+You can use the Positioned widget on children of a Stack to position them relative to top right , bottom or left edge of the Stack. it is based on absolute positioning layout model.
+
+=> Container
+The Container widget lets you create a rectangular visual element. A container can be decorated with Box Decoration such as a background , a border, or shadow.
+A Container can also have marginpadding and constains applied to its size.
+A Container can be transformed into three dimensional using a matrix.
+
+
+
+=> Add the visible widget to the layout widget (visible widget => Text, Button, Icon,Image)
+All layout widget have either of the following
+1) A child property if they take a single child for example Center or Container
+2) A children property if they take a list of widget - for example Row, Column, ListView or Stack. 
+
+
+=> Material apps
+For a Material app you can use a Scaffold widget it provides a default banner background color and has API for adding drawers, snack bard and bottom sheets.
+
+=> Non-Material apps
+For a non-Material app you can add the Center widget to the app's build() method. (By deafult a non-Material app doesn't include an AppBar , title , or background color) 
+
+
+=> Aligning Widgets 
+you control how a row or column align its children using the mainAxisAlignment and crossAxisAlignment properties. 
+For a row the main axis run horizontally and the cross axis runs vertically.
+For a column the main axis runs vertically and the cross axis runs horizonatally.
+
+The MainAxisAlignment and CrossAxisAlignment classes offer a verity of constants for controlling alignment.
+
+
+=> Sizing widgets 
+When a layout is too large to fit a device a yellow and black striped pattern aling the affected edge.
+
+=> Packing widgets
+By default a row or column occupies as much space along its main axis as possible but if you want to pack children closely together set its mainAxisAlignment to MainAxisAlignment.min.
+
+
+
+=> Layout widget fall into two categories: Standard widget from the widget library and specilized widget from the Material library.
+Any app can use the widget library but only Material apps can use the Material Components library.
+
+
+=> Standard widgets
+1) Container : Adds padding margin borders, background color, or pther decorations to a widget
+2) GridView : Lays widgets out as a scrollable grid
+3) ListView : Lays widgets out as a scolleable list
+4) Stack : Overlaps a widget on top of another.
+
+
+=> Material widgets
+1) Card: Organizes related info a box with rounded corners and drop shadow.
+2) ListTile : Organizes up to 3 lines of text and optional leading and trailing icons into a row.
+
+
+=> Container
+Many layouts make liberal use of Container to separate widget using padding or to add borders or margin. You can change the device background by placing the entire layout into a Container
+and changing its background color or image.
+
+
+=> GridView
+Use GridView to lay widget out as a two-dimensional list. GridView provides two pre-fabricate or you can build your own custom grid.
+When a GridView detects that its content are too long to fit the render box. it automatically scrolls.
+* GridView.count => allows you to specify the number of columns
+8 GridView.extent allows you to specify the maximum pixel width of a tile.
+
+
+
+=> ListView 
+a column-like widget automatically privides scrolling when its content it too long for its render box.
+
+
 
 
 Here the following points are worth notable :-

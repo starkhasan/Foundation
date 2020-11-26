@@ -1,0 +1,96 @@
+=> What is the difference between debug and release .
+ 
+     By default debug includes debug information in the compiled files (allowing easy debugging) while Release usually has optimization enabled.
+
+
+=> How to get .apk and .ipa file from flutter?
+
+	For apk (Android) you need to run the command 
+	flutter build apk --release
+
+	For ips (IOS) you need to run the command
+	flutter build ios --release
+
+	--release is optonal as it is by default if you need debug build , just replace --release with --debug.
+
+=>Compilation mode in release stage
+	In production mode applications need to execute quickly . So Flutter chose AOT mode when compiling your application code. However due to different platform characteristic 
+	the compilation mode is also very different. 
+
+
+
+
+=> State Management
+
+	The state corrsponds to the local data that a widget can hold which is available after the widget has rendered / refreshed. When ever we set the state the build function widget is triggered 
+	refreshing the user interface of the widget.
+
+	In order for update we need to use the power of state. The way the state is implemented in Flutter is little weired. Instead of just inheriting out IncrementCounter class from the 
+	StatefulWidget class, we need to create a separate class which wil manage the state and also the build the user interface of widget.
+
+
+
+=> What is underscore "_" in the function indicate.
+	The underscore "_" in the function indicates that this is a private function and it will not be visible outside of this class.
+
+
+
+=> StatefulWidget
+	This is one of the most important Widgets because it hold a State Widget, this one know when something chaaged and re-draws anything necessary over our screen.
+	The lifecycle of this one is the following:
+
+	* createState
+	* initState
+	* didChangeeDependencies
+	* build
+	* (didUpdateWidget)
+	* deactivate
+	* dispose
+
+	cretaeState()
+	When we build a new StatefulWidget this one calls createState() right away and this override method MUST exist:
+	
+	class MyScreen extends StatefulWidget{
+		@override
+		_MyScreenState createState() => _MyScreenState();
+	}
+
+
+	initState()
+	this is the first method called after the Widget is created.
+	This is our equivaltent to onCreate() and viewDidLoad(). 
+
+
+	didChangeDependencies()
+	This method is called immediately after initState() on the first time the widget is build. If StatefulWidget depends from a InheritedWidget it wil call again if a change is necessary
+
+	build()
+	We can say for sure this method is the most important one . Here it relays your entire tree of Widget to be render and is called right after didChangeDependencies(). All the GUI
+	is ender here and will be called every single time the UI needs to be render because drawing again is checp operation.
+
+	didUpdateWidget()
+		setState((){
+		});
+
+	deactivate()
+
+	disponse()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,5 +1,6 @@
 NullPointer Exception :------------------------------------------
-NullPointerException is a RuntimeException. In java a special null vaue can be assigned to an object reference. A NullPointerException is throws when an application attempts to use an object reference that has the null value. These include
+NullPointerException is a RuntimeException. In java a special null vaue can be assigned to an object reference. A NullPointerException is throws when an application attempts to use an object 
+reference that has the null value. These include
 
 => Calling an instance method on the object referred by a null reference.
 => Accessing or modifying an instance field of the object referred by a null reference.
@@ -13,10 +14,11 @@ Application should throw instance of this class to indicate other illegal uses o
 Object obj = null;
 obj.toString()
 
-The code show one of the pitfalls of Java and the most common source of bugs. No object is created and the compiler does not detect it. NullPoinsterException is one of the most common exceptions throws in Java.
+The code show one of the pitfalls of Java and the most common source of bugs. No object is created and the compiler does not detect it. NullPointerException is one of the most common 
+exceptions throws in Java.
 
 
-Whhy do we need null?
+Why do we need null?
 The reason we need it  is because many times we need to create an object reference before the object itself is created. Object references cannot exist without a value so we assign the null value to it
 
 public Person getPerson(boolean isWoman) {
@@ -29,14 +31,18 @@ public Person getPerson(boolean isWoman) {
   return person;
 }
 
-In the above code we want to create the Person inside the if-else but we also want to return the object references to the caller so we need to create the object reference outside of the if else because of the scoping rule in Java. Incorrent error-hadling and poor contract design can be a pitfalll with any programming language, This is also true for Java.
+In the above code we want to create the Person inside the if-else but we also want to return the object references to the caller so we need to create the object reference outside of the if else 
+because of the scoping rule in Java. Incorrent error-hadling and poor contract design can be a pitfalll with any programming language, This is also true for Java.
 
 
-Now we will describe how to prevent NullPointerException. We do not describe general techniques for how you should program Java, we just hope to make you more aware of null values, and to be more careful about generating them yourself.
+Now we will describe how to prevent NullPointerException. We do not describe general techniques for how you should program Java, we just hope to make you more aware of null values, 
+and to be more careful about generating them yourself.
 
-This list is not complete  -- there are no rules for preventing NullPointerException entirely in Java, because the standard libraries have  to be used  NullPointerException Also it is possible to observe an uninitialized final field in Java  so you can;t even treat a final field as being completely trusted during the object's creation.
+This list is not complete  -- there are no rules for preventing NullPointerException entirely in Java, because the standard libraries have  to be used  NullPointerException Also it is possible to 
+observe an uninitialized final field in Java  so you can't even treat a final field as being completely trusted during the object's creation.
 
-A good approach is to learn how to deal with NullpointerException first and become cometent with that. These suggestions wil help you to cause less NullPointerException but they don't replace the need to know about NullPointerException.
+A good approach is to learn how to deal with NullpointerException first and become content with that. These suggestions will help you to cause less NullPointerException but they don't 
+replace the need to know about NullPointerException.
 
 
 
@@ -129,7 +135,8 @@ Logical operator are typically used with Boolean values
 
 13:51 29-02-2020
 
-As stated earlier each object has its own copies of the instance variables. this means that if you have two Box objects, each has its own copy of depth , width and height. It is important to understand that changes to the instance variable of one object have no effect on the instance variable of another.
+As stated earlier each object has its own copies of the instance variables. this means that if you have two Box objects, each has its own copy of depth , width and height.
+It is important to understand that changes to the instance variable of one object have no effect on the instance variable of another.
 
 Example =>
 
@@ -201,8 +208,9 @@ The default constructor automatically initializes all instance variable to their
 
 
 
-This Keyword :-----------------
-Sometimes a methods will need to refer to the object that invoked it. To allow this java defines the this keyword this can be used inside any method to refer to the current object.
+this Keyword :-----------------
+Sometimes a methods will need to refer to the object that invoked it. 
+To allow this java defines the this keyword this can be used inside any method to refer to the current object.
 				that is this is always a reference to the object on which the method was invoked. we can use this anywhere a reference to an object of the current class type is permitted.
 
 
@@ -271,7 +279,7 @@ Abstract classes and Abstract Method :-
 
 
 Interface in Java :------------------------------------------------------------
-Like a class aninterface can have methods and variable but the methods declared in an interface are by default abstract ( only method signatureno body)
+Like a class an interface can have methods and variable but the methods declared in an interface are by default abstract ( only method signatureno body)
 
 => Interfaces specify what aclass must do and not how. It is the blueprint of the class.
 => An interface is about capabilities like a player may be an interface and any  class implementing player must be able to (or must implement) move(). So it specifies a set of methods that the class has to implement.

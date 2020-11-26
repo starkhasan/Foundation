@@ -1,15 +1,12 @@
-class Employee {
-  void showEmpInfo() {}
+import 'dart:async';
+
+void main() => runApp();
+
+void runApp() {
+  var duration = Duration(milliseconds: 3000);
+  Timer(duration, _navigation);
 }
 
-class Manager implements Employee {
-  @override
-  void showEmpInfo() {
-    print("I Am Manager");
-  }
-}
-
-void main() {
-  Manager mng = new Manager();
-  mng.showEmpInfo();
+_navigation() {
+  print("This thing is printing after 3 Second");
 }

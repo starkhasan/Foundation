@@ -29,6 +29,17 @@
             "request": "launch",
             "mainClass": "demo",
             "projectName": "Repo_72ddf18b"
+        },
+        {
+            "name": "C++ Compiler",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "E:/Installed/MinGW/mingw32\bin",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true
         }
     ]
 }

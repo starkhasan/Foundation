@@ -5,10 +5,12 @@
 
 Dart Features :---------------------------------
 
-The Dart is an open source object oriented programming language. the Dart provides lots of convenient mainly focused on compilation execution,safety, memory management and concurrency. Below is a list of some of important features among Dart's features are:-
+The Dart is an open source object oriented programming language. the Dart provides lots of convenient mainly focused on compilation execution,safety, memory management and 
+concurrency. Below is a list of some of important features among Dart's features are:-
 
 1) Object Oriented Programming
-Dart is an object oriented programming language with support for inheritence interfacesand optional typing features it also support interfaces mixins abstract classes feified generics statis typing and a strong type systems.
+Dart is an object oriented programming language with support for inheritence interfacesand optional typing features it also support interfaces mixins abstract classes feified generics statis 
+typing and a strong type systems.
 
 2) Open Source :- Dart is an open source programming language and it comes with a set of tools for compilling and executing Dart code. It is recognized as an ECMA standard and is available with BSD licences.
 
@@ -16,7 +18,8 @@ Dart is an object oriented programming language with support for inheritence int
 Dart is cross platform and support all major operating systems. the Dart compiler come with its own Virtual Machine which allows Dart programs to run on every systems.
 
 4) Browser Support :-
-The Dart code can be trans compiled into JavaScript using source to source compilation. There is a dart2js compiler which transpile Dart code into optimization Javascript code run on all modern web browsers.
+The Dart code can be trans compiled into JavaScript using source to source compilation. There is a dart2js compiler which transpile Dart code into optimization Javascript code run on all 
+modern web browsers.
 
 5) Type Safe :-
 The Dart is type safe programming language. Dart uses a combination of static type checking and runtime checks to ensure that a variable value always match the variable statis type. Although dart is strongly typed type annotation are optional because of type interface.
@@ -32,12 +35,16 @@ void main(){
 main function()
 This is the most vital part of each and every Dart program, it is mandatory for every Dart program to have a top-level main() function definition.
 There can be only one main() function in dart progam. It serve as the entry point for every Dart program or app: the execution of a Dart program or application starts with the main() function. The Dart program can't be execute without main() function. 
-											The main() function is resonsible for execution of all the user defined statement functions and library function. The main() function further structured into variable declareation, function declaration and user defined executable statements. The main() function returns void and can have an optional; List<String> parameters as arguments.
+											
+The main() function is resonsible for execution of all the user defined statement functions and library function. The main() function further structured into variable declareation, 
+function declaration and user defined executable statements. The main() function returns void and can have an optional; List<String> parameters as arguments.
 
 
-Dart is an object oriented language with C-style syntax which can optionally trans compile into JavaScript. It support a varied range of programming aids like interfaces, classes, generics and optional typing.
+Dart is an object oriented language with C-style syntax which can optionally trans compile into JavaScript. It support a varied range of programming aids like 
+interfaces, classes, generics and optional typing.
 
-Dart can be extensively used to create single page application. Single page application apply only to websites and web applications. Single page applications enable navigation between different screens of the websites without loading a different webpages in the browser.
+Dart can be extensively used to create single page application. Single page application apply only to websites and web applications. Single page applications enable navigation between 
+different screens of the websites without loading a different webpages in the browser.
 
 Syntax defines a set of rules for writing programs. Every language specification defines its own syntax. A Dart program is composed of - 
 => Variable and Operator
@@ -68,7 +75,8 @@ Execute Dart Programs :--------------------------
 
 
 Dart Returs Values :---------------------------------------------------
-Sometimes we may want a functions to return some values to the point it where it is called from. In dart there is return keyword allows a funtion to return value. The return statement is optional it not specified the function returns null. There can be only one return statement in a function.
+Sometimes we may want a functions to return some values to the point it where it is called from. In dart there is return keyword allows a funtion to return value. 
+The return statement is optional it not specified the function returns null. There can be only one return statement in a function.
 
 	return<expression/value>;
 
@@ -118,7 +126,8 @@ Dart is a case sensitive. This means that Dart differentiates between uppercase 
 
 
 Statements end with a Semicolon :----------------------------------
-Each line of instruction is called a statement. Each dart statement must end with a semicolon(;) . A single line can contain multiple statements. However these statements must be separaed by a semicolon.
+Each line of instruction is called a statement. Each dart statement must end with a semicolon(;) . A single line can contain multiple statements. However these statements must be 
+separaed by a semicolon.
 
 Comments in Dart :---------------------------
 Dart supports the following types of comments -
@@ -138,14 +147,17 @@ The semicolon is a statement terminator, that is each of the individual statemen
 
 
 Dart Keywords :-------------------------------------
-There is a set of reserved words that you cannot use as an identifier. These words are known as reserved words or Keywords. Keywords are standard identifiers and their function is predefied by the compiler. We cannot use keywords as variable names, class names or methods names or as any other idenfier.
+There is a set of reserved words that you cannot use as an identifier. These words are known as reserved words or Keywords. Keywords are standard identifiers and their function is predefied 
+by the compiler. We cannot use keywords as variable names, class names or methods names or as any other idenfier.
 
 
 
 
 
 Dart Variable :------------------------------------
-Variable are used to represent reserved memory locations that is used to store values when we create a variable we are suppose to allocate some memory for that variable. Dart is a statically types programming language this means that variable always have a specific types programming language.This means that variable always have a specific type and that type cannot be changed. Every variable have data type associated to it data type for a variable defines -
+Variable are used to represent reserved memory locations that is used to store values when we create a variable we are suppose to allocate some memory for that variable. Dart is a statically 
+types programming language this means that variable always have a specific types programming language.This means that variable always have a specific type and that type cannot be 
+changed. Every variable have data type associated to it data type for a variable defines -
 
 => the amount of memory space allocated for variables.
 => A data type specifies the possible values for variables.
@@ -181,12 +193,11 @@ The data types list and Map are used to represent a collection of objects. A Lis
 
 The List Data type in Dart is anonymous to the concept of an array in other programming language.
 
-The Map data type represents a set of values as key-value pairs. The dart:core library enables creation and manipulation of these collection though the predefines List and Map Classes respectively.
-
+The Map data type represents a set of values as key-value pairs. The dart:core library enables creation and manipulation of these collection though the predefines List and Map 
+Classes respectively.
 
 
 Variable name are called identifier.
-
 
 
 Dart Lists :-
@@ -201,7 +212,8 @@ The Map is an object that is used to represents a set of values as key-value pai
 
 
 Dart Runes :----
-Dart Sring is a sequence of Unicode UTF-16code unit 32-bit Unicode values within a string are represented using  special syntax. A rune is an integer representing a Unicode point. For example the heart character is represented using corresponsing  unicode equivalent \u2665
+Dart Sring is a sequence of Unicode UTF-16code unit 32-bit Unicode values within a string are represented using  special syntax. 
+A rune is an integer representing a Unicode point. For example the heart character is represented using corresponsing  unicode equivalent \u2665
 
 
 
@@ -323,14 +335,46 @@ if expr1 is non null returns its value other wise evaluates and return the value
 
 
 Cascade Operator :------------------------------------------------------
-Cascade (..) allow you to perform a sequence of operations on the same object. The Cascades notation(..) is similar to method chaining that saves you number of steps and need of temporary variable.
+Cascade (..) allow you to perform a sequence of operations on the same object. The Cascades notation(..) is similar to method chaining that saves you number of steps and need 
+of temporary variable.
 
 
+class Demo {
+  var a;
+  var b;
+  void setA(x) { 
+    this.a = x;
+  } 
+
+  void setB(y) { 
+    this.b = y;
+  } 
+  void showVal(){
+    print(this.a);
+    print(this.b);
+  }
+}  
+void main() { 
+  
+  Demo d1 = new Demo(); 
+  Demo d2 = new Demo();
+  
+  print("W3Adda -  Dart Cascade Notation");
+  // Without Cascade Notation
+  d1.setA(20);
+  d1.setB(25);
+  d1.showVal();
+  // With Cascade Notation
+  d2..setA(10) 
+    ..setB(15)
+    ..showVal();  
+}
 
 
 
 
 Dart Programming Loops :--------------------------------------
+
 A loop represent a set of instructions that must be repeated. In a loop's context a repetition is termed as an iteration.
 
 Loop are further divided in to two types
@@ -625,7 +669,7 @@ void main(){
 
 String Methods :--------------------------
 1) toLowerCase() 	=> COnvert all characters in this string to lower case.
-2) to UpperCase() 	=> COnvert all Cahracter in this string to uppercase.
+2) toUpperCase() 	=> COnvert all Cahracter in this string to uppercase.
 3) trim()
 4) compareTo()
 5) split()
@@ -791,7 +835,8 @@ void main() {
 
 Function in Dart Programming Language :-----------------------
 
-Function are the building blocks of readable maintainable and reusable code . A function is a set of statement to perform a specific task. Functions oraganize the program into logical block of code.
+Function are the building blocks of readable maintainable and reusable code . A function is a set of statement to perform a specific task. Functions oraganize the program into logical block of 
+code.
 Once defined functions may be called to access code.
 This make the code reusable Moreover functions make it easy to read and maintain the program's code.
 

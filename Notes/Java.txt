@@ -85,15 +85,19 @@ Question => Difference between Java Components (JRE,JDK,JVM)
 
 Java Development Kit(in Short JDK) is Kit which provides the enviroment to Develop and execute(run) the java program 
 
-Example:- you (as java Developer ) are developing an accounting application on your machine , so what do you going to need into your machine to develop and run this desktop app? you are going to need JDK.
+Example:- you (as java Developer ) are developing an accounting application on your machine , so what do you going to need into your machine to develop and run this desktop app? 
+you are going to need JDK.
 
-Hence JDK is Kit which include two things 1) Development Tools (to provide an enviroment to develop your java program) 2) JRE(to execute your java program) JDK is only used by java Developers
+Hence JDK is Kit which include two things 
+1) Development Tools (to provide an enviroment to develop your java program) 
+2) JRE(to execute your java program) JDK is only used by java Developers
 
 
 
 	JRE :------------
 Java Runtime Enviroment (to say JRE) is an application package which provides enviroment to only run( not develop) the java program (or application) onto your machine
-Example=> counting with the same example after developing your accounting application you want to run this application into your client's machine . Now in this case your client only need to run your application into his/her machine so your client should install JRE in-order to run your applicationn into his/her machine.
+Example=> counting with the same example after developing your accounting application you want to run this application into your client's machine . 
+Now in this case your client only need to run your application into his/her machine so your client should install JRE in-order to run your applicationn into his/her machine.
 
 Hence JRE in only used by them who only wants to run the java program end users your system
 
@@ -103,7 +107,8 @@ Hence JRE in only used by them who only wants to run the java program end users 
 
 	JVM :--------------
 
-Java Virtual Machine(JVM) is a very important part of both JDK and JRE because it is contained or inbuilt in both. Whatever java program you run using JRE or JDK goes into JVM and JVM is responsible to execute the java program line by line hence it is also known as interpreter . Hence you don't need to install JVM separately into your machine because it is inbuilt into your JDK or JRE installation package.
+Java Virtual Machine(JVM) is a very important part of both JDK and JRE because it is contained or inbuilt in both. Whatever java program you run using JRE or JDK goes into JVM and JVM 
+is responsible to execute the java program line by line hence it is also known as interpreter . Hence you don't need to install JVM separately into your machine because it is inbuilt into your JDK or JRE installation package.
 
 =====================================
 
@@ -117,7 +122,7 @@ in CMD just type  < java -version > and hit enter
 
 JVM
 
-JVM(Java Virtual Machine) is an abstract machine.It is called virtual machine because it doesn't physically exist.it is a specification that provides runtime environment.
+JVM(Java Virtual Machine) is an abstract machine. It is called virtual machine because it doesn't physically exist.it is a specification that provides runtime environment.
 
 (JVM , JRE and JDK are platform dependent because configuration of each OS are different )
 
@@ -4456,6 +4461,9 @@ First creating class which extends the thread class and we are overriding the ru
 this total process is called defining  thread every java program contain one thread default main thread but internally contain more than one  demon thread. main thread creates child thread 
 object main thread start child thread
 
+Demon Thread => It is a low prioroty thread that run in the background  to perform task such as grabage collection.
+
+
 Thread Schedular:-
 if multiple thread are there in which order they are going to execute that is decided by the thread schedular
 
@@ -4553,7 +4561,7 @@ output=> no output
 
 
 
-Note=> it is highly to override run  method otherwise don't go for multithreading concept
+Note=> it is highly recommanded to override run  method otherwise don't go for multithreading concept
 
 case 6:
 overriding of start method
@@ -4791,7 +4799,7 @@ class MultipleThreadDemo
 	}
 }			
 
-                                                                 ----------------: Which approache is best to define a thread :---------------
+                                                                 			----------------: Which approache is best to define a thread :---------------
 
 
 Among two ways to defining a thread implements runnable approache is recommanded
@@ -4802,7 +4810,7 @@ because of above reason implementing runnable interface approache recommanding t
 
 
 
-                                                                         ----------------------: Thread class Constructor :----------------------
+                                                                         		----------------------: Thread class Constructor :----------------------
 
 
 1) Thread t = new Thread( );
@@ -4943,7 +4951,7 @@ ex=>
 
 
 
-				            ---------:  Default Priority  :--------
+				            				---------:  Default Priority  :--------
 
 
 The default priority only for the main thread is 5.
