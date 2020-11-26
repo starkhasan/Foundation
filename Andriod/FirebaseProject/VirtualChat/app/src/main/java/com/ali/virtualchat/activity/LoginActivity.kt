@@ -1,9 +1,11 @@
 package com.ali.virtualchat.activity
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.ali.virtualchat.R
 import com.ali.virtualchat.utils.*
@@ -66,7 +68,15 @@ class LoginActivity : AppCompatActivity(){
     }
 
     fun validation():Boolean{
-        if(TextUtils.isEmpty(etEmail.text)){
+        if(!Helper.isNetworkConnected(this@LoginActivity)){
+            AlertDialog.Builder(this,R.style.AlertDialogTheme)
+                .setMessage(R.string.no_internet_connection)
+                .setPositiveButton(R.string.ok){dialog:DialogInterface,int:Int ->
+                    dialog.dismiss()
+                }
+                .show()
+            return false
+        }else if(TextUtils.isEmpty(etEmail.text)){
             Toast.makeText(this,"Enter user id",Toast.LENGTH_SHORT).show()
             return false
         }else if(TextUtils.isEmpty(etPassword.text)){

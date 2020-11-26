@@ -52,57 +52,66 @@ class UserActivity : AppCompatActivity(){
         val menuOptions = popup_menu.menu
         menuOptions.getItem(0).setTitle(currentUser)
 
-        myRef.addValueEventListener(object:ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                progressBar.visibility = View.GONE
-                listUser.clear()
-                listImage.clear()
-                if(snapshot.value!=null){
-                    for(data in snapshot.children){
-                        if(data.key.toString() != currentUser){
-                            listUser.add(data.key.toString())
-                            //listImage.add(data.child("image").value.toString())
+        if(Helper.isNetworkConnected(this@UserActivity)){
+            myRef.addValueEventListener(object:ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    progressBar.visibility = View.GONE
+                    listUser.clear()
+                    listImage.clear()
+                    if(snapshot.value!=null){
+                        for(data in snapshot.children){
+                            if(data.key.toString() != currentUser){
+                                listUser.add(data.key.toString())
+                                //listImage.add(data.child("image").value.toString())
+                            }
                         }
+                    }else{
+                        AlertDialog.Builder(this@UserActivity,R.style.AlertDialogTheme)
+                            .setMessage("User not Registered")
+                            .setPositiveButton(R.string.register){dialog:DialogInterface,int:Int ->
+                                Preferences.is_login = false
+                                Preferences.rememberme = false
+                                val intent = Intent(this@UserActivity,RegisterActivity::class.java)
+                                intent.putExtra("From","UserActivity")
+                                startActivity(intent)
+                                finish()
+                                dialog.dismiss()
+                            }
+                            .show()
                     }
-                }else{
-                    AlertDialog.Builder(this@UserActivity,R.style.AlertDialogTheme)
-                        .setMessage("User not Registered")
-                        .setPositiveButton(R.string.register){dialog:DialogInterface,int:Int ->
-                            Preferences.is_login = false
-                            Preferences.rememberme = false
-                            val intent = Intent(this@UserActivity,RegisterActivity::class.java)
-                            intent.putExtra("From","UserActivity")
-                            startActivity(intent)
-                            finish()
-                            dialog.dismiss()
-                        }
-                        .show()
-                }
 
-                val linearLayoutManager = LinearLayoutManager(this@UserActivity,LinearLayoutManager.VERTICAL,false)
-                rvUser.layoutManager = linearLayoutManager
-                userAdapter = UserAdapter(this@UserActivity,listUser){position:Int,OPERATION:String ->
-                    if(OPERATION == "Chat"){
-                        Preferences.receiver = listUser[position]
-                        val sender = currentUser.toString()+"_"+listUser[position]
-                        val receiver = listUser[position]+"_"+currentUser.toString()
-                        val intent = Intent(this@UserActivity,ChatActivity::class.java)
-                        intent.putExtra("Sender",sender)
-                        intent.putExtra("receiver",receiver)
-                        startActivity(intent)
+                    val linearLayoutManager = LinearLayoutManager(this@UserActivity,LinearLayoutManager.VERTICAL,false)
+                    rvUser.layoutManager = linearLayoutManager
+                    userAdapter = UserAdapter(this@UserActivity,listUser){position:Int,OPERATION:String ->
+                        if(OPERATION == "Chat"){
+                            Preferences.receiver = listUser[position]
+                            val sender = currentUser.toString()+"_"+listUser[position]
+                            val receiver = listUser[position]+"_"+currentUser.toString()
+                            val intent = Intent(this@UserActivity,ChatActivity::class.java)
+                            intent.putExtra("Sender",sender)
+                            intent.putExtra("receiver",receiver)
+                            startActivity(intent)
+                        }
                     }
+                    if(listUser.size > 0)
+                        tvUserNotFound.visibility = View.GONE
+                    else
+                        tvUserNotFound.visibility = View.VISIBLE
+                    rvUser.adapter = userAdapter
                 }
-                if(listUser.size > 0)
-                    tvUserNotFound.visibility = View.GONE
-                else
-                    tvUserNotFound.visibility = View.VISIBLE
-                rvUser.adapter = userAdapter
-            }
-            override fun onCancelled(error: DatabaseError) {
-                progressBar.visibility = View.GONE
-                Toast.makeText(applicationContext,"Couldn't get the user",Toast.LENGTH_SHORT).show()
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(applicationContext,"Couldn't get the user",Toast.LENGTH_SHORT).show()
+                }
+            })
+        }else{
+            AlertDialog.Builder(this,R.style.AlertDialogTheme)
+                .setMessage(R.string.no_internet_connection)
+                .setPositiveButton(R.string.ok){dialog:DialogInterface,int:Int ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
 
         ivUser.setOnClickListener {
             AlertDialog.Builder(this)

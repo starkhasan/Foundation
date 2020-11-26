@@ -1,5 +1,6 @@
 package com.ali.virtualchat.activity
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Gravity
@@ -9,9 +10,11 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.ali.virtualchat.R
 import com.ali.virtualchat.response.MessageResponse
+import com.ali.virtualchat.utils.Helper
 import com.ali.virtualchat.utils.Preferences
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -37,18 +40,28 @@ class ChatActivity : AppCompatActivity(){
         val receiver = intent.extras!!.get("receiver")
 
         sendButton.setOnClickListener {
-            val messages = messageArea.text.toString()
-            if(!TextUtils.isEmpty(messages)){
-                val map = HashMap<Any, Any>()
-                map["message"] = messages
-                map["sender"] = Preferences.sender.toString()
-                myRefSender.child(sender.toString()).push().setValue(map)
-                myRefReceiver.child(receiver.toString()).push().setValue(map)
-                //addMessageBox("You :- \n" + messages, 1)
-                messageArea.text.clear()
+            if(Helper.isNetworkConnected(this@ChatActivity)){
+                val messages = messageArea.text.toString()
+                if(!TextUtils.isEmpty(messages)){
+                    val map = HashMap<Any, Any>()
+                    map["message"] = messages
+                    map["sender"] = Preferences.sender.toString()
+                    myRefSender.child(sender.toString()).push().setValue(map)
+                    myRefReceiver.child(receiver.toString()).push().setValue(map)
+                    //addMessageBox("You :- \n" + messages, 1)
+                    messageArea.text.clear()
+                }else{
+                    Toast.makeText(applicationContext, "Please type some messages", Toast.LENGTH_SHORT).show()
+                }
             }else{
-                Toast.makeText(applicationContext, "Please type some messages", Toast.LENGTH_SHORT).show()
+                AlertDialog.Builder(this,R.style.AlertDialogTheme)
+                    .setMessage(R.string.no_internet_connection)
+                    .setPositiveButton(R.string.ok){ dialog: DialogInterface, int:Int ->
+                        dialog.dismiss()
+                    }
+                    .show()
             }
+
         }
 
         myRefSender.addChildEventListener(object : ChildEventListener {

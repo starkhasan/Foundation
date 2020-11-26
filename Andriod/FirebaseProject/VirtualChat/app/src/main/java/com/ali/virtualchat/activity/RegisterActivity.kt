@@ -1,10 +1,12 @@
 package com.ali.virtualchat.activity
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.ali.virtualchat.R
 import com.ali.virtualchat.utils.Helper
 import com.ali.virtualchat.utils.Preferences
@@ -46,7 +48,15 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     fun validation():Boolean{
-        if(TextUtils.isEmpty(etEmailRegister.text)) {
+        if(!Helper.isNetworkConnected(this@RegisterActivity)){
+            AlertDialog.Builder(this,R.style.AlertDialogTheme)
+                .setMessage(R.string.no_internet_connection)
+                .setPositiveButton(R.string.ok){ dialog: DialogInterface, int:Int ->
+                    dialog.dismiss()
+                }
+                .show()
+            return false
+        }else if(TextUtils.isEmpty(etEmailRegister.text)) {
             Toast.makeText(this, "Please provide UserID", Toast.LENGTH_SHORT).show()
             return false
         }else if(TextUtils.isEmpty(etPasswordRegister.text)){
