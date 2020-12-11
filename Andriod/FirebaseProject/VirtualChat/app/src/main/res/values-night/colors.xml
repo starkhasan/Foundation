@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#F11042</color>
+    <color name="colorPrimaryDark">#CF0C37</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="sendercolor">#DA66BFDC</color>
     <color name="receivercolor">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
 
-    <color name="textColor">#000000</color>
-    <color name="checkboxcolor">#3700B3</color>
-    <color name="chatbackground">#E2E2E2</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="checkboxcolor">#F11042</color>
+    <color name="chatbackground">#303030</color>
 </resources>
