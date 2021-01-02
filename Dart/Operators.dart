@@ -68,8 +68,8 @@ void main() {
 //Conditional Operator
 void main() {
   print("Enter Two Number : ");
-  var a = int.parse(stdin.readLineSync());
-  var b = int.parse(stdin.readLineSync());
+  var a = int.parse(stdin.readLineSync()!);
+  var b = int.parse(stdin.readLineSync()!);
   var temp = a > b ? a : b;
   print("${temp} is greater");
 }

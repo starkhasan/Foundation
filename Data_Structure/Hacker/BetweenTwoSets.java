@@ -3,14 +3,8 @@ import java.io.*;
 import java.util.*;
 public class BetweenTwoSets {
     public static int min(List<Integer> b){
-        int min = 0;
-        for(int i=0;i<b.size();i++){
-            if(i==0)
-                min = b.get(i);
-            else if(min > b.get(i))
-                min = b.get(i);
-        }
-        return min;
+        Collections.sort(b);
+        return b.get(0);
     }
     public static int getTotalX(List<Integer> a, List<Integer> b) {
         int  minElement = min(b);

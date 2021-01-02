@@ -2,23 +2,22 @@ package Hacker;
 import java.io.*;
 public class ElectronicShop {
     static int getMoneySpent(int[] keyboard, int[] drives, int b) {
-        int maxPrice = 0;
-        for(int i=0;i<keyboard.length;i++){
-            int key = keyboard[i];
+        int max_amount = -1;
+        boolean isFirst = true;
+        for(int i=0;i<keyboards.length;i++){
             for(int j=0;j<drives.length;j++){
-                if((key+drives[j]) <= b){
-                    if(i==0 && j==0){
-                        maxPrice = (key+drives[j]);
-                    }else if(maxPrice < (key+drives[j])){
-                        maxPrice = (key+drives[j]);
+                int amount = keyboards[i]+drives[j];
+                if(amount<=b){
+                    if(isFirst){
+                        max_amount = amount;
+                        isFirst = false;
+                    }else if(max_amount < amount){
+                        max_amount = amount;
                     }
                 }
             }
         }
-        if(maxPrice>0)
-            return maxPrice;
-        else
-            return -1;
+        return max_amount;
     }
     public static int[] assignArray(String[] str){
         int[] ar = new int[str.length];

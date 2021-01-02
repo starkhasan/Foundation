@@ -31,8 +31,8 @@ void main(List<String> args) {
 
 void main(List<String> args) {
   print("Enter the Size of the List ot Declare : ");
-  var list_size = int.parse(stdin.readLineSync());
-  var nameList = new List(list_size);
+  var list_size = int.parse(stdin.readLineSync()!);
+  var nameList = new  List(list_size);
   print("Enter the Element in namelist");
   for (var i = 0; i < list_size; i++) {
     nameList[i] = 1;

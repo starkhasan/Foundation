@@ -32,7 +32,6 @@ class ChatActivity : AppCompatActivity(){
     var myRefReceiver = database.getReference().child("messages")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
         setContentView(R.layout.activity_chat)
         Preferences.init(this@ChatActivity)
 

@@ -43,7 +43,6 @@ class UserActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
         setContentView(R.layout.activity_user)
         progressBar.visibility = View.VISIBLE
         Preferences.init(this@UserActivity)

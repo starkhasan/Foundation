@@ -1,3 +1,15 @@
+
+17:38 28-11-2020
+What are Future Operations ?
+Future operations are the operations which take time to perform and return the result later. To handle this problem, we use Asynchronus functions.
+
+2.
+
+
+
+
+
+
 Facebook with Login Problem in Flutter :------------------------------
 
 [dart] The method 'logInWithReadPermissions' isn't defined for the class 'FacebookLogin'

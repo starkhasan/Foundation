@@ -4,7 +4,7 @@ void main() {
   print("Enter Name : ");
   var name = stdin.readLineSync();
   print("Enter Age : ");
-  var age = int.parse(stdin.readLineSync());
+  var age = int.parse(stdin.readLineSync()!);
   printDetails(name, age);
 }
 
