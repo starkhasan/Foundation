@@ -1,42 +1,31 @@
-package Hacker;
 import java.io.*;
 import java.util.*;
 public class ClimblingLeaderboard {
-    public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
-        List<Integer> result = new ArrayList<>();
-        List<Integer> rank = new ArrayList<>();
-        for(int i=0;i<ranked.size();i++){
-            if(!rank.contains(ranked.get(i)))
-                rank.add(ranked.get(i));
-        }   
-        Collections.reverse(player);
-        //System.out.println("Temp = "+player);
-        //System.out.println("Rank = "+rank);
-        int matchPositoion = 0,j = 0,temp = 0;
-        for(int i=0;i<player.size();i++){
-            temp = player.get(i);
-            j = matchPositoion;
-            //System.out.println("Pos = "+j+" Temp = "+temp);
-            while(j<rank.size()){
-                if(temp > rank.get(j) || temp == rank.get(j)){
-                    matchPositoion = j;
+    public static List<Integer> climbingLeaderboard(List<Integer> rank, List<Integer> player) {
+        List<Integer> result = new ArrayList<Integer>();
+        Set<Integer> set = new HashSet<>(rank);
+        rank.clear();
+        rank.addAll(set);  
+        Collections.sort(rank);
+        Collections.reverse(rank); 
+        System.out.println(rank);
+        int i = rank.size()-1;
+        for(int element :  player){
+            while(i>=0){
+                if(element >= rank.get(i)){
+                    i-=1;
+                }else{
+                    result.add(i+2);
                     break;
-                }else if(temp < rank.get(j)){
-                    if(j+1 == rank.size()){
-                        matchPositoion = j+1;
-                        break;
-                    }
                 }
-                j+=1;
             }
-            //System.out.println(matchPositoion);
-            result.add(matchPositoion+1);
+            if(i<0)
+                result.add(1);
         }
-        Collections.reverse(result);
         return result;
     }
     public static void main(String[] args) throws IOException{
-        BufferedReader buffer = new BufferedReader(new FileReader("InputDemo.txt"));
+        BufferedReader buffer = new BufferedReader(new FileReader("InputHacker.txt"));
         List<Integer> rankedList,playerList;
         Boolean isFirst = true;
         String player = "",ranked = "";

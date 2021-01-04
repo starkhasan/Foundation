@@ -3,25 +3,27 @@ import java.io.*;
 import java.util.*;
 public class DesignerPDFViewer {
     
-    static void assignLatter(HashMap<Character,Integer> c){
-        char ch = 'a';
-        for(int i=0;i<26;i++){
-            c.put(ch,i);
-            ch+=1;
-        }   
-    }
-
-    static int designerPdfViewer(int[] h, String word) {
-        int max = 0;
-        HashMap<Character,Integer> mapCharacter = new HashMap<>();
-        assignLatter(mapCharacter);
-        for(int i=0;i<word.length();i++){
-            if(i==0)
-                max = h[mapCharacter.get(word.charAt(i))];
-            else if(max < h[mapCharacter.get(word.charAt(i))])
-                max = h[mapCharacter.get(word.charAt(i))];
+    static void setHeight(HashMap<Character,Integer> map,int[] height){
+        char c = 'a';
+        for(int i=0;i<height.length;i++){
+            map.put(c,height[i]);
+            c++;
         }
-        return max*word.length();
+    }
+    static int designerPdfViewer(int[] h, String word) {
+        HashMap<Character,Integer> heightMap = new HashMap<>();
+        setHeight(heightMap,h);
+        int temp = 0;
+        boolean isFirst = true;
+        for(char c:word.toCharArray()){
+            if(isFirst){
+                isFirst = false;
+                temp = heightMap.get(c);
+            }else if(temp < heightMap.get(c)){
+                temp = heightMap.get(c);
+            }
+        }
+        return temp * word.length();
     }
     public static void main(String[] args) throws IOException{
         BufferedReader buffer = new BufferedReader(new FileReader("InputHacker.txt"));
