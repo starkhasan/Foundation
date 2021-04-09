@@ -1,18 +1,33 @@
+import java.io.*;
 import java.util.*;
 class Demo{
-  public static void main(String[] args) {
-    int number = 1534236469;
-    int temp = 123;
-    int y = 0;
-    while(number>0){
-      int x = number%10;
-      y = x + y*10;
-      number = number/10;
+    public static String PartyType( long a[]){
+        String party =  "GIRLS";
+        List<Long> list = new ArrayList<Long>();
+        for(long element:a){
+            if(list.contains(element)){
+                party = "BOYS";
+                break;
+            }else{
+                list.add(element);
+            }
+        }
+        return party;
     }
-    if(y > Integer.MAX_VALUE/10) {
-      System.out.println(Integer.MAX_VALUE);
-      System.out.println("Overlow");
+    public static void main(String[] args) throws IOException{
+        BufferedReader buffer = new BufferedReader(new FileReader("InputDemo.txt"));
+        String input = "";
+        while((buffer.readLine())!=null){
+            input = buffer.readLine();
+        }
+        String[] str = input.split(" ");
+        long[] lng = new long[str.length];
+        int i=0;
+        for(String s:str){
+            lng[i] = Long.parseLong(s);
+            i+=1;
+        }
+        System.out.println(PartyType(lng));
+        buffer.close();
     }
-    System.out.println(y);
-  }
 }

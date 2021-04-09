@@ -17,8 +17,39 @@ Facebook with Login Problem in Flutter :------------------------------
 Solution :-  if you are using flutter_facebook_login version above 2.0.1 change the fblogin.loginWithReadPermission(['email','public_profile'])  with fbLogin.**logIn**(['email', 'public_profile']) The Future function has been renamed to just logIn(List permissions)
 
 
+What is Widget ?
+Widget is a description of a part of UI.
+In flutter Widget is a way to declare and construct UI.
+If you are familiar with the Android or iOS development then you might make the immediate connection with the views (on Android) or UIViews (on iOS).
 
 
+Basic widgets =>
+Flutter comes with a suite of powerful basic widget, of which the following are commonly used.
+
+Text
+The Text widget lets you create a run of styled text within your application.
+
+Row, Column
+These widget let you create layout in both the horizontal and vertical directions. The design of these object is based on the web's flexbox layout model.
+
+Row is a widget used to display child widget in horizontal manner.
+Column is a widget used to display child widgets in a vertical manner. 
+
+CrossAxisAlignment Property :-
+We can use the crossAxisAlignment property to align our child widget in the desired cross Axis. 
+Example crossAxisAlignment.start would place the children with their start edge aligned with the start side of the cross axis.
+Example crossAxisAlignment.center  Place the children so that their centers align with the middle of the cross axis.
+Example crossAxisAlignment.stretch require the children to fill cross axis.
+
+
+MainAxisAlignment Property :-------------------
+The poistioning of the child widget on the main axis.
+
+MainAxisAlignment.start => Place the children as close to the start of the main axis as possible.
+
+MainAxisAlignment.center => Place the children as close to the middle of the main axis as possible.
+
+MainAxisAlignment.end => Place the children as close to the end of the main axis as possible.
 
 
 
@@ -26,10 +57,248 @@ mainAxisSize property :---------------------------------------------
 MainAxisSize mainAxisSize 
 
 How much space should be occupied in the main axis
-After allocating space to childreb there might be some remainingfeww space. This value control whether to maximize or minimize the amount of the free space to the incoming layout constraints.
+After allocating space to childreb there might be some remaining few space. This value control whether to maximize or minimize the amount of the free space to the incoming layout constraints.
 If some children have a non-zero flex fector  (and none have a fit of FlexFit loose) they will expand to consure all the avaialble space and there will be no  remaining free space to maximizing or minimizing making this value irrelevant to the final layout.
 
 
+
+
+Stack ================>
+Instead of being linearly oriented (either horizontally or vertically) a Stack widget lets you place widgets on top of the each other in paint order. You can then use the Positioned widget
+on children of Stack to position them relative to the top right bottom or left edge of the stack. Stacks are based  on the web's absolute positioning layout model.
+
+A Stack widget allows us to make multiple widget overlay each other. This not only allows brillant cusotm designed but also some really cool animations. There are two main types of Stacks:
+1) Stack
+2) Indexed Stack
+
+
+Stack widget allows us to put up multiple layers of the widget onto the screen.
+The widget takes multiple children and orders them from bottom to top. So the first item is the bottommost and the last is the topmost.
+
+Stack(
+  children: <Widget>[
+    BottomWidget(),
+    MiddleWidget(),
+    TopWidget(),
+  ],
+)
+
+Each member in the stack needs to be positioned or aligned or else it ends up in the top left corner by default.
+you can align or position your widget using the Align or Positioned widget.
+
+An Align widget usually takes widget to extreme positions
+
+Positioned has multiple types, we'll focus on the default. It accepts values from all four sides telling the child how far it should be away from the respective side. If no value os given it 
+shrink to the lowest possible size.
+
+
+
+IndexedStack
+An IndexedStack is a Stack where only one element is displayed at one time by its index.
+
+IndexedStack(
+  index: 1,
+  children: <Widget>[
+    BottomWidget(),
+    MidWidget(),
+    TopWidget(),
+  ],
+)
+
+It tackes children like usual Stack but it contrast to it only displays one child at one time.
+
+
+
+
+Exploring Draggable and DragTargets :---------------------------------
+Draggable and DragTarget allows us drag a widget across screen.
+
+
+Draggable :----------------------
+A Draggable makes a widget movable around the screen.
+
+Draggable(
+  child: WhiteKnight(
+    size: 90.0,
+  ),
+  feedback: WhiteKnight(
+    size: 90.0,
+  ),
+  childWhenDragging: Container(),
+)
+
+
+There are three main parts to the Draggable widget:
+1. Child : The child parameter is the widget that will be displayed when the draggable is stationary
+2. Feedback : The feedback is the widget that will be displayed when the widget is being dragged.
+3. Child When Dragging: The childWhenDragging parameter takes the widget to display in the original place of child when the widget is being dragged.
+
+
+=> Restricting motion for Draggabled
+Setting the axis parameter helps us restrict motion in one dimension only.
+Axis.horizontal makes the feedback widget on y move in the horizontal axis.
+
+
+=> Adding data to Draggable
+Data can be attached to a Dragable. This is useful to us since we use Draggable and DragTargets.
+
+Draggable(
+  child: WhiteKnight(
+    size: 90.0,
+  ),
+  feedback: WhiteKnight(
+    size: 90.0,
+  ),
+  childWhenDragging: Container(),
+  data: [
+    "White",
+    "Knight"
+  ],
+)
+
+
+
+Callbacks :-----------
+The draggable widget supplies callbacks for actions on the widget. These callback are:
+
+onDragStarted : This is called when a drag is sarted on a widget.
+
+onDragCompleted : When a draggble is dragged to DragTarget and accepted this callback is called. We will look at DragTarget is in the nest section.
+
+onDragCancelled : When a draggable does not reach a DragTarget or is rejected this callback is Fired.
+
+DragTarget :----------------------------------------
+While a Draggable allows a widget to be dragged a Dragtarget provides a destination for the draggable.
+
+bool accepted = false;
+DragTarget(builder: (context, List<String> candidateData, rejectedData) {
+  return accepted ? WhiteKnight(size: 90.0,) : Container();
+}, onWillAccept: (data) {
+  return true;
+}, onAccept: (data) {
+   accepted = true;
+},),
+
+Builder
+The Builder build the actual widget inside the DragTarget. This function is called everytime a Draggable is hovered over the DragTarget or is dropped onto it.
+This function has three parameters, context, candidateData and rejectData.
+
+candidateData is the data of a Draggable whilst it is hovering over the DragTarget ready for acceptance by DragTarget. 
+
+rejectData is the data of a Draggable hovering over a Dragtarget at moment it is not accepted.
+
+onWillAccept :---------------------
+onWillAcept is a function which gives us the Draggable data for us to decide whether toaccept or reject it.
+
+DragTarget(
+  // ...
+  onWillAccept: (data) {
+    if(data == "Knight") {
+      return true;
+    } else {
+      return false;
+    }
+  },
+)
+
+
+onAccept => 
+If the Draggable is dropped onto the DragTarget and onWillAccept returns true then onAccept is called.
+onAccept also gives us the data of the Draggable and is usually used for storing the Draggable dropped over DragTraget.
+
+onLeave =>
+onLeave is called when  a Draggable is hovered iver the DragTarget and leaves without deing dropped.
+
+
+
+
+
+
+
+
+
+
+Introduction to the Transform widget: ----------------------------------
+
+A Transform widget 'transform'  (ie changes the shape size position and orientation) its child widget before painting it .
+This is expremely useful for custom shapes and many different kinds of animations in Flutter.
+This can be used to transform any widget and distort it to any shape we like or move it around as well.
+
+
+Exploring the types of transform widget :---------------------------------------------
+Common operations such as scaling rotation or translation are all provided via constructors.
+
+The types of Transform widgets are 
+1. Transform (default constructor)
+2. Transform.rotate
+3. Transform.scale
+4. Transform.translate
+
+
+=> Transform.rotate 
+As the name suggests Transform.rotate simply rotates the child by an angle.  Here the child is square container	
+
+Transform.rotate(
+  angle: 1.0,
+  child: Container(
+    height: 200.0,
+    width: 200.0,
+    color: Colors.pink,
+  ),
+)
+
+
+The angle parameter lets us set an angle (in radius) the child will be rotate by.
+The widget also allows us specify an origin for the rotation of our widget. We specify the origin using the origin parameter. This takes an Offset
+The Offset notes the distance of the origin in relation to the center of the child itself.
+When we don't need explicitly set the offset however the child rotates around its own center.
+
+
+
+Tranform.scale =:------------------------------------------------
+The scale consructor scales the child by the given scale parameter.
+Transform.scale(
+  scale: 0.5,
+  child: Container(
+    height: 200.0,
+    width: 200.0,
+    color: Colors.yellow,
+  ),
+)
+
+Here we set the scale to 0.5 to reduce the size of the cotainer by half.
+Similarly to the rotation transform we can also set an origin in scalling.
+
+
+
+Transform.translate :-----------------------------------------------
+Transform.translate translatees the child of the transform widget by a specific amount in the X and Y direction.
+We supply an Offset which  has the amount by which  we want to move the child by in the X and Y directions.
+
+
+Transform.translate(
+offset: Offset(100.0, 0.0),
+  child: Container(
+    height: 100.0,
+    width: 100.0,
+    color: Colors.yellow,
+  ),
+)
+
+
+
+Transform (Default constructor)
+Unlike the other constructor in the list , the default constructor allows us to do multiple operations at once. It is the most powerful constructor from the list.
+Instead of taking a specific parameter like an angle or scaling this constructor takes a 4D Matrix directly in the transform parameter. This allows us to carry out multiple operations.
+Transform(
+  transform: Matrix4.skewY(0.3)..rotateZ(3.14 / 12.0),
+  origin: Offset(50.0, 50.0),
+  child: Container(
+    height: 100.0,
+    width: 100.0,
+    color: Colors.blue,
+  ),
+)
 
 
 
@@ -47,11 +316,11 @@ Opcaity(
 	)
 )
 
-This widget  simply sets  the child's opacity to sero but still renders it. So the child it hidden but take space and you can interact with t.
+This widget  simply sets  the child's opacity to zero but still renders it. So the child it hidden but take space and you can interact with it.
 
 
 
-2) Offstafe widget :-------------------------------------------------------
+2) Offstage widget :-------------------------------------------------------
 
 Offstage(
 	offstage:true,
@@ -81,15 +350,19 @@ Here child widget is not rendered in the subtree and Flutter uses instead a shri
 Start thinking Declaratively :----------------------------------------------------
 If you're coming to Flutter from an impretive framework (such as Android SDK or IOS UIKit) you need to start thinking about app development from a new prespective.
 
-Many assumption that you might have don't apply to Flutter. For example in Flutter it's okay to rebuild parts of your UI from scratch instead of modifying it. Flutter is fast enough to do that even on every frame if needed.
+Many assumption that you might have don't apply to Flutter. For example in Flutter it's okay to rebuild parts of your UI from scratch instead of modifying it. Flutter is fast enough to do that 
+even on every frame if needed.
 
 Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app:
 
-When the state of your app change (for example the user flips switch in the setting screen), you change the state and that triggers a redraw of the user interface. There is no imperative changing of the UI itself ( like widget.setText ) you change the state and the UI rebuilds from scratch.
+When the state of your app change (for example the user flips switch in the setting screen), you change the state and that triggers a redraw of the user interface. There is no imperative 
+changing of the UI itself ( like widget.setText ) you change the state and the UI rebuilds from scratch.
 
-The declarative style of UI programming has many benefits. Remarkably there is only one code path for any state of the UI. you describe what that UI should look like for any given state once and that is it.
+The declarative style of UI programming has many benefits. Remarkably there is only one code path for any state of the UI. you describe what that UI should look like for any given state 
+once and that is it.
 
-In the broadest possible sense the state of an app is eveything that exist in memory when the app is running. This includes the app's assets, all the variable that the flutter framework keeps about the UI animated state textures fonts ans so on.
+In the broadest possible sense the state of an app is eveything that exist in memory when the app is running. This includes the app's assets, all the variable that the flutter framework keeps 
+about the UI animated state textures fonts ans so on.
 While this broadest possible definition of state is valid it's not very usefult for architecture an app.
 
 
@@ -182,7 +455,8 @@ Ignore Pointer :-------------------------
 When ignoing is true this widget (and its subtree) is invisible to hit testing. It still consumes space during layout and paints its child as usual.It just cannot be the target of located events it returns false from the RenderBox.hitTest.
 
 AbsorbPointer Class :-----------------------------
-When absorbing is true this prevent its subtree from receiving pointers events by terminating hit testing at itself. It still consumes space during layout and paints its child as usual: It just prevents its children from being the target of located events because it returns true from RenderBox.hitTest.
+When absorbing is true this prevent its subtree from receiving pointers events by terminating hit testing at itself. It still consumes space during layout and paints its child as usual:
+It just prevents its children from being the target of located events because it returns true from RenderBox.hitTest.
 
 
 
@@ -638,5 +912,386 @@ Build your own custom grid or use one of the provideing grids:
 
 
 ListView, GridView Widget Inside the Column and Row Causes the Error try to put that inside the Expended  and make the child of the Expended to List, Grid 
+
+
+
+=> Avability of context in Flutter Application during it life cycle
+
+Context of a state is available to us from the moment the state loads its dependencies.
+
+At the time build is called context is available to us and is passed as an argument.
+Now moving on initState is called before the state loads its dependecies and for that reason no context is available and you get an error for that if you use context in initState. However
+didChangeDependencies is called just few mements after the state loads its dependencies and context is available at this moment so here you can use context.
+
+However both of them are called before build is called. Only the difference is that one is called before the state loads its dependencies  and other is called a few moments after the state loads its dependecies.
+
+we can still use context in initState() method its hack buts works all you need to do is sought of delay whatever you will need to execute that has context in it like so:
+
+#override
+void initState(){
+	Future.delayed(Duration.zero).then((_){
+		// you code with context here
+	});
+	super.initState();
+}
+
+
+
+
+
+
+In many application you have seen an expansion or collapse view-like the above:
+
+There are two ways of creating an expandable view in flutter
+
+1) ExpansionTile
+2) ExpansionPanelList and ExpansionPanel
+
+
+
+ExpansionTile :----------------------------------------
+ It is simple and useful widget. This widget let you create a collapse or expansion view with features similar to ListTile . It is like LIstTile which will expand on tapping the title.
+
+ExpansionTile has the following attributes similar to List Tile:
+
+=> title : this property lets you choose the Title for ExpansionTile Widget. The title will be the one item that will always be shown to the user. Only upon clicking this title the widget will
+expand to revel the contents
+
+=> children : The property holds any number of widgets. It could be a Card ListTile to simple Text. This will be revelead only upon clicking on the Title of the ExpansionTile Widget.
+
+=> leading : Lets you give any Ion/Text before the Title (To the left of the title) Similar to how the ListTile is used this attribute does the same here also.
+
+=> trailing : Let you give any Icon/Text after the Title ( To the right of the title). Similar to how the listtile is used this attribute does the same with the trailing property of the ExpansionTile.
+
+=> backgroundColor : Let you provide the background color to the entire ExpandedTitle. Note that this is not the color of the color of the entireTitle, rather only the ExpandedTile.
+
+Example :-
+
+ ExpansionTile(
+                        leading: Icon(Icons.account_circle,color:Colors.pink),
+                        title: Text(response[index].name),
+                        children: [
+                          ListTile(
+                            leading: Text(response[index].email),
+                          )
+                        ],
+                      )
+
+
+
+
+ExpansionPanelList and ExpansionPanel :---------------------------------------
+Another way to achive the expansion collapse view is by using ExpansionPanelList and ExpansionPanel widget.
+
+ExpansionalPanelList has the following attributes similar to ListTile
+
+=> animationDuraiton :  this property is used to define the time require to expand/collapse
+
+=> children ; this property takes the ExpansionPanel as a Parameter which means ExpansionPanel will be used to create hidden view and header.
+
+=> expansionCallback : this property works whereeverthe view expans/collapse
+
+ExpansionPanel has the following attributes similar to the ListTile.
+
+=> headerBuilder : this property is used to design the visible part of the list or title of the list/row.
+
+=> body : this proprty take the widget we can have any widget to expand and collapse
+
+=> IsExpanded : This property indicate whether the panel is expanded or not.
+
+
+
+
+
+23:46 06-04-2021
+
+What is the difference between the TextField and TextFormField :---------------------------------
+
+If you don't know what you need then use a TextField. This is the most basic Flutter widget for getting input from a user. It's the one you should master first.
+
+=> TextField
+Using a TextField is an eassy way to allow user input 
+
+TextField(
+	decoration: InputDecoration(hintText: 'Name')
+)
+
+To get the text that the user entered , you can either get notified every time there is a change using onChange: (text)
+
+TextField(
+  decoration: InputDecoration(
+      hintText: 'Name'
+  ),
+  onChanged: (text) {
+    // do something with text
+  },
+)
+
+we can use TextEditingController can give you access to the text state.
+
+
+
+=> TextFormField
+It you find yourself needing to validate user text input before you save it you might consider using a TextFormField 
+TextFormField when you are usingit inside of a Form widget (thourh that isn't a strict requirement).
+
+
+
+
+
+
+10:58 08-04-2021					Flutter ListView
+
+A ListView in Flutter is linear list of scrollable items. We can use it to make alist of items scrollable or make a list of repeating items.
+
+Exploring the types of the ListView :--------------------------
+1) ListView
+2) ListView.builder
+3) ListView.separator
+4) ListView.custom
+
+
+1 =>  ListView
+This is default constructor of the ListView class. A ListView simply takes a list of children and make it scrollable.
+
+ListView(
+  children: [
+	ItemOne(),
+	ItemTwo(),
+	ItemThree()
+ ]
+)
+
+Usually this should be used with a small number of children as the List will also construct the invisible elements in the list and large amount of the elements may render this inefficient.
+
+
+2 =>  ListView.builder()
+
+The builder() constructor construct a repeating list of items. The constructor takes two main parameters: An itemCount for the number of items in the list and an itemBuilder for constructed
+each list item
+
+ListView.builder(
+	itemCount: itemCount
+	itemBuilder: (context, position) {
+		return listItem();
+	}
+}
+
+The list items are constructed lazily meaning only a specific number of list items are constructed and when a user scroll ahead the earlier ones are destroyed.
+
+Neat trick : Since the elements are loaded laxily and only the needed number of element are loaded we don't really need an itemCount as a compulsory parameter and the list can be infinite
+
+
+
+3 => ListView.seperator()
+In the seperator() constructor we generate a list and we can specify the seperator between each item
+
+Note that the infinite count discussed in the earlier constructor cannot be used here and this constructor enforces an itemCount.
+
+The Code for this goes as :
+ListView.seperated(
+	itemBuilder: (context, position){
+		return ListItem();
+	},
+	sparatorBuilder: (context, position){
+		return SeparatorItem();
+	},
+	itemCount: itemCount,
+),
+
+This type of list let you dynamically define separator have different types of separator for  different types of items add or remove separator when needed.
+This implementation can also be used for inserting other types of elements easily and without any modification to the main list in the middle of the list items.
+
+
+sperator list length is 1 less than the item list as a separator does not exits after the last element.
+
+
+
+3  =>   ListView.custom()
+The custom() constructor as its name suggests lets you build ListViews with custom functionality for how the children of the list are built. The main parameter required for this is
+SilverChildDelegate which builds the items
+
+The types of SilverDelegates are :---------------
+1) SilverChildListDelegate
+2) SilverChildBuilderDelegate
+
+
+SilverChildListDelegate accept a fiect list of children whereas SilverChildBuilderDelegate accept an IndexedWidgetBuilder (The builder function we use)
+
+
+Exploring ScrollPhysics :---------------------------------
+ To control the way scrolling takes place we set the physics parameter in the ListView constructor. the different types of physics are :
+
+1) NeverScrollableScrollPhysics
+It renders the list non-scrollable.Use this to disable the scrolling of the ListView completely.
+
+2) BouncingScrollPhysics
+BouncingScrollPhysics bounces back the list when the list ends. A similar effect is used on iOS.
+
+
+3) ClampingScrollPhysics
+this isthe default scrolling physics used on Android. the list stops at the end and gives an effect indicating it.
+
+4) FixedExtentScrollPhysics
+It will take a ListWheelScrollView which makes a wheel-like list
+
+
+why does my ListView have space between the list and the outer widget?
+	By default a ListView has padding between it and the outer widget to remove it set padding to EdgeInsets.all(0.0)
+
+
+
+
+
+11:41 08-04-2021   						How to solve naming conflict or ambigous import 
+
+Two or more package/libraries have the same class name. you import those package in the same dart files
+The compiler is unable to understand which package/libraries is should use. It feels ambigous then it throw a kind or error like this.
+
+Compiler message: 'Element' is imported from both
+'package:flutter/src/widgets/framework.dart' and
+'package:html/dom.dart'.
+
+
+There are two solution 
+
+1) Hide all conflict classes from particular libraries that you don't use so that the compiler onyl sees the class it should use.
+ 
+import 'package:flutter/src/widgets/framework.dart' hide Element;
+import 'package:html/dom.dart';
+
+
+
+2) Use "as" keyword to provide the name to the class you want to use , thenuse this name as a prefix of the class(es)
+
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:html/dom.dart' as dom;
+
+
+
+
+
+
+
+=> How to find an item in a list :--------------------------------------
+Dart provides many useful methods to filter a list i will use some of them in below examples you mayfind other solutions too.
+
+
+1) Using loop
+///Find a person in the list using loop
+void findPersonUsingLoop(List<Person> people,
+    String personName) {
+  for (var i = 0; i < people.length; i++) {
+    if (people[i].name == personName) {
+      print('Using loop: ${people[i]}');
+
+      // Found the person, stop the loop
+      return;
+    }
+  }
+}
+
+
+
+
+
+
+
+2) Using firstWhere method
+/// Find a person in the list using firstWhere method
+
+
+void findPersonUsingFirstWhere(List<Person> people,String personName){
+// 1. Returns the first element that satisfies
+  //    the given predicate test. Iterates through
+  //    elements and returns the first to satisfy test.
+  // 2. If no element satisfies test, the result of
+  //    invoking the orElse function is returned.
+  //    If orElse is omitted, it defaults to throwing a StateError.
+
+final person = people.firstWhere((element) => element.name ==personName, orElse: () { return null;});
+print('Using firstWhere : ${person});
+}
+
+
+
+
+
+
+
+
+
+
+
+3) Using indexWhere method
+
+void findPersonUsingIndexWhere(List<Person> people, String personName){
+	//Find the index of person If not found index = -1
+	final index = people.indexWhere((element) => element.name == personName);
+
+	if(index >= 0) print('Using indexWhere: ${people[index]});
+}
+
+
+4) Using singleWhere method
+
+/// Find a person in the list using [singleWhere] method.
+void findPersonUsingSingleWhere(List<Person> people,
+    String personName) {
+  // Note (from document):
+  // 1. If exactly one element satisfies test,
+  //    that element is returned.
+  // 2. If more than one matching element is found,
+  //    throws StateError.
+  // 3. If no matching element is found,
+  //    returns the result of orElse. If orElse is omitted,
+  //    it defaults to throwing a StateError.
+  final person = people.singleWhere((element) =>
+        element.name == personName, orElse: () {
+          return null;
+  });
+
+  print('Using singleWhere: ${person}');
+}
+
+
+
+5) Using where method
+void findPersonUsingWhere(List<Person> person,String personName){
+	final foundPeople = people.where((element_ => element.name == personName);
+	if(foundPeople.isNotEmpty) print('Using where: ${foundPeople.first});
+}
+
+
+
+
+
+6) Using retainWhere method
+/// Find a person in the list using retainWhere method.
+/// We probably don't use [retainWhere] method to find
+/// element in real, because this method will modify
+/// original list (remove all others elements which
+/// do not match the condition). [retainWhere] method keeps
+/// all elements match the condition. Therefore, the result
+/// could contain more than one element.
+void findPersonUsingRetainWhere(List<Person> people,
+    String personName) {
+    people.retainWhere((element) =>
+        element.name == personName);
+    if (people.isNotEmpty) {
+      print('Using retainWhere: ${people[0]}');
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 

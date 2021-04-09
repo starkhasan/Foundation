@@ -1,0 +1,498 @@
+	28-03-2021
+
+							Provider State Management in Flutter
+
+The provider package by flutter team is a lightweight but flexible dependency injection and state management tool for Flutter apps. It share values across widget hierarchies and it allows 
+widget bind themselves to values so they rebuild needed to reflect state changes.
+
+
+Some significant features of Provider :----------------------
+
+=> Providers and their dependents are widgets. Each provider contains a widget tree that includes its dependents
+
+=> a provider provides value directly to its dependents on request
+
+=> Each value has a type T
+
+
+Flutter is a delarative framework. In contrast to the imperative framework Flutter does not allow to change the widget, which is mostly the UI component on screen, once it is defined. How
+ever the widget can be rebuilt with a different apperance or data in it, and the end result in same the change in UI. For this we use Stateful widget and we call setState(), whenever there is
+change occurred in state of widget. Calling setState() tells the Framework that state of the widget is changed and widget must be rebuilt.
+
+Managing State using setState() starts becoming horrific as the code grows.
+
+
+Provider :-
+Provider State Management which is recommanded by google a well mainly providers you a central point to manage the state and to write front end login.
+
+
+Provider Components :--------------
+There are three components related to this Provider State Management that we need to understand
+
+1. ChangeNotifier
+
+2. ChangeNotifierProvider
+
+3. Consumer
+
+
+For Every Screen of Flutter application we make a central point for managing state which is called a ChangeNotifier which is just an ordinary class that extends ChangeNotifier class. It contains
+all the state data that are being used by different parts of corresponding screen.
+
+	Now if some data gets changed it notifies the framework that the screen which is using the change notifier needs to be rebuilt since the corresponding screen state ChangeNotifier
+is changed.
+	(we can say that ChangeNotifier as ViewModel or Controller in case of MVVM and MVC)
+
+
+
+
+
+=> Change Notifier
+ChangeNotifier is a simple class included in the Flutter SDK which provides change notification to its listeners. In other words if something is a ChangeNotifier you can subscribe to its changes
+
+In provider ChangeNotifier is one way to encapsulate your application state. For very simple app you get by with single ChangeNotifer. In Complex ones you'll have several models and
+therefore several ChangeNotifier
+
+
+If we want to manage the state of the CART in a ChangeNotifier. we create a new class that extends it like so:
+
+class CartModel extends ChangeNotifier{
+	///Internal private state of the cart
+	final List<Item> _items = [];
+	UnmodifiableListView<Item> get items => UnmodifiableListView(_items);
+
+	// the current total price of all items (Assuming all items cost $42)
+	int get totalPtice => _items.length *43;
+
+	// Adds [items] to cart. This and [removeAll] are the only ways to modify the cart from the outside
+
+
+	void add(Item item){
+		_items.add(item);
+		notifyListeners(); 	//This call tells the widgets that are listening to this model to rebuild
+	}
+
+	void removeAll(){
+		_items.clear();
+		notifyListeners();  	// This call tells the widgets that are listening to this model to rebuild.
+	}
+}
+
+
+Everything else in CartModel is the model itself and its business logic.
+
+
+
+=> ChangeNotifierProvider
+ChangeNotifierProvider is the widget that provides instance of a ChangeNotifier to its desendants. It comes from the provider package.
+
+Put ChangeNotifierProvider above the widget that needs to access it. 
+	Don't place ChangeNotifierProvider higher than necessary (because you don't want to pollute the scope) but in our case the only widget that is on top of both MyCart and
+MyCatalog is MyApp.
+
+
+
+void main(){
+	runApp(
+		ChangeNotifierProvider{
+			create: (context) => CartModel(),
+			child:  MyApp()
+		),
+	);
+}
+
+
+
+ => Comsumer 
+CartModel is provided to widget in our app throungh the ChangeNotifierProvider declaration at the top we can start using
+
+This is done through the Consumer widget
+
+return Consumer<CartModel>(
+	builder: (context, cart, child) {
+		return Text('Total price: ${cart,totalPrice}');
+	}
+);
+
+we must specify the type of the model that we want to access. In this case we want CartModel so we write Consumer<CartModel>. If you don't specify the generic (<CartModel>), the
+provider package won't be able to help you provider is based on types and without the type it doesn't know what you want.
+
+The only required argument of the Consumer widget is the builder. Builder is a function that is called whenever the ChangeNotifier changes (On other words when you call notifyListeners() 
+in your model all the builder methods of all the corresponding Consumer widgets are called )
+
+The builder is called with three argument. 
+
+1) The first one is context which you also get in every build method
+
+2) The Second argument of the builder function is the instance of the ChangeNotifier. it's what we were asking for in the first place. you can use the data in the model to define what the
+UI should look like at any given point.
+
+3) The third argument is child which is there for optimization If you have large wiget subtree under your consumer that doesn't change when the model changes you can construct it once
+and get it through the builder.
+
+
+return Consumer<CartModel>(
+  builder: (context, cart, child) => Stack(
+        children: [
+          // Use SomeExpensiveWidget here, without rebuilding every time.
+          child,
+          Text("Total price: ${cart.totalPrice}"),
+        ],
+      ),
+  // Build the expensive widget here.
+  child: SomeExpensiveWidget(),
+);
+
+
+It is best practice to put your Consumer widget as deep in the tree as possible. YOu don't want to rebuild large portions of the UI just because some detail somewhere changed
+
+
+
+
+ => Provider.of
+Sometimes you don't really need the data in the model to change the UI but you still need to access it. For example a ClearCart buttons wants to allow the user to remove everything from the 
+cart. it doesn't need to display the contents of the cart it just to call clear() method.
+
+We could use Consumer<CartModel> for this but that would be wasteful. We'd be asking the framework to rebuild a widget that doesn't need to be rebuilt.
+
+For this use case we can use Provider.of with the listen parameter set to false.
+
+
+
+
+
+ Example =>
+import 'package:flutter/material.dart';
+
+class EligiblityScreen extends StatelessWidget {
+  final ageController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.all(16),
+        child: Form(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.orangeAccent
+                ),
+                height: 50,
+                width: 50,
+              ),
+
+              SizedBox(height: 16,),
+
+              TextFormField(
+                controller: ageController,
+                decoration: InputDecoration(
+                  hintText: "Give your age",
+
+                ),
+              ),
+              SizedBox(height: 16,),
+              Container(
+                width: double.infinity,
+                child: FlatButton(
+                  child: Text("Check"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: (){},
+                ),
+              ),
+              SizedBox(height: 16,),
+
+              Text("You have not given any input")
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+UI Part.
+
+
+
+=> ChangeNotifier
+ChangeNotifier against UI screen contain all the state data related to that screen.
+
+import 'package:flutter/material.dart';
+
+class EligiblityScreenProvider extends ChangeNotifier{
+  String _eligiblityMessage = "";
+  bool _isEligible;
+
+  void checkEligiblity(int age){
+    if(age >= 18)
+      eligibleForLicense();
+    else
+      notEligibleForLicense();
+  }
+
+  void eligibleForLicense(){
+    _eligiblityMessage = "You are eligible to apply for Driving License";
+    _isEligible = true;
+
+    //Call this whenever there is some change in any field of change notifier.
+    notifyListeners();
+  }
+
+
+  void notEligibleForLicense(){
+    _eligiblityMessage = "You are not eligible to apply for Driving License";
+    _isEligible = false;
+
+    //Call this whenever there is some change in any field of change notifier.
+    notifyListeners();
+  }
+
+  //Getter for Eligiblity message
+  String get eligiblityMessage => _eligiblityMessage;
+
+  //Getter for Eligiblity flag
+  bool get isEligible => _isEligible;
+}
+
+
+ChangeNotifier that we have made EligibilityScreen has just two state data in it first String _eligibilityMessage which is showing message after processing the user _age and bool _isEligible
+flag which is ti change the color of the circle status indicator.
+
+In ChangeNotifier, we made a method checkEligibility() which takes age as a parameter and after performing the logic it changes the state, i.e., if user is eligible then it will call eligibleForLicense() else it will call notEligibleForLicense().
+
+
+
+=> ChangeNotifierProvider
+
+As we have made EligibilityScreenProvider ChangeNotifer against the EligibilityScreen, now we have to connect this provider with the screen, or we have to use this provider in 
+EligibilityScreen.
+
+
+Consumer => 
+It is not necessary that all the part of the UI in EligibilityScreen will be using the state data from EligibilityScreeProvider and thus needs to be rebuilt It may be possible that 50% o fthe UI
+of any screen not in our case not needs to be rebuilt So Consumer which is widget allows to observe the state  changed from ChangeNotifier in a particular part of UI and thus only observing
+part os the UI will re-rendered.
+
+
+
+import 'package:flutter/material.dart';
+import 'package:proivder_demo/states/EligiblityScreenProvider.dart';
+import 'package:provider/provider.dart';
+
+class EligiblityScreen extends StatelessWidget {
+  final ageController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<EligiblityScreenProvider>(
+      create: (context) => EligiblityScreenProvider(),
+      child: Builder
+        builder: (context) {
+
+          return Scaffold(
+            body: Container(
+              padding: EdgeInsets.all(16),
+              child: Form(
+                child: Consumer<EligiblityScreenProvider>(
+                  builder: (context, provider, child){
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              
+                              //if isEligible is null then set orange color else if it is true then set green else red 
+                              color: (provider.isEligible == null) ? Colors.orangeAccent : provider.isEligible ? Colors.green : Colors.redAccent
+                          ),
+                          height: 50,
+                          width: 50,
+                        ),
+
+                        SizedBox(height: 16,),
+
+                        TextFormField(
+                          controller: ageController,
+                          decoration: InputDecoration(
+                            hintText: "Give your age",
+                          ),
+                        ),
+                        SizedBox(height: 16,),
+                        Container(
+                          width: double.infinity,
+                          child: FlatButton(
+                            child: Text("Check"),
+                            color: Colors.blue,
+                            textColor: Colors.white,
+                            onPressed: (){
+                              
+                              //getting the text from TextField and converting it into int
+                              final int age = int.parse(ageController.text.trim());
+                              
+                              //Calling the method from provider.
+                              provider.checkEligiblity(age);
+                            },
+                          ),
+                        ),
+                        SizedBox(height: 16,),
+
+                        Text(provider.eligiblityMessage)
+
+                      ],
+                    );
+                  },
+                )
+              ),
+            ),
+          );
+        }
+      )
+    );
+  }
+}
+
+
+
+
+Example 2 => Provider Approaches
+
+
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<Counter>( // <=== PROVIDER
+      builder: (context) => Counter(),
+      child: MaterialApp(
+        title: 'Counter App - Complex',
+        home: MyPage(),
+      ),
+    );
+  }
+}
+
+class MyPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Page Title"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Consumer<Counter>( // <=== DEPENDENT
+              builder: (context, counter, child) => Text(
+                '${counter.count}',
+                style: Theme.of(context).textTheme.display1,
+              ),
+            ),
+            IncrementButton(), // <=== DEPENDENT
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class IncrementButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final counter = Provider.of<Counter>(context, listen: false);
+    return RaisedButton(
+      onPressed: () => counter.increment(),
+      child: Text("Increment"),
+    );
+  }
+}
+
+class Counter with ChangeNotifier {
+  int count = 0;
+
+  void increment() {
+    ++count;
+    notifyListeners();
+  }
+}
+
+
+
+Notice that upon constructing MyPage the desendant widget Scaffold Consumer and Incrementbutton are not yet constructed. These aren't constructed until MyPage's build() is called.
+RaisedButton still hasn't been constructed. Raisedbutton is constructed when IncrementButton's build() is called.
+we don't have a complete widget tree until all of the build() method have been called on all desendent widgets. Once the entire tree is built it can finally be rendered.
+
+The provider widget is constructed before building the dependent widgets it contain. Constructing it first allow it to make its value available to desendents that haven't been built.
+
+It's possible that a particular build of the widget in a provider's widget tree result in no dependents. That's okay A provider's job is simply to makea value available to whichever desendents
+are built that need the value 
+
+
+
+Reteriving vaue  :============
+A dependent widget is responsible for retrieving the values it needs. instead of making the request of the BuildContext as done with InheritedWidget the request is made of the Provider.of
+static method
+
+	Each dependent widget requests the value it needs from Provider.of  The provider.of method reterives the value from the appropriate provider widget and returns it back to the 
+dependent.
+
+To get the right value a dependent must somehow indicate the proper provider when requesting the value. Dependents accomplish this by specifying the type of the value they need.
+
+To get the value it needs, a dependent asks Provider.of for the value of a particular type. For example, the dependent at the bottom right asks Provider.of for the value of type Type1, 
+and Provider.of (by way of an InheritedWidget) determines that it needs to retrieve the value of the Provider<Type1> at the top of the diagram.
+
+
+class Provider<T>{
+	static T of<T>(BuildContext context, {bool listen = true}) {....}
+}
+
+Each widget has its own BuildContext so the context parameter identifies the widget that is dependent on the requested value. The listen parameter establishes whether this dependent 
+widget listens for and rebuilds on state changes. The method listens by default so we only need to use the listen parameter to prevent listening to state changes (listen: false)
+
+
+Builder(builder: (context) {
+	final counter = Provider.of<Counter>(context);
+	return Text(
+		'${counter.count}',
+		style: Theme.of(context).textTheme.display1,
+	),
+)
+
+Builder(builder: (context) {
+	final counter = Provider.of<Counter>(context, listen: false);
+	return RaisedButton(
+		onPressed: () => counter.increment(),
+		child: Text('Increment")
+	);
+})
+
+However the provider package includes a convenience class for listening to state chnages. This is the Consumer class mentioned earlier. In practice we more commonly write firt of the above
+two widget as follows:
+
+Consumer<Counter>(
+	builder: (context, counter, child) => Text(
+		'${counter.count}',
+		style: Theme.of(context).textTheme.display1
+	)
+)
+
+The Consumer class also works with values that aren't state or that aren't changing. If the value doesn't changes its dependent widgets don't rebuild. 
+
+
+
+
+
+
+
+
+

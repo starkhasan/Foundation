@@ -1,0 +1,31 @@
+							IOT (Internet of Things)
+
+The Internet of Things (IoT) refers to a system of interrelated internet-connected objects that are able to collect and transfer data over a wireless network without human interventation.
+
+The personal or business possibilities are endless. Athing can refer to connected medical device, a solar panel , connected automobile with sensor that alert the driver to myriad of possible
+issue or any object , outfitted with sensor that has the ability to gether and transfer data over a network.
+
+	Connecting up all these different objects and adding sensors to them adds a level of digitla intelligance to devices that would be otherwise dumb, enabling them communicating real
+time data without invovling a human being.
+
+
+
+What is the example of internet of things device ?
+
+Pretty much any physical object can be transformed into an IoT device if it can be connected to the internet to be controled or communicate information.
+
+
+ => What is the History of the Internet of things ?
+The idea of adding sensors and intelligance to basic objects was discussed througout the 1980s and 1990s but asprt from some early projects including the internet connected vending machin
+ -- progree was slow simply because the technology wasn't ready . Chips were too big and bulky and there was no way for objects to the technology wasn't ready. Chips were too big and
+bulky and there was no way for objects to communicate effectively.
+
+
+
+
+
+
+
+
+
+

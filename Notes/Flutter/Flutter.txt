@@ -27,7 +27,8 @@ Flutter is UI toolkit for creating fast beautiful natively compiled application 
 Flutter apps use Dart programming language for creating an app. 
 
 
-To be specified Flutter application is itself a widget Flutter widgets also support animations and gestures. The application login is based on reactive programming. Widget may optinally have a state
+To be specified Flutter application is itself a widget Flutter widgets also support animations and gestures. The application login is based on reactive programming. Widget may optinally 
+have a state
 
 
 
@@ -394,14 +395,17 @@ class _StartScreenState extends State<StartScreen>{
 }
 
 
-Now, this “_StartScreenState” overrides the “build” method and returns a widget. This is where you can define the UI of the app, which is Stateful. As it is a Stateful widget you can call the build method any number of times, which will redraw the widgets on the screen.
+Now, this “_StartScreenState” overrides the “build” method and returns a widget. This is where you can define the UI of the app, which is Stateful. As it is a Stateful widget you can call the 
+build method any number of times, which will redraw the widgets on the screen.
 
 
 So, how can you call the build method?
-It’s really easy, you can use the “setState” method to call the build method, which will, in turn, redraw the widgets. This is the most important method you will need to use with any Stateful widget, to really use the statefulness of the widget.
+It’s really easy, you can use the “setState” method to call the build method, which will, in turn, redraw the widgets. This is the most important method you will need to use with any 
+Stateful widget, to really use the statefulness of the widget.
 
 
-call setState tells the Flutter framework that something has changed in this State, which causes it to rerun the build method below so that the display can reflect the updated values. It we changed _counter without calling setState() then the build method would not be called again and so nothing would appear to happen.
+call setState tells the Flutter framework that something has changed in this State, which causes it to rerun the build method below so that the display can reflect the updated values. 
+It we changed _counter without calling setState() then the build method would not be called again and so nothing would appear to happen.
 
 
 

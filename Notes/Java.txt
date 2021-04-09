@@ -388,14 +388,17 @@ main() is called by JVM ( Java Virtual Machine ) before any object are made
 
 
 => What is the return type of the main() method in java ?
-As main() method doesn't return anything its return type is void as soon as the main() method terminates the java program terminated too. Hence it doesn't make any sense to return from main() method a JVM can't do anything with the return value.
+As main() method doesn't return anything its return type is void as soon as the main() method terminates the java program terminated too. Hence it doesn't make any sense to return from 
+main() method a JVM can't do anything with the return value.
 
 => Can we change the return type of main method in java ?
-NOOOO  it can't   You can always print stdout from the main method(using System.out.print or System.out.println), but you can't change the return type of main. the main method's return type must be void because the java language specification enforces it.
+NOOOO  it can't   You can always print stdout from the main method(using System.out.print or System.out.println), but you can't change the return type of main. the main method's return 
+type must be void because the java language specification enforces it.
 
 
 => Can we override main method in java ?
-Well you can call it just lke any other method __ in short main method can be overloaded but cannot be overridden in java . That's all about overloading and overriding main method in java.Now you Know that its possible to overload main in Java but its not possible to override it , simply because its a static method.
+Well you can call it just lke any other method __ in short main method can be overloaded but cannot be overridden in java . That's all about overloading and overriding main method in java.
+Now you Know that its possible to overload main in Java but its not possible to override it , simply because its a static method.
 
 > out is the output stream that is connnected to the console...
 
@@ -406,7 +409,8 @@ Well you can call it just lke any other method __ in short main method can be ov
 => What is System.out.println ?
 System.out.println is a java statement that prints the argument passed into the System.out which is generally stdout
 
-System  ---  is a final class in java.lang package. As per javadoc".....Among the facilities provided by the System class are standard output, Standard input and error output stream access to externally defined properties and enviroment variable.
+System  ---  is a final class in java.lang package. As per javadoc".....Among the facilities provided by the System class are standard output, Standard input and error output stream access to 
+externally defined properties and enviroment variable.
 
 
 out ----- is a static member field of System class and is of type PrintStream
@@ -508,7 +512,7 @@ transient		try		void	volatile		while
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                        ASCII( American Standard Code for Information Interchange )
+                                                                        		ASCII( American Standard Code for Information Interchange )
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ASCII (American Standard Code for Information Interchange) is the most common format for text files in computers and on the Internet. In an ASCII file, each alphabetic, numeric, or special character is represented with a 7-bit binary number (a string of seven 0s or 1s). 128 possible characters are defined.
@@ -1073,7 +1077,7 @@ class demo{
 
 
 
-				           ----------------: Annotation (Metadata) :------------------
+				           			----------------: Annotation (Metadata) :------------------
 
 Beginning with JDK5 a new facility was added to java that enables you to embed supplemental information into source file. this information called an annotation does not change the actions of a program Thus, an annotation leaves the semantics of a progam unchanges.
 
@@ -1118,7 +1122,7 @@ They are SOURCE , CLASS, and RUNTIME
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                              Operators in Java
+                                                                                                              		Operators in Java
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
 => Java provides a rich operator environment most of its operator can be divided into the following four group:
@@ -1431,7 +1435,7 @@ In java the break statement has uses First as you have seen, It terminates a sta
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                       OOPs (Object Oriented Programming Structure)
+                                                                                       			OOPs (Object Oriented Programming Structure)
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 It is also said that OOPS  (Object Oriented Programming System)
 
@@ -1625,7 +1629,7 @@ Important =>
 
 
                                                                                		---------------------:: CONSTRUCTOR ::----------------------
-
+ 
 
 => In Java , a constructor is a block of codes similar to the method. It is called when an instance of the class is created. At  the time of calling constructor memory of the object is allocated 
 in the memory.
@@ -7311,7 +7315,8 @@ Summation of First and Second Number = 44
 	
 	Using Scanner class :---------------
 
-This method is probably the most  preferred method to take input. the main purpose of the Scanner class is to parse primitive type and string using regular expressions, however it is also can be used to  read  input from the user in the combined line.
+This method is probably the most  preferred method to take input. the main purpose of the Scanner class is to parse primitive type and string using regular expressions, however it is also 
+can be used to  read  input from the user in the combined line.
 
 	Advantages
 
@@ -7476,9 +7481,9 @@ these can be the observation about why java not support operator overloading :-
 4) Easy Development of tools 
 
 
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                                                                                                          Java Networking
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                                                          			Java Networking
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 One of the most important reasons that java is the premier language for the network programming are the classes defined in the java.net
 package.

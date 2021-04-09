@@ -1,0 +1,52 @@
+02-04-2021
+
+								Types of Mobile Application
+
+Types of Mobile Apps by Technology :------------------------
+
+There are three basic types of mobile apps if we categorize them by the technology used to code them :
+
+1) Native Apps  => are created for one specific platform or operating system.
+2) Web Apps  => are responsive version of websites that can work on any mobile device or OS because they're delivered using mobile browser.
+3) Hybrid Apps => are combinations of both native and web apps but wrapped within a native app giving it the ability to have its own icon or be downloaded from an app store
+
+
+1) Native Apps 
+Native apps are built specifically for  mobile device's operating system. Thus you can have native Andorid mobile app or native IOC apps not to mention all the platform and device. Because
+they're built for just one platform, you cannot mix match.
+
+Technology Used : native apps are coded using a verity of programming alnguage. Some example include Java, Kotlin, Python , Swift, Objective-C, C++ and React.
+
+Pros : Because of their singular focus native apps have the advatage of being fater and more reliable in terms of performance. They are generally more efficient with device'e resource than 
+other types of mobile apps.
+			And because natice apps connect with the device's hardware directly they have access to broad choice device feature like Bluetooth , Phonebook contacts 
+camera roll, NFC and more.
+
+Every time there's an update to the app the user has to download the new and reinstall it. This also means that native apps do take up precious space in the device's storage.
+
+
+
+
+2) Web Apps :--------------------------
+
+Web apps behave similarly to native apps but are accessed via a web browser on your device. They're not standalone app in the sense of ahving to download and install code into your device.
+They're actually responsive websites that adapt its user interface to the device the user is on.
+									In fact when you come across the option to install a web app it often simply bookmarks the 
+website URL on your device.
+
+Technology Used: Web apps are designed using HTML5, CSS, JavaScript, Ruby, and similar programming languages used for web work.
+
+Pros: Because it’s web-based, there is no need to customize to a platform or OS. This cuts down on development costs.
+
+
+
+3) Hybrid Apps :-------------------------
+
+And then there are the hybrid apps. These are web apps that look and feel like native apps. They have a home screen app icon, responsive design, fast performance even to able to function 
+offline but they are really web apps made to look native.
+
+Technology Used: Hybrid apps use a mixture of web technologies and native APIs. They’re developed using: Ionic, Objective C, Swift, HTML5, and others.
+
+Pros: Building a hybrid app is much quicker and more economical than a native app. As such, a hybrid app can be the minimum viable product – a way to prove the viability of building a 
+native app. They also load rapidly, are ideal for usage in countries with slower internet connections, and give users a consistent user experience. Finally, because they use a single code base, 
+there is much less code to maintain.

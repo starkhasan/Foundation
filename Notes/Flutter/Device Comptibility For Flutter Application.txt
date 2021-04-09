@@ -1,0 +1,6 @@
+							Minimum Android version with Flutter 
+
+ Which minimum android version is supported by flutter ?
+
+Flutter support 16 but to run on Android emulator use over 19
+Mobile operating systems : Android Jelly Bean v16, 4.1.x or newer  and iOS 8 or newer iOS device (iPhone 4S or newer) and ARM Android devices.

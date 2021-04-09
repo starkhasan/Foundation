@@ -8,6 +8,9 @@ https://maps.googleapis.com/maps/api/place/autocomplete/json?input=biha&key=AIza
 //https://maps.googleapis.com/maps/api/directions/json?origin=28.386563,77.310145&destination=28.612926,77.229602&mode=driving&key=AIzaSyBcFpWT7vu4mLXbEPmkr5GJDG5jWBI67x0  //JoltCRM API KEY
 
 
+Getting route Between Source and Destination
+//https://maps.googleapis.com/maps/api/directions/json?origin=25.568353,84.684329&destination=25.565726869666147,84.67136002471756&key=YOUR_API_KEY_HERE
+
 Working with Geocoding :----------------------------
 Geocoding is essential the process of getting physical map co-ordinate and details for an address.
 

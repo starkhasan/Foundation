@@ -1,15 +1,20 @@
-Hashing is the process of converting a given key into another value. A hash function is used to generate the new value according  to a methematical algorithm. the result of a hash function is known as a hash value or simply a hash.
+Hashing is the process of converting a given key into another value. A hash function is used to generate the new value according  to a methematical algorithm. the result of a hash function is
+known as a hash value or simply a hash.
 
 
-A Hash function takes an input as a key which associated with a datum or records and used to identify it to the data and reterived application. The keys may be fixed length like an integer or variable length like a name. In some cases the key is the datum itself. the output is a hash  index  a hash table holding the data or records or pointer to them.
+A Hash function takes an input as a key which associated with a datum or records and used to identify it to the data and reterived application. The keys may be fixed length like an integer or 
+variable length like a name. In some cases the key is the datum itself. the output is a hash  index  a hash table holding the data or records or pointer to them.
 
 
 /*
-The problem at hand is to speed up searching. Consider the problem of searching an array for a given value. If the array is not sorted, the search might require examining each and all elements of the array. If the array is sorted we can use the binary search and therefore reduce the worst-case runtime complexity O(logn). We coluld search even faster if we know in advance the indes at which that value is located in array. Suppose we do have that magis function that would tell us index fora given value. With thismagic function our search is reduced to just one prob, giving us a constant runtime O(1). Such function is called hash function. A hash function is a function shich when given a key generates an address in the table.
+The problem at hand is to speed up searching. Consider the problem of searching an array for a given value. If the array is not sorted, the search might require examining each and all 
+elements of the array. If the array is sorted we can use the binary search and therefore reduce the worst-case runtime complexity O(logn). We coluld search even faster if we know in
+advance the indes at which that value is located in array. Suppose we do have that magics function that would tell us index for a given value. With this magic function our search is reduced 
+to just one prob, giving us a constant runtime O(1). Such function is called hash function. A hash function is a function which when given a key generates an address in the table.
 */
 
 
-A good hash fucntion uses a one-way hashing algorithm or in other words the hash cannot convert back into the original key.
+A good hash function uses a one-way hashing algorithm or in other words the hash cannot convert back into the original key.
 
 
 Collisions:-----------------------

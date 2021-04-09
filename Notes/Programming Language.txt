@@ -2,23 +2,30 @@ About Programming Language :------------------------------------------------
 
 1) What is the difference Between the Functional Programming Language and Object Oriented Programming Language?
 
-Functional Programming is the programming technique that accentuates the functional factor required for creating and implementing the programs. OOP or the Object Oritented Programs are the conceptual programming techniquies that uses object as the key. The programming model used in functional prorgamming is a declarative programming model, while object orinted programming uses the impretive programming model. Infunctional program variable and functions are the main elements of the code, while in object oriented program objects and method are the key elements.
+Functional Programming is the programming technique that accentuates the functional factor required for creating and implementing the programs. OOP or the Object Oritented Programs 
+are the conceptual programming techniquies that uses object as the key. The programming model used in functional prorgamming is a declarative programming model, while object 
+orinted programming uses the impretive programming model. In functional program variable and functions are the main elements of the code, while in object oriented program objects 
+and method are the key elements.
 
 
 Functional Programming ;---------------------------
-Functional programming also supports the programming language like List, Clojure Wolfram, Erlang, Hashkell, F#, R and other promininet and domain-specified Function programming is a great fit for data science work and R is the popular language among the data scientist.
+Functional programming also supports the programming language like List, Clojure Wolfram, Erlang, Hashkell, F#, R and other promininet and domain-specified Function programming is a 
+great fit for data science work and R is the popular language among the data scientist.
 
 FP language can be translated well into an interactive enviroment which makes the understanding of code easier
 
-=> Functional programming provides advantages like efficiency lazy evaluation nested function  bug free code parallel programming. In simple language function programming is to write the function having statements to eceture a particular task for the application.
+=> Functional programming provides advantages like efficiency lazy evaluation nested function  bug free code parallel programming. In simple language function programming is to write 
+the function having statements to eceture a particular task for the application.
 
-=> The function can be easily invoked and reused atb any point. It also help the code to manage and the same thing or statements does not need to write again and again.
+=> The function can be easily invoked and reused at any point. It also help the code to manage and the same thing or statements does not need to write again and again.
 
 
 
 
 Some other Defination :--------------------------------------------
-Functional programming (FP) is about passing data from function to function to funtion to get a result . In FP functions are treated as data meaning you can use them as parameters return them build functions from other functions and build custom functions. Functions in Fp have to be pure function, they should avoid shared state and side effect and data should be immutable. A pure function is a function that given the same type of input will always return same output it is not dependent on local and global state.
+Functional programming (FP) is about passing data from function to function to funtion to get a result . In FP functions are treated as data meaning you can use them as parameters 
+return them build functions from other functions and build custom functions. Functions in Fp have to be pure function, they should avoid shared state and side effect and data should 
+be immutable. A pure function is a function that given the same type of input will always return same output it is not dependent on local and global state.
 
 
 
@@ -41,12 +48,30 @@ OOP (Object - Oriented Programming )
 3) Polymorphism It helps in doing one task in many ways with the heko of overloasing and overriding which is also known as compile time and run time polymorphism respectively
 4) Encapsulation :- it helps in hiding the irrelevant data from a user and prevents the user from unauthorized access.
 
-Object - oriented programming language are C++,C#, Java, Python,Ruby,PHP,Perl,Objective-C,Swift,Dart,Lisp etc,  In an object printed application object can be easily reused in another application. New objects can be easily created for the same class and code can be easily maintained and altered.
+Object - oriented programming language are C++,C#, Java, Python,Ruby,PHP,Perl,Objective-C,Swift,Dart,Lisp etc,  In an object printed application object can be easily reused in another 
+application. New objects can be easily created for the same class and code can be easily maintained and altered.
 
-It also has the feature of memory management It provides a great benefit in desiging large program which canbe easily divided into smaller parts and helps in distinguishing the components or pharses that needs to be executed or plnned in a certain way.
+It also has the feature of memory management It provides a great benefit in desiging large program which canbe easily divided into smaller parts and helps in distinguishing the 
+components or pharses that needs to be executed or plnned in a certain way.
 
 
 
+
+
+
+
+
+
+
+
+Markup language =>
+A markup language is a computer language that uses tags to define within a document. It is human-readable meaning markup files contain standard words rather than typical programming syntax. While several markup exits the two most popular are HTML 
+and  XML.
+
+
+HTML is markup language used for reating webpages. The contents of each page tags such as <head> , <body> and <div> and much more.
+
+XML  is used for storing structured data, rather than formatting information on page. while HTMl documents use predefined tags . XML files use custom tags to define elements.
 
 
 
@@ -55,7 +80,8 @@ It also has the feature of memory management It provides a great benefit in desi
 What is the difference between Statically types language and compiled type language?
 
 1) Statically Types Language
-A language is statically types if the types of a variable is known at compiled time. For some language this means that you  as the programmer must specify that what type each variable is (Java, C, C++) other language offer some form of type interface the capability of the type system to deduce the type of a variable (HashKell Scala,Kolin)
+A language is statically types if the types of a variable is known at compiled time. For some language this means that you  as the programmer must specify that what type each variable is 
+(Java, C, C++) other language offer some form of type interface the capability of the type system to deduce the type of a variable (HashKell Scala,Kolin)
 
 The main advantage here is that all kinds of checking can be done by the compiler and therefore a lot of trivial bugs caught at a very early stage
 
@@ -64,7 +90,8 @@ Example C C++ Java Rust Go Scala
 
 
 Dynamic Types Language :----------------------------------------------------
-A language is dynamically types if the type is associated with run-time values and not names variable/fields/etc. This means that you as a programmer can write a little quicker because you do not have to specify types every time (unless using a statically-types language with type interface).
+A language is dynamically types if the type is associated with run-time values and not names variable/fields/etc. This means that you as a programmer can write a little quicker because 
+you do not have to specify types every time (unless using a statically-types language with type interface).
 
 ExamplePerl,Ruby,Python,JavaScript.
 
@@ -72,7 +99,8 @@ ExamplePerl,Ruby,Python,JavaScript.
 
 => Dart is pure obect oriented programming language.
 
-=> Structred programming is a programming paradigms aimed at improving the clarity quality and development time of a computer program by making extensive use of the structured control flow constructs of selection (if/then/else) and repetition (while or for) block structures and subroutines.
+=> Structred programming is a programming paradigms aimed at improving the clarity quality and development time of a computer program by making extensive use of the structured 
+control flow constructs of selection (if/then/else) and repetition (while or for) block structures and subroutines.
 
 
 
