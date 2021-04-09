@@ -23,7 +23,7 @@ API level is an integer value that uniquely identifies the framework API revisio
 
 => Android SDK
 The Android SDK is a set of development tools used to develop applications for the Android platform.
-A software development kit that enables developers to create application for the Android platform.
+A software development kit that enables developers to create application for the Android platform or Android application.
 
 
 
@@ -81,6 +81,7 @@ Testing your app on the emulator is in some ways faster and easier than doing so
 
 
 					=#=#=#=#=#=#=#=  Android Architecture  =#=#=#=#=#=#=#=#=
+
 Android operating system is a stack of software components which is roughly divided into five sections and four main layers.
 
 1. Linux Kernal
@@ -109,12 +110,54 @@ All Android application found at the top layer. The application to be installed 
 
 
 
-					=#=#=#=#=#=#=#=  AAPT (Android Asset Packaging Tools)  =#=#=#=#=#=#=#=#=
+					=#=#=#=#=#=#=#=  Dalvik Virtual Machine | DVM =#=#=#=#=#=#=#=#=
+
+As we know the modern JVM is high performance and provides excellent memory management. But it needs to be optimized for low-powered handheld devices as well.
+
+The Dalvik Virtual Machine (DVM) is an android vitual machine optimized for mobile devices. It optimizes the virtual machine for memory, battery life and performance.
+Dalvik is a name of a town in Iceland. The Dalvik VM was written by Dan Bornstein.
+
+The Dex compiler converts the class files into the .dex file that run on the Dalvik VM. Multiple class files are converted into one dex file.
+
+The javac tool compiles the java source file into the class file.
+The dx tool takes all the class file of your application and generates a single .dex file. It if a platform-specific tool. 
+The Android Assets Packaging Tool (aapt) handles the packging process.
+
 
 AAPT stands for Android Asset packaging tools.
 The AAPT takes your application resoruce files, such as the AndroidManifest.xml file and the XML files for your Activities and compiler them.
 It compile resources into binary assests.
 AAPT2 parses indexs and compiles the resource into binary format that optimized for the Android platform.
+
+
+
+
+
+
+
+
+
+
+
+						=#=#=#=#=#=#=#=  App Manifest Overview  =#=#=#=#=#=#=#=#=
+Every app project must have an AndroidManifest.xml file(with precisely that name) at the root of the project source set. The Manifest file describes essential information about your app to
+the Android build tools, the Android operating system and Google play.
+
+Among many other things the manifest file is required to declare the following:
+=> The app's package name which usually matches your code's namespace. The Android build tools use this to determine the location of code entities when building your project. When packaging
+ the app the build tools replace this value with the application ID from the Gradle build files, which is used as the unique app identifier on the system and on Google Play.
+
+=> The component s of the app which includes all activities, service, broadcast receiver and content providers. Each component must define properties such as the name of its kotlin/Java
+It can also declare capabilities such as which devide configuration it can handle and intent filters that describes how the component can be started.
+
+=> The permission that the app needs in order to access protedted part of the system or other apps. It also declares any permission that others apps must have if they want to access content 
+from this app.
+
+=> The hardware and software features the app requires which affects which devices can install the app from Google Play.
+
+
+
+
 
 
 
@@ -126,6 +169,23 @@ If the app is in the foreground the system display a dialog to the user.
 The ANR dialog gives the user the opportunity to force quite the App.
 
 ANRs are problem because the app's main thread,which is responsible for updating the UI, can't process user input events or draw, causing frustration to the user.
+
+
+
+
+
+
+
+
+
+
+
+							=#=#=#=#=#=#=#=  View  =#=#=#=#=#=#=#=#=
+This class represents the basic building block for user interface components. A View occupies a rectangular area on the screen and is reponsible for drawing and event handling.
+View  is the base class for widgets which are used to create interactive UI components (buttons, text field).
+
+	The ViewGroup subclass is the base class for layouts which are invisible containers that hold Views (or other ViewGroup) and define thier layout properties.
+
 
 
 
@@ -147,8 +207,8 @@ There are three protection level that affect third-party apps:
 2. Signature Permission
 3. Dangerous Permission
 
-=> Normal Permission cover areas where your app needs to access data or resources outside the app's sandbox, but where there's very little risk to the user's privacy of the operation of the operation
-of other apps.
+=> Normal Permission cover areas where your app needs to access data or resources outside the app's sandbox, but where there's very little risk to the user's privacy of the operation of the 
+operation of other apps.
 If an app declares in its manifest that it needs a normal permision, the system automatically grants the app that permission at install time. The system doesn't prompt the user to grant
 permissions and user cannot revoke these permissions.
 
@@ -170,7 +230,7 @@ To use the Setting app go to Settings > Apps.
 
 => Request Permission
 If you declare any dangerous permisssions and if your app is installed on a device that run Android 6.0 (API Level 23) or higher you must request the dangerous permission at runtime.
-If you den't declare any dangerous permission or if your app is installed on a device that run Android 5.1 ( API Level 22) or lower the permission are automatically granted.
+If you don't declare any dangerous permission or if your app is installed on a device that run Android 5.1 ( API Level 22) or lower the permission are automatically granted.
 
 
 => Check for permissions
@@ -264,6 +324,22 @@ payment gateway in android app let's see what are best gateway payment services.
 6. Stripe
 7. Braintree
 
+
+
+
+App components :----------------------------
+App components are the essential building blocks of an android app. Each component is an entry point through which the system or a user can enter your app. Some components depends on
+others .
+
+
+There are four different types of components
+1) Activities
+2) Services
+3) Broadcast receivers
+4) Content Providers
+						=#=#=#=#=#=#=#=  Activities  =#=#=#=#=#=#=#=#=
+An activity is the entry point for interacting with the user. It represents a single screen with a user interface. For example an email all might have one activity that shows a list of new emails,
+another activity to compose an email and another activity for reading emails.
 
 
 
@@ -410,7 +486,7 @@ broadcast to other apps by passing an Intent or sendBroadcast() or sendOrderedBr
 
 
 => Two Types of intent
-1) Explicit Intent 2) Implicit Intent
+1) Explicit Intent 	2) Implicit Intent
 
 Explicit Intent =>
 specify which application will satisfy the  intent , by supplying ther target app's package name or fully-qualified component class name. You will typically use an expiclity intent to start a 
@@ -532,9 +608,10 @@ For example here's an activity declaration with an intent filter to receive an A
 
 
 
-=#=#=#=#=#=#=#=  Services  =#=#=#=#=#=#=#=#= 
-A Services is an application component that can perform logn-running operation in the background. It does not provide a user interface. Once started a service might continue running for some 
-time even after the user switches to another application.
+						=#=#=#=#=#=#=#=  Services  =#=#=#=#=#=#=#=#= 
+
+A Services is an application component that can perform long-running operation in the background. It does not provide a user interface. Once started a service might continue running for 
+some time even after the user switches to another application.
 
 Additonally a component can bind to a service to interact with it and even perform interprocess communication.
 
@@ -546,7 +623,7 @@ Types of Services :-
 
 Forground Service :-
 A forground service perform some operation that is noticeable to ther user
-Forgroundservice must diaply Notification
+Forgroundservice must display Notification
 Forground service continue running even the user isn't interacting with the app.
 ( When you use a forground service you must display a notification so that user are actively aware that the service is running. This notification cannot be dismissed unless the service is either 
 stopped or removed from the foreground. )
@@ -573,8 +650,8 @@ When a service is started it has a lifecycle that's independent of the component
 As such the service should stopitself when its job is complete by calling stopSelf(), or another component can stop it by calling stopService().
 
 
-Th service class is the base class for all services. When you extends this class it's important to create a new thread in  which the service can complete all of its work; the service uses your application
-main thread by default which can slow the performance of any activity that your applciation is running.
+Th service class is the base class for all services. When you extends this class it's important to create a new thread in  which the service can complete all of its work; the service uses your 
+application main thread by default which can slow the performance of any activity that your applciation is running.
 
 (Android framework also provides the IntentService subclass of Service that uses a worker thread to handle all of the start requests one at a time. Using this class is not recommended for new
 apps as it will not work well starting with Android 8.0   you can use JobIntentService as replacement for intentService)
@@ -586,13 +663,13 @@ onStartCommend() method must return an integer, The integer is a value that desc
 
 
 Starting a service :-
-you can start a service from an activity or other applciation component by passing an Intent to startService() or startForegroundService().The Android system calls the service onStartCommand()
+you can start a service from an activity or other application component by passing an Intent to startService() or startForegroundService().The Android system calls the service onStartCommand()
 methods and passes it the Intent which specifies which service to start.
 
-If the service isnot already running the system first calls onCreate() and then it calls onStartCommend().
+If the service is not already running the system first calls onCreate() and then it calls onStartCommend().
 
 => If the service doesn't also providing binding, the intent that is delivered with startService() is the only mode of the communication between the application component and the service.
-if you want the service to send a result back the client that starts the service can create a Pendingitent for broadcast (with getBroadcast()) and deliver itto the service in the intent start the
+if you want the service to send a result back the client that starts the service can create a Pendingitent for broadcast (with getBroadcast()) and deliver it to the service in the intent start the
 service.
 
 

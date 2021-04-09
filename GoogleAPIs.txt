@@ -1,0 +1,193 @@
+
+https://maps.googleapis.com/maps/api/place/autocomplete/json?input=in&key=AIzaSyBcFpWT7vu4mLXbEPmkr5GJDG5jWBI67x0&components=country:usa
+
+
+https://maps.googleapis.com/maps/api/place/autocomplete/json?input=biha&key=AIzaSyBcFpWT7vu4mLXbEPmkr5GJDG5jWBI67x0&components=country:in
+
+
+//https://maps.googleapis.com/maps/api/directions/json?origin=28.386563,77.310145&destination=28.612926,77.229602&mode=driving&key=AIzaSyBcFpWT7vu4mLXbEPmkr5GJDG5jWBI67x0  //JoltCRM API KEY
+
+
+Getting route Between Source and Destination
+//https://maps.googleapis.com/maps/api/directions/json?origin=25.568353,84.684329&destination=25.565726869666147,84.67136002471756&key=YOUR_API_KEY_HERE
+
+Working with Geocoding :----------------------------
+Geocoding is essential the process of getting physical map co-ordinate and details for an address.
+
+List<Placemark> placemark = await Geolocator().placemarkFromAddress("Gronausestraat 710, Enschede");
+
+you can get all the details about the place as :
+
+print(placemark[0].country);
+print(placemark[0].position);
+print(placemark[0].locality);
+print(placemark[0].administrativeArea);
+print(placemark[0].postalCode);
+print(placemark[0].name);
+print(placemark[0].subAdministratieArea);
+print(placemark[0].isoCountryCode);
+print(placemark[0].subLocality);
+print(placemark[0].subThoroughfare);
+print(placemark[0].thoroughfare);
+
+we can also get the details of a place from  the coordinates:
+
+List<Placemark> placemark = await Geolocator().placemarkFromCoordinates(52.2165157, 6.9437819);
+
+
+
+=> Getting the distance between coordinates
+This plugin also allows us to calculate the distance between two coordinate as:
+
+double distanceInMeters = await Geolocator().distanceBetween(52.2165157, 6.9437819, 52.3546274, 4.8285838);
+
+
+
+To get the data from the response of Place Autocomplete API in Google :---------------------------------------------------------
+response.data['predictions']
+List (5 items)
+response.data['predictions'][0]
+Map (8 items)
+response.data['predictions'][0]['description']
+"Indianapolis, IN, USA"
+response.data['predictions'][1]['description']
+"Indio, CA, USA"
+response.data['predictions'][2]['description']
+"Industry City, Brooklyn, NY, USA"
+response.data['predictions'][3]['description']
+"Independence, MO, USA"
+response.data['predictions'][4]['description']
+"Indianapolis International Airport (IND), Col. H. Weir Cook Memorial Drive, Indianapolis, IN, USA"
+
+
+
+result.toString().split("/")
+List (4 items)
+result.toString().split("/")[0]
+"Hilton Head Island, SC, USA"
+result.toString().split("/")[1]
+"Hilton Head Island"
+result.toString().split("/")[2]
+"South Carolina"
+result.toString().split("/")[3]
+""
+
+
+
+Return data from screen :---------------------------------
+In some cases you might  want o return  data from a new screen. Forexampple say you push a new screen that present two options to a user. When the user taps an option you want to inform the first screen of the user's selection so that it can act on that information.
+
+you can do this with the Navigator.pop() method using the following steps:
+
+1) Define the home screen
+2) Add a button that launches screen with the two buttons
+3) Show the selection screen with two buttons
+4) When a button is tapped close the selection screen
+5) Show a snackbar on the home screen with the selection.
+
+
+
+4) When a button is tapped close the selection screen
+Now pdate the onPressed() callback for both  of the button. To return data to the first screen use the Navigator.pop() method, which accepts an optional second argument called result. Any result is returned to the Future in the SelectionButton.
+
+RaiseButton(
+	onPressed: () {
+	    Navigator.pop(context,"Message back to First Screen");
+	}
+);
+
+
+5) Show a snackbar on the home screen with the selection
+Now that you're launching a selection and awaiting the result, you'll want to so something with the information that's returned.
+In this case show a snackbar dispalying the result by using the _navigationAndDisplayedSelection() method in SelectionButton
+
+
+_navigationDisplayedButton(BuildContext context) async{
+
+	final result = await Navigator.pop(context,MaterialPageRoute(builder: (context) => SecondScreen()));
+	print(result); 	// Message From the SecondScreen
+} 
+
+
+
+
+
+BoxDecoration :------------------------------------------------------------------
+The BoxDecoration class provides a variety of ways to draw a box.
+
+The box has a border a body and may cast a boxShadow.
+The shape of the box can be circle or rectangle. If it is a rectangle then the borderRadius property control the roundness of the corners.
+
+The body of the box is painted in layers. The bottom-most layer is the color which fills the box. Above that is the gradient which also fills the box. Finally there is the image the precise alignment of the which is controlled by the DecorationImage class.
+
+The border paints over the body the boxShadow naturally paints below it.
+
+1) Start with an empty container and apply a red color property in the boxDecoration class.
+
+new Center(
+	child: new Container(
+		decoratoion: new BoxDecoration(
+			color: Colors.purple
+		),
+		child: new FlutterLogo(
+			size: 200.0
+		)
+	)
+)
+
+
+Gradient Property :-----------------------------------------
+A gradient to use when filling the box
+If this is specified color has no effect
+The gradient is drawn under the image
+
+The value of the gradient property can be LinearGradient Class or RadialGradient Class.
+
+LinearGradient Class has 5 main properties :-
+
+=> begin (the offset at which start the gradient)
+=> end  (the offset at which end the gradient)
+=> colors (List of colors)
+=> stop (A list of values from 0.0 to 1.0 that denote fractions along the gradient)
+=> tileMode (How this gradient should tile the plane beyond in the region before begin and after end)
+
+
+Image Property :----------------------------------
+An image to paint above the background color or gradient. The value of the image property is DecorationImage Class.
+
+DecorationImage Class have the below properties:
+=> image 
+=> alignment
+=> centerSlice
+=> colorFilter
+=> fit
+=> matchTextDirection
+=> repeat
+
+
+Image  :-----------------
+The image to be painted into decoration. Typically this will be an AssertImage (for an image shipped with th application) or a NetworkImage
+(for an image obtained from the network).
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

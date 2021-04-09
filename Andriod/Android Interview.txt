@@ -1,13 +1,13 @@
 1) What is applicationId in Android ?
 Every Android app has a unique application ID that looks like a package name such as com.example.com. This ID uniquely identifies your app on 
 the device and in Google Play Store. If you want to upload a new version of your app, the appliaction ID must be the same as the original APK
-If you change the appclaition ID Google Play store treats that APK as c completley different app.
+If you change the application ID Google Play store treats that APK as a completley different app.
 
 
 2) Change the application ID for build variants
 When you build an APK for your app the build tools tag the APK with the application ID defines in the defaultConfig block from the build.gradle
 file. However if you wan to create different version of your app to appears as separate listening on Google pla Store such as "free" and 'pro' version
-you nedd to create separate variants that each have a different application ID.
+you need to create separate variants that each have a different application ID.
 
 android {
     defaultConfig {
@@ -96,7 +96,7 @@ only incremental annotation processors whenever possible.
 
 
 5) What is Android SDK in Android?
-The Android SDK is a collection of software development tools and libraries required to develop Android applciations for specific platform. Every time Google release a new version of
+The Android SDK is a collection of software development tools and libraries required to develop Android applications for specific platform. Every time Google release a new version of
 Android or an update a corrsponding SDK.
 
 6) Min SDK

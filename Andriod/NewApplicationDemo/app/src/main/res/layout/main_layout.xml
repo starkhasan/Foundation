@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="android.view.View" />
         <variable
             name="viewModel"
             type="com.ali.demoapplication.viewModel.AppViewModel" />
@@ -24,7 +24,7 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@{viewModel.setUserEmail}"
+            android:text="@={viewModel.email}"
             android:inputType="text"
             android:layout_marginTop="10dp"
             android:textColor="#000000"
@@ -40,7 +40,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@{viewModel.setUserPassword}"
+            android:text="@={``+viewModel.password}"
             android:inputType="numberPassword"
             android:layout_marginTop="10dp"
             android:textColor="#000000"

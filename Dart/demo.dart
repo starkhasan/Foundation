@@ -1,12 +1,23 @@
-import 'dart:async';
+class Student {
+  late String name;
+  late int age;
 
-void main() => runApp();
+  set setName(String name) => this.name = name;
 
-void runApp() {
-  var duration = Duration(milliseconds: 3000);
-  Timer(duration, _navigation);
+  set setAge(int age) => this.age = age;
+
+  String get getName {
+    return name;
+  }
+
+  int get getAge {
+    return age;
+  }
 }
 
-_navigation() {
-  print("This thing is printing after 3 Second");
+void main(List<String> args) {
+  var obj = new Student();
+  obj.setName = "Ali Hasan";
+  obj.setAge = 12;
+  print('Your name ${obj.name} and you are ${obj.age} years old');
 }
