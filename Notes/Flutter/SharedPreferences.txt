@@ -1,0 +1,65 @@
+How to make Shared Preferences in Flutter :------------------------------------
+
+1) Normal Method
+
+class Preferences {			//Making class of preferences
+  Preferences._();
+  static SharedPreferences pref;
+  static void setLogin(bool value) async {
+    pref = await SharedPreferences.getInstance();
+    pref.setBool(Cv.IS_LOGIN, value);
+  }
+
+  static Future<bool> getLogin() async {
+    pref = await SharedPreferences.getInstance();
+    final bool login = pref.getBool(Cv.IS_LOGIN) ?? false;
+    return login;
+  }
+}
+
+
+Preferences.getLogin().then((value){			// Getting value of Preferences in Widget of UI
+	var isLogin = value
+});
+
+Prefereces.setLogin(false);				//Setting value in Preferences
+
+
+
+
+
+2) Using Singleton class 
+
+    import 'dart:async' show Future;
+    import 'package:shared_preferences/shared_preferences.dart';
+
+    class PreferenceUtils {
+      static Future<SharedPreferences> get _instance async => _prefsInstance ??= await SharedPreferences.getInstance();
+      static SharedPreferences _prefsInstance;
+
+      // call this method from iniState() function of mainApp().
+      static Future<SharedPreferences> init() async {
+        _prefsInstance = await _instance;
+        return _prefsInstance;
+      }
+
+      static String getString(String key, [String defValue]) {
+        return _prefsInstance.getString(key) ?? defValue ?? "";
+      }
+
+      static Future<bool> setString(String key, String value) async {
+        var prefs = await _instance;
+        return prefs?.setString(key, value) ?? Future.value(false);
+      }
+    }
+
+
+
+    PreferenceUtils.init();		//Initializing this class from initState() of main class
+
+
+    PreferenceUtils.setString(AppConstants.USER_NAME, "");				//Accessing the SharedPreferences in Apps set and Get value.
+    String username = PreferenceUtils.getString(AppConstants.USER_NAME);
+
+
+

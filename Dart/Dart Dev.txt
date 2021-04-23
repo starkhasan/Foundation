@@ -1,0 +1,595 @@
+
+$variableName (or ${expression})
+String interpolation including a variable or expression's string equivalent inside of a string literal.
+
+String interpolation is a process of evaluating the final string by injecting a variable or an expression in a string literal. The great thing about Dart is it lets us use single or double quotes to 
+perform string interpolation. 
+
+=> Important concepts about variable
+Everything you can place in a variable is an object and every object is an instance of a class. Even numbers , functions and null are objects. With the exception of null all objects inherits from
+the Object class.
+
+=> Type inference (Inter Type) :--------------------
+The Dart compiler can automatically inter the type of variables from their initilizer so that we don't have to declare the type ourselves
+
+var x;
+x = 15;
+x = 'hello';
+
+This work because Dart can infer the type from the expression on the right side of the assignment.
+In this case x is declared first and initialized later
+Its type is dynamic meaning that it can be assigned from expression of different types.
+
+Dart will infert the correct type when using var as long as variables are declared and initilized at the same time.
+when  a variable is delared with var it can be assigned again.
+
+
+
+Dart support top-level variables as well as variables tied to a class or object  (static and instane variables). Instance variables are sometimes known as fields or properties.
+
+Dart doesn't have the keywords public, protected, and parivate. If an indentifier starts with an inderscore (_). It's private to its library 
+
+Dart tools can report two kinds of problems: warning and error. Warnings are just indications that your code might not work but they don't prevent your program from executing . Error
+can be either compile-time or run-time. A compile-time error prevents the code from executing at all, a run-time error results in an exception being raised while the code executes.
+
+=> Variables :
+
+var name = 'Bob;
+variables store references. The variable called name contains a reference to a String object with a value of 'Bob'
+
+The type of the name variable is inferred to be String but you can change that type by specifying it if an object isn't restricted to a single type specify the Object type (or dynamic)
+
+=> Default value :------------------------
+Uninitialized variables that have a nullable type have an initial value or null. (If you haven't opted into null safety then every variable has a nullable type.)  Even variables with numeric types are
+initially null because numbers like everything else in Dart are objects. 
+
+
+
+
+
+
+Assert :-----------------------
+During development use an assert statement - assert(condition, optionalMessage) to disrupt normal execution if a boolean condition is false.
+
+asert( text != null)
+assert(number < 100)
+
+The first argument to assert can be any expression that resolves to a boolean value. If the expression's value of true, the assertion succeeds and execution continues. If it's false the assertion
+ fails and an exception (an AssertionError) is thrown.
+
+
+=> Late variables :----------------------------
+Dart 2.12 added the late modifier which has two use cases:
+1) Declaring a non-nullable variable that's initialized after its declaration.
+2) Lazily initializing a variable
+
+If you're sure that a variable is set before it's used but dart disagrees you can fix the error by making the variable as late
+
+late String description;
+void main(){
+	description  = 'India';
+	print(dexcription);
+}
+
+If you fail to initialize a late variable a runtime error occur when the variable is used.
+
+When you mark a variable as late but initialize it at its declaration, then the initilizer runs the first time the variable is used. This lazy initialization is handy in a couple of cases:
+
+late String temperature = _readThermometer(); //lazy initialized.
+In the following example if the temperature variable is never used then expensive _readThermometer() function is never called
+
+
+
+
+
+=> Final and const :---------------------------------------
+
+1) const 
+const keyword used to make a variable to store a compiled time constant value. Compiled time constant value is a value which will be constant while compiling.
+
+For example 5 is a cmpiled time constant  while DateTime.now() which is not compiled time constant. Because this method will return the time when the line is getting executed at runtime
+so we can't assign the DateTime.now() to a const variable.
+
+=> should be initialized at the same time 
+const a = 5;
+
+=> Class level const variable should be initialized like below :
+Class A{
+	static const a = 5;
+}
+
+=> Instance level const variable is not possible.
+Class A{
+	//const a = 5;
+}
+
+=> The another major use of const is used to make the object immutable. To make a class object immutable we need to use the const keyword with constructor and make all the fields as 
+final
+
+void main(){
+	const immutableObject = const A(5,6);
+
+}
+
+
+=> we use const keyword to a list
+const a = const[]
+A variable a initialized as const which contains a list of const object (The list should contain only compiled time constant and immutable object). So we can't able to assign a with another list.
+
+
+
+
+=> Final 
+final keywords also used to make the variable to hold a constant value at runtime. Once initialized we can't able to change the value.
+
+value must be known at run-time final birthday = getBirthDateFromDB()
+Can't be changed after initialized.
+
+
+
+Build-in types :-------------------------------
+The Dart languages has special support for the following :-
+Numbers (int,double)
+String (String)
+Booleans (bool)
+List (List also known as arrays)
+Sets (Set)
+Maps (Map)
+Runes (Runes aften replace by the characters API)
+Symbol (Symbol)
+The value null (Null)
+
+The support includes the ability to create objects  using literals. For example  'this is a string' is a string literal and true is a boolean literal.
+Because every variable in Dart refers to an object an instance of a class you can usually use constructor to initialize variables. Some of the build-in types their own constructors. For example 
+you can use the Map() constructor to create a map.
+
+
+=> Numbers 
+Dart numbers come in two flavour
+
+1) int
+Integer values no larger than 64 bits, depending on the platform. On native platform value can be -2^63 to 2^63-1
+
+2) double 
+64-bit (double-precision) floating-point numbers as specified by the IEEE 754 standard.
+
+Both int and double are subtypes of num. The num type includes basic operation such as +,-,/, * and is also where you'll find abd(), ceil() and floor(), among other methods ()
+
+Integers are numbers without a decimal point. Here are some examples of defining integer literals:
+
+var x = 1;
+var hex = 0xDEADBEEF;
+var exponent = 8e5;
+
+if a number includes a decimal it is a double. Here are some example of defining double literals:
+var y = 1.1
+var exoponents = 1.42e5
+
+
+you can also declare a variable as a num. If you do this the variable can have both integer and double values.
+
+num x = 1;
+x+=2.5
+
+void main(){
+  num x = 1;
+  print(x.runtimeType); 	// It will return int
+  x +=2.5;
+  print(x.runtimeType);	// It will return double
+}
+
+
+=> Integer literals are automatically converted to double when necessary.
+
+double z = 1;
+
+
+=> String  :----------------------------------------------
+A Dart string (String object) holds a sequence of UTF-16 code units. You can use etiher single or double quotes to create a string
+
+What is raw string in Dart.
+In Dart progamming language raw string are type of string where special characters such as \ do not get special trratment.
+
+Raw String are useful when you want to define a String that has a lot of special characters.
+
+void main() {
+  var rawString =
+      r'This is raw string where \ and ${1+2} do not have special meaning.';
+  print(rawString);
+}
+
+This is raw string where \ and ${1+2} do not have special meaning.
+
+
+ The == operator tests whether two objects are qeuivalent. Two string are equivalent if they contain the same sequence of code units.
+
+String are immutable. Although you cannot change a string, you can perform an operation on a string which creates a new string.
+
+var string = 'Dart is fun';
+var newString = string.substring(0,5);
+
+you can use the plus (+) operator to concatinate strings
+
+you can use ${}to interpolcate the value of Dart expression within strings. The curly braces can be omitted when evaluating identifiers.
+
+ => Properties
+
+codeUnits => An unmodifiable list of UTF-16 code of this string
+
+hashCode => A hash code derived from the code units of the string
+
+isEmpty => Whether this string is not empty
+
+length => The length of the string
+
+runes =>An Iterable of Unicode code-points of this string
+
+runtimeType => A representation of the runtime Type of the object.
+
+
+
+Methods :----------------------
+
+allMatches(String string [int start = 0])  matches this pattern against the string repeatedly
+
+comapreTo(String other) -> int
+Compares this string to other
+
+contains(Pattern other, [int statIndex = 0]) -> bool
+Whether this string contains amatch of toher 
+
+endsWith(String other) -> bool
+Whether this string ends with other
+
+indexOf(Pattern pattern, [int start = 0]) -> int
+Returns the position of the first match of pattern in this string starting at start
+
+lastIndexOf(Pattern pattern,[index? start]) -> int
+The starting position of the last match pattern in this string.
+
+toLowercae() -> String
+Convert all characters in this string to lower case
+
+toUpperCase() -> String
+Convert all Characters in this string to lowercase
+
+toString() -> String
+A string representation of this object
+
+
+Operators :-------------------------------
+
+=> operator * (int times) -> String
+Creates a new string by concatinating this string with itself anumber of timees
+
+=> operator + (String other) -> String
+Creates a new String by concatinating this string with other
+
+=> operator = (Object other) -> bool
+Whether other is a String with the same sequence of code units
+
+=> operator [](index index) -> String
+The character (as a single code unit String) at the given index
+
+
+
+Booleans :-----------------------------
+To represents boolean values, Dart has a type named bool. Only two object have type bool the boolean literals true and false which are both compile-time constants
+
+
+Lists :-----------------------------
+Perhapse the most common collection in nealy every programming languages is the array or ordered group of objects. In Dart arrays are List objects so most people just call them lists.
+
+you can add comma after the last item in a Dart collection literals. Ths trailing comma doesn't affect the collection, but it can help prevent copy-paste errors.
+
+var list = ['Car','Boat','Plane',];
+
+Lists use zero-based indexing where 0 is the index of the first value  and list.length-1 is the index if the last value.
+
+
+
+
+To createa list that's a compile-time constant add const before the list literal:
+
+var constantList = const[1,2,3];
+
+
+Dart2.3 introduced the spread operator(...) and the null-aware spread operator (...?) which provides a concise way to insert multple values into a collection. 
+
+var list = [1,2,3];
+var list1 = [0,...list];
+
+If the expression to the right os the spread operator might be null, you can avoid exceptions by using a null-aware spread operator (...?)
+
+var list;
+var list1 = [0,...?list]
+
+
+Dart also offers collection if and Collection for which you can use to build collections using conditionals (if) and repetition (for).
+
+var nav = ['Home','Furnitures','Platns',if(promoActive) 'Outlet'];
+
+
+Here an example of using collection for to manipulate the items of a list before adding them to another list.
+
+var listOfInts = [1,2,3];
+var listOfStrings =['0',for(var in listOfInts) '#$i'];
+
+
+
+ =>  Sets :----------------------------------------
+A set in Dart is an inordered collection of unique items. Dart support for sets is provided by set literals and the Set type 
+
+Here is a simple Dart set created using  aset literals.
+
+var halogens = {''fluorine','chlorine','bromine','iodine','astatine'};
+
+
+To create an empty set use {} preceded by a type argument or assign {} to a variable of type Set.
+
+var names = <String>{};
+//Set<String> names = {};   this works too
+// var names = {};		// creates a map not a set
+
+
+
+
+
+
+Functions :-----------------------------------------
+Dart is true object oriented language so even functions are objects and have a type Function. This means that functoin can be assigned to variable or passed as argument to other functions.
+
+/******
+	Parameters vs Arguments
+
+Parameters is variables in the declaration of function. 
+
+Argument is the actual value of this variable that get passed to function. 
+
+When dealing with method the term parameter is used to identify the placeholder in the method signature where as the term arguments are the actual values that you pass into the method.
+
+
+
+
+Example =>   
+function test(param1,param2){		// Parameters
+	return (param1+param2);
+}
+
+
+test(5,6);					// arguments
+
+
+*****/
+
+
+=> Parameters
+A functionca have any number of required positional paramters. These can be followed either by named paramters or by optional positional parameters (but not both)
+
+Named parameters:
+named parameters are optional unless they're specially marked as required.
+When calling a function you can specify named parameters using paramNmae: value 
+
+enableFlag(bold: true, hidden: false);
+
+Whe defining a function use {param1, param2, ....} to specify named parameters:
+
+void main(){
+  var name;
+  printName(args: name);
+}
+
+void printName({String? args}){
+  print(args);
+}
+
+Although named paramters are kind of optional paramters you can annotate them with  required to indicate that the paramter is mandatory ---- that users must provide a value for the 
+parameter.
+
+
+
+
+Conditional expressions :------------------------------------
+Dart has two operators that let you concisely evaluate expression that might otherwise if-else statements:
+
+condition ? expr1 : expr2
+If condition is true evaluate expr1 (and return its value)  otherwise evaluae and return the valueof expr2.
+
+expr1 ?? expr2
+if expr1 is non-null returns its value otherwise evaluates and return the value of expr2.
+
+(When you need to assign a value based on boolean expression consider using ? and :)
+
+var visibility  = isPublic ? 'public' : 'private'
+
+If the boolean expression tests for null consider using ??.
+
+String playerName(String? name) => name ?? 'Guest';
+
+
+
+
+
+=> Cascade notation
+Cascades( . .   ,  . . ? ) allow you to make a sequence of operations on the same object. In addition to function calls you can also access fields on that same object. This often saves you the step
+creating temporary variable and allows you to write more fluid code.
+
+
+
+var paint = Paint()
+	..color = Colors.black
+	..strokeCap = Stroke.Cap.round
+	..strokeWidth = 5.0
+
+
+
+
+
+If the object that the cascade operates on can be null then use a null-shorting cascade (?..) for the first operation Starting with ?.. guarntees that none of the cascade operations are attemped
+on that null object.
+
+querySelector('#confirm') // Get an object.
+  ?..text = 'Confirm' // Use its members.
+  ..classes.add('important')
+  ..onClick.listen((e) => window.alert('Confirmed!'));
+
+
+
+
+
+=> Switch and case 
+Switch statements in Dart compare integer string or compile-time constants using == .  The compared object must all be instance of the same class (and not of any of its subtypes), and the 
+class must not override == ,   Enumerated types work well in switch statements.
+
+Each non-empty case clause ends with a break statement as a rule. Other valid ways to end a non-empty case clause are a continue throw or return statement.
+
+
+var command = 'OPEN';
+switch (command) {
+  case 'CLOSED':
+    executeClosed();
+    break;
+  case 'PENDING':
+    executePending();
+    break;
+  case 'APPROVED':
+    executeApproved();
+    break;
+  case 'DENIED':
+    executeDenied();
+    break;
+  case 'OPEN':
+    executeOpen();
+    break;
+  default:
+    executeUnknown();
+}
+
+
+1) Use a default clause to execute code when no case clause matches:
+
+
+2) The following example omits the break statement in case clause thus generating and error.
+
+var ommand = 'OPEN';
+switch (command){
+case 'OPEN':
+    executeOpen();
+    // ERROR: Missing break
+
+  case 'CLOSED':
+    executeClosed();
+    break;
+}
+
+
+
+
+3) Dart does support empty case clause allowing a form of fall-through
+var command = 'CLOSED';
+switch (command) {
+  case 'CLOSED': // Empty case falls through.
+  case 'NOW_CLOSED':
+    // Runs for both CLOSED and NOW_CLOSED.
+    executeNowClosed();
+    break;
+}
+
+
+
+=> If you really want fall-through you can use a continue statement and label
+
+var command = 'CLOSED';
+switch (command) {
+  case 'CLOSED':
+    executeClosed();
+    continue nowClosed;
+  // Continues executing at the nowClosed label.
+
+  nowClosed:
+  case 'NOW_CLOSED':
+    // Runs for both CLOSED and NOW_CLOSED.
+    executeNowClosed();
+    break;
+}
+
+
+A case clause can have local variables, which are visible only inside the scope of that clause.
+
+
+
+
+Exceptions :------------------------------------------------------------
+Your Dart code can throw and catch exceptions. Exceptions are error indicating that something unexpected happened. If the exception isn'y caught the isolate that waised the exception is 
+suspended, and typically the isolate and its program are terminated.
+
+In contrast to Java all of Dart's exceptions are unchecked exception. Methods don't declare which exceptions they might throw and you aren't required to catch any exceptions.
+
+/*
+Checked Exception
+Checked Exception are called compiled-time exception because these exception are checked at cimpiled - time by the compiler. The compiler exsures whether the program handles the exception
+or not.   The programmer should have to handle the exception otherwise the system has shown a compilation error.
+
+
+Uncheck exception are just opposite to the checked exception. The compiler will not check these exception at compile time . In simple words if a program throws an  unchecked exception and
+even if we didn't handle or declare it the progam would not give a compilation error. Usually it occur when the user provides bad data during the interaction with the program.
+*/
+
+
+Catch :-----------------------
+Catching or capturing an exception stops the execution from propagating (unless you rethrw the exception). Catching an exception gives you a chance to handle it.
+
+try{
+	breedMoreLamas();
+} on OutofLamasException{
+	buyMoreLamas();
+}
+
+To handle code that can thero more than one type of exception, you can specify multiple catch clauses. The first catch clauses that matches the thrrow object's type handles the exception.
+If the catch does not specify a type that clauses can handle any type of throw object:
+
+
+try {
+  breedMoreLlamas();
+} on OutOfLlamasException {
+  // A specific exception
+  buyMoreLlamas();
+} on Exception catch (e) {
+  // Anything else that is an exception
+  print('Unknown exception: $e');
+} catch (e) {
+  // No specified type, handles all
+  print('Something really unknown: $e');
+}
+
+
+you can use either on or catch or both. Use on when you need to specify the exception type.Use catch when you exception handler needs the exception object.
+
+
+
+Finally :----------------------
+To ensure that some code runs whether or not an exception is throw use a finally clause. If no catch clauses matches the exception the exception is propagated after the finally clause runs.
+
+try {
+  breedMoreLlamas();
+} finally {
+  // Always clean up, even if an exception is thrown.
+  cleanLlamaStalls();
+}
+
+
+The finally clauses runs after any matching catch clauses:
+
+try {
+  breedMoreLlamas();
+} catch (e) {
+  print('Error: $e'); // Handle the exception first.
+} finally {
+  cleanLlamaStalls(); // Then clean up.
+}
+
+
+
+
+
+ 

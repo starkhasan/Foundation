@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'package:flutterapp/FollohResponse.dart';
-import 'package:flutterapp/UserResponse.dart';
-import 'package:flutterapp/constant/Cv.dart';
-import 'package:http/http.dart' as http;
-
+import '../FollohResponse.dart';
+import '../UserResponse.dart';
+import '../constant/Cv.dart';
+import 'package:';
 
 class ApiService{  
 

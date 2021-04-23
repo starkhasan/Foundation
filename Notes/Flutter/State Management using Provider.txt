@@ -275,7 +275,7 @@ EligibilityScreen.
 
 
 Consumer => 
-It is not necessary that all the part of the UI in EligibilityScreen will be using the state data from EligibilityScreeProvider and thus needs to be rebuilt It may be possible that 50% o fthe UI
+It is not necessary that all the part of the UI in EligibilityScreen will be using the state data from EligibilityScreenProvider and thus needs to be rebuilt It may be possible that 50% of the UI
 of any screen not in our case not needs to be rebuilt So Consumer which is widget allows to observe the state  changed from ChangeNotifier in a particular part of UI and thus only observing
 part os the UI will re-rendered.
 

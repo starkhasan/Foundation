@@ -105,6 +105,231 @@ control flow constructs of selection (if/then/else) and repetition (while or for
 
 
 
+Statically vs Dynamically types :---------------------------------
+
+Statically-typed programming languages do type checking (i.e the process of verifying and enforcing the constraints of types on values) at compiled-time 
+Dynamically-typed language do type checks at runtime.
+
+Statically types => C, C++, Java
+Dynamically-types  => Perl , Ruby, Python, PHP, JavaScript.
+
+
+Weakly-typed => Languages make conversions between unrealated types implicitly
+Strongly-types languages don't allow implicitly conversion between unrelated types.
+
+
+
+
+
+
+Asynchronous and Synchronous Programming :------------------------------------------------
+
+Asynchronous programming
+
+In asynchronous operations on the other hand you can move to another task before the previous one finishes. This way with asynchronous programming you're able to dealwith multiple 
+requests simultaneously thus completing more task in a much shorter period of time.
+
+It allow you to offload work. That way you can perform that work without blocking the main process/thread. It's often related to parallelization, the art of performing independent tasks in
+parallel, that is achioved by using asynchronous programming.
+
+The biggest advantage of applying parallelization principles is that you can achieve the outcomes much faster and it makes your system easier to evolve and more resilient to failure.
+
+
+
+=> Synchronous Operation
+In synchronous operations task are performed one at a time and only when one is completed the following is unblocked . In other words you need to wait for task to finish 
+to move to the next one.
+
+
+
+=> How to handle with error in async and await in Dart
+We can handle the error from the callback function using try-catch block
+
+
+
+Future<ProcessData> createData()  async{
+	try{
+		final id = await _loadFromDisk();
+		final data = await _fetchNetworkData(id);
+		return ProcessedData(data);
+	} on HttpException catch(err){
+		print('Network error: $err');
+		return ProcessedData.empty();
+	}finally{
+		print('All done!');
+	}
+}
+
+
+
+=> Working with futures: async and await 
+The async and await keywords provides a declarative way to define asynchronous functions and use their results. Remember these two basic guidelines when using asycn and await:
+
+	To define an async function add asycn before the function body
+	The await keyword works only in async function
+
+=> Converting function to async function
+
+	void main async {...........}
+
+
+if the function has a declared return type, then update the type to be Future<T>, where T is the type of the value that the function returns. If the function doesn't explicitly return a value
+then the return type is Future<void>
+
+	Future<void> main() async {........}
+
+
+Now that you have an async function you can use the await keyword to wait for a future to complete.
+
+	print(await createOrderMessage());
+
+
+
+The asynchronous example is different in three ways :---------------------
+=> The return type for createOrderMessage() changes from String to Future<String>
+=> The async keywords appears before the function bodies for createOrderMessage() and main().
+=> The await keyword appear before calling the asycnhronous function fetchUserOrder() and createOrderMessage()
+
+
+
+Execution flow with async and await :----------------------------
+An async function runs synchronusly until the first await keyword.
+
+
+=> Future Constructs :---------------------------------------------
+Future constructors to create future.
+
+The simplest constructor is Future() which takes a function and returns a future that matched the function's return type. Later the function runs asynchronously and the function complete
+with the funtion's return value. 
+
+
+void main() {
+  final myFuture = Future(() {
+    return 12;
+  });
+}
+
+
+Example =>
+
+void main() {
+  final myFuture = Future(() {
+    print('Creating the future.'); // Prints second.
+    return 12;
+  });
+  print('Done with main().'); // Prints first.
+}
+
+After running the above entire main functin finishes before the function given to the Future() constructor. That 's because the Future() constructur just an uncompleted future at first.
+It says Here's this box. You hold onto that for now and later i'll go run your function and out some data in there for you.
+
+
+Another constructor Future.value90 is handy when you already know the value for the future. this constructor is useful when you're building services that use caching.
+
+final myFuture = Future.value(12);
+
+
+
+=> Future.delayed()
+The handiest future constructor is probably Future.delayed(). It works just like Future() except that it waits for a specified length of time before eunning the function and completing
+the future.
+
+void main(){
+  Future.delayed(Duration(seconds: 1),() => {
+    print('Ali Hasan')
+  });
+  print('What is your name?');
+}
+
+
+When this code executes main() runs from top to bottom, creating the future and printing "Waiting for a value" That whole time the future is uncompleted. It doesn't complete for another
+3 seconds.
+
+To use the complete value, you can use main(). That's an instance method on each future that you can use to register a callback for when  the future completes with a value. You give it 
+a function that takes a single parameter matching the type of the future. Once the future comples with a value you function is called with that value.
+
+
+void main() {
+  Future.delayed(
+    const Duration(seconds: 3),
+    () => 100,
+  ).then((value) {
+    print('The value is $value.'); // Prints later, after 3 seconds.
+  });
+  print('Waiting for a value...'); // Prints first.
+}
+
+
+
+
+
+
+Singleton Class :-------------------------------------------------------------
+In Object oriented programming a singleton class is class that can have only object (an instance of the class) at a time.
+
+After first time if we try to instantiate the Singleton class, the new variable also points to the first instance created. So whatever modifications we do to any variable inside the class through 
+any instance it affects the variable of the single instance created and is visible if we access that variable through any variable of that class type defined.
+
+To design a Singleton class :
+
+1) Make constrctor as private
+2) Write a static method that return type object of this singleton class.
+
+
+Example Making Singleton class in Java ;---------------------------------------
+
+class Singleton{
+	private static Singleton single_instance = null;
+
+	public String s;
+
+	private Singleton(){
+		s = "Hello i am a string part of Singleton class";
+	}
+
+	public static Singleton getInstance(){
+		if(single_instance == null){
+			single_instance = new Singleton();
+		}
+		return single_instance;
+	}
+}
+
+class Main
+{
+    public static void main(String args[])
+    {
+        Singleton x = Singleton.getInstance();
+ 
+        Singleton y = Singleton.getInstance();
+  
+        Singleton z = Singleton.getInstance();
+  
+        // changing variable of instance x
+        x.s = (x.s).toUpperCase();
+  
+        System.out.println("String from x is " + x.s);
+        System.out.println("String from y is " + y.s);
+        System.out.println("String from z is " + z.s);
+        System.out.println("\n");
+        z.s = (z.s).toLowerCase();
+        System.out.println("String from x is " + x.s);
+        System.out.println("String from y is " + y.s);
+        System.out.println("String from z is " + z.s);
+    }
+}
+
+
+Explanation : In Singleton class when we first time call getINstance() method it creates an object of the clas with name  single_instance and return it to the variable. Since single_instance is  
+static , it is changed from null to sime object . Nex timt eif we try to call getInstance() method since single_instance is not null it is returned to the variable  instead of instantiating the 
+Singleton class again. This part is done by if condition.
+
+In the main class we instatiate the singleton class with 3 object x,y,z by calling static method getInstance(). But actually after creation of obejct x , variable y and z are pointed to object x as
+shown in the diagram.Hence, if we change the variables of object x, that is reflected when we access the variables of objects y and z. Also if we change the variables of object z, that is 
+reflected when we access the variables of objects x and y.
+
+
+
 
 
 

@@ -1,11 +1,4 @@
 
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutterapp/constant/Cv.dart';
-import 'package:flutterapp/network/ApiCalling.dart';
-import 'package:flutterapp/ui/SecondPage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:toast/toast.dart';
 
 class LoginScreen extends StatefulWidget {
   @override

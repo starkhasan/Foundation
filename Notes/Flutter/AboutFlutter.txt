@@ -1,20 +1,60 @@
+					-------------------------:  Flutter Architecture overview  :-------------------------
+Flutter is a cross platform UI toolkit that is designed to allow code reuse across operating systems such as iOS and Android while also allowing application to interface directly with underlying
+platform services.
 
-17:38 28-11-2020
-What are Future Operations ?
-Future operations are the operations which take time to perform and return the result later. To handle this problem, we use Asynchronus functions.
-
-2.
-
+	During development Flutter apps run in a VM offers stateful hot reload of changes without needing full recompile. For release, Flutter apps are compiled directly to machine code.
 
 
+=> Architectural layers 
+Flutter is designed as an extensible layered system. It exists as a series of independent libraries that each depend on the underlying layer. No layer has privileged access to the layer below
+and every pert of the framework level is designed to be optional and replaceable.
+
+1) Platform-specific Embedder privides an entrypoint coordinates with the operating system for access to services like rendering surfaces accessibility and input and manages the message
+event loop. The embedder is written in language that is approriate for platform currently Java and C++ for Android , Objective-C/Objective-C++ fir iOS and macOS and C++ for Windows and
+Linux.
+
+2) At the core Flutter is the Flutter engine which is mostly written in C++ and supports the primitives necessary to support all Flutter application. The engine is reponsible for rasterizing
+composited scenes whenever a new frames needs to be painted. It provides the low-level implementation of Flutter's core API including graphics (through Skia) text layout file and network
+I/O accessibility support , plugin architecture and Cart runtime and compiled toolchain.
+
+
+The engine is exposed to the Flutter framework through dart:ui, which wraps the underlying C++ code in Dart classes.
+
+3) Typically developers interact with Flutter through the Flutter framework which provides a modern reactive framework written in the Dart language. It includes a rich set of platform layout
+and fundational libraries composed of series of layers.
+
+
+Widget state :--------------------------------------------------------
+The framwork introduce two major widget stateful and statelwss widgets. 
+
+Many widgets have no mutable state: they don't have any properties that change over time (for example an icon or a label ). These widget subclass StatelessWidget.
+
+However if the unique characteristics of a widget need to change based on user interaction or toher factors that widget is stateful. For example if a widget has counter that increments
+whenever the user taps a button then the values of the counter is the state for that widget. When that value changes the widget needs to be rebuilt to update its  part of the UI. These widget
+subclass StatefulWidget and (because the widget itself is immutable) they store mutable state in a seperate class that subclasses State.	
+
+	StatefulWidget don't have a build method instead their user intreface is built through their State object.Whenever you mutate a State you must call setState() to single the
+framework to update the user nterface by calling the State's build again.
 
 
 
-Facebook with Login Problem in Flutter :------------------------------
+import 'package:flutter/material.dart';
 
-[dart] The method 'logInWithReadPermissions' isn't defined for the class 'FacebookLogin'
+void main() {
+  runApp(
+    Center(
+      child: Text(
+        'Hello, world!',
+        textDirection: TextDirection.ltr,
+      ),
+    ),
+  );
+}
 
-Solution :-  if you are using flutter_facebook_login version above 2.0.1 change the fblogin.loginWithReadPermission(['email','public_profile'])  with fbLogin.**logIn**(['email', 'public_profile']) The Future function has been renamed to just logIn(List permissions)
+
+main() function came from Java-like languages so it is where all program statrted without it you can'r write any program on Flutter even without UI.
+
+runApp() function should return widget that would be attached to the screen as a root of the widget Tree that will be rendered.
 
 
 What is Widget ?
@@ -57,8 +97,9 @@ mainAxisSize property :---------------------------------------------
 MainAxisSize mainAxisSize 
 
 How much space should be occupied in the main axis
-After allocating space to childreb there might be some remaining few space. This value control whether to maximize or minimize the amount of the free space to the incoming layout constraints.
-If some children have a non-zero flex fector  (and none have a fit of FlexFit loose) they will expand to consure all the avaialble space and there will be no  remaining free space to maximizing or minimizing making this value irrelevant to the final layout.
+After allocating space to children there might be some remaining few space. This value control whether to maximize or minimize the amount of the free space to the incoming layout 
+constraints. If some children have a non-zero flex fector  (and none have a fit of FlexFit loose) they will expand to consure all the avaialble space and there will be no  remaining free space 
+to maximizing or minimizing making this value irrelevant to the final layout.
 
 
 
@@ -108,6 +149,177 @@ IndexedStack(
 It tackes children like usual Stack but it contrast to it only displays one child at one time.
 
 
+
+
+=> Container
+The Container widget lets you create a rectangular visual element. A Container can be decorated with BoxDecoration such as a background a border or a shadow. A Container can also have 
+margins, padding and constraints applied to its size. In addition a Container can be transformed in three dimensional space using a matrix.
+
+Container(
+ height: 56.0, // in logical pixels
+ padding: const EdgeInsets.symmetric(horizontal: 8.0),
+ decoration: BoxDecoration(color: Colors.blue[500]),
+ child: Row(
+   children: <Widget>[
+   ],
+  ),
+);
+
+Here Container with a height of 56 device independent pixel with an internal padding of 8 pixel both on the left and the right
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=>   Navigator class :--------------------------------------------------------------------
+A widget that manage a set of child widgets with a stack discipline.
+
+Many apps have a navigator near the top of their widget hierarchy in order to display their logical history using an Overlay with the most recent visited pages visually on top of the older pages.
+
+=> Overlay class :-
+   A Stack of entires that can be maanges independently
+   Overlays let independent child widget "float" visual elements on top of other widgets by inserting them into the overlay's Stack. The overlay lets each of these widgets manage their  
+   participation using OverlayEntry object.
+
+   => OverlayEntry class
+	1) A place in an Overlay that can contain a widget
+	2) Overlay entries are inserted into Overlay using the OverlayState.insert or OverlayState.insertAll functions. To find the closest enclosing overlay for a given BuildContext use the
+	     Overlay.of function 
+	3) An overlay entry can be in at most one overlay at a time. To remove an entry from its overlay call the remove function on the overlay entry.
+
+
+Using this pattern lets the navigator visually transition from one page to another by moving the widgets around in the overlay. Similarly the navigator can be used to show dialog by 
+positioning the widget above the current page.
+
+ => Using the Navigator API
+	Mobile apps typically reveal their contents via full-screen elements screens or pages. In Flutter these elements are called routes and they're managed by a Navigator widget.
+	
+	The navigator manages a stack of Routes object and provides two ways for managing the stack the declarative API Navigator.pages or imperative API Navigator.push and pop.
+
+
+Diaplying a full-screen route :----------------
+Althoughyou can create a navigator directly, it's most common to use the navigator created by the Router which itself is created and configured by a WidgetsApp or a MaterialApp widget.
+
+A MeterialApp is the simplest way to set things up. The MaterialApp's home becomes the route at the buttom of the Navigator's Stack. It is what you see when the app is launched
+
+void main(){
+	runApp(MaterialApp(home: MyAppHome()));
+}
+
+To push  a new route on the stack you can create an instace of MaterialPageRoute with a builder function that creates whatever you want to appear on the screen.
+
+ =>  Navigator.push(context, MaterialPageRoute( builder : (context) => SecondScreen()));
+
+The route defines its widget with builder function instead of a child widget because it will build and rebuilt in different cntexts depending on when it's pushed and popped.
+
+new route can be popped revealing the app's home page with the Navigator's pop method
+	
+	Navigator.pop(context);
+
+It's usually isn't necessary to provide a widget that pops the Navigator in a route with a Scaffold because the scaffold automatically adds back button to its AppBar. Pressing the back button
+causes Navigator.pop to be called. On Android pressing the system back button does the same thing.
+
+
+Routes can return a value :------------------------
+When a route is pushed to ack the user for a value , the value can be returned via the pop methods result parameter. 
+Methods that push a route return a Future. The Future resolves when the route is popped and the Future's value is the pop method result parameter.
+
+if we wanted to ask the user to press 'OK to confirm an operation we could await the result of Navigator.push
+
+bool value = await Navigator.push(context, MaterialPageRoute<bool>(
+  builder: (BuildContext context) {
+    return Center(
+      child: GestureDetector(
+        child: Text('OK'),
+        onTap: () { Navigator.pop(context, true); }
+      ),
+    );
+  }
+));
+
+if the user  presses OK then value will be true. If the user block out of the route for example by pressing the Scaffold's back button the value will be null.
+When a route is used to return a value the route's type parameter must match the type of pop's result. That's why we've used.
+
+
+Popup routes :---------------------------
+Routes don't have to obscure the entire screen PopupRoutes cover the screen with a ModalRoute.barrierColor that can be only partially opaque to allow the current screen to show through.
+Popup routes are modal because they block input to the widget below.
+
+There are functions which create and show popup routes. For example showDialog, showMenu and showModalBottomSheet. These function return their pushed route's Future as described
+above. Callers can await the returned value to take an action when the route is popped.
+
+There are also widgets which create popup route like PopupMenuButton and DropdownButton. These widgets create internal subclasses of PopupRoute and use the Navigator's
+push and pop methods to show and dismiss them.
+
+
+Custom routes :-----------------------------
+you can create your own subclass on one of the widget library route clases like PopupRoute, Modal Route or PageRoute to control the animated transition employed to show the route the
+color and behaviour of the route's modal barrier and other aspect of the route.
+
+The Page RouteBuilder class makes it possible to define a custom route in terms of collbacks.
+
+
+Navigator.push(context, PageRouteBuilder(
+  opaque: false,
+  pageBuilder: (BuildContext context, _, __) {
+    return Center(child: Text('My PageRoute'));
+  },
+  transitionsBuilder: (___, Animation<double> animation, ____, Widget child) {
+    return FadeTransition(
+      opacity: animation,
+      child: RotationTransition(
+        turns: Tween<double>(begin: 0.5, end: 1.0).animate(animation),
+        child: child,
+      ),
+    );
+  }
+));
+
+
+Nesting Navigators :---------------------------------
+An app can use more than one Navigator , Nesting one Navigator below another Navigator can be used to create an inner journey such as tabbed navigator.
+
+
+
+
+
+
+
+
+
+
+
+
+17:38 28-11-2020
+What are Future Operations ?
+Future operations are the operations which take time to perform and return the result later. To handle this problem, we use Asynchronus functions.
+
+2.
+
+
+
+
+
+
+Facebook with Login Problem in Flutter :------------------------------
+
+[dart] The method 'logInWithReadPermissions' isn't defined for the class 'FacebookLogin'
+
+Solution :-  if you are using flutter_facebook_login version above 2.0.1 change the fblogin.loginWithReadPermission(['email','public_profile'])  with fbLogin.**logIn**(['email', 'public_profile']) The Future function has been renamed to just logIn(List permissions)
 
 
 Exploring Draggable and DragTargets :---------------------------------
@@ -620,11 +832,14 @@ Flutter has two classes that help you draw to the canvas: CustomPaint and Custom
 
 Intents :------------------------------------------
 What is the equivalent of an intent in Flutter ?
-In Android there are two main use cases for Intents: navigation between Activities and communicating with components. Flutter on the other hand does not have the concept of intent, although you can still start intents through native integrations (using a Plugin)
+In Android there are two main use cases for Intents: navigation between Activities and communicating with components. Flutter on the other hand does not have the concept of intent, 
+although you can still start intents through native integrations (using a Plugin)
 
 Flutter doesn't reslly have a direct equivalent to activies and fragment rather in Flutter you navigate between screens using a Navigator and Routes all within the sameActivity.
 
-A route is an abstraction for screen or page of an app, and a Navigator is a widget that manages routes. A route roughly maps to an Activity but it does not carry the same meaning. A navigator can push and pop routes to move from screen to screen. Navigatiors work like a stack on which you can push() new routes you want to and from which you can pop() routes when you want to go back.
+A route is an abstraction for screen or page of an app, and a Navigator is a widget that manages routes. A route roughly maps to an Activity but it does not carry the same meaning. 
+A navigator can push and pop routes to move from screen to screen. Navigatiors work like a stack on which you can push() new routes you want to and from which you can pop() 
+routes when you want to go back.
 
 In Android you declare your activies inside the app's Manifest.xml
 In Flutter you have a couple options to navigate between pages"
@@ -652,7 +867,8 @@ Navigator.of(context).pushNamed('/b');
 
 What is Equivalent of OkHttp on Flutter?
 Making a network call in Flutter is easy when you use the popular http package.
-While the http package doesn't have every feature in OkHttp, it abstract away much of the network that you would normally implenting yourself, making it a sinple wat to make network calls:
+While the http package doesn't have every feature in OkHttp, it abstract away much of the network that you would normally implenting yourself, making it a simple want to make network
+calls:
 
 To use the http package add it yo your dependencies in pubsec.yaml:
 
@@ -1155,14 +1371,14 @@ Compiler message: 'Element' is imported from both
 
 There are two solution 
 
-1) Hide all conflict classes from particular libraries that you don't use so that the compiler onyl sees the class it should use.
+1) Hide all conflict classes from particular libraries that you don't use so that the compiler only sees the class it should use.
  
 import 'package:flutter/src/widgets/framework.dart' hide Element;
 import 'package:html/dom.dart';
 
 
 
-2) Use "as" keyword to provide the name to the class you want to use , thenuse this name as a prefix of the class(es)
+2) Use "as" keyword to provide the name to the class you want to use , then use this name as a prefix of the class(es)
 
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:html/dom.dart' as dom;
@@ -1287,6 +1503,297 @@ void findPersonUsingRetainWhere(List<Person> people,
 
 
 
+Writing Custom Platform-specific code :---------------------------------------------
+
+Flutter  uses a flexible system that allow you to call platform-specific APIs available in kotlin or java code on Android, or in Swift or Objective-C code on ios.
+
+Flutter's buitin platform-specific API support does not rely on code generation but rather on a flexible message passing style.
+
+=> The Flutter portion of the app sends messages to its host the IOS or Android portion of the app over a platform channel
+=> The host listens on  the platform channel and receives the message. It then calls into any number of platform-specific APIs using the native progamming languages and send a response
+back to the client the Flutter portion of of the app.
+
+Messagea and response are passed asynchronously to ensure the user interface remains responsive
+
+On the client side MethodChannel enables sending messages that correspond to method calls. On the platform side MethodChannel on Android (MethodChannelAndroid) and FlutterMethod
+Channel on IOS (MethodChanneliOS) enable receiving method calls and sending back a result. These classes allow you to develop a platform lugin with very little biolerplat code.
+
+
+
+
+
+=> Create the Flutter platform client
+
+First construct the channel , User a MethodChannel with a single platform emthod that returns the battery level.
+The client and host sides of a channel are connected through a channel name passed in the channel constructor. All the channel names used in a single app must be unique,
+
+
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+...
+class _MyHomePageState extends State<MyHomePage> {
+  static const platform = const MethodChannel('samples.flutter.dev/battery');
+
+  // Get battery level.
+}
+
+
+Next invoke a method on the method channel specific the concrete method to call using the String identifier getBatteryLevel. The call might fail for example if the platform does not support
+the platform API (such as when running in a simulator) so wrap the invokedMethod call in try-catch statement.
+
+
+  // Get battery level.
+  String _batteryLevel = 'Unknown battery level.';
+
+  Future<void> _getBatteryLevel() async {
+    String batteryLevel;
+    try {
+      final int result = await platform.invokeMethod('getBatteryLevel');
+      batteryLevel = 'Battery level at $result % .';
+    } on PlatformException catch (e) {
+      batteryLevel = "Failed to get battery level: '${e.message}'.";
+    }
+
+    setState(() {
+      _batteryLevel = batteryLevel;
+    });
+  }
+
+
+=>   Adding an Android platform-specific implementation
+Open MainActivity.kt of Android Side file
+	Inside configureFlutterEngine() method create MethodChannel and call setMethodCallHandler(). Make sure to use the same cahnnel name as was used on the Flutter client side.
+
+
+import androidx.annotation.NonNull
+import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugin.common.MethodChannel
+
+class MainActivity: FlutterActivity() {
+  private val CHANNEL = "samples.flutter.dev/battery"
+
+  override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
+    super.configureFlutterEngine(flutterEngine)
+    MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
+      call, result ->
+      if (call.method == "getBatteryLevel") {
+        val batteryLevel = getBatteryLevel()
+
+        if (batteryLevel != -1) {
+          result.success(batteryLevel)
+        } else {
+          result.error("UNAVAILABLE", "Battery level not available.", null)
+        }
+      } else {
+        result.notImplemented()
+      }
+    }
+  }
+}
+
+
+add the Platform specific code to get the level of the battery
+
+  private fun getBatteryLevel(): Int {
+    val batteryLevel: Int
+    if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
+      val batteryManager = getSystemService(Context.BATTERY_SERVICE) as BatteryManager
+      batteryLevel = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
+    } else {
+      val intent = ContextWrapper(applicationContext).registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+      batteryLevel = intent!!.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) * 100 / intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1)
+    }
+
+    return batteryLevel
+  }
+
+
+Channel and platform threading :-----------------------------
+Invoke all channel method on the platform's main thread when writing code on the platform side. On Android this thread is sometimes called the "main thread" but it is technically defines
+as the UI thread. Annotate method that need be run on the UI thread with @UiThread.
+
+Jumping to UI thread in Android :-
+To comply with cahnnel's UI thread reqirement you may need to jump from background thread to Android's UI thread to execute a channel method. In Android this is accomplished by 
+post() ing a Runnable to Android'UI thread Looper, which cause the Runnable to execute on the main thread at the next opportunity.
+
+
+Handler(Looper.getMainLooper()).post {
+  // Call the desired channel message here.
+}
+
+=> Running Android task in background threads.
+All Android apps use a main thread to handle UI operations. Calling long- running operations from this main thread can lead to freezes and unresponsiveness. For example if youe app makes
+a network request from the main thread, your app's UI is frozen untilit receive the network response. you can create additional background threads to handle long-running operations
+while the main continues to handle UI unpdates.
+
+
+
+
+=> What is the difference between the dependencies and dev_dependencies in Flutter pubspec.yaml
+
+dependencies  => are packages that are included in your app during compilation 
+
+dev_dependencies => are packages that you use during developing your app and these are not included in the APK. 
+(these are only required for development or which are used to build your bundle)
+
+
+
+=> what happen when execute flutter pub get command
+On executing flutter pub get inside your project root folder to makethese new dependencies available in your project
+
+
+
+
+
+
+
+
+=> Json and Serialization
+
+=> jsonDecode(jsonString)
+Decode the JSON by calling the jsonDecode() function with the JSON string as the method argument and returns a Map<String,dynamic> meaning that you do not know the typesof the
+values until runtime.
+
+
+Map<String, dynamic> user = jsonDecode(jsonString);
+
+print("Howdy, ${user['name']}');
+print('We sent verification link to ${user['email']}');
+
+
+
+Inside the User Class, you'll find
+
+1) A User.fromJson() constructor for constructing a new User instance from map Structue.
+2) toJson() method which converts a User instance into a map.
+
+
+class User{
+final String name;
+final String email;
+
+User(this.name, this.email);
+
+User.fromJson(Map<String, dynamic> json)
+	: name = json['name'],
+	:  email = json['email'];
+
+Map<String, dynamic> toJson() => 
+{
+	'name' : name,
+	'email' : email,
+};
+}
+
+With this new approach you can decode a user easily
+
+
+Map userMap = jsonDecode(jsonString);
+var user = User.fromJson(userMap);
+
+print(user.name);
+print(user.email);
+
+
+To encode a user pass the User object to the jsonEncode() function. You don't need to call the toJson() method, since jsonEncode() already does it for you.
+
+String json = jsonEncode(user);
+
+
+
+
+
+
+
+01:37 13-04-2021  New Button and Button Themes :----------------------------------------
+A new set of basic material button widgets and themes have been added to flutter. The original classes have been deprecated and will eventually be removed. The overall goal is to make 
+button more flexible and easier to configure via constructor parameters or themes.
+
+
+The FlatButton, RaisedButton and OutlineButton widgets have been replaced by TextButton, ElevatedButton and OutlinedButton respectively.
+Each new button has its own theme: TextButtonTheme, ElevatedButtonTheme and OutlinedButtonTheme
+
+
+
+
+
+
+
+FittedBox Widget :------------------------------------------
+FittedBox is a very useful widget that scales and positions its child within itself according to fit and alignment
+
+FittedBox restrict its child widgets from growing its size beyond a certain limit. It rescales them according to the size available. For instance if the text is displyed inside a container and
+the text is grow bryond its allocated size FittedBox wat it then it fit the text according to the size available. For large string it would shrink its size hence would fit in the container.
+
+
+FittedBox({
+	key: key,
+	fit: BoxFit.contain,
+	alignment: Alignment.center,
+	child: 
+})
+
+
+
+
+MediaQuery :------------------------------------------------------------
+ 	(( There are multiple ways to make your UI responsive in Flutter but just to name a few rules of thumb that will mostly get the job done. ))
+
+MediaQuery : Establish a subtree in which media queries resolve to the given data.
+MediaQueryData : Information about a piece of media (eg a window)
+
+Using MediaQuery we can get the different device screen property like size / width / height  / devicePixelRatio  / 
+
+1) devicePixelRatio 		var _devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
+2) deviceWidth 		var _deviceWidth = MediaQuery.of(context).size.width
+3) deviceHeight		var _deviceHeight = MediaQuery.of(context).size.height
+4) statusBarHeight		var _toolBarHeight = MediaQuery.of(context).padding.top
+5) height of the AppBar	MediaQuery.of(context).kToolbarHeight
+6) height of BottomNavigatioBar	MediQuery.of(context).kBottomNavigationBarHeight
+
+
+we can also get the different portion of the screen in ratio or in percentage:
+
+SizedBox(
+	height: MediaQuery.of(context).size.height * 0.5	=> it will take 50% of the height of the screen
+	width: MediaQuery.of(context).size.width* 0.5	=> it will take 50% of the width of the screen
+)
+
+
+
+Flex :-------------------------------------
+By using Flex widgets such as Expanded and Flexible. When used in a Row or Column they'wll dynamically adapt based on the  costrints imposed by them and along with Column and Row
+alignment/size they are qiote powerful enough to make your UI responsive.
+
+For example you can have a two Container in one Row where one uses 1/4 of the view and the other takes 3/4 of the space available.
+
+Row(
+  children: <Widget>[
+         Expanded(
+           flex: 1,
+           child: Container(),
+         ),
+         Expanded(
+           flex: 3,
+           child: Container(),
+         ),
+      ]
+)
+
+
+Platform :-------------------------------------
+Also you can always lookup for the underlying platform to make some decision by using the Platform class getters
+
+import 'dart:io';
+
+if(platform.isAndroid){
+	print('Running of Android Device');
+}else{
+	print('Running of iOS Device');
+}
 
 
 
