@@ -175,6 +175,7 @@ Note :- Although Dart is strongly typed type annotations are optional because Da
 
 
 Data Types  :-------------------------------------------------
+This determine the type and size of data associated with variable.
 
 One of the most fundamental characteristics of a programming language is the set of data types it supports. These are the type of values that can be represented and manipulated in a 
 programming language.
@@ -207,6 +208,16 @@ Classes respectively.
 
 
 Variable name are called identifier.
+
+
+
+Collections :----------------------
+Collections are categorises in four different types
+1) List
+2) Set
+3) Map
+4) Queue
+
 
 
 Dart Lists :-
@@ -465,7 +476,7 @@ Logical Operator :-------------------
 
 
 Conditional Expressions :----------------------------
-Dart has two operators that let you evaluate expressions that might otherwise require ifelse statements -
+Dart has two operators that let you evaluate expressions that might otherwise require if else statements -
 
 condition ? expr1 : expr2
 if condition if true then the expression evaluates expr (and returns its value) otherwise it evaluate and returns the value of expr2
@@ -476,7 +487,7 @@ if expr1 is non null returns its value other wise evaluates and return the value
 
 
 
-Cascade Operator :------------------------------------------------------
+Cascade Notation :------------------------------------------------------
 Cascade (..) allow you to perform a sequence of operations on the same object. The Cascades notation(..) is similar to method chaining that saves you number of steps and need 
 of temporary variable.
 
@@ -652,6 +663,22 @@ do{
 
 
 
+=> for in loop
+This loop is used to iterate through the iterative items
+
+void main(){
+	var _listItems = List.generate(10,(index) => index+1);
+	for(var item in _listItems){
+		print(item);
+	}
+}
+
+
+
+
+
+
+
 
 
 		Conditional Statement in Dart Programming language :----------------------
@@ -780,12 +807,15 @@ void main(){
 
 
 Dart String :-----------------------------
-A String is variable is used to hold series of sequence of character letters numbers and special characters. In Dart string can be represented either using single quotes or double  quotes. 
+A String is variable is used to hold series of sequence of character letters numbers and special characters. In Dart string can be represented either using single quotes or double  quotes or
+trople quotes.
+
 In Dart string can be declared using the String keyword.
 	
 
 Printing String ;-
-In Dart the print() function is used to print the formatted message to the screen or other standard output device.The message can be string any other object or any expression the object and expression will be converted into string before written to the screen.
+In Dart the print() function is used to print the formatted message to the screen or other standard output device.The message can be string any other object or any expression the object 
+and expression will be converted into string before written to the screen.
 
 print("Hello World");
 
@@ -849,11 +879,15 @@ String Methods :--------------------------
 12) contains() 	=> check if a string contain a substring or not
 13) startsWith(char/str)	=> check if a String is startsWith a character/String or not
 14) endsWith(char/str)	=> check if a String is endsWith a character/String or not
+15) []		=> Get particular characters from the string its returns type is string not characters
+
+
 
 
 
 Dart Programing Boolean :---------------------------
-Dart provide an inbuilt support for the Boolean data type. The Boolean data type in Dart supports only two values   true and false.  The Keyword bool is used to represent a Boolean literal in DART.
+Dart provide an inbuilt support for the Boolean data type. The Boolean data type in Dart supports only two values  true and false. The Keyword bool is used to represent a Boolean literal in 
+dart.
 
 bool var_name = false;
 bool var_name = true;
@@ -919,15 +953,135 @@ List Properties :------------------------------
 
 
 
+=> How to find an item in a list :--------------------------------------
+Dart provides many useful methods to filter a list i will use some of them in below examples you mayfind other solutions too.
+
+
+1) Using loop
+///Find a person in the list using loop
+void findPersonUsingLoop(List<Person> people,
+    String personName) {
+  for (var i = 0; i < people.length; i++) {
+    if (people[i].name == personName) {
+      print('Using loop: ${people[i]}');
+
+      // Found the person, stop the loop
+      return;
+    }
+  }
+}
+
+
+
+
+
+
+
+2) Using firstWhere method
+/// Find a person in the list using firstWhere method
+
+
+void findPersonUsingFirstWhere(List<Person> people,String personName){
+// 1. Returns the first element that satisfies
+  //    the given predicate test. Iterates through
+  //    elements and returns the first to satisfy test.
+  // 2. If no element satisfies test, the result of
+  //    invoking the orElse function is returned.
+  //    If orElse is omitted, it defaults to throwing a StateError.
+
+final person = people.firstWhere((element) => element.name ==personName, orElse: () { return null;});
+print('Using firstWhere : ${person});
+}
+
+
+
+
+
+
+
+
+
+
+
+3) Using indexWhere method
+
+void findPersonUsingIndexWhere(List<Person> people, String personName){
+	//Find the index of person If not found index = -1
+	final index = people.indexWhere((element) => element.name == personName);
+
+	if(index >= 0) print('Using indexWhere: ${people[index]});
+}
+
+
+4) Using singleWhere method
+
+/// Find a person in the list using [singleWhere] method.
+void findPersonUsingSingleWhere(List<Person> people,
+    String personName) {
+  // Note (from document):
+  // 1. If exactly one element satisfies test,
+  //    that element is returned.
+  // 2. If more than one matching element is found,
+  //    throws StateError.
+  // 3. If no matching element is found,
+  //    returns the result of orElse. If orElse is omitted,
+  //    it defaults to throwing a StateError.
+  final person = people.singleWhere((element) =>
+        element.name == personName, orElse: () {
+          return null;
+  });
+
+  print('Using singleWhere: ${person}');
+}
+
+
+
+5) Using where method
+void findPersonUsingWhere(List<Person> person,String personName){
+	final foundPeople = people.where((element_ => element.name == personName);
+	if(foundPeople.isNotEmpty) print('Using where: ${foundPeople.first});
+}
+
+
+
+
+
+6) Using retainWhere method
+/// Find a person in the list using retainWhere method.
+/// We probably don't use [retainWhere] method to find
+/// element in real, because this method will modify
+/// original list (remove all others elements which
+/// do not match the condition). [retainWhere] method keeps
+/// all elements match the condition. Therefore, the result
+/// could contain more than one element.
+void findPersonUsingRetainWhere(List<Person> people,
+    String personName) {
+    people.retainWhere((element) =>
+        element.name == personName);
+    if (people.isNotEmpty) {
+      print('Using retainWhere: ${people[0]}');
+    }
+}
+
+
+
+
+
+
+
+
 
 Dart programming Map :--------------------------
- The Map object is a simple key/value pair. Keys and value in a map may be of any type. A Map is a dynamic collection. In other worsd maps can grow and shrink at runtime.
+ The Map object is a simple key/value pair. Keys and value in a map may be of any type. A Map is a dynamic collection. In other words maps can grow and shrink at runtime.
 
 Maps can be declread in two ways :-
-1) Using Map Listerals
-2) Using a Map construtor
+1) Using Map Literals
+2) Using a Map Constructor
 
-Example of Map Listerals :-----------------
+Example of Map Literals :-----------------
+
+To declare a Map using map literal the key-value pairs are enclosed within the curly brances {} and separated by the commas. The syntax is given  below.
+
 void main(){
 	var details = {"Username":"tom","Passowrd":"pass@123"};
 	print(details);
@@ -935,7 +1089,7 @@ void main(){
 
 
 Example Map Constructor :-----------------------------
-
+To declare the Dart Map using map constructor can be done in two ways. First declare a map using map() costructor. Second initialize the map
 //Example Map COnstructor
 void main(){
   var mapExample = new Map();
@@ -971,6 +1125,123 @@ Following are the commonly used functions for manipulating Maps in Dart.
 3	remove()	Removes key and its associated value, if present, from the map.
 
 4	forEach()	Applies f to each key-value pair of the map.
+
+
+
+=> Dart Map Iteration
+We can iterate over map pairs with forEach method or for statement
+
+1) Using forEach method
+
+void main() {
+  var map = Map<int, String>();
+  var _listItems = List.generate(10, (index) => index + 1);
+  for (var i = 0; i < _listItems.length; i++) {
+    map[i] = 'India' + i.toString();
+  }
+
+  map.forEach((key, value) {
+    print('key : $key and value : $value');
+  });
+}
+
+
+2) If we required to iterate only values
+map.values.forEach((value) => print('Values : $value'));
+
+
+3) If we required to iterate only keys
+map.keys.forEach((key) => print('Keys : $key'));
+
+
+void main() {
+  var map = Map<int, String>();
+  var _listItems = List.generate(10, (index) => index + 1);
+  for (var i = 0; i < _listItems.length; i++) {
+    map[i] = 'India' + i.toString();
+  }
+
+  // if we required iterate through keys and values both than we can iterate through the map.forEach
+  //
+  map.forEach((key, value) {
+    print('key : $key and value : $value');
+  });
+
+  // if we required iterate through keys than we can iterate through the map.keys
+  //
+  map.keys.forEach((key) {
+    print('keys of the map are $key');
+  });
+
+  // if we required iterate through values than we can iterate through the map.values
+  //
+  //
+  map.values.forEach((value) {
+    print('keys of the map are $value');
+  });
+}
+
+
+
+
+4) How to get the keys of particular value inside the map 
+
+void main() {
+  var map = Map<int, String>();
+  var _listItems = List.generate(10, (index) => index + 1);
+  for (var i = 0; i < _listItems.length; i++) {
+    map[i] = 'India' + i.toString();
+  }
+
+  //how to get the map keys using the value of the map
+  //
+  var requiredKey = map.keys.firstWhere((element) => map[element] == 'India5',orElse: () => -1);
+  if(requiredKey != -1){
+    print('I got the key of particular value that is $requiredKey');
+  }else{
+    print('value not present in map');
+  }
+}
+
+
+6) map.entries()
+
+void main() {
+  var map = Map<int, String>();
+  var _listItems = List.generate(10, (index) => index + 1);
+  for (var i = 0; i < _listItems.length; i++) {
+    map[i] = 'India' + i.toString();
+  }
+
+  var something = map.entries;
+  print(something.runtimeType); //MappedIterable<int, MapEntry<int, String>>
+  something.forEach((element) {
+    // print(element.runtimeType);  MapEntry<int, String>
+    print('key : ${element.key} value : ${element.value}');
+  });
+}
+
+
+7) how to sort the keys in map
+
+void main() {
+  var map = Map<int, String>();
+  var _listItems = List.generate(10, (index) => index + 1);
+  var n = _listItems.length;
+  for (var i = 0; i < _listItems.length; i++) {
+    map[n - 1 - i] = 'India' + i.toString();
+  }
+
+  var key = map.keys.toList()..sort();
+  for (var item in key) {
+    print(item);
+  }
+}
+
+
+
+
+
 
 
 

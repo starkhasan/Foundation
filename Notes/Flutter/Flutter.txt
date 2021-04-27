@@ -89,6 +89,62 @@ In Flutter the application is itself a widget. The application is the top level 
 
 
 
+There are two types of Widget in Flutter :---------------------------------------------------------
+
+1) Stateless Widget
+2) Stateful Widget
+
+=> Stateful Widget
+A stateful Widget is made from two things : widget and state
+
+class MyStatefulWidget extends StatefulWidget{				//this the widget of the StatefulWidget
+	@override
+	_MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget>{			//state of StatefulWidget
+	@override
+	Widget build(BuildContext context){
+		return Container();
+	}
+}
+
+
+
+//Complete StatefulWidget Example 
+
+class MyStatefulWidget extends StatefulWidget{
+	@override
+	_MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+class _MyStatefulWidgetState extends State<MyStatefulWidget>{
+	@override
+	Widget build(BuildContext context){
+		return Container();
+	}
+}
+
+
+The widget refers to the actual view that renders on the screen. It extends the StatefulWidget class of the flutter framework and overrides the createState() method. The createState() 
+method is used to create the instance of state class.
+
+=> initState() perform one-time initialization
+
+=> The framework calls build() method again and againwhever setState() method is called . The setState() method notifies the framework that the internal state of this object has changed
+and it should be rebuilt.
+
+
+
+ 
+
+
+
+
+
+
+
 Baisc Flutter layout concepts :----------------------------
 Flutter is different from other framework because its UI is build in code , not in an XML file or similar.
 Widgets are the basic building blocks of Flutter UI. Almost everything in Flutter is a Widget.

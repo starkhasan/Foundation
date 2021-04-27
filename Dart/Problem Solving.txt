@@ -1,0 +1,258 @@
+
+								String
+
+1) Reverse a String 
+
+=> Normal way to reverse a string using loop
+
+void main() {
+  var name = 'What is your Name';
+  name = reverseString(name);
+  print(name);
+}
+
+reverseString(String item) {
+  var temp = '';
+  for (var i = item.length - 1; i >= 0; i--) {
+    temp = temp + item[i];
+  }
+
+  return temp;
+}
+
+
+=> Smart way to reverse string using split and reversed method of list
+
+void main() {
+  var name = 'what is your name';
+  name = name.split('').reversed.join('');
+  print(name);			// eman ruoy si tahw
+}
+
+
+=> Reverse only index wise not all character
+
+void main() {
+  var name = 'what is your name';
+  name = name.split(' ').reversed.join(' ');
+  print(name);				// name your is what
+}
+
+
+
+
+2) Print all Repeating Item From a String
+
+void main() {
+  String item = 'ali hasan from ananad';
+  repeatItem(item);
+}
+
+repeatItem(String item) {
+  var temp = '';
+  for (var i = 0; i < item.length; i++) {
+    if (temp.contains(item[i])) {
+      print(item[i]);
+    } else {
+      temp = temp + item[i];
+    }
+  }
+}
+
+
+3) Captialize String 
+
+void main() {
+  String name = 'anand engineering college';
+  name = captializeString(name);
+  print(name);
+}
+
+captializeString(String item) {
+  var firstChar = 0;
+  var result = '';
+  for (var i = 0; i < item.length; i++) {
+    if (firstChar == 0) {
+      result = result + item[i].toUpperCase();
+      firstChar = 1;
+    } else {
+      if (item[i] == ' ') firstChar = 0;
+      result = result + item[i];
+    }
+  }
+  return result;
+}
+
+4) Converting the String to List 
+
+void main(){
+	String name = 'ali hasan';
+	var item = name.split(' ');
+	print(item);			// it will return the List<String>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								List Operation 
+
+1) Sublisting the List
+
+void main() {
+  var _listItem = List.generate(20, (index) => index + 1);
+  var newSubList = _listItem.sublist(1, 5);				//it will return the sub List with start and end index
+  print(newSubList);
+}
+
+
+2) Reverse a List
+
+void main() {
+  var _listItem = List.generate(20, (index) => index + 1);
+  var list = _listItem.reversed.toList();
+  print(list.runtimeType);
+  for (var item in list) {
+    print(item);
+  }
+}
+
+
+3) Performing Shuffling the List
+
+shuffle() this method re-arrange order of the element in the given list randomly.
+
+void main() {
+  var _listItem = List.generate(20, (index) => index + 1);
+  _listItem.shuffle();
+  print(_listItem);
+}
+
+
+
+4) Finding or Searching Element in List in Dart
+
+void main() {
+  var _listItem = List.generate(20, (index) => index + 1);
+  if (findItem(_listItem, 51))
+    print('Present');
+  else
+    print('No Present');
+}
+
+findItem(List<int> _listItem, int search) {
+  for (var i = 0; i < _listItem.length; i++) {
+    if (search == _listItem[i]) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+A) using where 
+=> Returns the first element that satisfies the given predicate test iterate through
+=> If no element satisfies test the result of invoking the orElse function is returned
+=>  if orElse is omitted it default to throwing a StateError
+ 
+void main() {
+  var _listItem = List.generate(20, (index) => index + 1);
+  var number = _listItem.firstWhere((element) => element == 51, orElse: () => -1);
+  print(number);
+}
+
+
+
+B) indexWhere
+=> It iterate through all the list and return the index of the matched element in the list otherwise it returns -1 
+
+void main() {
+  var _listItem = List.generate(20, (index) => index + 1);
+  var number = _listItem.indexWhere((element) => element == 5);
+  print(number);
+}
+
+
+
+C) singleWhere 
+=> It iterate through all the list and return the matching element 
+=> If more than two element presents in the list than it throws StateError
+=> If no element present in the list than it also throws StateError 
+
+void main() {
+  var _listItem = List.generate(20, (index) => index+1);
+  var number = _listItem.singleWhere((element) => element == 5);
+  print(number);
+}
+
+
+
+
+
+D) where
+=> It iterate through all the items in the list and return the matching element
+=> If no element present in the list than it return empty whereIterable list
+=> If more than one item present in the list than it returns whereIterable list of all matching element.
+
+
+void main() {
+  var _listItem = List.generate(20, (index) => index+1);
+  var number = _listItem.where((element) => element == 5);
+  print(number);
+}
+
+
+
+5) reduce()
+This method is very similar to fold and return a single value by iterating all element of given list. Only sifference is this method doesn't take any initialValue and the given list should be 
+non-empty.
+
+void main() {
+  var _listItem = List.generate(20, (index) => index + 1);
+  var sum = 0;
+  for (var item in _listItem) {
+    sum += item;
+  }
+  print(sum);
+  var result = _listItem.reduce((value, element) => value+element);
+  print(result.runtimeType);
+  print(result);
+}
+
+
+6) any()
+
+This method returns a boolean depending upon whether any element statisfy the condition or not
+
+print(sportsList.any((e) => e.contains('cricket'))); 	=> true
+
+7) every()
+
+This method returns boolean depending upon whether all elements satisfies the condition or not
+
+print(sportsList.every((e) => e.startsWith('a'))); // false
+
+
+
+8) taken()
+This method returns iterable starting from index 0 till the count provided from given list
+
+print(sportsList.take(2));  // (cricket, tennis)
+
+
+9) skip()
+This method ignores the elements starting from index 0 till and count and returns remaining iterable from given list
+print(sportsList.skip(2));  // (football)
