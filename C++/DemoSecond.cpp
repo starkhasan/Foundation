@@ -1,7 +1,6 @@
 #include<iostream>
 using namespace std;
 int main(){
-	cout<<"ALi Hasan";
-	cout<<"Hello Tauseef";
+	cout<<"Ali hasan";
 	return 0;
 }

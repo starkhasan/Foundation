@@ -27,8 +27,7 @@ Flutter is UI toolkit for creating fast beautiful natively compiled application 
 Flutter apps use Dart programming language for creating an app. 
 
 
-To be specified Flutter application is itself a widget Flutter widgets also support animations and gestures. The application login is based on reactive programming. Widget may optinally 
-have a state
+To be specified Flutter application is itself a widget Flutter widgets also support animations and gestures. 
 
 
 
@@ -74,15 +73,68 @@ It hash three properties
 MyHomePage is same as MyApp except it returns Scaffold Widget. Scaffold is a top level widget next to Material widget used to create UI conforming material design , It has two important properties (1) appbar to show the header of the application and  (2) body to show the actual content of the application. Appbar is another widget to render of the application and we have used it in appBar property. 
 
 
-Scaffold widget top level widget after Material widget used to create UI conforming material design   => two important properties
+Scaffold widget top level widget after Material widget used to create UI conforming material design   => important properties
 1) appbar
 2) body
+3) drawer
+4) bottomNavigatorBar
+
+
 
 
 Flutter Architecture :-----------------------------------
 
+This overview is divided into a number of sections:
+
+1. The layer model: The pieces from which Flutter is costructed
+2. Reactive user interfaces : A core concept for Flutter user interface development.
+3. An introduction to widgets The fundamental building blocks of flutter user interfaces.
+4. The rendering process How Flutter turns UI code into pixels.
+5. An overview of the platform embedders: The code that lets mobile and desktop OSes execute Flutter apps.
+6. Integrating Flutter with other code: Information about different techniques available to Flutter apps.
+7. Support for the web: Concluding remarks about the characteristics of Flutter in a browser environment.
+
+
+
+
+Widget :-----------------------------------
+As mentioned Flutter emphasize widget as unit of composition. Widget are the building blocks of Flutter app's user interface and each widget is an immutable declaration of part of the user
+interface.
+	Widget form a hierarchy based on composition. Each widget nests inside its parent and can receivecontext from the parent. This structure carries all the way up to the root widget.
+
+
+Apps update their user interface in response to events (such as a user interaction) by telling the framework to replace a widget in the hierarchy with another widget. The framework then
+compares the new and old widget, and efficient updates the user interface.
+
+
+
+
+Building widgets :-------------------------
+
+As mentioned earlier you determine the visual representation of a widget by overrding the build() fundtion to return  a new element tree. The tree represents the widget's part of the user
+in more concrete terms.
+	Example a toolbar widget might have a build function that returns horizontal layout of some text and various buttons. As needed the framework recursively ask each widget
+to build until the tree is entirely descrobed by concrete renderable objects. The framework then stiches together the renderable objects into a renderable object tree.
+
+
+
 Widgets =>
-The core concept of the Flutter framework is In Flutter Everthing is a widget.  Widget are basically user interface components used to create the user interface of the application.
+
+The framework introduces two major classes of widget: stateful and stateless widgets.
+
+Many widgets have no mutable state they don't have any properties that change over time (for example an icon or a label These widgets subclass StatelessWidget.
+
+However if the unique characteristics of a widget need to change based on user interaction or other factors that widget is stateful. For example if a widget has a counter that increments 
+wheever the user taps a button then the value of the counter is the state for that widget. When that value changes the widget needs to be rebuilt to update its part of the UI. These widgets
+subclass StatefulWidget and ( because the widget itself is immutable ) they store mutable state in a separate class that subclasses State.StatefulWidget don't have the build method, instead 
+their user interface is built through their State object.
+						Whenever you mutate a State object (for example by incrementthe counter) you must call setState to signal the framework to 
+update the user interface by calling the State 's build method again.
+
+
+
+
+The core concept of the Flutter framework is, In Flutter Everthing is a widget.  Widget are basically user interface components used to create the user interface of the application.
 
 In Flutter the application is itself a widget. The application is the top level widget and its UI is build using one or more children (widget), which again build using its children widgets.
 

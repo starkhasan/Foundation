@@ -495,4 +495,230 @@ The Consumer class also works with values that aren't state or that aren't chang
 
 
 
+FutureProvider :-------------------------------------
+A FutureProvider receive the value of a future and provides this value to its dependent widgets. Use a provider of type FutureProvider<T> to receive the value of a Future<T>.
+This value has type T and represents state.
+
+A FutureProvider is said to subscribe to future to receive the value of the future at completion.
+Prior to completion the provider provides its dependent with an initialvalue (also of type T), supplied via the initialData consturctor parameter.
+U[on completion the provider provides its dependent with the value of the completion the provider provides its dependents with value of the completed future.
+There are therefore only two values available to the dependents -- the initial value and the value at completion  and consequently the dependents rebuild at most once.
+
+
+
+
+ListenableProvider and ChangeNotifierProvider :-----------------------------------------
+ListeneableProvider and its subclass ChangeNotifierProvider are different from the providers discussed so far in that they provide the store state source as the value.
+The state source is Listenable such as Change Notifier.
+
+The provider subscribes to the Listenable to receive notifications of state changes. When the Listenable notifies the provider of a state chanage, the  provider provides its dependents with the 
+Listenable itself as the value. Dependents treat Listenable as a model, acessing its memeber to get the state they need.
+
+
+
+ValueListenableProvider :---------------------------------------------
+Despite the name a ValueListenableProvider is not a kind of ListenableProvider. It works more like StreamProvider or a FutureProvider even though its state source.
+ValueListenable is a kind of Listenable. valueListenable is actually an interface for which Flutter provides two implementation : Animation and ValueNotifier.
+
+A ValueListenableProvider subscribe to valueListenable to receive value change notifications. Upon receiving a change notification it reterives the value from the ValueListenable and provides
+this value to its dependents as state.
+
+Because this provider reterives the value from the ValueListenable it can retrieve an initial value to provide dependents prior to receiving the first change notification so on intialData 
+parameter is necessary.
+
+
+class CountDown extends ValueNotifier<int> {
+  CountDown(int downFrom) : super(downFrom) {
+    scheduleDecrement();
+  }
+void scheduleDecrement() {
+    Future.delayed(Duration(seconds: 1), () {
+      if (--value > 0) scheduleDecrement();
+    });
+  }
+}
+
+
+
+
+ValueListenableProvider<int>(
+  builder: (context) => CountDown(10),
+  child: ...
+),
+
+
+Consumer<int>(
+  builder: (context, count, child) {
+    if (count > 0) {
+      return Text("T minus $count seconds");
+    }
+    return Text("Blast off!");
+  },
+),
+
+
+
+
+MultProvider :------------------------------------------
+Up to now our examples have only used one model object. If you need to provide a second type of model object, you could nest the provides.
+
+MultiProvider is convenience class for inserting a series of providers into the widget tree all in a single widget.
+
+Provider<User>(
+	builder: (_) => User(),
+	child: Provider<NewsFeed>(
+		builder: (_) => NewsFeed(),
+		child: Provider<Friends>(
+			builder: (_) => Friends(),
+			child: ...
+		)
+	)
+)
+
+
+
+
+one cal write the following equivalent code 
+
+MultiProvider(
+	providers: [
+		Provider<User>(builder: (_) => User()),
+    		Provider<NewsFeed>(builder: (_) => NewsFeed()),
+   		 Provider<Friends>(builder: (_) => Friends()),
+	],
+	child:........
+}
+
+
+  
+Multi-State Consumers
+Thereare also convenience classes for dependents that  needs to access the value of multiple providers. Each class name takes the form ConsumerN where N is the number of values on which 
+the consumer depends.
+
+
+Consumer3<User, NewsFeed, Friends>(
+  builder: (context, user, newsFeed, friends, child) {
+    // Do something with the acquired instances
+    // of User, NewsFeed, and Friends.
+  },
+)
+
+
+
+Selectors :------------------------------------------------------
+A Selector is dependent widget that controls whether it rebuilds on state change. It is useful when the provided value is a model. A Selector rebuilds inly when a partivular property of the
+ model changes.
+
+The selector function paramter "selects" the property on which the widget depends.
+
+class User extends ChangeNotifier{
+	String id;
+	int score
+	
+	void changeId(String newId){
+		id = newId;
+		notifyListeners();
+	}
+
+	void changeScore(int newScore){
+		score = newScore;
+		notifyListeners();
+	}
+}
+
+
+The user interface may frequently display user IDs but not often user scores. These user ID displays should not rebuild every time a user score changes. A dependent can restrict rebuilds 
+every time a user score changes. A dependent can restrict rebuilds to changes in user Id as follows:
+
+Selector<User, String>(
+	selector: (_,user,_) => user.id,
+	builder: (_,id,_) => Text(id)
+)
+
+
+
+
+
+Extension Method :--------------------------------------------------------
+Entension method inroduce in Dart 2.7 are a way to add functionality to existing libraries.
+
+Consider thatwe want to performany specific / new operation on String clas and we want it to be used from many places inside the app. In order to do this we would first be creatinga Helper
+or Utility class like this.
+
+void main(){
+	print(StringUtil.isValidName('Pizza'));
+}
+
+class StringUtil{
+	static bool isValidName(String str){
+		return !str.cotains(new RegExp(r'[0-9]'));
+	}
+}
+
+
+Reason :--
+We may end up writting all helper methods like this in one single class. For better readability we may also create another Stringutil class like shown in the example above and general method
+in Util class only.
+		But calling the extra method from another class is something that doesn't stand true to the essence of OOPs or Its create a lot of wrapping
+
+
+The Solution is ExtensionMethod.
+
+
+
+extension ExtendedString on String {
+  bool get isValidName {
+    return !this.contains(new RegExp(r'[0–9]'));
+  }
+}
+main() {
+  print('Pizza'.isValidName);
+}
+
+
+
+Extension can bedefine not just method but also other members such as getter , setter and operators. Also extension have names which can be helpful if an API conflict arises.
+Here's how you might implement the extension method parseInt() using an extension (named NumberParsing) that operates on String.
+
+extension NumberParsing on String{
+	int parseInt(){
+		return int.parse(this);
+	}
+}
+
+
+=> We can functionality to the core class like int , String, List, Duration
+
+=> We can name our extension
+				extension BetterExtension on String{
+					///...............
+				}
+
+	If an extension member conflicts with an interface or with another extension member, then you have a few options.
+	One option is changing how you import the conflicting extension usiing show or hide to limitthe exposed API
+
+	import 'string_apis.dart';
+	import 'string_api_2.dart' hide NumberParising2;
+
+	//Uses th parseInt() defined in string_api.dart
+	print('42'.parseInt());	
+
+
+	Another method If both extension have the same name then you might need to impoer using a prefix
+
+	
+	import 'string_api.dart';
+	import 'string_api_3.dart' as rad;
+
+	//Use the ParseNumber extension from string_apis.dart
+	print(NumberParsing('42').parseInt());
+
+	//use the ParseNumbers extension from string_api_3.dart
+	print(rad.NumberParsing('42').parseInt());
+
+
+=> To create a local extension that's visible only in the library where it's declared either omit the extension name orgive it a name that starts with an underscrore(_).
+	
+
+
 
