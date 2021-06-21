@@ -398,7 +398,7 @@ As all fields are final our Robot are immutable! Once they are initialized their
 
 
 Declaring multiple variable :-----------------------------------------------------
-in Dart it is possible to declare multiple variable of same type in a single statement separated by commas with a single type annotation as following
+In Dart it is possible to declare multiple variable of same type in a single statement separated by commas with a single type annotation as following
 
 Syntax :-
 
@@ -420,7 +420,7 @@ assert(ctr == null );
 Operators in Dart ;--------------------------------------
 An operator is a special kind of statement that evaluate to a value. Every expression is compossed of 
 
-An operator is special symbol that is used to carry out some specific operatios on its operands.
+An operator is special symbol that is used to carry out some specific operations on its operands.
 
  
 => Operands  ---- Represents the data
@@ -611,7 +611,9 @@ void main(){
 
 
 Dart for...in loop :---------------------
-the for in loop takes an expression as iterator and iterate through the elements one at  a time in sequence. The value of the element is bound to var which is valid and available for the loop body. Once the loop statements are executed curent iteration the next element is fetched from the iterator and we loop another time when there is no more elements in iterator the for loop is ended.
+the for in loop takes an expression as iterator and iterate through the elements one at  a time in sequence. The value of the element is bound to var which is valid and available for the loop
+body. Once the loop statements are executed curent iteration the next element is fetched from the iterator and we loop another time when there is no more elements in iterator the for 
+loop is ended.
 
 
 for (var in expression){
@@ -808,7 +810,7 @@ void main(){
 
 Dart String :-----------------------------
 A String is variable is used to hold series of sequence of character letters numbers and special characters. In Dart string can be represented either using single quotes or double  quotes or
-trople quotes.
+triple quotes.
 
 In Dart string can be declared using the String keyword.
 	
@@ -825,7 +827,8 @@ in Dart string canbe concatenated simply using the plus (+) operator the += assi
 
 
 
-String interpolation is the process of evaluating a string containing placeholder variable and interpolated expressions. When an interpolated stirng is evaluated the placeholder variable and expression are replaced with their corresponsing values. in Dart ${expression} is used for string interpolation.
+String interpolation is the process of evaluating a string containing placeholder variable and interpolated expressions. When an interpolated stirng is evaluated the placeholder variable and 
+expression are replaced with their corresponsing values. in Dart ${expression} is used for string interpolation.
 
 String Properties :-------------------
 
@@ -840,7 +843,7 @@ void main(){
 
 
 => Create raw String 
-For raw satring we're gonna use r before quatation mark of a string.
+For raw string we're gonna use r before quatation mark of a string.
 
 String raw1 = r'\nMobile App Development tutorials';
 
