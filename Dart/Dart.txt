@@ -1334,8 +1334,9 @@ Limitation of Enumeration Data Types :-
 
 Function in Dart Programming Language :-----------------------
 
-Function are the building blocks of readable maintainable and reusable code . A function is a set of statement to perform a specific task. Functions oraganize the program into logical block of 
-code.
+Function are the building blocks of readable maintainable and reusable code . A function is a set of statement to perform a specific task. 
+Functions oraganize the program into logical block of code.
+
 Once defined functions may be called to access code.
 This make the code reusable Moreover functions make it easy to read and maintain the program's code.
 
@@ -2349,7 +2350,8 @@ void main() {
 
 Dart Programming Exceptions :-----------------------
 
-An Exception (or exceptional event) is a problem that arises during the exception of a program. When an Exception occurs the normal flow of the program is disrupted and the program/Applicaton terminates abnormally.
+An Exception (or exceptional event) is a problem that arises during the exception of a program. When an Exception occurs the normal flow of the program is disrupted and the
+program/Applicaton terminates abnormally.
 
 Every exception in Dart is a subtype of the pre-defined class Exception. Exceptions must be handled to prevent the application from terminating abruptly.
 
@@ -2408,7 +2410,7 @@ void test_age(int age) {
 
 
 Custom Exceptions :----------------------------------------
-As specified above every exception type in Dart is a subtype of the built-in class Exception. Dart enables creating exception by extending the existing ones. 
+As specified above every exception type in Dart is a subtype of the built-in class Exception. Dart enables creating exception by extending the Exception Class. 
 The syntax for defining a custom exception is as given below-
 
 class Custom_Exception implements Exception{
