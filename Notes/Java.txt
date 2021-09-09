@@ -3342,7 +3342,8 @@ class Main
      Exception Handling is a mechanism to handle runtime errors such as ClassNotFound, IO, SQL, Remote etc.
 
 => Advantage of the Exceptional Handling ?
-     The core advantage of exception handling is to maintain the normal flow of the application. An exception normally disrupts the normal flow of the      application that is why we use exception handling.
+  The core advantage of exception handling is to maintain the normal flow of the application. An exception normally disrupts the normal flow of the
+ application that is why we use exception handling.
 
 
 
@@ -3405,7 +3406,8 @@ Throwable is at the top of the exception class hierarchy . Immediatelt below Thr
 1) Exception
 
 2) Error
-which defines exceptions that are not excepted to be caught under normal circumstances by your program. Exception of type Error are used by the java run-time system to indicate error having to do with the run-time environment itself.
+which defines exceptions that are not excepted to be caught under normal circumstances by your program. 
+Exception of type Error are used by the java run-time system to indicate error having to do with the run-time environment itself.
 
 	Stackoverflow is an example of such an error
 
@@ -3462,9 +3464,11 @@ class demo
     }
 }
 
-Notice that the call to println() inside the try block is never executed. Once an exception is thrown program control transfer out of the try block into the catch block. Put differently catch is not "called" so execution never "returns" to the try block from a catch. thus the line "This will not be printed" is not displayed. Once the catch statement has executed progam control continues with the next line in the program following the entire try/catch mechanism.
+Notice that the call to println() inside the try block is never executed. Once an exception is thrown program control transfer out of the try block into the catch block. 
+Put differently catch is not "called" so execution never "returns" to the try block from a catch. thus the line "This will not be printed" is not displayed. 
+Once the catch statement has executed progam control continues with the next line in the program following the entire try/catch mechanism.
 
-			A catch statement cannot catch an exception thrown by another try statement (except in the case of nested try statements, described shortly).
+			A catch statement cannot catch an exception thrown by another try statement (except in the case of nested try statements).
 
 
 
