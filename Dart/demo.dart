@@ -1,19 +1,22 @@
-class Performer {
-  void perform() => print('performing');
-}
+import 'dart:convert';
 
-mixin Dancer {
-  void perform() => print('Dance...Dance....');
-}
-mixin Singer {
-  void perform() => print('Sing...Sing...Sing....');
-}
+class User {
+  String name;
+  String email;
+  User(this.name, this.email);
+  User.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
+        email = json['email'];
 
-class Musician extends Performer with Dancer, Singer {
-  void showTimer() => perform();
 }
 
 void main() {
-  var obj = Musician();
-  obj.showTimer();
+  var userJson = '''
+  {
+    "name": "John Smith",
+    "email": "john@example.com"
+}''';
+  var jsonString = jsonDecode(userJson);
+  var userObject = User.fromJson(jsonString);
+  print('Name -> ${userObject.name}\nEmail -> ${userObject.email}');
 }
