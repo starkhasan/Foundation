@@ -1,4 +1,3 @@
-import 'dart:io';
 /*class Employee {
   var empName;
   var empAge;
@@ -57,8 +56,8 @@ void main(List<String> args) {
 In Dart named constructor allow a class to define multiple constrcutor
 */
 void main() {
-  Employee emp1 = new Employee();
-  Employee emp2 = new Employee.namedConst('EMP001');
+  Employee();
+  Employee.namedConst('EMP001');
 }
 
 class Employee {
