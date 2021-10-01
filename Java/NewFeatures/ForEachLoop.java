@@ -1,6 +1,7 @@
 import java.util.*;
 public class ForEachLoop {
     public static void main(String[] args) {
+        //this is actually forEach Method
         List<String> listNames = new ArrayList<String>();
         listNames.add("India");
         listNames.add("Australia");

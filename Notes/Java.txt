@@ -5871,8 +5871,8 @@ Averages of iob and fob are the same.
                                                                                                       			COLLECTION  FRAMEWORK
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
-The Collection Framework is a sophisticated hierarchy of interfaces and classes that provides state-of-the-art technology for mapping groups of objects. It merits close attention by all programmer
-Collection is a group of object.
+The Collection Framework is a sophisticated hierarchy of interfaces and classes that provides state-of-the-art technology for mapping groups of objects. It merits close attention by all 
+programmer Collection is a group of object.
 Collection is container object it is used for storing multiple homogeneous and hetrogeneous,unique and duplicate object without size limitation.
 Collection is used for storing multiple object as a single object.
 
