@@ -1,5 +1,7 @@
 class Parent{
-  final void run(){System.out.println("Running");}
+  final void run(){
+    System.out.println("Running");
+  }
 }
 public class FinalMethod extends Parent{
   // void run(){

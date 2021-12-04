@@ -19,7 +19,9 @@ It includes  programs that do real work for user . example => word processors, s
 
 
 => The Birth of Modern Programming Language :-------------------------------------
-The C language shook the compiter world. Its impact should not be underestimated because it fundamentally changed the way programming was approached and thought about. The creation of C was direct result of the need for a structured efficient high-level language that could replace assembly code when creating programs. As you probably know when a computer language is designed trade offs are often made such as the followings :---------------
+The C language shook the compiler world. Its impact should not be underestimated because it fundamentally changed the way programming was approached and thought about. The creation
+of C was direct result of the need for a structured efficient high-level language that could replace assembly code when creating programs. As you probably know when a computer language 
+is designed trade offs are often made such as the followings :---------------
 
 1) Ease of use versus power
 2) Safety versus efficiency
@@ -37,7 +39,8 @@ From C java derived its syntex Many of java object-oriented feature were influen
 
 
 What is Java ?
-Java is high-level, class-based, object oriented programming lanaguage.\nJava was developed by Sun Microsystems (which is not subsidiary of Oracle) in 1995 by the Father of java James Gosling.
+Java is high-level, class-based, object oriented programming lanaguage.\nJava was developed by Sun Microsystems (which is now subsidiary of Oracle) in 1995 by the Father of java 
+James Gosling.
 \nBefore its name was Oak.
 
 
@@ -58,9 +61,16 @@ Platform :- Any Hardware or Software enviroment in which a program runs, is know
 	Platform Independence :---------------
 
 Platform independence in software means that you can run some code with little or no modification on multiple platform
-it is important to note that some language are platform independent at source code level ( C / C++ is good example ) but loose platform independency once the code is compiled (since native code is platform specific). java retains platform independence even after code is compiled because it compiles to platform independence bytecode.
+it is important to note that some language are platform independent at source code level ( C / C++ is good example ) but loose platform independency once the code is compiled 
+(since native code is platform specific). java retains platform independence even after code is compiled because it compiles to platform independence bytecode.
 
-While you execute Java programs, they are interpreted by a program named as Java Run-time Environment (JRE) which is platform dependent in nature. Here I consider  the term platform as a combination of underlying hardware and operating system. There are different JREs for different platforms. For example I can run the same  Java program within my PC (  windows + Pentium 4 processor),  laptop( Linux + Core i3 processor) and Raspberry Pi (Linux + ARM) without even recompiling. This is not the case for other languages without a virtual machine associated with them. An example will be Turbo C. The Turbo C compiler will produce a platform dependent executable so that you have to compile them for each platform. While in the case of java compiler (javac), it will produce byte codes instructions within class files that can be executed (interpreted + JIT compilation) by JRE which is present within target platform.
+While you execute Java programs, they are interpreted by a program named as Java Run-time Environment (JRE) which is platform dependent in nature. Here I consider  the term platform as 
+a combination of underlying hardware and operating system. There are different JREs for different platforms. For example I can run the same  Java program within my 
+PC (  windows + Pentium 4 processor),  laptop( Linux + Core i3 processor) and Raspberry Pi (Linux + ARM) without even recompiling. This is not the case for other languages without a 
+virtual machine associated with them. An example will be Turbo C. The Turbo C compiler will produce a platform dependent executable so that you have to compile them for each platform. 
+While in the case of java compiler (javac), it will produce byte codes instructions within class files that can be executed (interpreted + JIT compilation) by JRE which is present within target 
+platform.
+
 How platform independence helps software developers
 
 
@@ -299,7 +309,8 @@ A Pure Object-Oriented Programming Language should be true for all the 7 conditi
 
 7. All user defined types are objects
 
-Java generally satisfies almost all the conditions except condition #5 as Java supports some primitive data types like int, float,long etc. Thus, Java is not a pure Object-Oriented Programming Language.
+Java generally satisfies almost all the conditions except condition #5 as Java supports some primitive data types like int, float,long etc. Thus, Java is not a pure Object-Oriented Programming
+Language.
 
 
 
