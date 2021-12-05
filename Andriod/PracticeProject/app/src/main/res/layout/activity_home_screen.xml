@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_description">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Address"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:hint="ex. 979234"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColorHint="@color/light_grey"/>
+
+        <Button
+            android:id="@+id/btnEnable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:text="Enable"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llRemote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_description">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remote Address"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/etRemoteAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="ex. 979019"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textColorHint="@color/light_grey"/>
+
+        <Button
+            android:id="@+id/btnConnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:text="Connect"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llOnline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@drawable/bg_description"
+        android:layout_marginTop="15dp"
+        android:weightSum="1"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.80"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Online"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="You are sharing your location"
+                android:layout_gravity="center"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/switchOnline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.20"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</LinearLayout>

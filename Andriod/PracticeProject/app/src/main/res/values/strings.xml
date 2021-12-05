@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Sample</string>
+    <string name="submit">Submit</string>
+    <string name="navOpen">nav_bar_open</string>
+    <string name="navClose">nav_bar_close</string>
+    <string name="capture">Capture</string>
+    <string name="Rs">/u20A8</string>
+</resources>
