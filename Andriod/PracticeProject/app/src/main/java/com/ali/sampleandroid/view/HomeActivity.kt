@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ali.sampleandroid.R
 import com.ali.sampleandroid.adapter.HomeAdapter
 import com.ali.sampleandroid.databinding.ActivityHomeBinding
+import com.ali.sampleandroid.view.bottom_navigation.BottomNavigationActivity
+import com.ali.sampleandroid.view.broadcast_example.BroadcastActivity
 import com.ali.sampleandroid.view.realtime_tracking.HomeScreenActivity
 
 class HomeActivity : AppCompatActivity() {
@@ -22,13 +24,16 @@ class HomeActivity : AppCompatActivity() {
     lateinit var drawerLayout: DrawerLayout
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     private val listScreen = listOf(
-            "LifeCycle",
-            "Bundle",
-            "Tab",
-            "Capture Image",
-            "View Pager",
-            "Dynamic Content",
-            "Realtime Tracking"
+        "LifeCycle",
+        "Bundle",
+        "Tab",
+        "Capture Image",
+        "View Pager",
+        "Dynamic Content",
+        "Realtime Tracking",
+        "Bottom Navigation Bar",
+        "Boradcast Receiver",
+        "HTTP Operation"
     )
     private lateinit var activityHomeBinding : ActivityHomeBinding
 
@@ -70,6 +75,8 @@ class HomeActivity : AppCompatActivity() {
 //                    intent.putExtra("remoteAddress","979019")
 //                    startActivity(intent)
                 }
+                7 -> startActivity(Intent(this,BottomNavigationActivity::class.java))
+                8 -> startActivity(Intent(this,BroadcastActivity::class.java))
             }
         }
         activityHomeBinding.rvHome.adapter = homeAdapter
@@ -94,7 +101,7 @@ class HomeActivity : AppCompatActivity() {
             .setTitle("Exit")
             .setMessage("Are you sure you want to exit?")
             .setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
-                .setPositiveButton("Yes"){_, _ -> super.onBackPressed()}
+            .setPositiveButton("Yes"){_, _ -> super.onBackPressed()}
             .show()
     }
 }

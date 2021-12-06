@@ -16,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SampleAndroid">
 
+        <activity android:name=".view.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".view.DynamicAddRemove" android:screenOrientation="portrait"/>
         <activity android:name=".view.ViewPageActivity"/>
         <activity android:name=".view.SecondActivity"/>
@@ -24,12 +30,15 @@
         <activity android:name=".view.GoogleMapActivity"/>
         <activity android:name=".view.realtime_tracking.HomeScreenActivity"/>
         <activity android:name=".view.TabLayoutActivity"/>
-        <activity android:name=".view.HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".view.bottom_navigation.BottomNavigationActivity"/>
+        <activity android:name=".view.broadcast_example.BroadcastActivity"/>
+
+<!--        <receiver android:name=".broadcast.MyBroadcastReceiver"  android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>-->
+<!--                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
 
         <provider
             android:name="androidx.core.content.FileProvider"
