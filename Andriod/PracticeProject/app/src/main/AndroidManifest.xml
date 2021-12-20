@@ -32,6 +32,11 @@
         <activity android:name=".view.TabLayoutActivity"/>
         <activity android:name=".view.bottom_navigation.BottomNavigationActivity"/>
         <activity android:name=".view.broadcast_example.BroadcastActivity"/>
+        <activity android:name=".view.HTTPOperationActivity"/>
+        <activity android:name=".view.counter_app.CounterActivity"/>
+        <activity android:name=".view.ThreadExampleActivity"/>
+        <activity android:name=".view.FirebaseServiceActivity"/>
+        <activity android:name=".view.FileExampleActivity"/>
 
 <!--        <receiver android:name=".broadcast.MyBroadcastReceiver"  android:exported="true">-->
 <!--            <intent-filter>-->

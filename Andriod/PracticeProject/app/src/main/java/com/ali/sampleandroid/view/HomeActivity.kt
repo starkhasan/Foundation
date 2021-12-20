@@ -3,7 +3,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +14,7 @@ import com.ali.sampleandroid.adapter.HomeAdapter
 import com.ali.sampleandroid.databinding.ActivityHomeBinding
 import com.ali.sampleandroid.view.bottom_navigation.BottomNavigationActivity
 import com.ali.sampleandroid.view.broadcast_example.BroadcastActivity
+import com.ali.sampleandroid.view.counter_app.CounterActivity
 import com.ali.sampleandroid.view.realtime_tracking.HomeScreenActivity
 
 class HomeActivity : AppCompatActivity() {
@@ -33,8 +33,13 @@ class HomeActivity : AppCompatActivity() {
         "Realtime Tracking",
         "Bottom Navigation Bar",
         "Boradcast Receiver",
-        "HTTP Operation"
+        "HTTP Operation",
+        "Counter Applicaton",
+        "Thread Example",
+        "Firebase Service",
+        "Content Reader"
     )
+
     private lateinit var activityHomeBinding : ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,6 +82,11 @@ class HomeActivity : AppCompatActivity() {
                 }
                 7 -> startActivity(Intent(this,BottomNavigationActivity::class.java))
                 8 -> startActivity(Intent(this,BroadcastActivity::class.java))
+                9 -> startActivity(Intent(this,HTTPOperationActivity::class.java))
+                10 -> startActivity(Intent(this, CounterActivity::class.java))
+                11 -> startActivity(Intent(this, ThreadExampleActivity::class.java))
+                12 -> startActivity(Intent(this, FirebaseServiceActivity::class.java))
+                13 -> startActivity(Intent(this, FileExampleActivity::class.java))
             }
         }
         activityHomeBinding.rvHome.adapter = homeAdapter

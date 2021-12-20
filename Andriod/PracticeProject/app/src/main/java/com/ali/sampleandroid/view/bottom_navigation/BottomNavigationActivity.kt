@@ -3,6 +3,9 @@ package com.ali.sampleandroid.view.bottom_navigation
 import android.R.attr
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -26,6 +29,28 @@ class BottomNavigationActivity : AppCompatActivity(){
             )
         )
         setContentView(activityBottomNavigationBinding.root)
+
+        //we can also do this
+//        activityBottomNavigationBinding.bottomNavigation.setOnItemSelectedListener(object: NavigationBarView.OnItemSelectedListener{
+//            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+//                return when(item.itemId){
+//                    R.id.action_home -> {
+//                        selectFragment(FirstFragment())
+//                        true
+//                    }
+//                    R.id.action_message -> {
+//                        selectFragment(SecondFragment())
+//                        true
+//                    }
+//                    R.id.action_notification -> {
+//                        selectFragment(ThirdFragment())
+//                        true
+//                    }
+//                    else -> false
+//                }
+//            }
+//        })
+
         activityBottomNavigationBinding.bottomNavigation.setOnItemSelectedListener(
             navigationItemSelectedListener
         )

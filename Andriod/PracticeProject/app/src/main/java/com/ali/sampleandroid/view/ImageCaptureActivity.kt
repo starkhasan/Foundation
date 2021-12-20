@@ -35,7 +35,7 @@ class ImageCaptureActivity : AppCompatActivity() {
         supportActionBar!!.title = "Image Capture"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         activityImageCaptureBinding.btnCapture.setOnClickListener{
-            AlertDialog.Builder(ImageCaptureActivity@this)
+            AlertDialog.Builder(this)
                 .setTitle("Choose Image")
                 .setMessage("Choose Source of the Image")
                 .setNegativeButton("Camera"){_,_ ->
