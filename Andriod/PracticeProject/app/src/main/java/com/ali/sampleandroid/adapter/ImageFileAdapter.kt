@@ -10,7 +10,7 @@ import com.ali.sampleandroid.model.ImageModel
 import com.bumptech.glide.Glide
 import java.text.DecimalFormat
 
-class ImageFileAdapter(private val context : Context, private val listImages : List<ImageModel>) : RecyclerView.Adapter<ImageFileAdapter.ViewHolder>(){
+class ImageFileAdapter(private val context: Context, private val listImages: List<ImageModel>,private val listener: (Int) -> Unit) : RecyclerView.Adapter<ImageFileAdapter.ViewHolder>(){
 
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view)
@@ -29,6 +29,9 @@ class ImageFileAdapter(private val context : Context, private val listImages : L
             .into(binding.ivImageThumbNail)
 
         binding.tvImageSize.text = calculateVideoSize(listImages[position].size)
+        binding.rlImage.setOnClickListener{
+            listener(position)
+        }
     }
 
     override fun getItemCount(): Int {

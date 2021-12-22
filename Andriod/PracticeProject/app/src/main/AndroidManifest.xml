@@ -37,6 +37,7 @@
         <activity android:name=".view.ThreadExampleActivity"/>
         <activity android:name=".view.FirebaseServiceActivity"/>
         <activity android:name=".view.FileExampleActivity"/>
+        <activity android:name=".view.ImageViewActivity"/>
 
 <!--        <receiver android:name=".broadcast.MyBroadcastReceiver"  android:exported="true">-->
 <!--            <intent-filter>-->
