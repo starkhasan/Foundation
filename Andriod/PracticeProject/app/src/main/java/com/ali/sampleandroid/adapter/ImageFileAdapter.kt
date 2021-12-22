@@ -40,4 +40,13 @@ class ImageFileAdapter(private val context : Context, private val listImages : L
         val  tempSize = (originalSize/1024.0)/1024.0
         return decimalFormat.format(tempSize).plus(" MB")
     }
+
+    //Added this two method of the RecyclerView Adapter class to prevent shuffle the item on scrolling
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 }
