@@ -89,6 +89,7 @@ class FileExampleActivity : AppCompatActivity() {
         videoFileAdapter = VideoFileAdapter(this, listVideos){ position: Int ->
             val intent = Intent(this,VideoPlayActivity::class.java)
             intent.putExtra("VideoURI",listVideos[position].url)
+            intent.putExtra("VideoTitle",listVideos[position].name)
             startActivity(intent)
         }
         fileLayout.rvVideos.adapter = videoFileAdapter
