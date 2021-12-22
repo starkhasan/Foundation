@@ -10,7 +10,7 @@ import com.ali.sampleandroid.model.VideoModel
 import com.bumptech.glide.Glide
 import java.text.DecimalFormat
 
-class VideoFileAdapter(private val context : Context, private val listVideos: List<VideoModel>) : RecyclerView.Adapter<VideoFileAdapter.ViewHolder>(){
+class VideoFileAdapter(private val context: Context, private val listVideos: List<VideoModel>,private val listener: (Int) -> Unit) : RecyclerView.Adapter<VideoFileAdapter.ViewHolder>(){
 
     lateinit var binding: RowVideoBinding
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,6 +25,9 @@ class VideoFileAdapter(private val context : Context, private val listVideos: Li
             .load(listVideos[position].url)
             .into(binding.ivVideoThumbNail)
         binding.tvVideoSize.text = calculateVideoSize(listVideos[position].videoSize)
+        binding.rlVideo.setOnClickListener{
+            listener(position)
+        }
     }
 
     override fun getItemCount(): Int {

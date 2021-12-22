@@ -32,6 +32,12 @@
             android:layout_gravity="center"
             android:textColor="@color/white"/>
 
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="2dp"
+            android:src="@drawable/icon_image"/>
+
     </LinearLayout>
 
 </RelativeLayout>

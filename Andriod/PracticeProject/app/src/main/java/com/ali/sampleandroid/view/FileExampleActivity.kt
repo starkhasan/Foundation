@@ -49,8 +49,8 @@ class FileExampleActivity : AppCompatActivity() {
 
     private fun filePermission(){
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-            loadFileForImage()
-            //loadFile()
+            //loadFileForImage()
+            loadFile()
         }else{
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                 requestPermissions(arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSION_REQUEST_CODE)
@@ -63,8 +63,8 @@ class FileExampleActivity : AppCompatActivity() {
         when(requestCode){
             PERMISSION_REQUEST_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    loadFileForImage()
-                    //loadFile()
+                    //loadFileForImage()
+                    loadFile()
                 } else {
                     HelperUtils.showToast(this, "Request Permission Failed")
                 }
@@ -86,7 +86,11 @@ class FileExampleActivity : AppCompatActivity() {
             val url: Uri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id)
             listVideos.add(VideoModel(url.toString(), name, size))
         }
-        videoFileAdapter = VideoFileAdapter(this, listVideos)
+        videoFileAdapter = VideoFileAdapter(this, listVideos){ position: Int ->
+            val intent = Intent(this,VideoPlayActivity::class.java)
+            intent.putExtra("VideoURI",listVideos[position].url)
+            startActivity(intent)
+        }
         fileLayout.rvVideos.adapter = videoFileAdapter
     }
 

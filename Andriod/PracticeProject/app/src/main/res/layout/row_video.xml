@@ -8,7 +8,7 @@
     android:layout_marginEnd="2dp"
     android:layout_marginTop="2dp"
     android:background="@color/black"
-    android:id="@+id/llHomeRow">
+    android:id="@+id/rlVideo">
 
     <ImageView
         android:id="@+id/ivVideoThumbNail"
@@ -27,8 +27,8 @@
             android:id="@+id/tvVideoSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0.00 MB"
-            android:textSize="11sp"
+            android:text=""
+            android:textSize="9sp"
             android:layout_gravity="center"
             android:textColor="@color/white"/>
 
