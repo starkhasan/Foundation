@@ -99,6 +99,7 @@ class VideoPlayActivity : AppCompatActivity(), View.OnClickListener {
                 viewBinding.videoView.player = exoplayer
                 val videoTitleText = viewBinding.videoView.findViewById<TextView>(R.id.tvVideoTitle)
                 videoTitleText.text = videoTitle
+                //register with onclickListener on rotate icon
                 viewBinding.videoView.findViewById<ImageView>(R.id.ivRotate).setOnClickListener(VideoPlayActivity@this)
                 //creating media item
                 val mediaItem = MediaItem.fromUri(Uri.parse(videoUri))
@@ -119,6 +120,7 @@ class VideoPlayActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.ivRotate -> {
+                //checking the device orientation and rotating device as per Rotation
                 if(this.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
                     requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
                 }else{
