@@ -63,11 +63,12 @@
             android:layout_gravity="center"
             android:paddingRight="4dp"
             android:includeFontPadding="false"
-            android:textColor="#FFBEBEBE"/>
+            android:textColor="@color/white"/>
 
         <View android:id="@id/exo_progress_placeholder"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_gravity="center"
             android:layout_height="26dp"/>
 
         <TextView android:id="@id/exo_duration"
@@ -79,7 +80,14 @@
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
             android:includeFontPadding="false"
-            android:textColor="#FFBEBEBE"/>
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:id="@+id/ivRotate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/icon_screen_rotation"/>
 
     </LinearLayout>
 

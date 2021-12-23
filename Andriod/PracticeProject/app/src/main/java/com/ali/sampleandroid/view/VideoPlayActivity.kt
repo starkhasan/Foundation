@@ -1,20 +1,26 @@
 package com.ali.sampleandroid.view
 
+import android.app.Activity
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.ali.sampleandroid.R
+import com.ali.sampleandroid.databinding.ActivityImageViewBinding
 import com.ali.sampleandroid.databinding.ActivityVideoPlayBinding
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.util.Util
 import com.google.gson.annotations.Until
 
-class VideoPlayActivity : AppCompatActivity() {
+class VideoPlayActivity : AppCompatActivity(), View.OnClickListener {
 
     //obtaining reference of the view tree
     private val viewBinding by lazy(LazyThreadSafetyMode.NONE){
@@ -29,6 +35,7 @@ class VideoPlayActivity : AppCompatActivity() {
     private var currentWindow = 0
     private var playbackPosition = 0L
     private val PLAYBACK_TIME = "play_time"
+    var ivRotation:ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,6 +103,7 @@ class VideoPlayActivity : AppCompatActivity() {
                 viewBinding.videoView.player = exoplayer
                 val videoTitleText = viewBinding.videoView.findViewById<TextView>(R.id.tvVideoTitle)
                 videoTitleText.text = videoTitle
+                viewBinding.videoView.findViewById<ImageView>(R.id.ivRotate).setOnClickListener(VideoPlayActivity@this)
                 //creating media item
                 val mediaItem = MediaItem.fromUri(Uri.parse(videoUri))
                 exoplayer.setMediaItem(mediaItem)
@@ -109,6 +117,18 @@ class VideoPlayActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
         if(player != null) {
             outState.putLong(PLAYBACK_TIME, player!!.currentPosition)
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when(v!!.id){
+            R.id.ivRotate -> {
+                if(this.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                }else{
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+            }
         }
     }
 
