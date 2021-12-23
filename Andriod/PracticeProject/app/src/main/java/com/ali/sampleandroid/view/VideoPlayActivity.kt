@@ -1,6 +1,5 @@
 package com.ali.sampleandroid.view
 
-import android.app.Activity
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.net.Uri
@@ -8,17 +7,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.ali.sampleandroid.R
-import com.ali.sampleandroid.databinding.ActivityImageViewBinding
 import com.ali.sampleandroid.databinding.ActivityVideoPlayBinding
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.util.Util
-import com.google.gson.annotations.Until
 
 class VideoPlayActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -35,12 +31,12 @@ class VideoPlayActivity : AppCompatActivity(), View.OnClickListener {
     private var currentWindow = 0
     private var playbackPosition = 0L
     private val PLAYBACK_TIME = "play_time"
-    var ivRotation:ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //set the view to the setContent view using view reference and call .root to get the view
         setContentView(viewBinding.root)
+        supportActionBar!!.hide()
         videoUri = intent.extras!!.get("VideoURI").toString()
         videoTitle = intent.extras!!.get("VideoTitle").toString()
         //invoke method to initialize exo player instance
