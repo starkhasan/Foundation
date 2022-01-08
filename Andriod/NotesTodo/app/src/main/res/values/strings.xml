@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NotesTodo</string>
-    <string name="design_develped_tag">Design &amp; Developed by : Traversal</string>
+    <string name="design_developed_tag">Design &amp; Developed by : Traversal</string>
+    <string name="completed">Completed</string>
+    <string name="task">Task</string>
+    <string name="home_text_hint">Add Notes</string>
 </resources>
