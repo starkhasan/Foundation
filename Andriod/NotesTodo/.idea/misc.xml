@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Repositories/Foundation/Andriod/NotesTodo/app/src/main/res/drawable/bg_notes_container.xml" value="0.21354166666666666" />
+        <entry key="..\:/Repositories/Foundation/Andriod/NotesTodo/app/src/main/res/drawable/bg_task.xml" value="0.5" />
         <entry key="..\:/Repositories/Foundation/Andriod/NotesTodo/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Repositories/Foundation/Andriod/NotesTodo/app/src/main/res/layout/activity_notes_home.xml" value="0.33" />
+        <entry key="..\:/Repositories/Foundation/Andriod/NotesTodo/app/src/main/res/layout/activity_notes_home.xml" value="0.22" />
+        <entry key="..\:/Repositories/Foundation/Andriod/NotesTodo/app/src/main/res/layout/row_complete_task.xml" value="0.2" />
+        <entry key="..\:/Repositories/Foundation/Andriod/NotesTodo/app/src/main/res/layout/row_task.xml" value="0.19739583333333333" />
       </map>
     </option>
   </component>
