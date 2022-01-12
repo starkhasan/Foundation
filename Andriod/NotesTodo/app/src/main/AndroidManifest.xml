@@ -10,14 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NotesTodo">
 
-        <activity android:name=".view.SplashActivity" android:exported="true" android:theme="@style/AppNoActionBar" >
+        <activity android:name=".view.SplashActivity" android:exported="true" android:theme="@style/Theme.NotesTodo.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.NotesHomeActivity" android:exported="false" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:name=".view.NotesHomeActivity" android:exported="false" android:theme="@style/Theme.NotesTodo.NoActionBar"/>
 
     </application>
 

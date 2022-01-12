@@ -4,4 +4,9 @@
     <string name="completed">Completed</string>
     <string name="task">Task</string>
     <string name="home_text_hint">Add Notes</string>
+    <string name="home_header_text">Notes</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+    <string name="back_up_notes">Notes Backup</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>

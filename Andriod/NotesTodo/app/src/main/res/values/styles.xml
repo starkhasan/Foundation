@@ -7,7 +7,7 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <style name="AppNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppNoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
     </style>

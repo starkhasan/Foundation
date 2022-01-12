@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/bg_task"
     android:padding="15dp"
+    android:layout_marginTop="4dp"
     android:orientation="horizontal">
 
     <CheckBox
@@ -22,6 +23,6 @@
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:textSize="12sp"
-        android:textColor="@color/black"/>
+        android:textColor="?colorOnSecondary"/>
 
 </LinearLayout>

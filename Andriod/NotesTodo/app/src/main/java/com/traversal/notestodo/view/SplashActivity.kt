@@ -6,15 +6,15 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
-import com.traversal.notestodo.databinding.ActivityMainBinding
+import com.traversal.notestodo.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
 
-    private lateinit var splashLayout: ActivityMainBinding
+    private lateinit var splashLayout: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        splashLayout = ActivityMainBinding.inflate(LayoutInflater.from(this))
+        splashLayout = ActivitySplashBinding.inflate(LayoutInflater.from(this))
         setContentView(splashLayout.root)
 
         val matrices = applicationContext.resources.displayMetrics
