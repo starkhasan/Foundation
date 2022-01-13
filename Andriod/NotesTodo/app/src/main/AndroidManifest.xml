@@ -18,6 +18,7 @@
         </activity>
 
         <activity android:name=".view.NotesHomeActivity" android:exported="false" android:theme="@style/Theme.NotesTodo.NoActionBar"/>
+        <activity android:name=".view.AuthenticationActivity" android:exported="false" android:theme="@style/Theme.NotesTodo.NoActionBar"/>
 
     </application>
 

@@ -1,5 +1,6 @@
 package com.traversal.notestodo.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -47,7 +48,7 @@ class NotesHomeActivity : AppCompatActivity(), View.OnClickListener{
         super.onCreate(savedInstanceState)
         binding = ActivityNotesHomeBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
-
+        drawerLayout = binding.drawerLayout
         linearLayoutManagerTask = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         linearLayoutManagerCompleteTask = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         binding.rvTasK.layoutManager = linearLayoutManagerTask
@@ -55,8 +56,7 @@ class NotesHomeActivity : AppCompatActivity(), View.OnClickListener{
         binding.rvTasK.isNestedScrollingEnabled = false
         binding.rvCompleted.isNestedScrollingEnabled = false
         binding.layoutHeader.ivNavBar.setOnClickListener(this)
-
-        drawerLayout = binding.drawerLayout
+        binding.llbackNotes.setOnClickListener(this)
         /*
         * Use ActionBarDrawerToggle for add Hamsberg in the Actionbar
         * actionBarDrawerToggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open_drawer,R.string.close_drawer)
@@ -111,6 +111,9 @@ class NotesHomeActivity : AppCompatActivity(), View.OnClickListener{
         when(view?.id){
             R.id.ivNavBar -> {
                 drawerLayout.openDrawer(GravityCompat.START)
+            }
+            R.id.llbackNotes -> {
+                startActivity(Intent(this,AuthenticationActivity::class.java))
             }
         }
     }

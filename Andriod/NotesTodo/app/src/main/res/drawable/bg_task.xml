@@ -4,22 +4,21 @@
     <item>
         <shape>
             <padding
-                android:bottom="1dp"
-                android:left="1dp"
-                android:right="1dp"
-                android:top="1dp" />
-
-            <solid android:color="#353535" />
+                android:bottom="0.5dp"
+                android:left="0.5dp"
+                android:right="0.5dp"
+                android:top="0.5dp" />
+            <solid android:color="?colorSecondaryVariant" />
             <corners android:radius="5dp"/>
         </shape>
     </item>
 
     <!-- Main Layout -->
     <item
-        android:top="1dp"
-        android:bottom="1dp"
-        android:left="1dp"
-        android:right="1dp">
+        android:top="0.5dp"
+        android:bottom="0.5dp"
+        android:left="0.5dp"
+        android:right="0.5dp">
         <shape>
             <solid android:color="?colorControlHighlight"/>
             <corners android:radius="5dp"/>
