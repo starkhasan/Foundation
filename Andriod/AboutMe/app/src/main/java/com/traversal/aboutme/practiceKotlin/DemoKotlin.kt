@@ -17,5 +17,4 @@ class Person(firstName: String, lastName: String){
 
 fun main(){
     var person = Person(firstName = "Ali", lastName = "Hasan")
-
 }

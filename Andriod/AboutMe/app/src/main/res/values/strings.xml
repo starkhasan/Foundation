@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AboutMe</string>
+    <string name="text_name">Ali Hasan</string>
+    <string name="button">Button</string>
+    <string name="yellow_star">YellowStar</string>
+    <string name="bio">This is your string.This is the second line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.\n\n Third line of your string.</string>
+    <string name="name_hint">What is your name?</string>
+    <string name="done">Done</string>
 </resources>

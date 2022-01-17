@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Repositories/Foundation/Andriod/AboutMe/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Repositories/Foundation/Andriod/AboutMe/app/src/main/res/font/fonts.xml" value="0.22760416666666666" />
+        <entry key="..\:/Repositories/Foundation/Andriod/AboutMe/app/src/main/res/font/roboto.xml" value="0.22760416666666666" />
+        <entry key="..\:/Repositories/Foundation/Andriod/AboutMe/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
   </component>
