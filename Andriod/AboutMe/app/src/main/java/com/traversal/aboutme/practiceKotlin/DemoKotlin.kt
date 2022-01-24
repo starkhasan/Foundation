@@ -1,20 +1,12 @@
 package com.traversal.aboutme.practiceKotlin
 
-class Person(firstName: String, lastName: String){
-    private var nameFirst: String? = null
-    private var nameSecond: String? = null
 
-    init {
-        nameFirst = firstName
-        nameSecond = lastName
-    }
-
-    fun printuserInformation(){
-        print("")
-    }
+//Example of extension function
+fun String.spaceToCamelCase() : String {
+    return this.toString().uppercase()
 }
 
-
-fun main(){
-    var person = Person(firstName = "Ali", lastName = "Hasan")
+fun main() {
+    val str = "ali hasan"
+    print(str.spaceToCamelCase())
 }

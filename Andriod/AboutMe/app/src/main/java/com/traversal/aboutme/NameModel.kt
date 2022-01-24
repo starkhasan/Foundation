@@ -1,4 +1,3 @@
 package com.traversal.aboutme
 
-class NameModel {
-}
+data class NameModel(var name: String = "",var nickName: String = "")
