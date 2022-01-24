@@ -4,5 +4,5 @@ class Student {
 }
 
 void main(List<String> args) {
-  var person1 = Student(name: 'Ali Hasan');
+  Student(name: 'Ali Hasan');
 }
