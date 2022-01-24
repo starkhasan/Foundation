@@ -25,18 +25,17 @@ def Game():
                 raise ValueTooLargeError
             break
         except NotInRangeError:
-            print('Number not in range\n')
             i = i - 1
+            print('Number not in range\n')
         except ValueTooSmallError:
-            print("This value was too small, try again!")
             first = user_number + 1
-            print()
+            print("This value was too small, try again!\n")
         except ValueTooLargeError:
-            print("This value was too large, try again!\n")
             last = user_number - 1
+            print("This value was too large, try again!\n")
         except ValueError:
-            print("Wrong Input Please Enter Number\n")
             i = i-1
+            print("Wrong Input Please Enter Number\n")
 
     if user_number == original_number:
         print("Congratulations! You guessed it correctly.")
