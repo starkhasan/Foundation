@@ -1,3 +1,3 @@
-var main(){
+void main(){
   
 }
