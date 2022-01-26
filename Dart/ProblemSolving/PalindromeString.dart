@@ -1,6 +1,6 @@
 main(){
   var firstStr = 'ali hasan';
-  var seondStr = firstStr.split('').reversed.join('');
+  var secondStr = firstStr.split('').reversed.join('');
   if(firstStr == secondStr){
     print('Both Strings are Palidrome');
   }else{
