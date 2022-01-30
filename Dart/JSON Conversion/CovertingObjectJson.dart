@@ -5,12 +5,15 @@ class CountryData {
   String base;
   Map data;
 
-  CountryData(this.symbolsReturned, this.base, this.data);
+  CountryData({required this.symbolsReturned,required this.base,required this.data});
 
-  CountryData.fromJson(Map<String, dynamic> json)
-      : symbolsReturned = json['symbols_returned'],
-        base = json['base'],
-        data = json['data'];
+  factory CountryData.fromJson(Map<String, dynamic> json){
+    return CountryData(
+      symbolsReturned: json['symbols_returned'],
+      base: json['base'],
+      data: json['data']
+    );
+  }
 
   Map<String, dynamic> toJson() =>
       {'symbols_returned': symbolsReturned, 'base': base, 'data': data};

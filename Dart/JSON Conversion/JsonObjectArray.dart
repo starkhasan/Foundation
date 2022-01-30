@@ -10,18 +10,29 @@ class User {
   bool active;
   Attributes attributes;
 
-  User(this.name, this.firstName, this.lastName, this.displayName, this.email,
-      this.password, this.active, this.attributes);
+  User({
+    required this.name,
+    required this.firstName,
+    required this.lastName,
+    required this.displayName,
+    required this.email,
+    required this.password,
+    required this.active,
+    required this.attributes
+  });
 
-  User.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
-        firstName = json['first-name'],
-        lastName = json['last-name'],
-        displayName = json['display-name'],
-        email = json['email'],
-        password = Password.fromJson(json['password']),
-        active = json['active'],
-        attributes = Attributes.fromJson(json['attributes']);
+  factory User.fromJson(Map<String, dynamic> json){
+    return User(
+      name: json['name'],
+      firstName: json['first-name'],
+      lastName: json['last-name'],
+      displayName: json['display-name'],
+      email: json['email'],
+      password: Password.fromJson(json['password']),
+      active: json['active'],
+      attributes: Attributes.fromJson(json['attributes'])
+    );
+  }
 }
 
 class Password {

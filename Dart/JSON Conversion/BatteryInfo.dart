@@ -8,37 +8,44 @@ class Shop {
   Batters batters;
   List<Topping> topping;
 
-  Shop(this.id, this.type, this.name, this.ppu, this.batters, this.topping);
+  Shop({required this.id,required this.type,required this.name,required this.ppu,required this.batters,required this.topping});
 
-  Shop.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        type = json['type'],
-        name = json['name'],
-        ppu = json['ppu'].toDouble(),
-        batters = Batters.fromJson(json['batters']),
-        topping =
-            List<Topping>.from(json['topping'].map((x) => Topping.fromJson(x)));
+  factory Shop.fromJson(Map<String, dynamic> json){
+    return Shop(
+      id: json['id'],
+      type: json['type'],
+      name: json['name'],
+      ppu: json['ppu'].toDouble(),
+      batters: Batters.fromJson(json['batters']),
+      topping: List<Topping>.from(json['topping'].map((x) => Topping.fromJson(x)))
+    );
+  }
 }
 
 class Topping {
   String id;
   String type;
 
-  Topping(this.id, this.type);
+  Topping({required this.id,required this.type});
 
-  Topping.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        type = json['type'];
+  factory Topping.fromJson(Map<String, dynamic> json){
+    return Topping(
+      id: json['id'],
+      type: json['type']
+    );
+  }
 }
 
 class Batters {
   List<Topping> batter;
 
-  Batters(this.batter);
+  Batters({required this.batter});
 
-  Batters.fromJson(Map<String, dynamic> json)
-      : batter =
-            List<Topping>.from(json['batter'].map((x) => Topping.fromJson(x)));
+  factory Batters.fromJson(Map<String, dynamic> json){
+    return Batters(
+      batter: List<Topping>.from(json['batter'].map((x) => Topping.fromJson(x)))
+    );
+  }
 }
 
 void main(List<String> args) {

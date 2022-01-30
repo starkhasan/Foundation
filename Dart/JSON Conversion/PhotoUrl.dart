@@ -7,14 +7,17 @@ class Photo {
   String url;
   String thumbnailUrl;
 
-  Photo(this.albumId, this.id, this.title, this.url, this.thumbnailUrl);
+  Photo({required this.albumId,required this.id,required this.title,required this.url,required this.thumbnailUrl});
 
-  Photo.fromJson(Map<String, dynamic> json)
-      : albumId = json['albumId'],
-        id = json['id'],
-        title = json['title'],
-        url = json['url'],
-        thumbnailUrl = json['thumbnailUrl'];
+  factory Photo.fromJson(Map<String, dynamic> json){
+    return Photo(
+      albumId: json['albumId'],
+      id: json['id'],
+      title: json['title'],
+      url: json['url'],
+      thumbnailUrl: json['thumbnailUrl']
+    );
+  }
 }
 
 void main() {
@@ -35029,7 +35032,7 @@ void main() {
   }
 }
 /**
- * 
+ *
  * {
     "albumId": 1,
     "id": 1,

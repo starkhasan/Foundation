@@ -5,14 +5,15 @@ class MedicationsExample {
   List<Imaging> labs;
   List<Imaging> imaging;
 
-  MedicationsExample(this.medications, this.labs, this.imaging);
+  MedicationsExample({required this.medications,required this.labs,required this.imaging});
 
-  MedicationsExample.formJson(Map<String, dynamic> json)
-      : medications = List<Medications>.from(
-            json['medications'].map((x) => Medications.fromJson(x))),
-        labs = List<Imaging>.from(json['labs'].map((x) => Imaging.fromJson(x))),
-        imaging =
-            List<Imaging>.from(json['imaging'].map((x) => Imaging.fromJson(x)));
+  factory MedicationsExample.formJson(Map<String, dynamic> json){
+    return MedicationsExample(
+      medications: List<Medications>.from(json['medications'].map((x) => Medications.fromJson(x))),
+      labs: List<Imaging>.from(json['labs'].map((x) => Imaging.fromJson(x))),
+      imaging: List<Imaging>.from(json['imaging'].map((x) => Imaging.fromJson(x)))
+    );
+  }
 }
 
 class Medications {
@@ -23,22 +24,25 @@ class Medications {
   List<AceInhibitors> diuretic;
   List<AceInhibitors> mineral;
 
-  Medications(this.aceInhibitors, this.antianginal, this.anticoagulants,
-      this.betaBlocker, this.diuretic, this.mineral);
+  Medications({
+    required this.aceInhibitors,
+    required this.antianginal,
+    required this.anticoagulants,
+    required this.betaBlocker,
+    required this.diuretic,
+    required this.mineral
+  });
 
-  Medications.fromJson(Map<String, dynamic> json)
-      : aceInhibitors = List<AceInhibitors>.from(
-            json['aceInhibitors'].map((x) => AceInhibitors.fromJson(x))),
-        antianginal = List<AceInhibitors>.from(
-            json['antianginal'].map((x) => AceInhibitors.fromJson(x))),
-        anticoagulants = List<AceInhibitors>.from(
-            json['anticoagulants'].map((x) => AceInhibitors.fromJson(x))),
-        betaBlocker = List<AceInhibitors>.from(
-            json['betaBlocker'].map((x) => AceInhibitors.fromJson(x))),
-        diuretic = List<AceInhibitors>.from(
-            json['diuretic'].map((x) => AceInhibitors.fromJson(x))),
-        mineral = List<AceInhibitors>.from(
-            json['mineral'].map((x) => AceInhibitors.fromJson(x)));
+  factory Medications.fromJson(Map<String, dynamic> json){
+    return Medications(
+      aceInhibitors: List<AceInhibitors>.from(json['aceInhibitors'].map((x) => AceInhibitors.fromJson(x))),
+      antianginal: List<AceInhibitors>.from(json['antianginal'].map((x) => AceInhibitors.fromJson(x))),
+      anticoagulants: List<AceInhibitors>.from(json['anticoagulants'].map((x) => AceInhibitors.fromJson(x))),
+      betaBlocker: List<AceInhibitors>.from(json['betaBlocker'].map((x) => AceInhibitors.fromJson(x))),
+      diuretic: List<AceInhibitors>.from(json['diuretic'].map((x) => AceInhibitors.fromJson(x))),
+      mineral: List<AceInhibitors>.from(json['mineral'].map((x) => AceInhibitors.fromJson(x)))
+    );
+  }
 }
 
 class AceInhibitors {
@@ -50,17 +54,27 @@ class AceInhibitors {
   String pillCount;
   String refills;
 
-  AceInhibitors(this.name, this.strength, this.dose, this.route, this.sig,
-      this.pillCount, this.refills);
+  AceInhibitors({
+    required this.name,
+    required this.strength,
+    required this.dose,
+    required this.route,
+    required this.sig,
+    required this.pillCount,
+    required this.refills
+  });
 
-  AceInhibitors.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
-        strength = json['strength'],
-        dose = json['dose'],
-        route = json['route'],
-        sig = json['sig'],
-        pillCount = json['pillCount'],
-        refills = json['refills'];
+  factory AceInhibitors.fromJson(Map<String, dynamic> json){
+    return AceInhibitors(
+      name: json['name'],
+      strength: json['strength'],
+      dose: json['dose'],
+      route: json['route'],
+      sig: json['sig'],
+      pillCount: json['pillCount'],
+      refills: json['refills']
+    );
+  }
 }
 
 class Imaging {
@@ -68,11 +82,14 @@ class Imaging {
   String time;
   String location;
 
-  Imaging(this.name, this.time, this.location);
-  Imaging.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
-        time = json['time'],
-        location = json['location'];
+  Imaging({required this.name,required this.time,required this.location});
+  factory Imaging.fromJson(Map<String, dynamic> json){
+    return Imaging(
+      name: json['name'],
+      time: json['time'],
+      location: json['location']    
+    );
+  }
 }
 
 void main(List<String> args) {
@@ -137,78 +154,78 @@ void main(List<String> args) {
     "labs":[{
         "name":"Arterial Blood Gas",
         "time":"Today",
-        "location":"Main Hospital Lab"      
+        "location":"Main Hospital Lab"
         },
         {
         "name":"BMP",
         "time":"Today",
-        "location":"Primary Care Clinic"    
+        "location":"Primary Care Clinic"
         },
         {
         "name":"BNP",
         "time":"3 Weeks",
-        "location":"Primary Care Clinic"    
+        "location":"Primary Care Clinic"
         },
         {
         "name":"BUN",
         "time":"1 Year",
-        "location":"Primary Care Clinic"    
+        "location":"Primary Care Clinic"
         },
         {
         "name":"Cardiac Enzymes",
         "time":"Today",
-        "location":"Primary Care Clinic"    
+        "location":"Primary Care Clinic"
         },
         {
         "name":"CBC",
         "time":"1 Year",
-        "location":"Primary Care Clinic"    
+        "location":"Primary Care Clinic"
         },
         {
         "name":"Creatinine",
         "time":"1 Year",
-        "location":"Main Hospital Lab"  
+        "location":"Main Hospital Lab"
         },
         {
         "name":"Electrolyte Panel",
         "time":"1 Year",
-        "location":"Primary Care Clinic"    
+        "location":"Primary Care Clinic"
         },
         {
         "name":"Glucose",
         "time":"1 Year",
-        "location":"Main Hospital Lab"  
+        "location":"Main Hospital Lab"
         },
         {
         "name":"PT/INR",
         "time":"3 Weeks",
-        "location":"Primary Care Clinic"    
+        "location":"Primary Care Clinic"
         },
         {
         "name":"PTT",
         "time":"3 Weeks",
-        "location":"Coumadin Clinic"    
+        "location":"Coumadin Clinic"
         },
         {
         "name":"TSH",
         "time":"1 Year",
-        "location":"Primary Care Clinic"    
+        "location":"Primary Care Clinic"
         }
     ],
     "imaging":[{
         "name":"Chest X-Ray",
         "time":"Today",
-        "location":"Main Hospital Radiology"    
+        "location":"Main Hospital Radiology"
         },
         {
         "name":"Chest X-Ray",
         "time":"Today",
-        "location":"Main Hospital Radiology"    
+        "location":"Main Hospital Radiology"
         },
         {
         "name":"Chest X-Ray",
         "time":"Today",
-        "location":"Main Hospital Radiology"    
+        "location":"Main Hospital Radiology"
         }
     ]
 }''';

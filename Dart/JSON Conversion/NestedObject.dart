@@ -5,12 +5,15 @@ class DataExample {
   String booleanLogic;
   List<RestrictionsType> restrictions;
 
-  DataExample(this.restrictionType, this.booleanLogic, this.restrictions);
+  DataExample({required this.restrictionType,required this.booleanLogic,required this.restrictions});
   //converting jsonstring to DataExample Instance
-  DataExample.fromJson(Map<String, dynamic> json)
-  : restrictionType = json['restriction-type'],
-    booleanLogic = json['boolean-logic'],
-    restrictions = List<RestrictionsType>.from(json['restrictions'].map((value) => RestrictionsType.fromJson(value)));
+  factory DataExample.fromJson(Map<String, dynamic> json){
+    return DataExample(
+      restrictionType: json['restriction-type'],
+      booleanLogic: json['boolean-logic'],
+      restrictions: List<RestrictionsType>.from(json['restrictions'].map((value) => RestrictionsType.fromJson(value)))
+    );
+  }
 
   //Convert DataExample instance to Map<String, dynamic>
   Map<String, dynamic> toJson() => {
@@ -26,13 +29,16 @@ class RestrictionsType {
   String matchMode;
   String value;
 
-  RestrictionsType(this.restrictionType, this.property, this.matchMode, this.value);
+  RestrictionsType({required this.restrictionType,required this.property,required this.matchMode,required this.value});
 
-  RestrictionsType.fromJson(Map<String, dynamic> json)
-  : restrictionType = json['restriction-type'],
-    property = Property.fromJson(json['property']),
-    matchMode = json['match-mode'],
-    value = json['value'];
+  factory RestrictionsType.fromJson(Map<String, dynamic> json){
+      return RestrictionsType(
+        restrictionType: json['restriction-type'],
+        property: Property.fromJson(json['property']),
+        matchMode: json['match-mode'],
+        value: json['value']
+      );
+  }
 
   Map<String, dynamic> toJson() => {
     'restriction-type': restrictionType,
@@ -46,11 +52,14 @@ class Property {
   String name;
   String type;
 
-  Property(this.name, this.type);
+  Property({required this.name,required this.type});
 
-  Property.fromJson(Map<String, dynamic> json)
-  : name = json['name'],
-    type = json['type'];
+  factory Property.fromJson(Map<String, dynamic> json){
+    return Property(
+      name: json['name'],
+      type: json['type']
+    );
+  }
 
   Map<String, dynamic> toJson() => {'name': name, 'type': type};
 }

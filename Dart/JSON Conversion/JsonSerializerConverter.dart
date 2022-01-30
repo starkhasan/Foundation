@@ -5,13 +5,16 @@ class Address{
   String country;
   int zipCode;
 
-  Address(this.street,this.city,this.country,this.zipCode);
+  Address({required this.street,required this.city,required this.country,required this.zipCode});
 
-  Address.fromJson(Map<String, dynamic> json)
-     :street = json['street'],
-      city = json['city'],
-      country = json['country'],
-      zipCode = json['zipCode'];
+  factory Address.fromJson(Map<String, dynamic> json){
+    return Address(
+      street: json['street'],
+      city: json['city'],
+      country: json['country'],
+      zipCode: json['zipCode']
+    );
+  }
 
   Map<String, dynamic> toJson() => {
     'street': street,
@@ -26,13 +29,16 @@ class User{
   String email;
   Address address;
 
-  User(this.name,this.email,this.address);
+  User({required this.name,required this.email,required this.address});
 
   //A User.fromJson() Constructor for constructing a new User instance from a map Structure
-  User.fromJson(Map<String, dynamic> json)
-    : name = json['name'],
-    email = json['email'],
-    address = Address.fromJson(json['address']);
+  factory User.fromJson(Map<String, dynamic> json){
+    return User(
+      name: json['name'],
+      email: json['email'],
+      address: Address.fromJson(json['address'])
+    );
+  }
 
   // jsonDecode() return Map<String, dynamic>  meaning that you do not know the
   // type of the value until runtime.

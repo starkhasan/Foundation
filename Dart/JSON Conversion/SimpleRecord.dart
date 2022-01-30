@@ -3,10 +3,13 @@ import 'dart:convert';
 class SimpleRecord {
   Results results;
 
-  SimpleRecord(this.results);
+  SimpleRecord({required this.results});
 
-  SimpleRecord.fromJson(Map<String, dynamic> json)
-      : results = Results.fromJson(json['results']);
+  factory SimpleRecord.fromJson(Map<String, dynamic> json){
+    return SimpleRecord(
+        results: Results.fromJson(json['results'])
+    );
+  }
 }
 
 class Results {
@@ -14,13 +17,15 @@ class Results {
   String result;
   List<Records> records;
 
-  Results(this.totalRecordCount, this.records, this.result);
+  Results({required this.totalRecordCount,required this.records,required this.result});
 
-  Results.fromJson(Map<String, dynamic> json)
-      : totalRecordCount = json['TotalRecordCount'],
-        records =
-            List<Records>.from(json['Records'].map((x) => Records.fromJson(x))),
-        result = json['Result'];
+  factory Results.fromJson(Map<String, dynamic> json){
+    return Results(
+      totalRecordCount: json['TotalRecordCount'],
+      records: List<Records>.from(json['Records'].map((x) => Records.fromJson(x))),
+      result: json['Result']
+    );
+  }
 }
 
 class Records {
@@ -28,12 +33,15 @@ class Records {
   String address;
   String contact_phone;
 
-  Records(this.code, this.address, this.contact_phone);
+  Records({required this.code,required this.address,required this.contact_phone});
 
-  Records.fromJson(Map<String, dynamic> json)
-      : code = json['code'],
-        address = json['address'],
-        contact_phone = json['contact_phone'];
+  factory Records.fromJson(Map<String, dynamic> json){
+    return Records(
+      code: json['code'],
+      address: json['address'],
+      contact_phone: json['contact_phone']
+    );
+  }
 }
 
 void main(List<String> args) {
