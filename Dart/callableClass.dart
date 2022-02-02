@@ -3,8 +3,12 @@ class Student {
   String lastName;
 
   Student(this.lastName, this.firstName);
-  String call({required String firstName, required String lastName}) =>
-      firstName + lastName;
+  /*
+   * Dart allows the user to create a callable class which allows the instance fo the class to be called as a function
+   * 
+   * Dart does not support multiple callable method if we try to create more than one cllable function for the same class it will display error
+   */
+  String call({required String firstName, required String lastName}) => firstName + lastName;
 }
 
 void main(List<String> args) {

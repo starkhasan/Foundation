@@ -1,7 +1,13 @@
-requiredDefaultParameter(String name, int value = 34){
-  print('Your name is $name');
-  print('Value = $value');
+class Student {
+  String firstName;
+  String lastName;
+
+  Student(this.lastName, this.firstName);
+  String call() => firstName + lastName;
 }
-void main(){
-  requiredDefaultParameter('Ali Hasan', 20);
+
+void main(List<String> args) {
+  var obj = Student('Hasan', 'Ali');
+  var fullName = obj();
+  print(fullName);
 }
