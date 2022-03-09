@@ -1,12 +1,8 @@
 package com.traversal.aboutme.practiceKotlin
 
-
-//Example of extension function
-fun String.spaceToCamelCase() : String {
-    return this.toString().uppercase()
-}
-
 fun main() {
-    val str = "ali hasan"
-    print(str.spaceToCamelCase())
+    val newArray = Array(10) { item -> item + 1 }
+    for(item in newArray){
+        print(item)
+    }
 }
