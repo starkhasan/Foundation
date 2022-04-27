@@ -603,7 +603,8 @@ Example=>
 >>> math.sqrt(85)
 9.219544457292887
 
-The math module contains more advance numeric tools as function while the random module perform random-number generation random selection (here from a Python list coded in square bracket---an ordered collection of other objects to be introduces later in this chapter ):
+The math module contains more advance numeric tools as function while the random module perform random-number generation random selection 
+(here from a Python list coded in square bracket---an ordered collection of other objects to be introduces later in this chapter ):
 
 
 Example=>
@@ -614,7 +615,8 @@ Example=>
 1
 
 
-Python also includes more exotic numeric objects—such as complex, fixed-precision, and rational numbers, as well as sets and Booleans —and the third-party open source extension domain has even more (e.g., matrixes and vectors, and extended precision numbers).
+Python also includes more exotic numeric objects—such as complex, fixed-precision, and rational numbers, as well as sets and Booleans —and the third-party open source extension
+domain has even more (e.g., matrixes and vectors, and extended precision numbers).
 
 
 
@@ -655,7 +657,8 @@ in this program on entering any king of input return as true and not entering no
 
 
 
-When used in numerical expression True evaluates to 1 and false to 0. This means that we can write some rather odd thing for example we can increment an integer i using the expression  i+=True  but Naturally the correct way to do this is i+=1.
+When used in numerical expression True evaluates to 1 and false to 0. This means that we can write some rather odd thing for example we can increment an integer i using the expression  i+=True  
+but Naturally the correct way to do this is i+=1.
 
 
 >>>To know the info of the data type:--
@@ -863,12 +866,7 @@ The str.format() method returns a new string with the replacement fields in its 
 	tup=(1,"ali hasan",2.40)
 	print(tup+(12,))
 
-	Output=>
-	D:\VS>python new_demo.py
-	(1, 'ali hasan', 2.4, 12)
-
-
-	 b)Tuple Repetition
+	Output=>	
                         ex->tup=('a','l','i')   ->  tup*2                             -> ('a','l','i','a','l','i')
                     c)Tuple Slicing
                         ex->tup=('a','l','i')   ->  tup[1:2]                        -> ('l',)
@@ -1213,7 +1211,8 @@ numbers of the natural numbers are for example created by { x^2 | x E N } or the
 
    => We can remove a particular item in a dictionary by using the method pop(). This method removes as item with the provided key and returns         the value.
 
-       The method, popitem() can be used to remove and return an arbitrary item (key, value) form the dictionary. All the items can be removed at               once using the clear() method. popitem() remove the element from the last
+       The method, popitem() can be used to remove and return an arbitrary item (key, value) form the dictionary. All the items can be removed at  once using the clear() method. 
+       popitem() remove the element from the last
 
 
       >>> new_dict={1:1,2:2,3:3,4:4,5:5,6:6}

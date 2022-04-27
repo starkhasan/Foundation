@@ -1,7 +1,6 @@
-void main(){
-  List<int> listNumber = List.generate(20, (index) => index+1);
-  var listString = listNumber.map((item) => item.toString());
-  for(var item in listString){
-    print(item.runtimeType);
-  }
+void main() {
+  var name = 'ali hasan';
+  name = name.split('').reversed.join('');
+  
+  print(name);
 }
