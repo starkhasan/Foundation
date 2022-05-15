@@ -7,7 +7,13 @@ class Photo {
   String url;
   String thumbnailUrl;
 
-  Photo({required this.albumId,required this.id,required this.title,required this.url,required this.thumbnailUrl});
+  Photo({
+    required this.albumId,
+    required this.id,
+    required this.title,
+    required this.url,
+    required this.thumbnailUrl
+  });
 
   factory Photo.fromJson(Map<String, dynamic> json){
     return Photo(
@@ -35023,8 +35029,7 @@ void main() {
     "thumbnailUrl": "https://via.placeholder.com/150/6dd9cb"
   }
 ]''';
-  var response =
-      List<Photo>.from(jsonDecode(data).map((x) => Photo.fromJson(x)));
+  var response = List<Photo>.from(jsonDecode(data).map((x) => Photo.fromJson(x)));
   print(response.length);
   for (var item in response) {
     print('AlbumId -> ${item.albumId}');
