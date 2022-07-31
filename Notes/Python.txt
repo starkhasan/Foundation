@@ -2791,7 +2791,8 @@ singing, dancing are behavior
 
 A class is a blueprint for the object.
 
-We can think of class as an sketch of a parrot with labels. It contains all the details about the name, colors, size etc. Based on these descriptions, we can study about the parrot. Here, parrot is an object.
+We can think of class as an sketch of a parrot with labels. It contains all the details about the name, colors, size etc. Based on these descriptions, we can study about the parrot. 
+Here, parrot is an object.
 
 The example for class of parrot can be :
 
@@ -2863,7 +2864,8 @@ It doesn't have to be named self you can call it whatever you like but it has to
 
 
 
-Then, we access the class attribute using __class __.species. Class attributes are same for all instances of a class. Similarly, we access the instance attributes using blu.name and blu.age. However, instance attributes are different for every instance of a class.
+Then, we access the class attribute using __class __.species. Class attributes are same for all instances of a class. Similarly, we access the instance attributes using blu.name and blu.age. 
+However, instance attributes are different for every instance of a class.
 
 
 Methods
@@ -2899,7 +2901,7 @@ return "{} is now dancing".format(self.name)
 
 
 
-blu = Parrot("Blu", 10)		//creating the object of the class and at creating object it will initialize the constructor
+blu = Parrot("Blu", 10)		//creating the object of the class, during object creation it will initialize the constructor
 
 
 # call our instance methods
@@ -2980,7 +2982,8 @@ we can also access the class variable using 	<class_object>.__class__.<class_var
 The first method __init__() is a special method, which is called class constructor or initialization method that Python calls when you create a new instance of this class.
 
 
-You declare other class methods like normal functions with the exception that the first argument to each method is self. Python adds the self argument to the list for you; you do not need to include it when you call the methods.
+You declare other class methods like normal functions with the exception that the first argument to each method is self. Python adds the self argument to the list for you; 
+you do not need to include it when you call the methods.
 
 
 Example=>
@@ -3041,18 +3044,22 @@ Every Python class keeps following built-in attribute and they can be accessed u
 
 	Destroying Object (Garbage Collection) :------------
 
-Python deletes unneeded object (built-in types or class instance ) automatically to free the memory space. The process by which Python periodically reclaims block of memory that no longer are in use is termed as garbage collection.
+Python deletes unneeded object (built-in types or class instance ) automatically to free the memory space. The process by which Python periodically reclaims block of memory that no longer 
+are in use is termed as garbage collection.
 
-Python garbase collector runs during program execution and is triggered when object's reference count reaches zero. An object reference count changes as the number of aliases that point to it changes.
+Python garbase collector runs during program execution and is triggered when object's reference count reaches zero. An object reference count changes as the number of aliases that point to 
+it changes.
 
-An object reference count increase when it is assigned  a new name or places in a container (list, tuple or dictonary) . The object's reference count decrease when it's deleted with del reference is reassigned or its reference goes out of space when an object reference count reaches zero. Python collects it automatically.
+An object reference count increase when it is assigned  a new name or places in a container (list, tuple or dictonary) . The object's reference count decrease when it's deleted with del reference 
+is reassigned or its reference goes out of space when an object reference count reaches zero. Python collects it automatically.
 
 
 
 
 	Class Inheritance :---------
 
-The child inherits the attributes of its parent class and you can use those attributes as if they were defined in the child class. A chils class can also overide data members and methods from the parent.
+The child inherits the attributes of its parent class and you can use those attributes as if they were defined in the child class. A chils class can also overide data members and methods from the 
+parent.
 
 
 Syntex:---

@@ -1,0 +1,20 @@
+WWW
+The World Wide Web commonly known as Web is an information system where documents and other web resources are identified by Uniform Resource Locators (URLs such as http://example
+.com) which may be iterlinked by hyperlinks and are accessible over the internet.
+								The resource of the web are transferred via the Hypertext Trasfer Protocol may be accessed by the user by a
+software application called a web browser, and are publshed by a software application called a web server.
+
+
+
+An Internet service provider (ISP) is an organization that provides a myriad of service for accessing , using or participating in the internet.
+									 An ISP typically serves as the access point or the gateway that provides a user to everything
+available on the internet.
+
+
+
+What is Internet ?
+The internet is a vast network that connects computers all over the world. Through  the Internet people cann share information and communication from anywhere with an Internet Connection.
+
+
+How Does the internet work ?
+The internet work through a series of network that connect devices around the world through telephone lines. users are provided access to the Internet by Internet service providers.

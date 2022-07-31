@@ -1,0 +1,54 @@
+Managing backgroud tasks
+
+1. Core libraries/system APIs
+	
+	invoke asynchronously with await. Will run on VM thread.
+	await File(path).readAsBytes();
+
+
+2. Short-lived background tasks
+
+	invoke with compute() will spawn a worker isolates
+	await compute(_applySepia, _image)
+
+3. Long-lived background tasks
+
+	Manually spawn isolate + send message
+
+
+
+//In Layout Builder we can use constraints to detect on which device we are working
+
+return LayoutBuilder(
+	builder: (context, constraints) {
+		if(constaints.isMobile) {
+			return Container();
+		} else {
+			return Container();
+		}
+	}
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	await Isolate.spawn(_entry, _receivePort)
+	_sendPort!.send('makeMove')
+
+
+
