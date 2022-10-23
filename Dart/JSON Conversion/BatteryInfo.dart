@@ -179,8 +179,7 @@ void main(List<String> args) {
     ]
   }
 ]''';
-  var response =
-      List<Shop>.from(jsonDecode(shopData).map((x) => Shop.fromJson(x)));
+  var response = List<Shop>.from(jsonDecode(shopData).map((x) => Shop.fromJson(x)));
   for (var item in response) {
     print('\nId -> ${item.id}');
     print('Type -> ${item.type}');
