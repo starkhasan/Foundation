@@ -1,4 +1,3 @@
-void main() {
   import 'dart:io';
   void main() {
     ///Number data types
@@ -31,5 +30,3 @@ void main() {
     print(a.toString().runtimeType);
 
   }
-
-}

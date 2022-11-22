@@ -1,7 +1,13 @@
 void main(List<String> args) {
-  //Dart 2.3 introduced the spread operator (...) and the null-aware spread operator (...?)
-  // which provide a concise way to insert multiple values into a collection
-  var list1 = [1, 2, 3, 4, 5, 6, 7];
-  var list2 = [1, 2, 3, ...list1, 5, 4, 2];
-  print(list2);
+  //dart 2.3 introduce the spread operator (...) and null-aware spread operator
+  // (..?), which provides a concise way to insert
+  /// multiple vales in a collection.
+  ///
+  /// spread operator => we can use this operator to insert all the values of a list into another list.
+  var list = [1,2,3,4];
+  var list2 = [0, ...list];
+
+  ///null-aware spread operator(...?)
+  /// if the expression to the right of the spread operator might be null, you can avoid exception by using a null-aware spread operator...
+  var list3 = [0, ...?list];
 }

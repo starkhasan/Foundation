@@ -1,4 +1,4 @@
-main(){
+void main(){
   var firstString = "Ali";
   var secondString = "hia";
 
@@ -13,9 +13,9 @@ main(){
   //performing string sorting
   a.sort();
   b.sort();
-  
+
   if(a.length != b.length){
-    print('Both string are not anagram');
+    print('Both String are not anagram');
   }else{
     var value = b.every((item) => a.contains(item));
     if(value){
@@ -24,5 +24,4 @@ main(){
       print('Both Strings are not Anagram');
     }
   }
-
 }
