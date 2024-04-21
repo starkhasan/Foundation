@@ -11,7 +11,7 @@ else:
 if(a < b):#Less than operator
     print('Value of A is not greater than B')
 else:
-    println('Value of A is greater than B')
+    print('Value of A is greater than B')
 
 
 

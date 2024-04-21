@@ -10,11 +10,10 @@ Stream<String> getStringStream(Stream<int> intStream) async* {
 }
 
 void main() {
-  print('Fectching Data .............');
+  print('Fetching Data .............');
 
   ///Stream of int
-  var intStream =
-      Stream<int>.periodic(const Duration(seconds: 1), (item) => item)
+  var intStream = Stream<int>.periodic(const Duration(seconds: 1), (item) => item)
           .map((event) => event + 2)
           .take(10);
 

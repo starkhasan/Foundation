@@ -16,3 +16,20 @@ git push -u origin main
 
 …or import code from another repository
 You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+
+#Common Issue During add project on remote repository
+To https://bitbucket.org/starkhasan/flutter_training.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://bitbucket.org/starkhasan/flutter_training.git'
+
+
+Try  => git push origin master --force
+
+
+Why this error occurs?
+1. Error occurred mostly due to difference between local repo and bitbucket repo. In my case bitbucket repo has 1 file which is not present in my local repo.
+
+2. It can also occur if you have a local repo and are attempting to push it to different remote name.
+
+

@@ -1,12 +1,12 @@
 //Multilevel Inheritance
 // In this inheritance when a child inherit the behaviour and characteristics of another subclass
 class Bird {
-  fly() => print('It can fly');
+  fly() => print('They can fly');
 }
-class Carnivorus extends Bird{
-  eat() => print('It Eats animal flesh');
+class Carnivorous extends Bird{
+  eat() => print('They Eats animal flesh');
 }
-class Eagal extends Carnivorus{
+class Eagal extends Carnivorous{
   vision() => print('Eagal has sharp vision');
 }
 void main(){

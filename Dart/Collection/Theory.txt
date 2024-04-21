@@ -1,0 +1,127 @@
+////Iterable Collection
+/// Collection that implement Itrable class
+///
+/// What are collections?
+/// A Collection is an object that represent a group of object, which are called element.
+/// Iterable are a kind of collection
+///
+/// A collection can be empty, or it can contain many elements.
+/// Depending on the purpose collection can have different structures and implementations.
+/// These are some of the most common collection types
+/// 1. List: used to read element by their indexs
+/// 2. Set: Used to contain elements that can occur only once
+/// 3. Map: Ued to read elements using a key
+///
+/// What is an Iterable?
+/// An Iterable is a collection of elements that can be accessed sequentially.
+///
+///
+/// In Dart an Iterable is an abstract class, meaning that you can't instaitate it directly.
+/// However you can create a new Iterable by creating a new List or Set.
+///
+/// Both List and Set are Iterable,so they have the same methods and properties as the Iterable class.
+///
+/// The difference with a List is that with Iterable, you can't guarantee that reading elements by index will be efficient.
+/// Iterable as opposed to List, doesn't have the [] operator.
+/// If you read elements with [] the compiler tells you that the operator [] is not defined for the class Iterable,
+/// which means that you can't use [index] in this case.
+///
+/// you can instead read elements with elementAt() which  steps through the elements of the iterable until
+/// it reachs that position.
+///
+// void main(){
+//   const iterable = ['salad', 'popcorn', 'toast'];
+//   print('Runtime type => ${iterable.runtimeType}');
+//   for(var item in iterable){
+//     print(item);
+//   }
+// }
+
+
+
+
+///you can read the elements of an iterable sequentially, using a for-in loop.
+
+///Iterable: The Dart Iterable class
+///Iterator: An object used by for-in to read elements from an Iterable object.
+///for-in loop: An easy way to sequentially read elements from an Iterable.
+///
+
+
+///Using first and last
+///In some cases, you want to access only the first or the last element of an Iterable.
+///with the Iterable class, you can't access the elements directly so you can't call iterable[0] to access the first element
+///Instead you can use first which get the first element.
+///
+///you can use the last property to access the last element of iterable.
+///
+///Because accessing the last element of an Iterable requires stepping through all the elements,
+///last can be slow. Using first or last on an empty Iterable results in a StateError.
+///
+///
+///
+/// firstWhere()
+/// use firstWhere() to find the first element that satisfies certain conditions.
+/// This method requires you to pass predicate, which is a function that return true if
+/// the input satisfies a certain condition
+///
+//
+
+
+///there are different way to write a predicate
+///As an expression: The test code has one line that uses arrow syntax =>
+///As a block: The test code has multiple lines between brackets and a return statement.
+///As a function: The best code is in an external function that's passed to firstWhere() method as parameter.
+///
+///In firstWhere() we can also call optional named parameter orElse, which provides an alternative when an
+///element isn't found. In this case text can be return because no element satisfies the provided condition.
+///
+///If no element satisfies the test predicate and the orElse parameter isn't provided, then
+///firstWhere() throws a StateError.
+///
+
+
+
+///singleWhere()
+///this method works similarly to firstWhere(), but in this case it excepts only one element
+///of the Iterable to satisfy the predicate. If more than one or no element in the Iterable satisfies the predicate
+///condition then the method throws a StateError exception.
+///
+///singleWhere() steps through the whole Iterable until the last element, which can cause problems
+///if the Iterable is infinite or contains a large collection of elements.
+
+
+///any() and every()
+///The Iterable class provides two methods that you can use to verify condition:
+///any(): Return true if at least one element satisfies the condition
+///every(): Returns true if all elements satisfies the condition.
+///
+
+///where()
+///the output of where() is another Iterable and you can use it as such to iterate over it or apply other iterable.
+///
+
+
+///takeWhile()
+///takeWhile() returns an Iterable that contains all the elements before the one that satisfies the predicate.
+///
+///slipWhile()
+///skipWhile() returns an Iterable that contains all elements after and including the first one that doesn't satisfy the predicate.
+///
+
+///Mapping
+///Mapping Iterable with the method map() enables you to apply a function over each of the elements,
+///replacing each element with a new one.
+///
+///Iterable<int> output = numbers.map((number) => number * 10);
+///
+///you can also use map() to transform an element into a different object - for example, to convert all int to String
+///
+///map() return a lazy Iterable, meaning that the supplied function is called only when the elements are iterated.
+
+
+void main(){
+  var string = 'my name';
+  print('Upper Case => ${string.toUpperCase()}');
+  print('Lower Case => ${string.toLowerCase()}');
+}
